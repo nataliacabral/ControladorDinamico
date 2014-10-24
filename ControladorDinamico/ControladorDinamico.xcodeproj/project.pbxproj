@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		259B90A119F96D1400737E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A019F96D1400737E04 /* AppDelegate.swift */; };
+		259B90A319F96D1400737E04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A219F96D1400737E04 /* ViewController.swift */; };
+		259B90A619F96D1400737E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259B90A419F96D1400737E04 /* Main.storyboard */; };
+		259B90AB19F96D1400737E04 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 259B90A919F96D1400737E04 /* LaunchScreen.xib */; };
+		259B90B719F96D1400737E04 /* ControladorDinamicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90B619F96D1400737E04 /* ControladorDinamicoTests.swift */; };
+		259B90C919F9756200737E04 /* Images-3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 259B90C819F9756200737E04 /* Images-3.xcassets */; };
+		259B90CB19F9768500737E04 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 259B90CA19F9768500737E04 /* LaunchImage.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		259B90B119F96D1400737E04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 259B909319F96D1400737E04 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 259B909A19F96D1400737E04;
+			remoteInfo = ControladorDinamico;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		259B909B19F96D1400737E04 /* ControladorDinamico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControladorDinamico.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		259B909F19F96D1400737E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		259B90A019F96D1400737E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		259B90A219F96D1400737E04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		259B90A519F96D1400737E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		259B90AA19F96D1400737E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		259B90B019F96D1400737E04 /* ControladorDinamicoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ControladorDinamicoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		259B90B519F96D1400737E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		259B90B619F96D1400737E04 /* ControladorDinamicoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControladorDinamicoTests.swift; sourceTree = "<group>"; };
+		259B90C819F9756200737E04 /* Images-3.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-3.xcassets"; sourceTree = "<group>"; };
+		259B90CA19F9768500737E04 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		259B909819F96D1400737E04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		259B90AD19F96D1400737E04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		259B909219F96D1400737E04 = {
+			isa = PBXGroup;
+			children = (
+				259B909D19F96D1400737E04 /* ControladorDinamico */,
+				259B90B319F96D1400737E04 /* ControladorDinamicoTests */,
+				259B909C19F96D1400737E04 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		259B909C19F96D1400737E04 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				259B909B19F96D1400737E04 /* ControladorDinamico.app */,
+				259B90B019F96D1400737E04 /* ControladorDinamicoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		259B909D19F96D1400737E04 /* ControladorDinamico */ = {
+			isa = PBXGroup;
+			children = (
+				259B90A019F96D1400737E04 /* AppDelegate.swift */,
+				259B90A219F96D1400737E04 /* ViewController.swift */,
+				259B90A419F96D1400737E04 /* Main.storyboard */,
+				259B90A919F96D1400737E04 /* LaunchScreen.xib */,
+				259B90C819F9756200737E04 /* Images-3.xcassets */,
+				259B90CA19F9768500737E04 /* LaunchImage.png */,
+				259B909E19F96D1400737E04 /* Supporting Files */,
+			);
+			path = ControladorDinamico;
+			sourceTree = "<group>";
+		};
+		259B909E19F96D1400737E04 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				259B909F19F96D1400737E04 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		259B90B319F96D1400737E04 /* ControladorDinamicoTests */ = {
+			isa = PBXGroup;
+			children = (
+				259B90B619F96D1400737E04 /* ControladorDinamicoTests.swift */,
+				259B90B419F96D1400737E04 /* Supporting Files */,
+			);
+			path = ControladorDinamicoTests;
+			sourceTree = "<group>";
+		};
+		259B90B419F96D1400737E04 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				259B90B519F96D1400737E04 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		259B909A19F96D1400737E04 /* ControladorDinamico */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 259B90BA19F96D1400737E04 /* Build configuration list for PBXNativeTarget "ControladorDinamico" */;
+			buildPhases = (
+				259B909719F96D1400737E04 /* Sources */,
+				259B909819F96D1400737E04 /* Frameworks */,
+				259B909919F96D1400737E04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ControladorDinamico;
+			productName = ControladorDinamico;
+			productReference = 259B909B19F96D1400737E04 /* ControladorDinamico.app */;
+			productType = "com.apple.product-type.application";
+		};
+		259B90AF19F96D1400737E04 /* ControladorDinamicoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 259B90BD19F96D1400737E04 /* Build configuration list for PBXNativeTarget "ControladorDinamicoTests" */;
+			buildPhases = (
+				259B90AC19F96D1400737E04 /* Sources */,
+				259B90AD19F96D1400737E04 /* Frameworks */,
+				259B90AE19F96D1400737E04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				259B90B219F96D1400737E04 /* PBXTargetDependency */,
+			);
+			name = ControladorDinamicoTests;
+			productName = ControladorDinamicoTests;
+			productReference = 259B90B019F96D1400737E04 /* ControladorDinamicoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		259B909319F96D1400737E04 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Natália Cabral";
+				TargetAttributes = {
+					259B909A19F96D1400737E04 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					259B90AF19F96D1400737E04 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 259B909A19F96D1400737E04;
+					};
+				};
+			};
+			buildConfigurationList = 259B909619F96D1400737E04 /* Build configuration list for PBXProject "ControladorDinamico" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 259B909219F96D1400737E04;
+			productRefGroup = 259B909C19F96D1400737E04 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				259B909A19F96D1400737E04 /* ControladorDinamico */,
+				259B90AF19F96D1400737E04 /* ControladorDinamicoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		259B909919F96D1400737E04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259B90A619F96D1400737E04 /* Main.storyboard in Resources */,
+				259B90AB19F96D1400737E04 /* LaunchScreen.xib in Resources */,
+				259B90C919F9756200737E04 /* Images-3.xcassets in Resources */,
+				259B90CB19F9768500737E04 /* LaunchImage.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		259B90AE19F96D1400737E04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		259B909719F96D1400737E04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259B90A319F96D1400737E04 /* ViewController.swift in Sources */,
+				259B90A119F96D1400737E04 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		259B90AC19F96D1400737E04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259B90B719F96D1400737E04 /* ControladorDinamicoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		259B90B219F96D1400737E04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 259B909A19F96D1400737E04 /* ControladorDinamico */;
+			targetProxy = 259B90B119F96D1400737E04 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		259B90A419F96D1400737E04 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				259B90A519F96D1400737E04 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		259B90A919F96D1400737E04 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				259B90AA19F96D1400737E04 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		259B90B819F96D1400737E04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		259B90B919F96D1400737E04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		259B90BB19F96D1400737E04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = ControladorDinamico/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		259B90BC19F96D1400737E04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = ControladorDinamico/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		259B90BE19F96D1400737E04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ControladorDinamicoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ControladorDinamico.app/ControladorDinamico";
+			};
+			name = Debug;
+		};
+		259B90BF19F96D1400737E04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ControladorDinamicoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ControladorDinamico.app/ControladorDinamico";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		259B909619F96D1400737E04 /* Build configuration list for PBXProject "ControladorDinamico" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				259B90B819F96D1400737E04 /* Debug */,
+				259B90B919F96D1400737E04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		259B90BA19F96D1400737E04 /* Build configuration list for PBXNativeTarget "ControladorDinamico" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				259B90BB19F96D1400737E04 /* Debug */,
+				259B90BC19F96D1400737E04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		259B90BD19F96D1400737E04 /* Build configuration list for PBXNativeTarget "ControladorDinamicoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				259B90BE19F96D1400737E04 /* Debug */,
+				259B90BF19F96D1400737E04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 259B909319F96D1400737E04 /* Project object */;
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CCAD566F-4927-4918-A2B8-6714B32AFDB4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ControladorDinamico</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EFEC89F4DC820FEB456041AEDA8FE0C0F0AE9DAA</key>
+		<string>https://github.com/nataliacabral/ControladorDinamico.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ControladorDinamico.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EFEC89F4DC820FEB456041AEDA8FE0C0F0AE9DAA</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/nataliacabral/ControladorDinamico.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EFEC89F4DC820FEB456041AEDA8FE0C0F0AE9DAA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EFEC89F4DC820FEB456041AEDA8FE0C0F0AE9DAA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ControladorDinamico</string>
+		</dict>
+	</array>
+</dict>
+</plist>
