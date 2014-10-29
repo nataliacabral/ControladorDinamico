@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var tableCell:UITableViewCell = UITableViewCell()
-        tableCell.textLabel?.text = recipes[indexPath.row]
+        tableCell.textLabel.text = recipes[indexPath.row]
         return tableCell
     }
     

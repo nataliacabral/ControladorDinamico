@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2509940119FEE2CF00A6D24F /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509940019FEE2CF00A6D24F /* EditViewController.swift */; };
+		2509940319FEE64B00A6D24F /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2509940219FEE64B00A6D24F /* SpriteKit.framework */; };
+		2509940519FEE86500A6D24F /* EditScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509940419FEE86500A6D24F /* EditScene.swift */; };
+		2509940719FEF60300A6D24F /* sprite.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2509940619FEF60300A6D24F /* sprite.jpeg */; };
+		258D1FEF1A0182EE00ACFC93 /* SoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FEE1A0182EE00ACFC93 /* SoundObject.swift */; };
+		258D1FF11A01849800ACFC93 /* ObjectsPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FF01A01849800ACFC93 /* ObjectsPalette.swift */; };
+		258D1FFB1A019BF900ACFC93 /* SoundObjectTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */; };
 		259B90A119F96D1400737E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A019F96D1400737E04 /* AppDelegate.swift */; };
 		259B90A319F96D1400737E04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A219F96D1400737E04 /* ViewController.swift */; };
 		259B90A619F96D1400737E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259B90A419F96D1400737E04 /* Main.storyboard */; };
@@ -27,6 +34,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2509940019FEE2CF00A6D24F /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		2509940219FEE64B00A6D24F /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		2509940419FEE86500A6D24F /* EditScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditScene.swift; sourceTree = "<group>"; };
+		2509940619FEF60300A6D24F /* sprite.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sprite.jpeg; sourceTree = SOURCE_ROOT; };
+		258D1FEE1A0182EE00ACFC93 /* SoundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundObject.swift; sourceTree = "<group>"; };
+		258D1FF01A01849800ACFC93 /* ObjectsPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectsPalette.swift; path = ../ObjectsPalette.swift; sourceTree = "<group>"; };
+		258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundObjectTemplate.swift; sourceTree = "<group>"; };
 		259B909B19F96D1400737E04 /* ControladorDinamico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControladorDinamico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259B909F19F96D1400737E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		259B90A019F96D1400737E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2509940319FEE64B00A6D24F /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +76,7 @@
 		259B909219F96D1400737E04 = {
 			isa = PBXGroup;
 			children = (
+				2509940219FEE64B00A6D24F /* SpriteKit.framework */,
 				259B909D19F96D1400737E04 /* ControladorDinamico */,
 				259B90B319F96D1400737E04 /* ControladorDinamicoTests */,
 				259B909C19F96D1400737E04 /* Products */,
@@ -79,13 +95,19 @@
 		259B909D19F96D1400737E04 /* ControladorDinamico */ = {
 			isa = PBXGroup;
 			children = (
+				258D1FF01A01849800ACFC93 /* ObjectsPalette.swift */,
 				259B90A019F96D1400737E04 /* AppDelegate.swift */,
 				259B90A219F96D1400737E04 /* ViewController.swift */,
+				2509940619FEF60300A6D24F /* sprite.jpeg */,
 				259B90A419F96D1400737E04 /* Main.storyboard */,
 				259B90A919F96D1400737E04 /* LaunchScreen.xib */,
 				259B90C819F9756200737E04 /* Images-3.xcassets */,
 				259B90CA19F9768500737E04 /* LaunchImage.png */,
 				259B909E19F96D1400737E04 /* Supporting Files */,
+				2509940019FEE2CF00A6D24F /* EditViewController.swift */,
+				2509940419FEE86500A6D24F /* EditScene.swift */,
+				258D1FEE1A0182EE00ACFC93 /* SoundObject.swift */,
+				258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */,
 			);
 			path = ControladorDinamico;
 			sourceTree = "<group>";
@@ -198,6 +220,7 @@
 				259B90A619F96D1400737E04 /* Main.storyboard in Resources */,
 				259B90AB19F96D1400737E04 /* LaunchScreen.xib in Resources */,
 				259B90C919F9756200737E04 /* Images-3.xcassets in Resources */,
+				2509940719FEF60300A6D24F /* sprite.jpeg in Resources */,
 				259B90CB19F9768500737E04 /* LaunchImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,7 +240,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				259B90A319F96D1400737E04 /* ViewController.swift in Sources */,
+				258D1FFB1A019BF900ACFC93 /* SoundObjectTemplate.swift in Sources */,
 				259B90A119F96D1400737E04 /* AppDelegate.swift in Sources */,
+				258D1FF11A01849800ACFC93 /* ObjectsPalette.swift in Sources */,
+				2509940519FEE86500A6D24F /* EditScene.swift in Sources */,
+				258D1FEF1A0182EE00ACFC93 /* SoundObject.swift in Sources */,
+				2509940119FEE2CF00A6D24F /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
