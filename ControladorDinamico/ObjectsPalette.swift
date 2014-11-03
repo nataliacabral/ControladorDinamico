@@ -19,9 +19,14 @@ class ObjectsPalette
         self.paletteNode = SKSpriteNode(color: UIColor.yellowColor(), size:size)
         self.paletteNode.position = position
         
+        var i:CGFloat = 0;
         for object in objects {
-            (object as SoundObjectTemplate).anchorPoint = CGPoint(x:0, y:0)
+            var soundObject:SoundObjectTemplate = (object as SoundObjectTemplate)
+            soundObject.anchorPoint = CGPoint(x:0, y:0)
+            soundObject.position.x = 1.75 * soundObject.size.width * i;
+            soundObject.position.y = self.paletteNode.size.height / 2 - (soundObject.size.height / 2)
             self.paletteNode.addChild(object as SKNode)
+            i++;
         }
     }
 }

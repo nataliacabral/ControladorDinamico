@@ -11,7 +11,6 @@ import SpriteKit
 
 class EditScene : SKScene
 {
-    var sprite:SoundObject?
     var selectedNode:SKSpriteNode?
     var gridSize:CGFloat?
     
@@ -20,11 +19,12 @@ class EditScene : SKScene
         super.init(size: size)
         self.scene?.backgroundColor = UIColor.whiteColor()
         
-        self.sprite = SoundObject(imageName:"sprite.jpeg", horizontalGridSlots: 0,verticalGridSlots: 0, initialGridPosition: CGPoint(x:0, y:0))
-        self.sprite!.anchorPoint = CGPoint(x: 0, y: 0)
+        var sprite1:SoundObject = SoundObject(imageName:"sprite.jpeg", horizontalGridSlots: 0,verticalGridSlots: 0, initialGridPosition: CGPoint(x:0, y:0))
+        var sprite2:SoundObject = SoundObject(imageName:"Brazil.png", horizontalGridSlots: 0,verticalGridSlots: 0, initialGridPosition: CGPoint(x:0, y:0))
+        var sprite3:SoundObject = SoundObject(imageName:"UK.png", horizontalGridSlots: 0,verticalGridSlots: 0, initialGridPosition: CGPoint(x:0, y:0))
+        var sprite4:SoundObject = SoundObject(imageName:"Argentina.png", horizontalGridSlots: 0,verticalGridSlots: 0, initialGridPosition: CGPoint(x:0, y:0))
 
-        var template:SoundObjectTemplate = SoundObjectTemplate(object: self.sprite!, size: CGSize(width: 50, height: 50))
-        self.gridSize = self.size.width / 10;
+        self.gridSize = 100;
         
         for (var y:CGFloat = 0 ; y < self.size.height ; y += gridSize!) {
             var gridVerticalLine:SKShapeNode = SKShapeNode()
@@ -46,7 +46,12 @@ class EditScene : SKScene
             self.addChild(gridHorizontalLine)
         }
         
-        var palette:ObjectsPalette = ObjectsPalette(objects: [template], position:CGPoint(x: 0, y: self.size.height - 100), size:CGSize(width: self.size.width, height: 100))
+        var template:SoundObjectTemplate = SoundObjectTemplate(object: sprite1)
+        var template2:SoundObjectTemplate = SoundObjectTemplate(object: sprite2)
+        var template3:SoundObjectTemplate = SoundObjectTemplate(object: sprite3)
+        var template4:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
+
+        var palette:ObjectsPalette = ObjectsPalette(objects: [template, template2, template3, template4], position:CGPoint(x: 0, y: self.size.height - 100), size:CGSize(width: self.size.width, height: 100))
         palette.paletteNode.anchorPoint = CGPoint(x:0,y:0)
         self.addChild(palette.paletteNode)
     }

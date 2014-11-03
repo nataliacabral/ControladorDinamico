@@ -23,6 +23,7 @@ class SoundObject: SKSpriteNode
         self.imageName = imageName
         var texture:SKTexture = SKTexture(imageNamed: imageName)
         super.init(texture:texture, color: UIColor(), size: texture.size())
+        self.anchorPoint = CGPoint(x: 0, y: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {
