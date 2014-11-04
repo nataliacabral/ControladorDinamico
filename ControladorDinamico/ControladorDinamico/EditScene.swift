@@ -11,8 +11,10 @@ import SpriteKit
 
 class EditScene : SKScene
 {
+    var selectedNodeOriginalPos:CGPoint?
     var selectedNode:SKSpriteNode?
     var gridSize:CGFloat?
+    var palette:ObjectsPalette?
     
     override init(size: CGSize)
     {
@@ -50,14 +52,38 @@ class EditScene : SKScene
         var template2:SoundObjectTemplate = SoundObjectTemplate(object: sprite2)
         var template3:SoundObjectTemplate = SoundObjectTemplate(object: sprite3)
         var template4:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
+        var template5:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
+        var template6:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
+        var template7:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
+        var template8:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
+        var template9:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
+        var template10:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
+        var template11:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
 
-        var palette:ObjectsPalette = ObjectsPalette(objects: [template, template2, template3, template4], position:CGPoint(x: 0, y: self.size.height - 100), size:CGSize(width: self.size.width, height: 100))
-        palette.paletteNode.anchorPoint = CGPoint(x:0,y:0)
-        self.addChild(palette.paletteNode)
+
+        self.palette = ObjectsPalette(
+            objects: [template, template2, template3, template4, template5, template6, template7, template8, template9, template10, template11],
+            position:CGPoint(x: 0, y: self.size.height - 100),
+            size:CGSize(width: self.size.width, height: 100)
+        )
+        self.palette!.anchorPoint = CGPoint(x:0,y:0)
+        self.addChild(self.palette!)
     }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func selectNode(node: SKSpriteNode)
+    {
+        self.selectedNode = node
+        self.selectedNodeOriginalPos = CGPoint(x: node.position.x, y: node.position.y)
+    }
+    
+    func deselectNode()
+    {
+        self.selectedNode = nil
+        self.selectedNodeOriginalPos = nil
     }
     
     override func didMoveToView(view: SKView) {
@@ -79,12 +105,13 @@ class EditScene : SKScene
                     self.selectedNode!.removeAllActions()
                 }
                 if (touchedNode is SoundObjectTemplate) {
-                    self.selectedNode = (touchedNode as SoundObjectTemplate).createSoundObject()
-                    self.addChild(self.selectedNode!)
+                    self.selectNode(touchedNode! as SoundObjectTemplate)
                 }
-                    
-                if (touchedNode is SoundObject) {
-                    self.selectedNode = (touchedNode as SKSpriteNode)
+                else if (touchedNode is ObjectsPalette) {
+                    self.selectNode(touchedNode! as ObjectsPalette)
+                }
+                else if (touchedNode is SoundObject) {
+                    self.selectNode(touchedNode! as SoundObject)
                 }
             }
 
@@ -93,19 +120,44 @@ class EditScene : SKScene
         case UIGestureRecognizerState.Changed:
             var translation:CGPoint = recognizer.translationInView(recognizer.view!)
             translation = CGPointMake(translation.x, -translation.y)
-            self.panForTranslation(translation)
-            recognizer.setTranslation(CGPointZero, inView: recognizer.view)
+            if (self.selectedNode is SoundObjectTemplate) {
+                if (translation.y < -50) {
+                    var newNode:SoundObject = (self.selectedNode as SoundObjectTemplate).createSoundObject()!
+                    self.selectNode(newNode)
+                    self.addChild(newNode)
+                }
+                else
+                {
+                    self.palette!.scroll(translation.x)
+                }
+            }
+            else if (self.selectedNode is ObjectsPalette) {
+                self.palette!.scroll(translation.x)
+            }
+            else if (self.selectedNode is SoundObject) {
+                self.panForTranslation(translation)
+                recognizer.setTranslation(CGPointZero, inView: recognizer.view)
+            }
 
             break;
 
         case UIGestureRecognizerState.Ended:
             if (self.selectedNode != nil) {
-                var position:CGPoint = self.selectedNode!.position
-                position.x = gridSize! * round((position.x / gridSize!))
-                position.y = gridSize! * round((position.y / gridSize!))
-                self.selectedNode!.position = position
+                if (self.selectedNode is SoundObject) {
+
+                    var position:CGPoint = self.selectedNode!.position
+                    position.x = gridSize! * round((position.x / gridSize!))
+                    position.y = gridSize! * round((position.y / gridSize!))
+                    self.selectedNode!.position = position
+                }
+                else if (self.selectedNode is SoundObjectTemplate) {
+                    self.palette!.stopScroll()
+                }
+                else if (self.selectedNode is ObjectsPalette) {
+                    self.palette!.stopScroll()
+                }
             }
-            self.selectedNode = nil
+            self.deselectNode()
             recognizer.setTranslation(CGPointZero, inView: recognizer.view)
             break;
         default:
