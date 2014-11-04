@@ -108,10 +108,7 @@ class EditScene : SKScene
                     self.selectedNode!.removeAllActions()
                 }
                 if (touchedNode is SoundObjectTemplate) {
-                    var newObject:SoundObject = (touchedNode as SoundObjectTemplate).createSoundObject()!
-                    self.selectedNode = newObject
-                    self.project.addObject(newObject)
-                    self.addChild(newObject)
+                    self.selectNode(touchedNode! as SoundObjectTemplate)
                 }
                 else if (touchedNode is ObjectsPalette) {
                     self.selectNode(touchedNode! as ObjectsPalette)
