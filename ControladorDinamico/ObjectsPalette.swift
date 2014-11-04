@@ -38,6 +38,29 @@ class ObjectsPalette : SKSpriteNode
             self.addChild(object as SKNode)
             i++;
         }
+        self.checkObjectsOpacity()
+    }
+    
+    func checkObjectsOpacity()
+    {
+        for object in objects {
+            var soundObject:SoundObjectTemplate = (object as SoundObjectTemplate)
+            let distanceToLeftEdge:CGFloat = soundObject.position.x
+            let objectRightEdge = soundObject.position.x + soundObject.size.width
+            let distanceToRightEdge:CGFloat = self.size.width - objectRightEdge
+        
+            if (distanceToLeftEdge) < 100.0 {
+                soundObject.alpha = distanceToLeftEdge / 100.0
+            }
+            else if (distanceToRightEdge) < 100.0 {
+                soundObject.alpha = distanceToRightEdge / 100.0
+            }
+            else {
+                soundObject.alpha = 1.0
+
+            }
+        }
+
     }
     
     func scroll(x:CGFloat)
@@ -53,6 +76,7 @@ class ObjectsPalette : SKSpriteNode
             var soundObject:SoundObjectTemplate = (object as SoundObjectTemplate)
             soundObject.position.x += x;
         }
+        self.checkObjectsOpacity()
     }
     
     func stopScroll()
@@ -71,6 +95,8 @@ class ObjectsPalette : SKSpriteNode
         let dislocation = -firstVisibleChild!.position.x
         self.moveObjectsX(dislocation)
         totalScroll = 0;
+        self.checkObjectsOpacity()
+
 
     }
  
