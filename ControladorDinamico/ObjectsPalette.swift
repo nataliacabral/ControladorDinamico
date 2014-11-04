@@ -13,6 +13,7 @@ class ObjectsPalette : SKSpriteNode
 {
     var objects:NSArray
     var totalScroll:CGFloat = 0
+    let originalTemplateSize:CGFloat = 40;
 
     init(objects:NSArray, position:CGPoint, size:CGSize) {
         self.objects = objects
@@ -33,8 +34,11 @@ class ObjectsPalette : SKSpriteNode
         for object in objects {
             var soundObject:SoundObjectTemplate = (object as SoundObjectTemplate)
             soundObject.anchorPoint = CGPoint(x:0, y:0)
-            soundObject.position.x = 1.75 * soundObject.size.width * CGFloat(i);
-            soundObject.position.y = self.size.height / 2 - (soundObject.size.height / 2)
+            soundObject.position.x = 1.75 * self.originalTemplateSize * CGFloat(i);
+            soundObject.position.y = self.size.height / 2 - (self.originalTemplateSize / 2)
+            soundObject.size.width = originalTemplateSize
+            soundObject.size.height = originalTemplateSize
+
             self.addChild(object as SKNode)
             i++;
         }
@@ -81,24 +85,21 @@ class ObjectsPalette : SKSpriteNode
     
     func stopScroll()
     {
-        var firstVisibleChild:SoundObjectTemplate? = nil;
-        for object in objects {
-            var template = object as SoundObjectTemplate
-            if (template.position.x > 0)
-            {
-                if (firstVisibleChild == nil ||
-                    firstVisibleChild!.position.x  + firstVisibleChild!.size.width > template.position.x) {
-                    firstVisibleChild = template
-                }
-            }
-            
+        let firstChild:SoundObjectTemplate = (self.objects.firstObject as SoundObjectTemplate);
+        let lastChild:SoundObjectTemplate = (self.objects.lastObject as SoundObjectTemplate);
+        var dislocation:CGFloat = 0;
+        if (firstChild.position.x + firstChild.size.width / 2 > self.size.width / 2)
+        {
+            dislocation = self.size.width / 2 - (firstChild.position.x + firstChild.size.width / 2);
         }
-        let dislocation = -firstVisibleChild!.position.x
+        if (lastChild.position.x + firstChild.size.width / 2 < self.size.width / 2)
+        {
+            dislocation = self.size.width / 2 - (lastChild.position.x + firstChild.size.width / 2);
+        }
+        
         self.moveObjectsX(dislocation)
         totalScroll = 0;
         self.checkObjectsOpacity()
-
-
     }
  
 }
