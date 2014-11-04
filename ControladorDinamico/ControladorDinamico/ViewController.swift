@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var previewView:UIImageView!
+    @IBOutlet var previewView:UIButton!
 
     var projects:NSMutableArray = NSMutableArray()
     let documentsPath : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask,true)[0] as NSString
@@ -46,8 +46,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        let currentPreview:UIImage = (projects[indexPath.row] as Project).preview;
-        self.previewView.image = currentPreview
+        var currentPreview:UIImage = (projects[indexPath.row] as Project).preview;
+        self.previewView.setImage(currentPreview, forState: .Normal)
     }
 
 }

@@ -53,12 +53,12 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
 
             let fullName:NSString = projectName.stringByAppendingPathExtension("txt")!
             let destinationPath:NSString = documentsPath.stringByAppendingPathComponent(fullName)
-            
-            UIGraphicsBeginImageContext(self.view.frame.size)
-            self.view.layer.renderInContext(UIGraphicsGetCurrentContext())
-            let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            
+           
+            UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, UIScreen.mainScreen().scale);
+            self.view.drawViewHierarchyInRect(self.view.bounds, afterScreenUpdates: true)
+            let image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+
             let project:Project = Project(projectName:projectName, objects:self.scene!.project, image:image)
 
             let filemanager = NSFileManager.defaultManager()
