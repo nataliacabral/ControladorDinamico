@@ -9,31 +9,37 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var recipes:[String] = []
-    
+    var projects:NSMutableArray = NSMutableArray()
+    let documentsPath : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask,true)[0] as NSString
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        recipes = ["teste", "testando ainda", "ultimo teste"]
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        var error: NSError? = nil
+        let fileManager = NSFileManager.defaultManager()
+        let contents = fileManager.contentsOfDirectoryAtPath(documentsPath, error: &error)
+        if contents != nil {
+            let filenames = contents as [String]
+            for name in filenames {
+                let filePath:NSString = documentsPath.stringByAppendingPathComponent(name)
+                let project:Project =  NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as Project
+                projects.addObject(project)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipes.count;
+        return projects.count;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var tableCell:UITableViewCell = UITableViewCell()
-        tableCell.textLabel.text = recipes[indexPath.row]
+        tableCell.textLabel.text = (projects.objectAtIndex(indexPath.row) as Project).projectName
         return tableCell
-    }
-    
-    @IBAction func addRecipe(sender : AnyObject) {
-        recipes.append("new recipe")
     }
 }
 

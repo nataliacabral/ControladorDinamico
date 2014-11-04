@@ -9,8 +9,14 @@
 import UIKit
 import SpriteKit
 
-class EditViewController : UIViewController {
-
+class EditViewController : UIViewController, UIAlertViewDelegate {
+    let documentsPath : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask,true)[0] as NSString
+    var scene:EditScene?
+    var alert:UIAlertView?
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,9 +28,8 @@ class EditViewController : UIViewController {
         skView.showsNodeCount = true;
         
         // Create and configure the scene.
-        var scene:SKScene = EditScene(size: skView.bounds.size);
-        scene.scaleMode = SKSceneScaleMode.AspectFill;
-    
+        self.scene = EditScene(size: skView.bounds.size);
+
         // Present the scene.
         skView.presentScene(scene)
     }
@@ -34,5 +39,26 @@ class EditViewController : UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func saveProject(AnyObject) {
+        alert = UIAlertView(title: "Save", message: "Insert the project name", delegate:self, cancelButtonTitle: "OK")
+        alert!.alertViewStyle = UIAlertViewStyle.PlainTextInput;
+        alert!.show()
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if (buttonIndex == 0) {
+            var projectName = alert!.textFieldAtIndex(0)!.text!
+            let project:Project = Project(projectName:projectName, objects:self.scene!.project)
+
+            let fullName:NSString = projectName.stringByAppendingPathExtension("txt")!
+            let destinationPath:NSString = documentsPath.stringByAppendingPathComponent(fullName)
+            
+            let filemanager = NSFileManager.defaultManager()
+            if(!filemanager.fileExistsAtPath(destinationPath)){
+                var saved:Bool = NSKeyedArchiver.archiveRootObject(project, toFile:destinationPath)
+            }
+        }
     }
 }

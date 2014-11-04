@@ -13,6 +13,7 @@ class EditScene : SKScene
 {
     var selectedNode:SKSpriteNode?
     var gridSize:CGFloat?
+    var project:NSMutableArray = NSMutableArray()
     
     override init(size: CGSize)
     {
@@ -51,7 +52,9 @@ class EditScene : SKScene
         var template3:SoundObjectTemplate = SoundObjectTemplate(object: sprite3)
         var template4:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
 
-        var palette:ObjectsPalette = ObjectsPalette(objects: [template, template2, template3, template4], position:CGPoint(x: 0, y: self.size.height - 100), size:CGSize(width: self.size.width, height: 100))
+        var width:CGFloat = self.size.width * 0.7
+        var x:CGFloat = (self.size.width / 2) - width/2
+        var palette:ObjectsPalette = ObjectsPalette(objects: [template, template2, template3, template4], position:CGPoint(x: x, y: self.size.height - 100), size:CGSize(width: width, height: 100))
         palette.paletteNode.anchorPoint = CGPoint(x:0,y:0)
         self.addChild(palette.paletteNode)
     }
@@ -79,8 +82,10 @@ class EditScene : SKScene
                     self.selectedNode!.removeAllActions()
                 }
                 if (touchedNode is SoundObjectTemplate) {
-                    self.selectedNode = (touchedNode as SoundObjectTemplate).createSoundObject()
-                    self.addChild(self.selectedNode!)
+                    var newObject:SoundObject = (touchedNode as SoundObjectTemplate).createSoundObject()!
+                    self.selectedNode = newObject
+                    self.project.addObject(newObject)
+                    self.addChild(newObject)
                 }
                     
                 if (touchedNode is SoundObject) {
@@ -118,6 +123,13 @@ class EditScene : SKScene
         if (self.selectedNode != nil) {
             var position:CGPoint = self.selectedNode!.position
             self.selectedNode!.position = CGPointMake(position.x + translation.x, position.y + translation.y)
+        }
+    }
+    
+    func openProject(project:NSArray) {
+        self.project = NSMutableArray(array:project)
+        for object in self.project {
+            self.addChild(object as SKNode)
         }
     }
 }

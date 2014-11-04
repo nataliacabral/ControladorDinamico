@@ -14,6 +14,8 @@
 		2512183F1A0842720025ACEE /* Argentina.png in Resources */ = {isa = PBXBuildFile; fileRef = 2512183C1A0842720025ACEE /* Argentina.png */; };
 		251218401A0842720025ACEE /* Brazil.png in Resources */ = {isa = PBXBuildFile; fileRef = 2512183D1A0842720025ACEE /* Brazil.png */; };
 		251218411A0842720025ACEE /* UK.png in Resources */ = {isa = PBXBuildFile; fileRef = 2512183E1A0842720025ACEE /* UK.png */; };
+		251218431A084D340025ACEE /* projecttest.txt in Resources */ = {isa = PBXBuildFile; fileRef = 251218421A084D340025ACEE /* projecttest.txt */; };
+		251218491A08625D0025ACEE /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251218481A08625D0025ACEE /* Project.swift */; };
 		258D1FEF1A0182EE00ACFC93 /* SoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FEE1A0182EE00ACFC93 /* SoundObject.swift */; };
 		258D1FF11A01849800ACFC93 /* ObjectsPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FF01A01849800ACFC93 /* ObjectsPalette.swift */; };
 		258D1FFB1A019BF900ACFC93 /* SoundObjectTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */; };
@@ -44,6 +46,9 @@
 		2512183C1A0842720025ACEE /* Argentina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Argentina.png; sourceTree = "<group>"; };
 		2512183D1A0842720025ACEE /* Brazil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Brazil.png; sourceTree = "<group>"; };
 		2512183E1A0842720025ACEE /* UK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UK.png; sourceTree = "<group>"; };
+		251218421A084D340025ACEE /* projecttest.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = projecttest.txt; sourceTree = "<group>"; };
+		251218441A0862480025ACEE /* ControladorDinamico-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ControladorDinamico-Bridging-Header.h"; sourceTree = "<group>"; };
+		251218481A08625D0025ACEE /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		258D1FEE1A0182EE00ACFC93 /* SoundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundObject.swift; sourceTree = "<group>"; };
 		258D1FF01A01849800ACFC93 /* ObjectsPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectsPalette.swift; path = ../ObjectsPalette.swift; sourceTree = "<group>"; };
 		258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundObjectTemplate.swift; sourceTree = "<group>"; };
@@ -117,6 +122,9 @@
 				2509940419FEE86500A6D24F /* EditScene.swift */,
 				258D1FEE1A0182EE00ACFC93 /* SoundObject.swift */,
 				258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */,
+				251218421A084D340025ACEE /* projecttest.txt */,
+				251218441A0862480025ACEE /* ControladorDinamico-Bridging-Header.h */,
+				251218481A08625D0025ACEE /* Project.swift */,
 			);
 			path = ControladorDinamico;
 			sourceTree = "<group>";
@@ -227,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				259B90A619F96D1400737E04 /* Main.storyboard in Resources */,
+				251218431A084D340025ACEE /* projecttest.txt in Resources */,
 				251218411A0842720025ACEE /* UK.png in Resources */,
 				259B90AB19F96D1400737E04 /* LaunchScreen.xib in Resources */,
 				259B90C919F9756200737E04 /* Images-3.xcassets in Resources */,
@@ -258,6 +267,7 @@
 				2509940519FEE86500A6D24F /* EditScene.swift in Sources */,
 				258D1FEF1A0182EE00ACFC93 /* SoundObject.swift in Sources */,
 				2509940119FEE2CF00A6D24F /* EditViewController.swift in Sources */,
+				251218491A08625D0025ACEE /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,10 +392,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ControladorDinamico/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ControladorDinamico/ControladorDinamico-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -393,10 +406,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ControladorDinamico/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ControladorDinamico/ControladorDinamico-Bridging-Header.h";
 			};
 			name = Release;
 		};
