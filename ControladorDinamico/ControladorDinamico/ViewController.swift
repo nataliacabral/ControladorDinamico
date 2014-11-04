@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet var previewView:UIImageView!
+
     var projects:NSMutableArray = NSMutableArray()
     let documentsPath : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask,true)[0] as NSString
 
@@ -41,5 +44,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableCell.textLabel.text = (projects.objectAtIndex(indexPath.row) as Project).projectName
         return tableCell
     }
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        let currentPreview:UIImage = (projects[indexPath.row] as Project).preview;
+        self.previewView.image = currentPreview
+    }
+
 }
 

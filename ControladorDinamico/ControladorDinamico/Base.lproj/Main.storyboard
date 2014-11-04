@@ -29,7 +29,6 @@
                                     <items>
                                         <barButtonItem systemItem="add" id="Vaa-Hm-55h">
                                             <connections>
-                                                <action selector="addRecipe:" destination="0Ip-BT-yIP" id="ZN4-Ms-J1B"/>
                                                 <segue destination="kdB-qw-FxK" kind="show" id="8de-xT-hHu"/>
                                             </connections>
                                         </barButtonItem>
@@ -40,8 +39,11 @@
                                     <outlet property="delegate" destination="0Ip-BT-yIP" id="DdY-LE-zLn"/>
                                 </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfw-Vd-18j">
+                                <rect key="frame" x="312" y="164" width="267" height="302"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.40000000596046448" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                         <constraints>
                             <constraint firstItem="2VG-8A-BWH" firstAttribute="top" secondItem="S3W-B8-6Mu" secondAttribute="topMargin" constant="32" id="MhN-qg-x02"/>
                             <constraint firstItem="2VG-8A-BWH" firstAttribute="leading" secondItem="V2p-8n-cgb" secondAttribute="leading" id="ODE-Qb-G8I"/>
@@ -49,6 +51,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gQf-nu-fEh"/>
+                    <connections>
+                        <outlet property="previewView" destination="cfw-Vd-18j" id="8ak-1b-Qap"/>
+                        <outlet property="view" destination="S3W-B8-6Mu" id="YN5-8h-Tct"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmV-hw-RpC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,8 +76,8 @@
                                 <rect key="frame" x="16" y="6" width="22" height="22"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFN-Tg-7nf">
-                                <rect key="frame" x="9" y="0.0" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="16" y="28" width="34" height="30"/>
+                                <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -84,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIW-Md-RMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="664" y="197"/>
+            <point key="canvasLocation" x="666" y="188"/>
         </scene>
     </scenes>
 </document>

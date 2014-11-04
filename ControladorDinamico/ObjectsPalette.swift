@@ -67,7 +67,6 @@ class ObjectsPalette : SKSpriteNode
                     firstVisibleChild = template
                 }
             }
-            
         }
         let dislocation = -firstVisibleChild!.position.x
         self.moveObjectsX(dislocation)

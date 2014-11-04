@@ -50,11 +50,17 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if (buttonIndex == 0) {
             var projectName = alert!.textFieldAtIndex(0)!.text!
-            let project:Project = Project(projectName:projectName, objects:self.scene!.project)
 
             let fullName:NSString = projectName.stringByAppendingPathExtension("txt")!
             let destinationPath:NSString = documentsPath.stringByAppendingPathComponent(fullName)
             
+            UIGraphicsBeginImageContext(self.view.frame.size)
+            self.view.layer.renderInContext(UIGraphicsGetCurrentContext())
+            let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            let project:Project = Project(projectName:projectName, objects:self.scene!.project, image:image)
+
             let filemanager = NSFileManager.defaultManager()
             if(!filemanager.fileExistsAtPath(destinationPath)){
                 var saved:Bool = NSKeyedArchiver.archiveRootObject(project, toFile:destinationPath)
