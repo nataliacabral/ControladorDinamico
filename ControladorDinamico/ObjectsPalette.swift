@@ -53,16 +53,20 @@ class ObjectsPalette : SKSpriteNode
             let objectRightEdge = soundObject.position.x + soundObject.size.width
             let distanceToRightEdge:CGFloat = self.size.width - objectRightEdge
         
+            var factor:CGFloat = 1.0
             if (distanceToLeftEdge) < 100.0 {
+                factor = distanceToLeftEdge / 100.0
                 soundObject.alpha = distanceToLeftEdge / 100.0
             }
             else if (distanceToRightEdge) < 100.0 {
-                soundObject.alpha = distanceToRightEdge / 100.0
+                factor = distanceToRightEdge / 100.0
             }
             else {
-                soundObject.alpha = 1.0
-
+                factor = 1.0
             }
+            soundObject.alpha = factor
+            soundObject.size.width = self.originalTemplateSize * factor
+            soundObject.size.height = self.originalTemplateSize * factor
         }
 
     }
