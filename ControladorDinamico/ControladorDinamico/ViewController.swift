@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet var previewView:UIButton!
 
+    var selectedProject:Project?
     var projects:NSMutableArray = NSMutableArray()
     let documentsPath : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask,true)[0] as NSString
 
@@ -48,7 +49,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         var currentPreview:UIImage = (projects[indexPath.row] as Project).preview;
         self.previewView.setImage(currentPreview, forState: .Normal)
+        self.selectedProject = projects[indexPath.row] as Project
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "openProject" {
+            let editViewController = segue.destinationViewController as EditViewController
+            editViewController.project = self.selectedProject
+        }
+    }
 }
 

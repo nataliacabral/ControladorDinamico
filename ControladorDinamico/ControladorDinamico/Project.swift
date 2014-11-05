@@ -15,6 +15,13 @@ class Project : NSObject
     var objects:NSArray
     var preview:UIImage
 
+    init(projectName:NSString) {
+        self.projectName = projectName
+        self.objects = NSArray()
+        self.preview = UIImage()
+        super.init()
+    }
+    
     init(projectName:NSString, objects:NSArray, image:UIImage) {
         self.projectName = projectName
         self.objects = objects

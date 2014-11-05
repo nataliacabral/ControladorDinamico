@@ -11,10 +11,12 @@ import SpriteKit
 
 class EditScene : SKScene
 {
+    let gridSize:CGFloat = 100
+
     var selectedNodeOriginalPos:CGPoint?
     var selectedNode:SKSpriteNode?
-    var gridSize:CGFloat?
-    var project:NSMutableArray = NSMutableArray()
+    
+    var objects:NSMutableArray = NSMutableArray()
     var palette:ObjectsPalette?
     
     override init(size: CGSize)
@@ -26,10 +28,8 @@ class EditScene : SKScene
         var sprite2:SoundObject = SoundObject(imageName:"Brazil.png", horizontalGridSlots: 0,verticalGridSlots: 0, initialGridPosition: CGPoint(x:0, y:0))
         var sprite3:SoundObject = SoundObject(imageName:"UK.png", horizontalGridSlots: 0,verticalGridSlots: 0, initialGridPosition: CGPoint(x:0, y:0))
         var sprite4:SoundObject = SoundObject(imageName:"Argentina.png", horizontalGridSlots: 0,verticalGridSlots: 0, initialGridPosition: CGPoint(x:0, y:0))
-
-        self.gridSize = 100;
         
-        for (var y:CGFloat = 0 ; y < self.size.height ; y += gridSize!) {
+        for (var y:CGFloat = 0 ; y < self.size.height ; y += gridSize) {
             var gridVerticalLine:SKShapeNode = SKShapeNode()
             var gridVerticalLinePath:CGMutablePathRef = CGPathCreateMutable()
             CGPathMoveToPoint(gridVerticalLinePath, nil, self.size.width, y)
@@ -39,7 +39,7 @@ class EditScene : SKScene
             self.addChild(gridVerticalLine)
         }
         
-        for (var x:CGFloat = 0 ; x < self.size.width ; x += gridSize!) {
+        for (var x:CGFloat = 0 ; x < self.size.width ; x += gridSize) {
             var gridHorizontalLine:SKShapeNode = SKShapeNode()
             var gridHorizontalLinePath:CGMutablePathRef = CGPathCreateMutable()
             CGPathMoveToPoint(gridHorizontalLinePath, nil, x, self.size.width)
@@ -63,13 +63,11 @@ class EditScene : SKScene
 
         var width:CGFloat = self.size.width * 0.7
         var x:CGFloat = (self.size.width / 2) - width/2
-       // var palette:ObjectsPalette = ObjectsPalette(objects: [template, template2, template3, template4], position:CGPoint(x: x, y: self.size.height - 100), size:CGSize(width: width, height: 100))
 
         self.palette = ObjectsPalette(
             objects: [template, template2, template3, template4, template5, template6, template7, template8, template9, template10, template11],
             position:CGPoint(x: x, y: self.size.height - 100), size:CGSize(width: width, height: 100)
         )
-        self.palette!.anchorPoint = CGPoint(x:0,y:0)
         self.addChild(self.palette!)
     }
 
@@ -92,6 +90,11 @@ class EditScene : SKScene
     override func didMoveToView(view: SKView) {
         var gestureRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePanFromRecognizer:"))
         self.view?.addGestureRecognizer(gestureRecognizer)
+        
+        for obj in objects
+        {
+            self.addChild((obj as SoundObject))
+        }
     }
     
     func handlePanFromRecognizer(recognizer:UIPanGestureRecognizer) {
@@ -125,9 +128,10 @@ class EditScene : SKScene
             translation = CGPointMake(translation.x, -translation.y)
             if (self.selectedNode is SoundObjectTemplate) {
                 if (translation.y < -50) {
-                    var newNode:SoundObject = (self.selectedNode as SoundObjectTemplate).createSoundObject()!
-                    self.selectNode(newNode)
-                    self.addChild(newNode)
+                    var newObject:SoundObject = (self.selectedNode as SoundObjectTemplate).createSoundObject()!
+                    self.selectNode(newObject)
+                    self.addChild(newObject)
+                    self.objects.addObject(newObject)
                 }
                 else
                 {
@@ -149,8 +153,8 @@ class EditScene : SKScene
                 if (self.selectedNode is SoundObject) {
 
                     var position:CGPoint = self.selectedNode!.position
-                    position.x = gridSize! * round((position.x / gridSize!))
-                    position.y = gridSize! * round((position.y / gridSize!))
+                    position.x = gridSize * round((position.x / gridSize))
+                    position.y = gridSize * round((position.y / gridSize))
                     self.selectedNode!.position = position
                 }
                 else if (self.selectedNode is SoundObjectTemplate) {
@@ -173,13 +177,6 @@ class EditScene : SKScene
         if (self.selectedNode != nil) {
             var position:CGPoint = self.selectedNode!.position
             self.selectedNode!.position = CGPointMake(position.x + translation.x, position.y + translation.y)
-        }
-    }
-    
-    func openProject(project:NSArray) {
-        self.project = NSMutableArray(array:project)
-        for object in self.project {
-            self.addChild(object as SKNode)
         }
     }
 }

@@ -20,6 +20,7 @@ class ObjectsPalette : SKSpriteNode
         super.init(texture: nil, color: UIColor.yellowColor(), size:size)
 
         self.position = position
+        self.anchorPoint = CGPoint(x:0,y:0)
         reloadObjs()
     }
     

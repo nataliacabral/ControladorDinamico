@@ -46,7 +46,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="kdB-qw-FxK" kind="show" id="d7f-0x-jBt"/>
+                                    <segue destination="kdB-qw-FxK" kind="show" identifier="openProject" id="d7f-0x-jBt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -59,7 +59,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="gQf-nu-fEh"/>
                     <connections>
-                        <outlet property="previewView" destination="PT5-cu-uql" id="hNP-2p-mOI"/>
+                        <outlet property="previewView" destination="PT5-cu-uql" id="eBd-xZ-hpk"/>
                         <outlet property="view" destination="S3W-B8-6Mu" id="YN5-8h-Tct"/>
                     </connections>
                 </viewController>
@@ -88,12 +88,15 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveProject:" destination="kdB-qw-FxK" eventType="touchUpInside" id="w7u-43-Xr0"/>
+                                    <action selector="saveProjectAction:" destination="kdB-qw-FxK" eventType="touchUpInside" id="xGI-Kq-Rrk"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="view" destination="ISY-8I-Sxl" id="8JN-Jf-0ZS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIW-Md-RMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
