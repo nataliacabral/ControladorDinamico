@@ -41,7 +41,7 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
     }
     
     @IBAction func saveProjectAction(AnyObject) {
-        if (self.project == nil) {
+         if (self.project == nil) {
             let alert = UIAlertView(title: "Save", message: "Insert the project name", delegate:self, cancelButtonTitle: "OK")
             alert.alertViewStyle = UIAlertViewStyle.PlainTextInput;
             alert.show()
