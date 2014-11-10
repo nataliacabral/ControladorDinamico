@@ -56,7 +56,7 @@
                         <constraints>
                             <constraint firstItem="2VG-8A-BWH" firstAttribute="top" secondItem="S3W-B8-6Mu" secondAttribute="topMargin" id="2bA-Ck-ayo"/>
                             <constraint firstItem="V2p-8n-cgb" firstAttribute="top" secondItem="2VG-8A-BWH" secondAttribute="bottom" id="RGf-uO-fYt"/>
-                            <constraint firstItem="2VG-8A-BWH" firstAttribute="leading" secondItem="S3W-B8-6Mu" secondAttribute="leadingMargin" constant="-16" id="Vs7-td-GuD"/>
+                            <constraint firstItem="2VG-8A-BWH" firstAttribute="leading" secondItem="S3W-B8-6Mu" secondAttribute="leadingMargin" id="Vs7-td-GuD"/>
                             <constraint firstItem="2VG-8A-BWH" firstAttribute="leading" secondItem="S3W-B8-6Mu" secondAttribute="leadingMargin" id="khq-ih-fFj"/>
                         </constraints>
                     </view>
