@@ -37,6 +37,5 @@ class SoundObject: SKSpriteNode, NSCoding
         aCoder.encodeObject(self.imageName, forKey: "imageName")
         aCoder.encodeObject(self.position.x, forKey: "x")
         aCoder.encodeObject(self.position.y, forKey: "y")
-
     }
 }
