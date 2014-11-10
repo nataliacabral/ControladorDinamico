@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/EditViewController.swift"
-            timestampString = "436756299.266283"
+            timestampString = "436841056.994736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/EditScene.swift"
-            timestampString = "436759697.262467"
+            timestampString = "436829868.820621"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "init(size:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/EditViewController.swift"
-            timestampString = "436756299.266283"
+            timestampString = "436841056.994736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -54,16 +54,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ControladorDinamico/ControladorDinamico/SoundObject.swift"
-            timestampString = "436752740.372998"
+            filePath = "ControladorDinamico/ControladorDinamico/EditViewController.swift"
+            timestampString = "436841056.994736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "encodeWithCoder(_:)"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "saveProjectAction(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ControladorDinamico/ControladorDinamico/SoundObject.swift"
-            timestampString = "436752741.497711"
+            filePath = "ControladorDinamico/ControladorDinamico/ViewController.swift"
+            timestampString = "436927951.497439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "init(coder:)"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "removeSelectedObject(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,13 +89,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ControladorDinamico/ControladorDinamico/SoundObject.swift"
-            timestampString = "436754644.33051"
+            filePath = "ControladorDinamico/ControladorDinamico/ViewController.swift"
+            timestampString = "436928371.855321"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "init(coder:)"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "removeSelectedObject(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ControladorDinamico/ControladorDinamico/ViewController.swift"
+            timestampString = "436927997.114703"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "selectProject(atIndex:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ControladorDinamico/ControladorDinamico/ViewController.swift"
+            timestampString = "436928388.205288"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "removeSelectedObject(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
