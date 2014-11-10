@@ -13,9 +13,10 @@ class EditScene : SKScene
 {
     var selectedNodeOriginalPos:CGPoint?
     var selectedNode:SKSpriteNode?
-    var gridSize:CGFloat?
+    var gridSize:CGFloat = 100
     var project:NSMutableArray = NSMutableArray()
     var palette:ObjectsPalette?
+    var creatingObject:Bool = false
     
     override init(size: CGSize)
     {
@@ -27,9 +28,7 @@ class EditScene : SKScene
         var sprite3:SoundObject = SoundObject(imageName:"UK.png", horizontalGridSlots: 0,verticalGridSlots: 0, initialGridPosition: CGPoint(x:0, y:0))
         var sprite4:SoundObject = SoundObject(imageName:"Argentina.png", horizontalGridSlots: 0,verticalGridSlots: 0, initialGridPosition: CGPoint(x:0, y:0))
 
-        self.gridSize = 100;
-        
-        for (var y:CGFloat = 0 ; y < self.size.height ; y += gridSize!) {
+        for (var y:CGFloat = 0 ; y < self.size.height ; y += gridSize) {
             var gridVerticalLine:SKShapeNode = SKShapeNode()
             var gridVerticalLinePath:CGMutablePathRef = CGPathCreateMutable()
             CGPathMoveToPoint(gridVerticalLinePath, nil, self.size.width, y)
@@ -39,7 +38,7 @@ class EditScene : SKScene
             self.addChild(gridVerticalLine)
         }
         
-        for (var x:CGFloat = 0 ; x < self.size.width ; x += gridSize!) {
+        for (var x:CGFloat = 0 ; x < self.size.width ; x += gridSize) {
             var gridHorizontalLine:SKShapeNode = SKShapeNode()
             var gridHorizontalLinePath:CGMutablePathRef = CGPathCreateMutable()
             CGPathMoveToPoint(gridHorizontalLinePath, nil, x, self.size.width)
@@ -77,6 +76,7 @@ class EditScene : SKScene
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     func selectNode(node: SKSpriteNode)
     {
         self.selectedNode = node
@@ -97,6 +97,7 @@ class EditScene : SKScene
     func handlePanFromRecognizer(recognizer:UIPanGestureRecognizer) {
         switch(recognizer.state) {
         case UIGestureRecognizerState.Began:
+            self.creatingObject = false
             var touchLocation:CGPoint = recognizer.locationInView(recognizer.view)
             touchLocation = self.convertPointFromView(touchLocation)
             var touchedNode:SKNode? = self.nodeAtPoint(touchLocation)
@@ -109,6 +110,7 @@ class EditScene : SKScene
                 }
                 if (touchedNode is SoundObjectTemplate) {
                     self.selectNode(touchedNode! as SoundObjectTemplate)
+                    self.creatingObject = true
                 }
                 else if (touchedNode is ObjectsPalette) {
                     self.selectNode(touchedNode! as ObjectsPalette)
@@ -147,11 +149,20 @@ class EditScene : SKScene
         case UIGestureRecognizerState.Ended:
             if (self.selectedNode != nil) {
                 if (self.selectedNode is SoundObject) {
-
                     var position:CGPoint = self.selectedNode!.position
-                    position.x = gridSize! * round((position.x / gridSize!))
-                    position.y = gridSize! * round((position.y / gridSize!))
+                    position.x = gridSize * round((position.x / gridSize))
+                    position.y = gridSize * round((position.y / gridSize))
                     self.selectedNode!.position = position
+                    if (self.isSoundObjectColliding(selectedNode as SoundObject))
+                    {
+                        if (self.creatingObject) {
+                            self.selectedNode?.removeFromParent();
+                        }
+                        else
+                        {
+                            self.selectedNode!.position = self.selectedNodeOriginalPos!
+                        }
+                    }
                 }
                 else if (self.selectedNode is SoundObjectTemplate) {
                     self.palette!.stopScroll()
@@ -166,6 +177,44 @@ class EditScene : SKScene
         default:
             break;
         }
+    }
+    
+    func gridPositionForObjectPosition(objectPosition:CGPoint) -> CGPoint
+    {
+        var xPos:CGFloat = objectPosition.x / self.gridSize
+        var yPos:CGFloat = objectPosition.y / self.gridSize
+        return CGPoint(x:xPos, y:yPos)
+    }
+    
+    func gridBoxForSoundObject(soundObject:SoundObject) -> CGRect
+    {
+        var gridPos = self.gridPositionForObjectPosition(soundObject.position)
+        var gridSize = CGSize(width:gridPos.x + CGFloat(soundObject.horizontalGridSlots),
+            height:(gridPos.y + CGFloat(soundObject.verticalGridSlots)))
+        return CGRect(origin:gridPos, size:gridSize)
+    }
+    
+    func isSoundObjectColliding(obj:SoundObject) -> Bool
+    {
+        for otherObj:AnyObject in self.children {
+            if (otherObj is SoundObject && (otherObj as SoundObject) !== obj)
+            {
+                let otherSoundObj = otherObj as SoundObject
+                var objGridBox = self.gridBoxForSoundObject(obj)
+                var otherObjGridBox = self.gridBoxForSoundObject(otherSoundObj)
+                let collides:Bool = CGPointEqualToPoint(obj.position, otherObj.position)
+                    || (obj.position.x < otherObj.position.x + otherObj.size.width &&
+                    obj.position.x + obj.size.width > otherObj.position.x &&
+                    obj.position.y < otherObj.position.y + otherObj.size.height &&
+                    obj.size.height + obj.position.y > otherObj.position.y)
+                
+                if (collides)
+                {
+                    return collides;
+                }
+            }
+        }
+        return false;
     }
     
     func panForTranslation(translation:CGPoint)
