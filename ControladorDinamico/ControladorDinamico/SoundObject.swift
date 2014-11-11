@@ -9,26 +9,21 @@
 import Foundation
 import SpriteKit
 
-class SoundObject: SKSpriteNode, NSCoding
+class SoundObject: SKSpriteNode, NSCoding, TouchListener, Collidable, GridBound
 {
-    var horizontalGridSlots:UInt = 0
-    var verticalGridSlots:UInt = 0
-    var gridPosition:CGPoint = CGPoint()
     var imageName:String = ""
+    var moving:Bool = false
     
-    init(imageName:String, horizontalGridSlots:UInt, verticalGridSlots:UInt, initialGridPosition:CGPoint) {
-        self.horizontalGridSlots = horizontalGridSlots
-        self.verticalGridSlots = verticalGridSlots
-        self.gridPosition = initialGridPosition
+    init(imageName:String, size:CGSize) {
         self.imageName = imageName
         var texture:SKTexture = SKTexture(imageNamed: imageName)
-        super.init(texture:texture, color: UIColor(), size: texture.size())
+        super.init(texture:texture, color: UIColor(), size:size)
         self.anchorPoint = CGPoint(x: 0, y: 0)
     }
     
     required convenience init(coder aDecoder: NSCoder) {
         var imgName:NSString = aDecoder.decodeObjectForKey("imageName") as String
-        self.init(imageName:imgName, horizontalGridSlots:0, verticalGridSlots:0, initialGridPosition:CGPoint(x: 0, y: 0))
+        self.init(imageName:imgName, size:CGSize(width:10,height:10))
         self.position.x = CGFloat(aDecoder.decodeObjectForKey("x")!.integerValue)
         self.position.y = CGFloat(aDecoder.decodeObjectForKey("y")!.integerValue)
     }
@@ -38,4 +33,32 @@ class SoundObject: SKSpriteNode, NSCoding
         aCoder.encodeObject(self.position.x, forKey: "x")
         aCoder.encodeObject(self.position.y, forKey: "y")
     }
+    
+    func touchBegan()
+    {
+        // TODO play
+    }
+    func touchMoved(recognizer:UIPanGestureRecognizer)
+    {
+        // TODO changePos
+    }
+    func touchEnded()
+    {
+        // TODO stop playing
+    }
+    
+    func collidesWith(otherObj: AnyObject) -> Bool
+    {
+        if (otherObj is SoundObject && otherObj !== self) {
+            let otherSoundObj = otherObj as SoundObject
+            let collides:Bool = CGPointEqualToPoint(self.position, otherObj.position)
+                || (self.position.x < otherObj.position.x + otherObj.size.width &&
+                self.position.x + self.size.width > otherObj.position.x &&
+                self.position.y < otherObj.position.y + otherObj.size.height &&
+                self.size.height + self.position.y > otherObj.position.y)
+            return collides
+        }
+        return false
+    }
 }
+

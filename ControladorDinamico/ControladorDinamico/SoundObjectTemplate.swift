@@ -25,7 +25,7 @@ class SoundObjectTemplate: SKSpriteNode
     func createSoundObject() -> SoundObject? {
         var newObject:SoundObject? = nil
         if (object != nil) {
-            newObject = SoundObject(imageName:object!.imageName, horizontalGridSlots: object!.horizontalGridSlots, verticalGridSlots: object!.verticalGridSlots, initialGridPosition: object!.gridPosition)
+            newObject = SoundObject(imageName:object!.imageName, size:object!.size)
             newObject!.position.x = self.position.x + self.parent!.position.x
             newObject!.position.y = self.position.y + self.parent!.position.y
             newObject!.anchorPoint = CGPoint(x:0, y:0)

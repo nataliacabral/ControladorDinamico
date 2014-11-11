@@ -25,6 +25,9 @@
 		259B90B719F96D1400737E04 /* ControladorDinamicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90B619F96D1400737E04 /* ControladorDinamicoTests.swift */; };
 		259B90C919F9756200737E04 /* Images-3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 259B90C819F9756200737E04 /* Images-3.xcassets */; };
 		259B90CB19F9768500737E04 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 259B90CA19F9768500737E04 /* LaunchImage.png */; };
+		4905AAC01A1166E20094C5A2 /* Collidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905AABF1A1166E20094C5A2 /* Collidable.swift */; };
+		4905AAC51A1169460094C5A2 /* GridBound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905AAC41A1169460094C5A2 /* GridBound.swift */; };
+		4984CABD1A115FC5004409F2 /* TouchListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984CABC1A115FC5004409F2 /* TouchListener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		259B90B619F96D1400737E04 /* ControladorDinamicoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControladorDinamicoTests.swift; sourceTree = "<group>"; };
 		259B90C819F9756200737E04 /* Images-3.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-3.xcassets"; sourceTree = "<group>"; };
 		259B90CA19F9768500737E04 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
+		4905AABF1A1166E20094C5A2 /* Collidable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collidable.swift; sourceTree = "<group>"; };
+		4905AAC41A1169460094C5A2 /* GridBound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridBound.swift; path = ../GridBound.swift; sourceTree = "<group>"; };
+		4984CABC1A115FC5004409F2 /* TouchListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchListener.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,7 @@
 		259B909D19F96D1400737E04 /* ControladorDinamico */ = {
 			isa = PBXGroup;
 			children = (
+				4905AAC41A1169460094C5A2 /* GridBound.swift */,
 				2512183C1A0842720025ACEE /* Argentina.png */,
 				2512183D1A0842720025ACEE /* Brazil.png */,
 				2512183E1A0842720025ACEE /* UK.png */,
@@ -122,6 +129,8 @@
 				258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */,
 				251218441A0862480025ACEE /* ControladorDinamico-Bridging-Header.h */,
 				251218481A08625D0025ACEE /* Project.swift */,
+				4984CABC1A115FC5004409F2 /* TouchListener.swift */,
+				4905AABF1A1166E20094C5A2 /* Collidable.swift */,
 			);
 			path = ControladorDinamico;
 			sourceTree = "<group>";
@@ -260,12 +269,15 @@
 			files = (
 				259B90A319F96D1400737E04 /* ViewController.swift in Sources */,
 				258D1FFB1A019BF900ACFC93 /* SoundObjectTemplate.swift in Sources */,
+				4905AAC51A1169460094C5A2 /* GridBound.swift in Sources */,
+				4905AAC01A1166E20094C5A2 /* Collidable.swift in Sources */,
 				259B90A119F96D1400737E04 /* AppDelegate.swift in Sources */,
 				258D1FF11A01849800ACFC93 /* ObjectsPalette.swift in Sources */,
 				2509940519FEE86500A6D24F /* EditScene.swift in Sources */,
 				258D1FEF1A0182EE00ACFC93 /* SoundObject.swift in Sources */,
 				2509940119FEE2CF00A6D24F /* EditViewController.swift in Sources */,
 				251218491A08625D0025ACEE /* Project.swift in Sources */,
+				4984CABD1A115FC5004409F2 /* TouchListener.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

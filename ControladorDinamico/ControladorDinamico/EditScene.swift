@@ -12,6 +12,7 @@ import SpriteKit
 class EditScene : SKScene
 {
     let gridSize:CGFloat = 100
+    let distanceToCreateObject:CGFloat = 30
 
     var selectedNodeOriginalPos:CGPoint?
     var selectedNode:SKSpriteNode?
@@ -24,10 +25,10 @@ class EditScene : SKScene
         super.init(size: size)
         self.scene?.backgroundColor = UIColor.whiteColor()
         
-        var sprite1:SoundObject = SoundObject(imageName:"sprite.jpeg", horizontalGridSlots: 0,verticalGridSlots: 0, initialGridPosition: CGPoint(x:0, y:0))
-        var sprite2:SoundObject = SoundObject(imageName:"Brazil.png", horizontalGridSlots: 0,verticalGridSlots: 0, initialGridPosition: CGPoint(x:0, y:0))
-        var sprite3:SoundObject = SoundObject(imageName:"UK.png", horizontalGridSlots: 0,verticalGridSlots: 0, initialGridPosition: CGPoint(x:0, y:0))
-        var sprite4:SoundObject = SoundObject(imageName:"Argentina.png", horizontalGridSlots: 0,verticalGridSlots: 0, initialGridPosition: CGPoint(x:0, y:0))
+        var sprite1:SoundObject = SoundObject(imageName:"sprite.jpeg", size:CGSize(width:gridSize * 2, height:gridSize * 2))
+        var sprite2:SoundObject = SoundObject(imageName:"Brazil.png", size:CGSize(width:gridSize * 2, height:gridSize * 2))
+        var sprite3:SoundObject = SoundObject(imageName:"UK.png", size:CGSize(width:gridSize * 2, height:gridSize * 1))
+        var sprite4:SoundObject = SoundObject(imageName:"Argentina.png", size:CGSize(width:gridSize * 1, height:gridSize * 2))
         
         for (var y:CGFloat = 0 ; y < self.size.height ; y += gridSize) {
             var gridVerticalLine:SKShapeNode = SKShapeNode()
@@ -129,8 +130,11 @@ class EditScene : SKScene
         case UIGestureRecognizerState.Changed:
             var translation:CGPoint = recognizer.translationInView(recognizer.view!)
             translation = CGPointMake(translation.x, -translation.y)
+            if (self.selectedNode is TouchListener) {
+                (selectedNode as TouchListener).touchMoved(recognizer)
+            }
             if (self.selectedNode is SoundObjectTemplate) {
-                if (translation.y < -50) {
+                if (translation.y < -self.distanceToCreateObject) {
                     var newObject:SoundObject = (self.selectedNode as SoundObjectTemplate).createSoundObject()!
                     self.selectNode(newObject)
                     self.addChild(newObject)
@@ -141,24 +145,32 @@ class EditScene : SKScene
                     self.palette!.scroll(translation.x)
                 }
             }
+            else if (self.selectedNode is SoundObject)
+            {
+                self.selectedNode!.position = CGPointMake(self.selectedNode!.position.x + translation.x, self.selectedNode!.position.y + translation.y)
+                recognizer.setTranslation(CGPointZero, inView: recognizer.view)
+            }
             else if (self.selectedNode is ObjectsPalette) {
                 self.palette!.scroll(translation.x)
-            }
-            else if (self.selectedNode is SoundObject) {
-                self.panForTranslation(translation)
-                recognizer.setTranslation(CGPointZero, inView: recognizer.view)
             }
 
             break;
 
         case UIGestureRecognizerState.Ended:
             if (self.selectedNode != nil) {
-                if (self.selectedNode is SoundObject) {
+                if (self.selectedNode is TouchListener) {
+                    (selectedNode as TouchListener).touchEnded()
+                }
+                if (self.selectedNode is GridBound) {
                     var position:CGPoint = self.selectedNode!.position
                     position.x = gridSize * round((position.x / gridSize))
                     position.y = gridSize * round((position.y / gridSize))
                     self.selectedNode!.position = position
-                    if (self.isSoundObjectColliding(selectedNode as SoundObject))
+                    
+                }
+                if (self.selectedNode is Collidable)
+                {
+                    if (self.checkCollisionForCollidable(selectedNode as Collidable))
                     {
                         if (self.creatingObject) {
                             self.selectedNode?.removeFromParent();
@@ -169,10 +181,10 @@ class EditScene : SKScene
                         }
                     }
                 }
-                else if (self.selectedNode is SoundObjectTemplate) {
+                if (self.selectedNode is SoundObjectTemplate) {
                     self.palette!.stopScroll()
                 }
-                else if (self.selectedNode is ObjectsPalette) {
+                if (self.selectedNode is ObjectsPalette) {
                     self.palette!.stopScroll()
                 }
             }
@@ -183,50 +195,18 @@ class EditScene : SKScene
             break;
         }
     }
-    
-    func gridPositionForObjectPosition(objectPosition:CGPoint) -> CGPoint
+
+    func checkCollisionForCollidable(node:Collidable) -> Bool
     {
-        var xPos:CGFloat = objectPosition.x / self.gridSize
-        var yPos:CGFloat = objectPosition.y / self.gridSize
-        return CGPoint(x:xPos, y:yPos)
-    }
-    
-    func gridBoxForSoundObject(soundObject:SoundObject) -> CGRect
-    {
-        var gridPos = self.gridPositionForObjectPosition(soundObject.position)
-        var gridSize = CGSize(width:gridPos.x + CGFloat(soundObject.horizontalGridSlots),
-            height:(gridPos.y + CGFloat(soundObject.verticalGridSlots)))
-        return CGRect(origin:gridPos, size:gridSize)
-    }
-    
-    func isSoundObjectColliding(obj:SoundObject) -> Bool
-    {
-        for otherObj:AnyObject in self.children {
-            if (otherObj is SoundObject && (otherObj as SoundObject) !== obj)
+        for otherNode:AnyObject in self.children {
+            if (otherNode is Collidable)
             {
-                let otherSoundObj = otherObj as SoundObject
-                var objGridBox = self.gridBoxForSoundObject(obj)
-                var otherObjGridBox = self.gridBoxForSoundObject(otherSoundObj)
-                let collides:Bool = CGPointEqualToPoint(obj.position, otherObj.position)
-                    || (obj.position.x < otherObj.position.x + otherObj.size.width &&
-                    obj.position.x + obj.size.width > otherObj.position.x &&
-                    obj.position.y < otherObj.position.y + otherObj.size.height &&
-                    obj.size.height + obj.position.y > otherObj.position.y)
-                
-                if (collides)
+                if (otherNode as Collidable).collidesWith(node)
                 {
-                    return collides;
+                    return true
                 }
             }
         }
         return false;
-    }
-    
-    func panForTranslation(translation:CGPoint)
-    {
-        if (self.selectedNode != nil) {
-            var position:CGPoint = self.selectedNode!.position
-            self.selectedNode!.position = CGPointMake(position.x + translation.x, position.y + translation.y)
-        }
     }
 }
