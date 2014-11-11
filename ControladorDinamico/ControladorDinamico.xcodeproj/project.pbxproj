@@ -27,6 +27,7 @@
 		259B90CB19F9768500737E04 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 259B90CA19F9768500737E04 /* LaunchImage.png */; };
 		4905AAC01A1166E20094C5A2 /* Collidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905AABF1A1166E20094C5A2 /* Collidable.swift */; };
 		4905AAC51A1169460094C5A2 /* GridBound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905AAC41A1169460094C5A2 /* GridBound.swift */; };
+		495BDEC91A1226A8000941E8 /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495BDEC81A1226A8000941E8 /* PlayScene.swift */; };
 		4984CABD1A115FC5004409F2 /* TouchListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984CABC1A115FC5004409F2 /* TouchListener.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		259B90CA19F9768500737E04 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
 		4905AABF1A1166E20094C5A2 /* Collidable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collidable.swift; sourceTree = "<group>"; };
 		4905AAC41A1169460094C5A2 /* GridBound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridBound.swift; path = ../GridBound.swift; sourceTree = "<group>"; };
+		495BDEC81A1226A8000941E8 /* PlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayScene.swift; sourceTree = "<group>"; };
 		4984CABC1A115FC5004409F2 /* TouchListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchListener.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +133,7 @@
 				251218481A08625D0025ACEE /* Project.swift */,
 				4984CABC1A115FC5004409F2 /* TouchListener.swift */,
 				4905AABF1A1166E20094C5A2 /* Collidable.swift */,
+				495BDEC81A1226A8000941E8 /* PlayScene.swift */,
 			);
 			path = ControladorDinamico;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				258D1FEF1A0182EE00ACFC93 /* SoundObject.swift in Sources */,
 				2509940119FEE2CF00A6D24F /* EditViewController.swift in Sources */,
 				251218491A08625D0025ACEE /* Project.swift in Sources */,
+				495BDEC91A1226A8000941E8 /* PlayScene.swift in Sources */,
 				4984CABD1A115FC5004409F2 /* TouchListener.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
