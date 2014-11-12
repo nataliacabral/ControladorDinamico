@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0Ip-BT-yIP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uBR-PN-tVm">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="PT5-cu-uql">
-                                <rect key="frame" x="322" y="142" width="262" height="163"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="PT5-cu-uql">
+                                <rect key="frame" x="304" y="0.0" width="292" height="592"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -27,12 +27,9 @@
                                     <segue destination="kdB-qw-FxK" kind="show" identifier="openProject" id="d7f-0x-jBt"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2VG-8A-BWH">
-                                <rect key="frame" x="0.0" y="28" width="294" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2VG-8A-BWH">
+                                <rect key="frame" x="0.0" y="0.0" width="294" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="294" id="fyU-lI-lc5"/>
-                                </constraints>
                                 <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="1ac-pa-ISE">
                                     <rect key="frame" x="0.0" y="0.0" width="294" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -57,9 +54,10 @@
                         </subviews>
                         <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                         <constraints>
-                            <constraint firstItem="2VG-8A-BWH" firstAttribute="top" secondItem="S3W-B8-6Mu" secondAttribute="topMargin" constant="32" id="MhN-qg-x02"/>
-                            <constraint firstItem="2VG-8A-BWH" firstAttribute="leading" secondItem="V2p-8n-cgb" secondAttribute="leading" id="ODE-Qb-G8I"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="2VG-8A-BWH" secondAttribute="bottom" constant="-32" id="SDQ-hl-ekA"/>
+                            <constraint firstItem="2VG-8A-BWH" firstAttribute="top" secondItem="S3W-B8-6Mu" secondAttribute="topMargin" id="2bA-Ck-ayo"/>
+                            <constraint firstItem="V2p-8n-cgb" firstAttribute="top" secondItem="2VG-8A-BWH" secondAttribute="bottom" id="RGf-uO-fYt"/>
+                            <constraint firstItem="2VG-8A-BWH" firstAttribute="leading" secondItem="S3W-B8-6Mu" secondAttribute="leadingMargin" id="Vs7-td-GuD"/>
+                            <constraint firstItem="2VG-8A-BWH" firstAttribute="leading" secondItem="S3W-B8-6Mu" secondAttribute="leadingMargin" id="khq-ih-fFj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gQf-nu-fEh"/>
@@ -72,6 +70,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmV-hw-RpC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-17" y="180"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="a3x-Q3-qCi">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="uBR-PN-tVm" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XUo-ng-Sc0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0Ip-BT-yIP" kind="relationship" relationship="rootViewController" id="Efj-qw-2L1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="znG-w3-L3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-861" y="188"/>
         </scene>
         <!--Edit View Controller-->
         <scene sceneID="GT2-h3-Noc">
@@ -88,17 +102,35 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7T-DA-Kfw">
                                 <rect key="frame" x="16" y="6" width="22" height="22"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFN-Tg-7nf">
-                                <rect key="frame" x="16" y="28" width="34" height="30"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveProjectAction:" destination="kdB-qw-FxK" eventType="touchUpInside" id="xGI-Kq-Rrk"/>
-                                </connections>
-                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HbV-TP-QrJ">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="vMT-bj-VG2">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LFN-Tg-7nf">
+                                            <rect key="frame" x="16" y="28" width="34" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Save">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="saveProjectAction:" destination="kdB-qw-FxK" eventType="touchUpInside" id="xGI-Kq-Rrk"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="reply" id="ERu-hk-Qig">
+                                        <connections>
+                                            <action selector="backAction:" destination="kdB-qw-FxK" id="cyu-FT-YsK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HbV-TP-QrJ" firstAttribute="bottom" secondItem="4SX-PK-wvz" secondAttribute="top" id="KGj-hs-Bkb"/>
+                            <constraint firstItem="HbV-TP-QrJ" firstAttribute="leading" secondItem="ISY-8I-Sxl" secondAttribute="leading" id="Mv8-rV-OEY"/>
+                            <constraint firstAttribute="trailing" secondItem="HbV-TP-QrJ" secondAttribute="trailing" id="mNl-UA-dzM"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="view" destination="ISY-8I-Sxl" id="8JN-Jf-0ZS"/>

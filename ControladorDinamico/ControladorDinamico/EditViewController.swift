@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class EditViewController : UIViewController, UIAlertViewDelegate {
-    let documentsPath : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask,true)[0] as NSString
     var scene:EditScene?
     var project:Project?
 
@@ -50,24 +49,21 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
         }
     }
     
+    @IBAction func backAction(AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
     func saveProject() -> Bool {
         if (self.project != nil) {
-            
-            let fullName:NSString = self.project!.projectName.stringByAppendingPathExtension("txt")!
-            let destinationPath:NSString = documentsPath.stringByAppendingPathComponent(fullName)
             
             UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, UIScreen.mainScreen().scale);
             self.view.drawViewHierarchyInRect(self.view.bounds, afterScreenUpdates: true)
             let image = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
 
-            self.project!.preview = image;
-            self.project!.objects = self.scene!.objects;
-
-            let filemanager = NSFileManager.defaultManager()
-            if(!filemanager.fileExistsAtPath(destinationPath)){
-                return NSKeyedArchiver.archiveRootObject(self.project!, toFile:destinationPath)
-            }
+            self.project!.preview = image
+            self.project!.objects = self.scene!.objects
+            return ProjectManager.sharedInstance.saveProject(self.project!)
         }
         return false
     }

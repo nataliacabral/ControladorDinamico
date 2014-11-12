@@ -133,10 +133,13 @@
 				258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */,
 				251218441A0862480025ACEE /* ControladorDinamico-Bridging-Header.h */,
 				251218481A08625D0025ACEE /* Project.swift */,
+<<<<<<< HEAD
 				4984CABC1A115FC5004409F2 /* TouchListener.swift */,
-				2556633B1A11555900F6F820 /* ProjectManager.swift */,
 				4905AABF1A1166E20094C5A2 /* Collidable.swift */,
 				495BDEC81A1226A8000941E8 /* PlayScene.swift */,
+=======
+				2556633B1A11555900F6F820 /* ProjectManager.swift */,
+>>>>>>> bcf69a451b36f4b4cf1ea846a0de459c7c05f36a
 			);
 			path = ControladorDinamico;
 			sourceTree = "<group>";

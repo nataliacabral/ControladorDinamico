@@ -15,22 +15,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     var selectedIndex:Int = -1
     var projects:NSMutableArray = NSMutableArray()
-    let documentsPath : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask,true)[0] as NSString
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var error: NSError? = nil
-        let fileManager = NSFileManager.defaultManager()
-        let contents = fileManager.contentsOfDirectoryAtPath(documentsPath, error: &error)
-        if contents != nil {
-            let filenames = contents as [String]
-            for name in filenames {
-                let filePath:NSString = documentsPath.stringByAppendingPathComponent(name)
-                let project:Project =  NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as Project
-                projects.addObject(project)
-            }
-        }
+        self.projects = NSMutableArray(array: ProjectManager.sharedInstance.allProjects())
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,27 +66,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (self.selectedIndex >= 0) {
             let selectedProject:Project = self.projects.objectAtIndex(self.selectedIndex) as Project
             self.projects.removeObjectAtIndex(self.selectedIndex)
-            let filemanager = NSFileManager.defaultManager()
-            let projectName:NSString = selectedProject.projectName.stringByAppendingPathExtension("txt")!
-            let projectPath:NSString = documentsPath.stringByAppendingPathComponent(projectName)
 
-            if(filemanager.fileExistsAtPath(projectPath)){
-                var error: NSError? = nil
-                if (filemanager.removeItemAtPath(projectPath, error: &error)){
-                    self.tableView.reloadData()
-                    
-                    if (self.selectedIndex < self.projects.count) {
-                        self.selectProject(atIndex: self.selectedIndex)
-                    } else {
-                        self.selectProject(atIndex: (self.selectedIndex-1))
-                    }
-                    
+            var error: NSError? = nil
+            if(ProjectManager.sharedInstance.removeProject(selectedProject, error: &error)) {
+                self.tableView.reloadData()
+                
+                if (self.selectedIndex < self.projects.count) {
+                    self.selectProject(atIndex: self.selectedIndex)
                 } else {
-                    NSLog("error %@ ", error!.localizedDescription)
+                    self.selectProject(atIndex: (self.selectedIndex-1))
                 }
+                
+            } else {
+                NSLog("error %@ ", error!.localizedDescription)
             }
         }
     }
-
 }
 
