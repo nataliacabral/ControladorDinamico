@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/EditScene.swift"
-            timestampString = "436829868.820621"
+            timestampString = "437520667.412838"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "init(size:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -94,9 +94,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "removeSelectedObject(_:)"
-            landmarkType = "5">
+            endingLineNumber = "93">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -111,8 +109,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
             endingLineNumber = "64"
-            landmarkName = "selectProject(atIndex:)"
-            landmarkType = "5">
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -126,9 +124,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "removeSelectedObject(_:)"
-            landmarkType = "5">
+            endingLineNumber = "89">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

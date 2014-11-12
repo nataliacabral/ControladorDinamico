@@ -16,6 +16,24 @@
 		251218411A0842720025ACEE /* UK.png in Resources */ = {isa = PBXBuildFile; fileRef = 2512183E1A0842720025ACEE /* UK.png */; };
 		251218491A08625D0025ACEE /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251218481A08625D0025ACEE /* Project.swift */; };
 		2556633C1A11555900F6F820 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556633B1A11555900F6F820 /* ProjectManager.swift */; };
+		2556636C1A13F98C00F6F820 /* ButtonSoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556636B1A13F98C00F6F820 /* ButtonSoundObject.swift */; };
+		2556636E1A13F9ED00F6F820 /* SpringSoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556636D1A13F9ED00F6F820 /* SpringSoundObject.swift */; };
+		255663701A13FA0000F6F820 /* SliderSoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556636F1A13FA0000F6F820 /* SliderSoundObject.swift */; };
+		255663721A13FA9400F6F820 /* RouletteSoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255663711A13FA9400F6F820 /* RouletteSoundObject.swift */; };
+		255663741A13FAAA00F6F820 /* TreadmillSoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255663731A13FAAA00F6F820 /* TreadmillSoundObject.swift */; };
+		255663761A13FAB800F6F820 /* ThermalSoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255663751A13FAB800F6F820 /* ThermalSoundObject.swift */; };
+		2557DBDC1A13FCB20003AB5D /* Botão_V1.psd in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBD01A13FCB20003AB5D /* Botão_V1.psd */; };
+		2557DBDD1A13FCB20003AB5D /* CANVAS.psd in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBD21A13FCB20003AB5D /* CANVAS.psd */; };
+		2557DBDE1A13FCB20003AB5D /* DEMO.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBD31A13FCB20003AB5D /* DEMO.mp4 */; };
+		2557DBDF1A13FCB20003AB5D /* slider_MOLA_V1.psd in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBD51A13FCB20003AB5D /* slider_MOLA_V1.psd */; };
+		2557DBE01A13FCB20003AB5D /* Roleta_V1.psd in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBD71A13FCB20003AB5D /* Roleta_V1.psd */; };
+		2557DBE11A13FCB20003AB5D /* slider_V1.psd in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBD91A13FCB20003AB5D /* slider_V1.psd */; };
+		2557DBE21A13FCB20003AB5D /* Term_TOQUE_V1.psd in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBDB1A13FCB20003AB5D /* Term_TOQUE_V1.psd */; };
+		2557DBE41A13FE940003AB5D /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBE31A13FE940003AB5D /* button.png */; };
+		2557DBEE1A14067B0003AB5D /* spring.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBED1A14067B0003AB5D /* spring.png */; };
+		2557DBF01A14068C0003AB5D /* roulette.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBEF1A14068C0003AB5D /* roulette.png */; };
+		2557DBF21A1406AB0003AB5D /* slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBF11A1406AB0003AB5D /* slider.png */; };
+		2557DBF41A1406B80003AB5D /* thermal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBF31A1406B80003AB5D /* thermal.png */; };
 		258D1FEF1A0182EE00ACFC93 /* SoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FEE1A0182EE00ACFC93 /* SoundObject.swift */; };
 		258D1FF11A01849800ACFC93 /* ObjectsPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FF01A01849800ACFC93 /* ObjectsPalette.swift */; };
 		258D1FFB1A019BF900ACFC93 /* SoundObjectTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */; };
@@ -53,6 +71,24 @@
 		251218441A0862480025ACEE /* ControladorDinamico-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ControladorDinamico-Bridging-Header.h"; sourceTree = "<group>"; };
 		251218481A08625D0025ACEE /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		2556633B1A11555900F6F820 /* ProjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
+		2556636B1A13F98C00F6F820 /* ButtonSoundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonSoundObject.swift; sourceTree = "<group>"; };
+		2556636D1A13F9ED00F6F820 /* SpringSoundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringSoundObject.swift; sourceTree = "<group>"; };
+		2556636F1A13FA0000F6F820 /* SliderSoundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderSoundObject.swift; sourceTree = "<group>"; };
+		255663711A13FA9400F6F820 /* RouletteSoundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouletteSoundObject.swift; sourceTree = "<group>"; };
+		255663731A13FAAA00F6F820 /* TreadmillSoundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreadmillSoundObject.swift; sourceTree = "<group>"; };
+		255663751A13FAB800F6F820 /* ThermalSoundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThermalSoundObject.swift; sourceTree = "<group>"; };
+		2557DBD01A13FCB20003AB5D /* Botão_V1.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Botão_V1.psd"; sourceTree = "<group>"; };
+		2557DBD21A13FCB20003AB5D /* CANVAS.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = CANVAS.psd; sourceTree = "<group>"; };
+		2557DBD31A13FCB20003AB5D /* DEMO.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = DEMO.mp4; sourceTree = "<group>"; };
+		2557DBD51A13FCB20003AB5D /* slider_MOLA_V1.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = slider_MOLA_V1.psd; sourceTree = "<group>"; };
+		2557DBD71A13FCB20003AB5D /* Roleta_V1.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = Roleta_V1.psd; sourceTree = "<group>"; };
+		2557DBD91A13FCB20003AB5D /* slider_V1.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = slider_V1.psd; sourceTree = "<group>"; };
+		2557DBDB1A13FCB20003AB5D /* Term_TOQUE_V1.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = Term_TOQUE_V1.psd; sourceTree = "<group>"; };
+		2557DBE31A13FE940003AB5D /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		2557DBED1A14067B0003AB5D /* spring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spring.png; sourceTree = "<group>"; };
+		2557DBEF1A14068C0003AB5D /* roulette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette.png; sourceTree = "<group>"; };
+		2557DBF11A1406AB0003AB5D /* slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider.png; sourceTree = "<group>"; };
+		2557DBF31A1406B80003AB5D /* thermal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thermal.png; sourceTree = "<group>"; };
 		258D1FEE1A0182EE00ACFC93 /* SoundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundObject.swift; sourceTree = "<group>"; };
 		258D1FF01A01849800ACFC93 /* ObjectsPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectsPalette.swift; path = ../ObjectsPalette.swift; sourceTree = "<group>"; };
 		258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundObjectTemplate.swift; sourceTree = "<group>"; };
@@ -92,6 +128,87 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2556636A1A13F95000F6F820 /* SoundObject */ = {
+			isa = PBXGroup;
+			children = (
+				258D1FEE1A0182EE00ACFC93 /* SoundObject.swift */,
+				2556636B1A13F98C00F6F820 /* ButtonSoundObject.swift */,
+				2556636D1A13F9ED00F6F820 /* SpringSoundObject.swift */,
+				2556636F1A13FA0000F6F820 /* SliderSoundObject.swift */,
+				255663711A13FA9400F6F820 /* RouletteSoundObject.swift */,
+				255663731A13FAAA00F6F820 /* TreadmillSoundObject.swift */,
+				255663751A13FAB800F6F820 /* ThermalSoundObject.swift */,
+			);
+			name = SoundObject;
+			sourceTree = "<group>";
+		};
+		2557DBCE1A13FCB20003AB5D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				2557DBCF1A13FCB20003AB5D /* BOTAO */,
+				2557DBD11A13FCB20003AB5D /* CANVAS */,
+				2557DBD31A13FCB20003AB5D /* DEMO.mp4 */,
+				2557DBD41A13FCB20003AB5D /* MOLA */,
+				2557DBD61A13FCB20003AB5D /* ROLETA */,
+				2557DBD81A13FCB20003AB5D /* SLIDER */,
+				2557DBDA1A13FCB20003AB5D /* TERM_TOQUE */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		2557DBCF1A13FCB20003AB5D /* BOTAO */ = {
+			isa = PBXGroup;
+			children = (
+				2557DBE31A13FE940003AB5D /* button.png */,
+				2557DBD01A13FCB20003AB5D /* Botão_V1.psd */,
+			);
+			path = BOTAO;
+			sourceTree = "<group>";
+		};
+		2557DBD11A13FCB20003AB5D /* CANVAS */ = {
+			isa = PBXGroup;
+			children = (
+				2557DBD21A13FCB20003AB5D /* CANVAS.psd */,
+			);
+			path = CANVAS;
+			sourceTree = "<group>";
+		};
+		2557DBD41A13FCB20003AB5D /* MOLA */ = {
+			isa = PBXGroup;
+			children = (
+				2557DBED1A14067B0003AB5D /* spring.png */,
+				2557DBD51A13FCB20003AB5D /* slider_MOLA_V1.psd */,
+			);
+			path = MOLA;
+			sourceTree = "<group>";
+		};
+		2557DBD61A13FCB20003AB5D /* ROLETA */ = {
+			isa = PBXGroup;
+			children = (
+				2557DBEF1A14068C0003AB5D /* roulette.png */,
+				2557DBD71A13FCB20003AB5D /* Roleta_V1.psd */,
+			);
+			path = ROLETA;
+			sourceTree = "<group>";
+		};
+		2557DBD81A13FCB20003AB5D /* SLIDER */ = {
+			isa = PBXGroup;
+			children = (
+				2557DBF11A1406AB0003AB5D /* slider.png */,
+				2557DBD91A13FCB20003AB5D /* slider_V1.psd */,
+			);
+			path = SLIDER;
+			sourceTree = "<group>";
+		};
+		2557DBDA1A13FCB20003AB5D /* TERM_TOQUE */ = {
+			isa = PBXGroup;
+			children = (
+				2557DBF31A1406B80003AB5D /* thermal.png */,
+				2557DBDB1A13FCB20003AB5D /* Term_TOQUE_V1.psd */,
+			);
+			path = TERM_TOQUE;
+			sourceTree = "<group>";
+		};
 		259B909219F96D1400737E04 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +231,8 @@
 		259B909D19F96D1400737E04 /* ControladorDinamico */ = {
 			isa = PBXGroup;
 			children = (
+				2557DBCE1A13FCB20003AB5D /* images */,
+				2556636A1A13F95000F6F820 /* SoundObject */,
 				4905AAC41A1169460094C5A2 /* GridBound.swift */,
 				2512183C1A0842720025ACEE /* Argentina.png */,
 				2512183D1A0842720025ACEE /* Brazil.png */,
@@ -129,7 +248,6 @@
 				259B909E19F96D1400737E04 /* Supporting Files */,
 				2509940019FEE2CF00A6D24F /* EditViewController.swift */,
 				2509940419FEE86500A6D24F /* EditScene.swift */,
-				258D1FEE1A0182EE00ACFC93 /* SoundObject.swift */,
 				258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */,
 				251218441A0862480025ACEE /* ControladorDinamico-Bridging-Header.h */,
 				251218481A08625D0025ACEE /* Project.swift */,
@@ -248,13 +366,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2557DBF21A1406AB0003AB5D /* slider.png in Resources */,
+				2557DBEE1A14067B0003AB5D /* spring.png in Resources */,
+				2557DBDF1A13FCB20003AB5D /* slider_MOLA_V1.psd in Resources */,
 				259B90A619F96D1400737E04 /* Main.storyboard in Resources */,
 				251218411A0842720025ACEE /* UK.png in Resources */,
 				259B90AB19F96D1400737E04 /* LaunchScreen.xib in Resources */,
+				2557DBDE1A13FCB20003AB5D /* DEMO.mp4 in Resources */,
+				2557DBF41A1406B80003AB5D /* thermal.png in Resources */,
+				2557DBE01A13FCB20003AB5D /* Roleta_V1.psd in Resources */,
+				2557DBDD1A13FCB20003AB5D /* CANVAS.psd in Resources */,
 				259B90C919F9756200737E04 /* Images-3.xcassets in Resources */,
+				2557DBE21A13FCB20003AB5D /* Term_TOQUE_V1.psd in Resources */,
+				2557DBE41A13FE940003AB5D /* button.png in Resources */,
+				2557DBF01A14068C0003AB5D /* roulette.png in Resources */,
 				2512183F1A0842720025ACEE /* Argentina.png in Resources */,
 				2509940719FEF60300A6D24F /* sprite.jpeg in Resources */,
 				251218401A0842720025ACEE /* Brazil.png in Resources */,
+				2557DBE11A13FCB20003AB5D /* slider_V1.psd in Resources */,
+				2557DBDC1A13FCB20003AB5D /* Botão_V1.psd in Resources */,
 				259B90CB19F9768500737E04 /* LaunchImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,12 +408,18 @@
 				4905AAC51A1169460094C5A2 /* GridBound.swift in Sources */,
 				4905AAC01A1166E20094C5A2 /* Collidable.swift in Sources */,
 				259B90A119F96D1400737E04 /* AppDelegate.swift in Sources */,
+				255663701A13FA0000F6F820 /* SliderSoundObject.swift in Sources */,
 				258D1FF11A01849800ACFC93 /* ObjectsPalette.swift in Sources */,
 				2556633C1A11555900F6F820 /* ProjectManager.swift in Sources */,
 				2509940519FEE86500A6D24F /* EditScene.swift in Sources */,
+				2556636E1A13F9ED00F6F820 /* SpringSoundObject.swift in Sources */,
+				255663761A13FAB800F6F820 /* ThermalSoundObject.swift in Sources */,
+				2556636C1A13F98C00F6F820 /* ButtonSoundObject.swift in Sources */,
+				255663741A13FAAA00F6F820 /* TreadmillSoundObject.swift in Sources */,
 				258D1FEF1A0182EE00ACFC93 /* SoundObject.swift in Sources */,
 				2509940119FEE2CF00A6D24F /* EditViewController.swift in Sources */,
 				251218491A08625D0025ACEE /* Project.swift in Sources */,
+				255663721A13FA9400F6F820 /* RouletteSoundObject.swift in Sources */,
 				495BDEC91A1226A8000941E8 /* PlayScene.swift in Sources */,
 				4984CABD1A115FC5004409F2 /* TouchListener.swift in Sources */,
 			);

@@ -13,7 +13,7 @@ class SoundObject: SKSpriteNode, NSCoding, TouchListener, Collidable, GridBound
 {
     var imageName:String = ""
     var moving:Bool = false
-    
+        
     init(imageName:String, size:CGSize) {
         self.imageName = imageName
         var texture:SKTexture = SKTexture(imageNamed: imageName)

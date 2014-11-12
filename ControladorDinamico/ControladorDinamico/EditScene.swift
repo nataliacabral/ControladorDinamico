@@ -11,7 +11,7 @@ import SpriteKit
 
 class EditScene : SKScene
 {
-    let gridSize:CGFloat = 100
+    var gridSize:CGFloat = 100
     let distanceToCreateObject:CGFloat = 30
 
     var selectedNodeOriginalPos:CGPoint?
@@ -24,12 +24,14 @@ class EditScene : SKScene
     {
         super.init(size: size)
         self.scene?.backgroundColor = UIColor.whiteColor()
+        gridSize = size.width / 8
         
-        var sprite1:SoundObject = SoundObject(imageName:"sprite.jpeg", size:CGSize(width:gridSize * 2, height:gridSize * 2))
-        var sprite2:SoundObject = SoundObject(imageName:"Brazil.png", size:CGSize(width:gridSize * 2, height:gridSize * 2))
-        var sprite3:SoundObject = SoundObject(imageName:"UK.png", size:CGSize(width:gridSize * 2, height:gridSize * 1))
-        var sprite4:SoundObject = SoundObject(imageName:"Argentina.png", size:CGSize(width:gridSize * 1, height:gridSize * 2))
-        
+        var sprite1:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize)
+        var sprite2:SpringSoundObject = SpringSoundObject(gridSize:gridSize)
+        var sprite3:SliderSoundObject = SliderSoundObject(gridSize:gridSize)
+        var sprite4:RouletteSoundObject = RouletteSoundObject(gridSize:gridSize)
+        var sprite5:ThermalSoundObject = ThermalSoundObject(gridSize:gridSize)
+
         for (var y:CGFloat = 0 ; y < self.size.height ; y += gridSize) {
             var gridVerticalLine:SKShapeNode = SKShapeNode()
             var gridVerticalLinePath:CGMutablePathRef = CGPathCreateMutable()
@@ -54,19 +56,19 @@ class EditScene : SKScene
         var template2:SoundObjectTemplate = SoundObjectTemplate(object: sprite2)
         var template3:SoundObjectTemplate = SoundObjectTemplate(object: sprite3)
         var template4:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
-        var template5:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
-        var template6:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
-        var template7:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
-        var template8:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
-        var template9:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
-        var template10:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
-        var template11:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
+        var template5:SoundObjectTemplate = SoundObjectTemplate(object: sprite5)
+//        var template6:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
+//        var template7:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
+//        var template8:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
+//        var template9:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
+//        var template10:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
+//        var template11:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
 
         var width:CGFloat = self.size.width * 0.7
         var x:CGFloat = (self.size.width / 2) - width/2
 
         self.palette = ObjectsPalette(
-            objects: [template, template2, template3, template4, template5, template6, template7, template8, template9, template10, template11],
+            objects: [template, template2, template3, template4, template5],
             position:CGPoint(x: x, y: self.size.height - 100), size:CGSize(width: width, height: 100)
         )
         self.addChild(self.palette!)
