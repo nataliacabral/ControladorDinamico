@@ -10,10 +10,6 @@
 		2509940119FEE2CF00A6D24F /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509940019FEE2CF00A6D24F /* EditViewController.swift */; };
 		2509940319FEE64B00A6D24F /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2509940219FEE64B00A6D24F /* SpriteKit.framework */; };
 		2509940519FEE86500A6D24F /* EditScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509940419FEE86500A6D24F /* EditScene.swift */; };
-		2509940719FEF60300A6D24F /* sprite.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2509940619FEF60300A6D24F /* sprite.jpeg */; };
-		2512183F1A0842720025ACEE /* Argentina.png in Resources */ = {isa = PBXBuildFile; fileRef = 2512183C1A0842720025ACEE /* Argentina.png */; };
-		251218401A0842720025ACEE /* Brazil.png in Resources */ = {isa = PBXBuildFile; fileRef = 2512183D1A0842720025ACEE /* Brazil.png */; };
-		251218411A0842720025ACEE /* UK.png in Resources */ = {isa = PBXBuildFile; fileRef = 2512183E1A0842720025ACEE /* UK.png */; };
 		251218491A08625D0025ACEE /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251218481A08625D0025ACEE /* Project.swift */; };
 		2556633C1A11555900F6F820 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556633B1A11555900F6F820 /* ProjectManager.swift */; };
 		2556636C1A13F98C00F6F820 /* ButtonSoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556636B1A13F98C00F6F820 /* ButtonSoundObject.swift */; };
@@ -34,6 +30,7 @@
 		2557DBF01A14068C0003AB5D /* roulette.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBEF1A14068C0003AB5D /* roulette.png */; };
 		2557DBF21A1406AB0003AB5D /* slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBF11A1406AB0003AB5D /* slider.png */; };
 		2557DBF41A1406B80003AB5D /* thermal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBF31A1406B80003AB5D /* thermal.png */; };
+		2557DC131A16A3000003AB5D /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2557DC121A16A3000003AB5D /* PlayViewController.swift */; };
 		258D1FEF1A0182EE00ACFC93 /* SoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FEE1A0182EE00ACFC93 /* SoundObject.swift */; };
 		258D1FF11A01849800ACFC93 /* ObjectsPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FF01A01849800ACFC93 /* ObjectsPalette.swift */; };
 		258D1FFB1A019BF900ACFC93 /* SoundObjectTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */; };
@@ -64,10 +61,6 @@
 		2509940019FEE2CF00A6D24F /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		2509940219FEE64B00A6D24F /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		2509940419FEE86500A6D24F /* EditScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditScene.swift; sourceTree = "<group>"; };
-		2509940619FEF60300A6D24F /* sprite.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sprite.jpeg; sourceTree = SOURCE_ROOT; };
-		2512183C1A0842720025ACEE /* Argentina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Argentina.png; sourceTree = "<group>"; };
-		2512183D1A0842720025ACEE /* Brazil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Brazil.png; sourceTree = "<group>"; };
-		2512183E1A0842720025ACEE /* UK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UK.png; sourceTree = "<group>"; };
 		251218441A0862480025ACEE /* ControladorDinamico-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ControladorDinamico-Bridging-Header.h"; sourceTree = "<group>"; };
 		251218481A08625D0025ACEE /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		2556633B1A11555900F6F820 /* ProjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
@@ -89,6 +82,7 @@
 		2557DBEF1A14068C0003AB5D /* roulette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette.png; sourceTree = "<group>"; };
 		2557DBF11A1406AB0003AB5D /* slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider.png; sourceTree = "<group>"; };
 		2557DBF31A1406B80003AB5D /* thermal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thermal.png; sourceTree = "<group>"; };
+		2557DC121A16A3000003AB5D /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		258D1FEE1A0182EE00ACFC93 /* SoundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundObject.swift; sourceTree = "<group>"; };
 		258D1FF01A01849800ACFC93 /* ObjectsPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectsPalette.swift; path = ../ObjectsPalette.swift; sourceTree = "<group>"; };
 		258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundObjectTemplate.swift; sourceTree = "<group>"; };
@@ -234,27 +228,24 @@
 				2557DBCE1A13FCB20003AB5D /* images */,
 				2556636A1A13F95000F6F820 /* SoundObject */,
 				4905AAC41A1169460094C5A2 /* GridBound.swift */,
-				2512183C1A0842720025ACEE /* Argentina.png */,
-				2512183D1A0842720025ACEE /* Brazil.png */,
-				2512183E1A0842720025ACEE /* UK.png */,
 				258D1FF01A01849800ACFC93 /* ObjectsPalette.swift */,
-				259B90A019F96D1400737E04 /* AppDelegate.swift */,
 				259B90A219F96D1400737E04 /* ViewController.swift */,
-				2509940619FEF60300A6D24F /* sprite.jpeg */,
+				2509940019FEE2CF00A6D24F /* EditViewController.swift */,
+				2509940419FEE86500A6D24F /* EditScene.swift */,
+				258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */,
+				259B90A019F96D1400737E04 /* AppDelegate.swift */,
 				259B90A419F96D1400737E04 /* Main.storyboard */,
 				259B90A919F96D1400737E04 /* LaunchScreen.xib */,
 				259B90C819F9756200737E04 /* Images-3.xcassets */,
 				259B90CA19F9768500737E04 /* LaunchImage.png */,
 				259B909E19F96D1400737E04 /* Supporting Files */,
-				2509940019FEE2CF00A6D24F /* EditViewController.swift */,
-				2509940419FEE86500A6D24F /* EditScene.swift */,
-				258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */,
 				251218441A0862480025ACEE /* ControladorDinamico-Bridging-Header.h */,
 				251218481A08625D0025ACEE /* Project.swift */,
 				4984CABC1A115FC5004409F2 /* TouchListener.swift */,
 				2556633B1A11555900F6F820 /* ProjectManager.swift */,
 				4905AABF1A1166E20094C5A2 /* Collidable.swift */,
 				495BDEC81A1226A8000941E8 /* PlayScene.swift */,
+				2557DC121A16A3000003AB5D /* PlayViewController.swift */,
 			);
 			path = ControladorDinamico;
 			sourceTree = "<group>";
@@ -370,7 +361,6 @@
 				2557DBEE1A14067B0003AB5D /* spring.png in Resources */,
 				2557DBDF1A13FCB20003AB5D /* slider_MOLA_V1.psd in Resources */,
 				259B90A619F96D1400737E04 /* Main.storyboard in Resources */,
-				251218411A0842720025ACEE /* UK.png in Resources */,
 				259B90AB19F96D1400737E04 /* LaunchScreen.xib in Resources */,
 				2557DBDE1A13FCB20003AB5D /* DEMO.mp4 in Resources */,
 				2557DBF41A1406B80003AB5D /* thermal.png in Resources */,
@@ -380,9 +370,6 @@
 				2557DBE21A13FCB20003AB5D /* Term_TOQUE_V1.psd in Resources */,
 				2557DBE41A13FE940003AB5D /* button.png in Resources */,
 				2557DBF01A14068C0003AB5D /* roulette.png in Resources */,
-				2512183F1A0842720025ACEE /* Argentina.png in Resources */,
-				2509940719FEF60300A6D24F /* sprite.jpeg in Resources */,
-				251218401A0842720025ACEE /* Brazil.png in Resources */,
 				2557DBE11A13FCB20003AB5D /* slider_V1.psd in Resources */,
 				2557DBDC1A13FCB20003AB5D /* Botão_V1.psd in Resources */,
 				259B90CB19F9768500737E04 /* LaunchImage.png in Resources */,
@@ -419,6 +406,7 @@
 				258D1FEF1A0182EE00ACFC93 /* SoundObject.swift in Sources */,
 				2509940119FEE2CF00A6D24F /* EditViewController.swift in Sources */,
 				251218491A08625D0025ACEE /* Project.swift in Sources */,
+				2557DC131A16A3000003AB5D /* PlayViewController.swift in Sources */,
 				255663721A13FA9400F6F820 /* RouletteSoundObject.swift in Sources */,
 				495BDEC91A1226A8000941E8 /* PlayScene.swift in Sources */,
 				4984CABD1A115FC5004409F2 /* TouchListener.swift in Sources */,

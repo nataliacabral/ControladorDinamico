@@ -11,7 +11,7 @@ import SpriteKit
 
 class EditScene : SKScene
 {
-    var gridSize:CGFloat = 100
+    var gridSize:CGFloat
     let distanceToCreateObject:CGFloat = 30
 
     var selectedNodeOriginalPos:CGPoint?
@@ -22,16 +22,11 @@ class EditScene : SKScene
     
     override init(size: CGSize)
     {
+        self.gridSize = size.width / 8
         super.init(size: size)
-        self.scene?.backgroundColor = UIColor.whiteColor()
-        gridSize = size.width / 8
-        
-        var sprite1:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize)
-        var sprite2:SpringSoundObject = SpringSoundObject(gridSize:gridSize)
-        var sprite3:SliderSoundObject = SliderSoundObject(gridSize:gridSize)
-        var sprite4:RouletteSoundObject = RouletteSoundObject(gridSize:gridSize)
-        var sprite5:ThermalSoundObject = ThermalSoundObject(gridSize:gridSize)
+        self.scene?.backgroundColor = UIColor.blackColor()
 
+        //Grid
         for (var y:CGFloat = 0 ; y < self.size.height ; y += gridSize) {
             var gridVerticalLine:SKShapeNode = SKShapeNode()
             var gridVerticalLinePath:CGMutablePathRef = CGPathCreateMutable()
@@ -52,23 +47,24 @@ class EditScene : SKScene
             self.addChild(gridHorizontalLine)
         }
         
-        var template:SoundObjectTemplate = SoundObjectTemplate(object: sprite1)
-        var template2:SoundObjectTemplate = SoundObjectTemplate(object: sprite2)
-        var template3:SoundObjectTemplate = SoundObjectTemplate(object: sprite3)
-        var template4:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
-        var template5:SoundObjectTemplate = SoundObjectTemplate(object: sprite5)
-//        var template6:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
-//        var template7:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
-//        var template8:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
-//        var template9:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
-//        var template10:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
-//        var template11:SoundObjectTemplate = SoundObjectTemplate(object: sprite4)
+        // Palette
+        var buttonSprite:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize)
+        var springSprite:SpringSoundObject = SpringSoundObject(gridSize:gridSize)
+        var sliderSprite:SliderSoundObject = SliderSoundObject(gridSize:gridSize)
+        var rouletteSprite:RouletteSoundObject = RouletteSoundObject(gridSize:gridSize)
+        var thermalSprite:ThermalSoundObject = ThermalSoundObject(gridSize:gridSize)
+        
+        var buttonTemplate:SoundObjectTemplate = SoundObjectTemplate(object: buttonSprite)
+        var springTemplate:SoundObjectTemplate = SoundObjectTemplate(object: springSprite)
+        var sliderTemplate:SoundObjectTemplate = SoundObjectTemplate(object: sliderSprite)
+        var rouletteTemplate:SoundObjectTemplate = SoundObjectTemplate(object: rouletteSprite)
+        var thermalTemplate:SoundObjectTemplate = SoundObjectTemplate(object: thermalSprite)
 
         var width:CGFloat = self.size.width * 0.7
         var x:CGFloat = (self.size.width / 2) - width/2
 
         self.palette = ObjectsPalette(
-            objects: [template, template2, template3, template4, template5],
+            objects: [buttonTemplate, springTemplate, sliderTemplate, rouletteTemplate, thermalTemplate],
             position:CGPoint(x: x, y: self.size.height - 100), size:CGSize(width: width, height: 100)
         )
         self.addChild(self.palette!)

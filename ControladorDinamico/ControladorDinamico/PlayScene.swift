@@ -11,7 +11,7 @@ import SpriteKit
 
 class PlayScene : SKScene
 {
-    let gridSize:CGFloat = 100
+    var gridSize:CGFloat
     let distanceToCreateObject:CGFloat = 30
     
     var selectedNode:SKSpriteNode?
@@ -19,14 +19,11 @@ class PlayScene : SKScene
     
     override init(size: CGSize)
     {
+        self.gridSize = size.width / 8
         super.init(size: size)
-        self.scene?.backgroundColor = UIColor.whiteColor()
+        self.scene?.backgroundColor = UIColor.blackColor()
         
-        var sprite1:SoundObject = SoundObject(imageName:"sprite.jpeg", size:CGSize(width:gridSize * 2, height:gridSize * 2))
-        var sprite2:SoundObject = SoundObject(imageName:"Brazil.png", size:CGSize(width:gridSize * 2, height:gridSize * 2))
-        var sprite3:SoundObject = SoundObject(imageName:"UK.png", size:CGSize(width:gridSize * 2, height:gridSize * 1))
-        var sprite4:SoundObject = SoundObject(imageName:"Argentina.png", size:CGSize(width:gridSize * 1, height:gridSize * 2))
-        
+        //Grid
         for (var y:CGFloat = 0 ; y < self.size.height ; y += gridSize) {
             var gridVerticalLine:SKShapeNode = SKShapeNode()
             var gridVerticalLinePath:CGMutablePathRef = CGPathCreateMutable()
@@ -48,7 +45,17 @@ class PlayScene : SKScene
         }
     }
     
+    override func didMoveToView(view: SKView) {
+        
+        for obj in objects
+        {
+            self.addChild((obj.copy() as SoundObject))
+        }
+    }
+
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }

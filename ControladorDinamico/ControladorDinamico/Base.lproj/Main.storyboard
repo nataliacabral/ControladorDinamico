@@ -132,6 +132,11 @@
                                             <action selector="backAction:" destination="kdB-qw-FxK" id="cyu-FT-YsK"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem systemItem="play" id="RMk-0Y-UcZ">
+                                        <connections>
+                                            <segue destination="Cir-OV-m12" kind="show" identifier="play" id="ToK-rS-KlL"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -149,6 +154,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIW-Md-RMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="666" y="188"/>
+        </scene>
+        <!--Play View Controller-->
+        <scene sceneID="SrC-89-hWn">
+            <objects>
+                <viewController id="Cir-OV-m12" customClass="PlayViewController" customModule="ControladorDinamico" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aoQ-lZ-B0J"/>
+                        <viewControllerLayoutGuide type="bottom" id="czS-Gq-wKq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WHW-US-2b6" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3f-Os-YCe">
+                                <rect key="frame" x="0.0" y="570" width="35" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backAction:" destination="Cir-OV-m12" eventType="touchUpInside" id="3dM-pH-Yz4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="czS-Gq-wKq" firstAttribute="top" secondItem="d3f-Os-YCe" secondAttribute="bottom" id="68l-wN-Zhz"/>
+                            <constraint firstItem="d3f-Os-YCe" firstAttribute="leading" secondItem="WHW-US-2b6" secondAttribute="leadingMargin" constant="-16" id="bXK-Ij-EfP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="view" destination="WHW-US-2b6" id="l6v-lc-QTH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jep-LW-uIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1455" y="180"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

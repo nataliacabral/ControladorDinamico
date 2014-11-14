@@ -31,13 +31,6 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
         }
         skView.presentScene(scene)
     }
-    override func shouldAutorotate() -> Bool {
-        return true
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     @IBAction func saveProjectAction(AnyObject) {
          if (self.project == nil) {
@@ -76,4 +69,10 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
         }
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "play" {
+            let playViewController = segue.destinationViewController as PlayViewController
+            playViewController.project = self.project!
+        }
+    }
 }

@@ -13,7 +13,17 @@ class SoundObject: SKSpriteNode, NSCoding, TouchListener, Collidable, GridBound
 {
     var imageName:String = ""
     var moving:Bool = false
-        
+    
+    override init()
+    {
+        super.init()
+    }
+    
+    override init(texture: SKTexture!, color: UIColor!, size: CGSize)
+    {
+        super.init(texture: texture, color: color, size: size)
+    }
+    
     init(imageName:String, size:CGSize) {
         self.imageName = imageName
         var texture:SKTexture = SKTexture(imageNamed: imageName)
@@ -26,6 +36,8 @@ class SoundObject: SKSpriteNode, NSCoding, TouchListener, Collidable, GridBound
         self.init(imageName:imgName, size:CGSize(width:10,height:10))
         self.position.x = CGFloat(aDecoder.decodeObjectForKey("x")!.integerValue)
         self.position.y = CGFloat(aDecoder.decodeObjectForKey("y")!.integerValue)
+        self.position.y = CGFloat(aDecoder.decodeObjectForKey("y")!.integerValue)
+
     }
     
     override func encodeWithCoder(aCoder: NSCoder) {
