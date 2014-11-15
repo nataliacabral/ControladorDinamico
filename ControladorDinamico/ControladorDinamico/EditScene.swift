@@ -161,20 +161,16 @@ class EditScene : SKScene
                     position.x = gridSize * round((position.x / gridSize))
                     position.y = gridSize * round((position.y / gridSize))
                     self.selectedNode!.position = position
-                    
                 }
                 
                 if (self.selectedNode is Collidable)
                 {
                     if (self.checkCollisionForCollidable(selectedNode as Collidable))
                     {
-                        if (self.creatingObject) {
-                            self.selectedNode?.removeFromParent();
-                        }
-                        else
-                        {
-                            self.selectedNode!.position = self.selectedNodeOriginalPos!
-                        }
+                        self.cancelPlacement(selectedNode!);
+                    }
+                    else if self.isOutOfScreen(selectedNode!) {
+                            self.cancelPlacement(selectedNode!);
                     }
                 }
                 if (self.selectedNode is SoundObjectTemplate) {
@@ -189,6 +185,24 @@ class EditScene : SKScene
             break;
         default:
             break;
+        }
+    }
+    
+    func isOutOfScreen(node:SKSpriteNode) -> Bool
+    {
+        return (node.position.x < self.position.x ||
+            node.position.x + node.size.width > self.position.x + self.size.width ||
+            node.position.y < self.position.y ||
+            node.position.y + node.size.height > self.position.y + self.size.height);
+    }
+    
+    func cancelPlacement(node:SKSpriteNode) {
+        if (self.creatingObject) {
+            self.selectedNode?.removeFromParent();
+        }
+        else
+        {
+            self.selectedNode!.position = self.selectedNodeOriginalPos!
         }
     }
 
