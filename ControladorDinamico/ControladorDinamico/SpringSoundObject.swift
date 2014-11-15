@@ -11,8 +11,8 @@ import SpriteKit
 
 class SpringSoundObject : SoundObject
 {
-    let gridHeight:CGFloat = 3
-    let gridWidth:CGFloat = 1
+    override var gridHeight:CGFloat { get { return 3 } }
+    override var gridWidth:CGFloat { get { return 1 } }
     override var imageName:String { get { return "spring.png" } }
 
     override init()
@@ -29,7 +29,7 @@ class SpringSoundObject : SoundObject
         super.init(coder:aDecoder)
     }
     
-    init(gridSize:CGFloat) {
-        super.init(size:CGSize(width: gridWidth * gridSize, height: gridHeight * gridSize))
+    override init(gridSize:CGFloat) {
+        super.init(gridSize:gridSize)
     }
 }

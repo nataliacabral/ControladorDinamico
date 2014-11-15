@@ -46,6 +46,8 @@ class PlayScene : SKScene
     }
     
     override func didMoveToView(view: SKView) {
+        var gestureRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePanFromRecognizer:"))
+        self.view?.addGestureRecognizer(gestureRecognizer)
         
         for obj in objects
         {
@@ -53,7 +55,42 @@ class PlayScene : SKScene
         }
     }
 
-    
+    func handlePanFromRecognizer(recognizer:UIPanGestureRecognizer) {
+        switch(recognizer.state) {
+        case UIGestureRecognizerState.Began:
+            var touchLocation:CGPoint = recognizer.locationInView(recognizer.view)
+            touchLocation = self.convertPointFromView(touchLocation)
+            var touchedNode:SKNode? = self.nodeAtPoint(touchLocation)
+            
+            if (selectedNode == nil ||
+                !self.selectedNode!.isEqual(touchedNode)) {
+                    
+                    if (selectedNode != nil) {
+                        self.selectedNode!.removeAllActions()
+                    }
+                    self.selectedNode = touchedNode as SKSpriteNode?
+            }
+            
+            break;
+            
+        case UIGestureRecognizerState.Changed:
+            var translation:CGPoint = recognizer.translationInView(recognizer.view!)
+            translation = CGPointMake(translation.x, -translation.y)
+            
+           
+            
+            break;
+            
+        case UIGestureRecognizerState.Ended:
+            if (self.selectedNode != nil) {
+                           self.selectedNode = nil
+            }
+            break;
+        default:
+            break;
+        }
+    }
+
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -11,8 +11,8 @@ import SpriteKit
 
 class ThermalSoundObject : SoundObject
 {
-    let gridHeight:CGFloat = 2
-    let gridWidth:CGFloat = 2
+    override var gridHeight:CGFloat { get { return 2 } }
+    override var gridWidth:CGFloat { get { return 2 } }
     override var imageName:String { get { return "thermal.png" } }
     
     override init()
@@ -29,7 +29,7 @@ class ThermalSoundObject : SoundObject
         super.init(coder:aDecoder)
     }
     
-    init(gridSize:CGFloat) {
-        super.init(size:CGSize(width: gridWidth * gridSize, height: gridHeight * gridSize))
+    override init(gridSize:CGFloat) {
+        super.init(gridSize:gridSize)
     }
 }

@@ -93,6 +93,7 @@ class EditScene : SKScene
         
         for obj in objects
         {
+            (obj as SoundObject).updateGridSize(self.gridSize)
             self.addChild((obj as SoundObject))
         }
     }

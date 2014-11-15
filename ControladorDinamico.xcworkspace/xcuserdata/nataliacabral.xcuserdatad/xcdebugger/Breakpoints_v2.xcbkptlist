@@ -118,13 +118,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/ButtonSoundObject.swift"
-            timestampString = "437770218.411089"
+            timestampString = "437773406.173855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "init(gridSize:)"
-            landmarkType = "5">
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "ButtonSoundObject"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

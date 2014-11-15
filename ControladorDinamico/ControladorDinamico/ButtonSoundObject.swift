@@ -11,8 +11,8 @@ import SpriteKit
 
 class ButtonSoundObject : SoundObject
 {
-    let gridHeight:CGFloat = 1
-    let gridWidth:CGFloat = 1
+    override var gridHeight:CGFloat { get { return 1 } }
+    override var gridWidth:CGFloat { get { return 1 } }
     override var imageName:String { get { return "button.png" } }
     
     override init()
@@ -29,7 +29,7 @@ class ButtonSoundObject : SoundObject
         super.init(coder:aDecoder)
     }
     
-    init(gridSize:CGFloat) {
-        super.init(size:CGSize(width: gridWidth * gridSize, height: gridHeight * gridSize))
+    override init(gridSize:CGFloat) {
+        super.init(gridSize:gridSize)
     }
 }
