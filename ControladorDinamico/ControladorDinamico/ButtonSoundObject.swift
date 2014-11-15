@@ -13,14 +13,23 @@ class ButtonSoundObject : SoundObject
 {
     let gridHeight:CGFloat = 1
     let gridWidth:CGFloat = 1
-
-    init(gridSize:CGFloat) {
-        var imageName: NSString = "button.png"
-        super.init(imageName:imageName, size:CGSize(width: gridWidth * gridSize, height: gridHeight * gridSize))
+    override var imageName:String { get { return "button.png" } }
+    
+    override init()
+    {
+        super.init()
+    }
+    
+    override init(texture: SKTexture!, color: UIColor!, size: CGSize)
+    {
+        super.init(texture: texture, color: color, size: size)
     }
     
     required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder:aDecoder)
     }
-
+    
+    init(gridSize:CGFloat) {
+        super.init(size:CGSize(width: gridWidth * gridSize, height: gridHeight * gridSize))
+    }
 }

@@ -16,10 +16,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var selectedIndex:Int = -1
     var projects:NSMutableArray = NSMutableArray()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewWillAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         self.projects = NSMutableArray(array: ProjectManager.sharedInstance.allProjects())
+        self.tableView .reloadData()
     }
 
     override func didReceiveMemoryWarning() {

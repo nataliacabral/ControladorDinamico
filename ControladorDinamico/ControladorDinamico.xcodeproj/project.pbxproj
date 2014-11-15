@@ -44,7 +44,6 @@
 		4905AAC01A1166E20094C5A2 /* Collidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905AABF1A1166E20094C5A2 /* Collidable.swift */; };
 		4905AAC51A1169460094C5A2 /* GridBound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905AAC41A1169460094C5A2 /* GridBound.swift */; };
 		495BDEC91A1226A8000941E8 /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495BDEC81A1226A8000941E8 /* PlayScene.swift */; };
-		4984CABD1A115FC5004409F2 /* TouchListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984CABC1A115FC5004409F2 /* TouchListener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,7 +99,6 @@
 		4905AABF1A1166E20094C5A2 /* Collidable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collidable.swift; sourceTree = "<group>"; };
 		4905AAC41A1169460094C5A2 /* GridBound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridBound.swift; path = ../GridBound.swift; sourceTree = "<group>"; };
 		495BDEC81A1226A8000941E8 /* PlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayScene.swift; sourceTree = "<group>"; };
-		4984CABC1A115FC5004409F2 /* TouchListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchListener.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,7 +239,6 @@
 				259B909E19F96D1400737E04 /* Supporting Files */,
 				251218441A0862480025ACEE /* ControladorDinamico-Bridging-Header.h */,
 				251218481A08625D0025ACEE /* Project.swift */,
-				4984CABC1A115FC5004409F2 /* TouchListener.swift */,
 				2556633B1A11555900F6F820 /* ProjectManager.swift */,
 				4905AABF1A1166E20094C5A2 /* Collidable.swift */,
 				495BDEC81A1226A8000941E8 /* PlayScene.swift */,
@@ -409,7 +406,6 @@
 				2557DC131A16A3000003AB5D /* PlayViewController.swift in Sources */,
 				255663721A13FA9400F6F820 /* RouletteSoundObject.swift in Sources */,
 				495BDEC91A1226A8000941E8 /* PlayScene.swift in Sources */,
-				4984CABD1A115FC5004409F2 /* TouchListener.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

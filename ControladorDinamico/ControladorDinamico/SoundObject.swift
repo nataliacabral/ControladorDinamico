@@ -9,10 +9,9 @@
 import Foundation
 import SpriteKit
 
-class SoundObject: SKSpriteNode, NSCoding, TouchListener, Collidable, GridBound
+class SoundObject: SKSpriteNode, NSCoding, NSCopying, Collidable, GridBound
 {
-    var imageName:String = ""
-    var moving:Bool = false
+    var imageName:String { get { return "" } }
     
     override init()
     {
@@ -24,40 +23,33 @@ class SoundObject: SKSpriteNode, NSCoding, TouchListener, Collidable, GridBound
         super.init(texture: texture, color: color, size: size)
     }
     
-    init(imageName:String, size:CGSize) {
-        self.imageName = imageName
-        var texture:SKTexture = SKTexture(imageNamed: imageName)
-        super.init(texture:texture, color: UIColor(), size:size)
+    init(size:CGSize) {
+        super.init()
+        var texture:SKTexture = SKTexture(imageNamed: self.imageName)
+        self.texture = texture
+        self.size = size
         self.anchorPoint = CGPoint(x: 0, y: 0)
     }
     
-    required convenience init(coder aDecoder: NSCoder) {
-        var imgName:NSString = aDecoder.decodeObjectForKey("imageName") as String
-        self.init(imageName:imgName, size:CGSize(width:10,height:10))
+    required init(coder aDecoder: NSCoder) {
+        super.init()
+        var texture:SKTexture = SKTexture(imageNamed: self.imageName)
+        self.texture = texture
+        self.anchorPoint = CGPoint(x: 0, y: 0)
         self.position.x = CGFloat(aDecoder.decodeObjectForKey("x")!.integerValue)
         self.position.y = CGFloat(aDecoder.decodeObjectForKey("y")!.integerValue)
-        self.position.y = CGFloat(aDecoder.decodeObjectForKey("y")!.integerValue)
+        self.size.width = CGFloat(aDecoder.decodeObjectForKey("width")!.floatValue)
+        self.size.height = CGFloat(aDecoder.decodeObjectForKey("height")!.floatValue)
 
     }
     
     override func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(self.imageName, forKey: "imageName")
         aCoder.encodeObject(self.position.x, forKey: "x")
         aCoder.encodeObject(self.position.y, forKey: "y")
+        aCoder.encodeObject(self.size.width, forKey: "width")
+        aCoder.encodeObject(self.size.height, forKey: "height")
     }
     
-    func touchBegan()
-    {
-        // TODO play
-    }
-    func touchMoved(recognizer:UIPanGestureRecognizer)
-    {
-        // TODO changePos
-    }
-    func touchEnded()
-    {
-        // TODO stop playing
-    }
     
     func collidesWith(otherObj: AnyObject) -> Bool
     {

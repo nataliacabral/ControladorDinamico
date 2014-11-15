@@ -22,14 +22,11 @@ class SoundObjectTemplate: SKSpriteNode
         super.init(coder: aDecoder)
     }
     
-    func createSoundObject() -> SoundObject? {
-        var newObject:SoundObject? = nil
-        if (object != nil) {
-            newObject = SoundObject(imageName:object!.imageName, size:object!.size)
-            newObject!.position.x = self.position.x + self.parent!.position.x
-            newObject!.position.y = self.position.y + self.parent!.position.y
-            newObject!.anchorPoint = CGPoint(x:0, y:0)
-        }
+    func createSoundObject() -> SoundObject {
+        var newObject = object!.copy() as SoundObject
+        newObject.position.x = self.position.x + self.parent!.position.x
+        newObject.position.y = self.position.y + self.parent!.position.y
+        newObject.anchorPoint = CGPoint(x:0, y:0)
         return newObject
     }
 }

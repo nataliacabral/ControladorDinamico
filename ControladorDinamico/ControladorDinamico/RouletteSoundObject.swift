@@ -11,16 +11,25 @@ import SpriteKit
 
 class RouletteSoundObject : SoundObject
 {
-    
     let gridHeight:CGFloat = 2
     let gridWidth:CGFloat = 2
+    override var imageName:String { get { return "roulette.png" } }
     
-    init(gridSize:CGFloat) {
-        var imageName: NSString = "roulette.png"
-        super.init(imageName:imageName, size:CGSize(width: gridWidth * gridSize, height: gridHeight * gridSize))
+    override init()
+    {
+        super.init()
+    }
+    
+    override init(texture: SKTexture!, color: UIColor!, size: CGSize)
+    {
+        super.init(texture: texture, color: color, size: size)
     }
     
     required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder:aDecoder)
+    }
+    
+    init(gridSize:CGFloat) {
+        super.init(size:CGSize(width: gridWidth * gridSize, height: gridHeight * gridSize))
     }
 }

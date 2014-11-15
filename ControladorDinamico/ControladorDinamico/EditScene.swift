@@ -128,12 +128,10 @@ class EditScene : SKScene
         case UIGestureRecognizerState.Changed:
             var translation:CGPoint = recognizer.translationInView(recognizer.view!)
             translation = CGPointMake(translation.x, -translation.y)
-            if (self.selectedNode is TouchListener) {
-                (selectedNode as TouchListener).touchMoved(recognizer)
-            }
+
             if (self.selectedNode is SoundObjectTemplate) {
                 if (translation.y < -self.distanceToCreateObject) {
-                    var newObject:SoundObject = (self.selectedNode as SoundObjectTemplate).createSoundObject()!
+                    var newObject:SoundObject = (self.selectedNode as SoundObjectTemplate).createSoundObject()
                     self.selectNode(newObject)
                     self.addChild(newObject)
                     self.objects.addObject(newObject)
@@ -156,9 +154,7 @@ class EditScene : SKScene
 
         case UIGestureRecognizerState.Ended:
             if (self.selectedNode != nil) {
-                if (self.selectedNode is TouchListener) {
-                    (selectedNode as TouchListener).touchEnded()
-                }
+               
                 if (self.selectedNode is GridBound) {
                     var position:CGPoint = self.selectedNode!.position
                     position.x = gridSize * round((position.x / gridSize))
@@ -166,6 +162,7 @@ class EditScene : SKScene
                     self.selectedNode!.position = position
                     
                 }
+                
                 if (self.selectedNode is Collidable)
                 {
                     if (self.checkCollisionForCollidable(selectedNode as Collidable))

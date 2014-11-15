@@ -7,8 +7,24 @@
 //
 
 import Foundation
+import SpriteKit
 
 class TreadmillSoundObject : SoundObject
 {
+    override var imageName:String { get { return "" } }
     
-}
+    override init()
+    {
+        super.init()
+    }
+    
+    override init(texture: SKTexture!, color: UIColor!, size: CGSize)
+    {
+        super.init(texture: texture, color: color, size: size)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder:aDecoder)
+    }
+    
+   }
