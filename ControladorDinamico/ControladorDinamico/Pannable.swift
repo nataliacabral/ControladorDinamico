@@ -11,7 +11,7 @@ import SpriteKit
 
 @objc protocol Pannable
 {
-    func panStarted();
+    func panStarted(position:CGPoint);
     func panMoved(translation:CGPoint);
     func panEnded();
 }

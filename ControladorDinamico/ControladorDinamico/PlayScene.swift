@@ -49,7 +49,7 @@ class PlayScene : SKScene
         touchRecognizer.minimumPressDuration = 0.1;
         
         self.view?.addGestureRecognizer(panRecognizer)
-        self.view?.addGestureRecognizer(touchRecognizer)
+        //self.view?.addGestureRecognizer(touchRecognizer)
 
         for obj in objects
         {
@@ -90,10 +90,11 @@ class PlayScene : SKScene
                     if (selectedNode != nil) {
                         self.selectedNode!.removeAllActions()
                     }
-                    if (selectedNode is Pannable) {
+                    if (touchedNode is Pannable) {
                         self.selectedNode = touchedNode as SKSpriteNode?
                         let pannableObject:Pannable = selectedNode as Pannable;
-                        pannableObject.panStarted();
+                        var convertedPoint = self.convertPoint(touchLocation, toNode:selectedNode!)
+                        pannableObject.panStarted(convertedPoint);
                     }
             }
             
@@ -105,7 +106,10 @@ class PlayScene : SKScene
             if (selectedNode != nil) {
                 if (selectedNode is Pannable) {
                     let pannableObject:Pannable = selectedNode as Pannable;
+                    var convertedPoint = self.convertPoint(translation, toNode:selectedNode!)
+
                     pannableObject.panMoved(translation);
+                    recognizer.setTranslation(CGPointZero, inView: recognizer.view)
                 }
             }
             break;
