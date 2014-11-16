@@ -45,11 +45,10 @@ class PlayScene : SKScene
     
     override func didMoveToView(view: SKView) {
         var panRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePanFromRecognizer:"))
-        var touchRecognizer:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: Selector("handleTouchFromRecognizer:"))
-        touchRecognizer.minimumPressDuration = 0.1;
+        var touchRecognizer:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleTapFromRecognizer:"))
         
         self.view?.addGestureRecognizer(panRecognizer)
-        //self.view?.addGestureRecognizer(touchRecognizer)
+        self.view?.addGestureRecognizer(touchRecognizer)
 
         for obj in objects
         {
@@ -57,7 +56,23 @@ class PlayScene : SKScene
         }
     }
     
-    func handleTouchFromRecognizer(recognizer:UIPanGestureRecognizer) {
+    func handleTapFromRecognizer(recognizer:UITapGestureRecognizer) {
+        var touchLocation:CGPoint = recognizer.locationInView(recognizer.view)
+        touchLocation = self.convertPointFromView(touchLocation)
+        var touchedNode:SKNode? = self.nodeAtPoint(touchLocation)
+        if (touchedNode != nil && touchedNode is Tappable) {
+            var tappableNode = touchedNode as Tappable
+            switch(recognizer.state) {
+            case UIGestureRecognizerState.Ended:
+                tappableNode.tapStarted()
+                break;
+            default:
+                break;
+            }
+        }
+    }
+    
+    func handleTouchFromRecognizer(recognizer:UILongPressGestureRecognizer) {
         var touchLocation:CGPoint = recognizer.locationInView(recognizer.view)
         touchLocation = self.convertPointFromView(touchLocation)
         var touchedNode:SKNode? = self.nodeAtPoint(touchLocation)
@@ -93,8 +108,8 @@ class PlayScene : SKScene
                     if (touchedNode is Pannable) {
                         self.selectedNode = touchedNode as SKSpriteNode?
                         let pannableObject:Pannable = selectedNode as Pannable;
-                        var convertedPoint = self.convertPoint(touchLocation, toNode:selectedNode!)
-                        pannableObject.panStarted(convertedPoint);
+                        //var convertedPoint = self.convertPoint(touchLocation, toNode:selectedNode!)
+                        pannableObject.panStarted(touchLocation);
                     }
             }
             
@@ -106,7 +121,6 @@ class PlayScene : SKScene
             if (selectedNode != nil) {
                 if (selectedNode is Pannable) {
                     let pannableObject:Pannable = selectedNode as Pannable;
-                    var convertedPoint = self.convertPoint(translation, toNode:selectedNode!)
 
                     pannableObject.panMoved(translation);
                     recognizer.setTranslation(CGPointZero, inView: recognizer.view)

@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class ButtonSoundObject : SoundObject, Touchable
+class ButtonSoundObject : SoundObject, Tappable
 {
     override var gridHeight:CGFloat { get { return 1 } }
     override var gridWidth:CGFloat { get { return 1 } }
@@ -38,12 +38,11 @@ class ButtonSoundObject : SoundObject, Touchable
         super.init(gridSize:gridSize)
     }
     
-    func touchStarted() {
-        self.texture = self.selectedTexture;
-    }
-
-    func touchEnded() {
-        self.texture = self.stillTexture;
+    func tapStarted() {
+        var animationTextures = [self.selectedTexture!, self.stillTexture!]
+        var action:SKAction = SKAction.animateWithTextures(animationTextures, timePerFrame: 0.1)
+        let press = SKAction.repeatAction(action, count: 1)
+        self.runAction(press)
     }
     
     func loadTextures() {

@@ -43,6 +43,8 @@
 		259B90CB19F9768500737E04 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 259B90CA19F9768500737E04 /* LaunchImage.png */; };
 		4905AAC01A1166E20094C5A2 /* Collidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905AABF1A1166E20094C5A2 /* Collidable.swift */; };
 		4905AAC51A1169460094C5A2 /* GridBound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905AAC41A1169460094C5A2 /* GridBound.swift */; };
+		491EECC41A18E31700F33D50 /* SliderHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491EECC31A18E31700F33D50 /* SliderHandle.swift */; };
+		491EECC61A18E79600F33D50 /* Tappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491EECC51A18E79600F33D50 /* Tappable.swift */; };
 		4933E0E91A17F3FE00DDCE0D /* buttonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4933E0E81A17F3FE00DDCE0D /* buttonSelected.png */; };
 		4933E0EB1A17F6D500DDCE0D /* Touchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933E0EA1A17F6D500DDCE0D /* Touchable.swift */; };
 		4933E0ED1A17F6FD00DDCE0D /* Pannable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933E0EC1A17F6FD00DDCE0D /* Pannable.swift */; };
@@ -103,6 +105,8 @@
 		259B90CA19F9768500737E04 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
 		4905AABF1A1166E20094C5A2 /* Collidable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collidable.swift; sourceTree = "<group>"; };
 		4905AAC41A1169460094C5A2 /* GridBound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridBound.swift; sourceTree = "<group>"; };
+		491EECC31A18E31700F33D50 /* SliderHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderHandle.swift; sourceTree = "<group>"; };
+		491EECC51A18E79600F33D50 /* Tappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tappable.swift; sourceTree = "<group>"; };
 		4933E0E81A17F3FE00DDCE0D /* buttonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonSelected.png; sourceTree = "<group>"; };
 		4933E0EA1A17F6D500DDCE0D /* Touchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Touchable.swift; sourceTree = "<group>"; };
 		4933E0EC1A17F6FD00DDCE0D /* Pannable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pannable.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				255663751A13FAB800F6F820 /* ThermalSoundObject.swift */,
 				4933E0EA1A17F6D500DDCE0D /* Touchable.swift */,
 				4933E0EC1A17F6FD00DDCE0D /* Pannable.swift */,
+				491EECC31A18E31700F33D50 /* SliderHandle.swift */,
+				491EECC51A18E79600F33D50 /* Tappable.swift */,
 			);
 			name = SoundObject;
 			sourceTree = "<group>";
@@ -423,8 +429,10 @@
 				258D1FEF1A0182EE00ACFC93 /* SoundObject.swift in Sources */,
 				2509940119FEE2CF00A6D24F /* EditViewController.swift in Sources */,
 				251218491A08625D0025ACEE /* Project.swift in Sources */,
+				491EECC41A18E31700F33D50 /* SliderHandle.swift in Sources */,
 				2557DC131A16A3000003AB5D /* PlayViewController.swift in Sources */,
 				255663721A13FA9400F6F820 /* RouletteSoundObject.swift in Sources */,
+				491EECC61A18E79600F33D50 /* Tappable.swift in Sources */,
 				495BDEC91A1226A8000941E8 /* PlayScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
