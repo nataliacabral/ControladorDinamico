@@ -13,9 +13,6 @@ import SpriteKit
 
 class SliderHandle : SKSpriteNode, Pannable
 {
-    let handlerWidthBorder:CGFloat = 5
-    let handlerHeightBorder:CGFloat = 10
-    
     override init()
     {
         super.init()
@@ -33,22 +30,23 @@ class SliderHandle : SKSpriteNode, Pannable
     func panStarted(position:CGPoint) {
 
     }
+    // BEWARE!!! magic stuff below
+    // Palavras de um sabio: "Quanto mais comentarios um metodo tem, maior a probabilidade de ser gambiarra"
     func panMoved(translation:CGPoint) {
         var convertedPoint = self.convertPoint(translation, toNode:self.parent!)
-        if (self.parent != nil && self.parent is SKSpriteNode) {
-            let parentSprite = self.parent as SKSpriteNode
-            let maximumPos = parentSprite.size.height - handlerHeightBorder
-            let minimumPos = handlerHeightBorder
-            var dislocation = translation.y
-            if (self.physicsBody?.velocity.dy > 0 && dislocation < 0 ||
-                self.physicsBody?.velocity.dy < 0 && dislocation > 0) {
-                    self.physicsBody?.velocity.dy = 0
-            }
-            //let moveAction = SKAction.moveBy(CGVector(dx: 0, dy: dislocation), duration: 0.1)
-            //self.runAction(moveAction)
-            self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: dislocation * 3))
-            //self.physicsBody?.velocity.dy = dislocation * 30
+        // Valida se a direcao mudou. Se mudou, paramos o objeto (mudando velocidade vertical para 0)
+        if (self.physicsBody?.velocity.dy > 0 && translation.y < 0 ||
+            self.physicsBody?.velocity.dy < 0 && translation.y > 0) {
+                self.physicsBody?.velocity.dy = 0
         }
+        // Aplica impulso no objeto, de acordo com o translation (input do usuario)
+        
+        // O valor do translation é multiplicado por três. Não mais, não menos.
+        // Três Deve ser o número a ser multiplicado, e o número da multiplicação, deve ser três
+        // Quatro Não deverá ser multiplicado, nem dois. Mesmo o dois precedendo o três
+        // Cinco está fora de questão!
+        // Quando o número três for multiplicado, então o impulso será aplicado, fazendo o objeto se mover!!!
+        self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: translation.y * 3))
     }
     func panEnded() {
         self.physicsBody?.velocity.dy = 0
