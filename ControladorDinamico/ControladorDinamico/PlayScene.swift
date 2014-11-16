@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class PlayScene : SKScene
+class PlayScene : SKScene, SKPhysicsContactDelegate
 {
     var gridSize:CGFloat
     var selectedNode:SKSpriteNode?
@@ -41,6 +41,12 @@ class PlayScene : SKScene
             gridHorizontalLine.strokeColor = UIColor.lightGrayColor()
             self.addChild(gridHorizontalLine)
         }
+        self.physicsWorld.contactDelegate = self
+        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
+        self.physicsBody?.collisionBitMask = 1
+        self.physicsBody?.contactTestBitMask = 1
+        self.physicsBody?.categoryBitMask = 1
     }
     
     override func didMoveToView(view: SKView) {
@@ -52,7 +58,10 @@ class PlayScene : SKScene
 
         for obj in objects
         {
-            self.addChild((obj.copy() as SoundObject))
+            let soundObj:SoundObject = obj as SoundObject
+            var objCopy = soundObj.copy() as SoundObject
+            self.addChild(objCopy)
+            objCopy.startPhysicalBody()
         }
     }
     
@@ -144,6 +153,13 @@ class PlayScene : SKScene
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact!) {
+        NSLog("Contact Begin Velocity: %f", contact.bodyA.velocity.dy)
+    }
+    func didEndContact(contact: SKPhysicsContact!) {
+        NSLog("Contact End")
     }
     
 }

@@ -50,6 +50,10 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Collidable, GridBound
         self.updateGridSize(gridSize)
     }
     
+    func startPhysicalBody() {
+        self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
+    }
+    
     override func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.position.x, forKey: "x")
         aCoder.encodeObject(self.position.y, forKey: "y")

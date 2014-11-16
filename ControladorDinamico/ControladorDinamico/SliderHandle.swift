@@ -40,17 +40,17 @@ class SliderHandle : SKSpriteNode, Pannable
             let maximumPos = parentSprite.size.height - handlerHeightBorder
             let minimumPos = handlerHeightBorder
             var dislocation = translation.y
-            if (self.position.y + dislocation < minimumPos) {
-                dislocation = minimumPos - self.position.y
+            if (self.physicsBody?.velocity.dy > 0 && dislocation < 0 ||
+                self.physicsBody?.velocity.dy < 0 && dislocation > 0) {
+                    self.physicsBody?.velocity.dy = 0
             }
-            if (self.position.y + dislocation + self.size.height > maximumPos){
-                dislocation = maximumPos - (self.position.y + self.size.height)
-            }
-            let moveAction = SKAction.moveBy(CGVector(dx: 0, dy: dislocation), duration: 0.0)
-            self.runAction(moveAction)
+            //let moveAction = SKAction.moveBy(CGVector(dx: 0, dy: dislocation), duration: 0.1)
+            //self.runAction(moveAction)
+            self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: dislocation * 3))
+            //self.physicsBody?.velocity.dy = dislocation * 30
         }
     }
     func panEnded() {
-        
+        self.physicsBody?.velocity.dy = 0
     }
 }
