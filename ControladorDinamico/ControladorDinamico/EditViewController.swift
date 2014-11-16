@@ -43,7 +43,7 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
     }
     
     @IBAction func backAction(AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func saveProject() -> Bool {

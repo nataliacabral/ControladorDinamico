@@ -34,6 +34,6 @@ class PlayViewController : UIViewController {
     }
     
     @IBAction func backAction(AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popViewControllerAnimated(true)
     }
 }
