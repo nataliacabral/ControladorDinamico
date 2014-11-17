@@ -16,9 +16,9 @@ class SliderSoundObject : SoundObject
     override var imageName:String { get { return "slider.png" } }
     
     var sliderHandleImageName:String { get { return "sliderHandle.png" } }
-    var sliderTrackImageName:String { get { return "sliderTrack" } }
+    var sliderTrackImageName:String { get { return "sliderTrack.png" } }
 
-    var sliderHandle:SKSpriteNode?
+    var sliderHandle:SliderHandle?
     var sliderHandleTexture:SKTexture?
     var sliderTrackTexture:SKTexture?
     

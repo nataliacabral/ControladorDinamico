@@ -41,6 +41,9 @@
 		259B90B719F96D1400737E04 /* ControladorDinamicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90B619F96D1400737E04 /* ControladorDinamicoTests.swift */; };
 		259B90C919F9756200737E04 /* Images-3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 259B90C819F9756200737E04 /* Images-3.xcassets */; };
 		259B90CB19F9768500737E04 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 259B90CA19F9768500737E04 /* LaunchImage.png */; };
+		25A93F6C1A1A9B7D00C9F145 /* roulette_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A93F6A1A1A9B7D00C9F145 /* roulette_background.png */; };
+		25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A93F6B1A1A9B7D00C9F145 /* roulette_spinningpart.png */; };
+		25A93F6F1A1A9BDD00C9F145 /* RouletteSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A93F6E1A1A9BDD00C9F145 /* RouletteSpin.swift */; };
 		4905AAC01A1166E20094C5A2 /* Collidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905AABF1A1166E20094C5A2 /* Collidable.swift */; };
 		4905AAC51A1169460094C5A2 /* GridBound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905AAC41A1169460094C5A2 /* GridBound.swift */; };
 		491EECC41A18E31700F33D50 /* SliderHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491EECC31A18E31700F33D50 /* SliderHandle.swift */; };
@@ -103,6 +106,9 @@
 		259B90B619F96D1400737E04 /* ControladorDinamicoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControladorDinamicoTests.swift; sourceTree = "<group>"; };
 		259B90C819F9756200737E04 /* Images-3.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-3.xcassets"; sourceTree = "<group>"; };
 		259B90CA19F9768500737E04 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
+		25A93F6A1A1A9B7D00C9F145 /* roulette_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette_background.png; sourceTree = "<group>"; };
+		25A93F6B1A1A9B7D00C9F145 /* roulette_spinningpart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette_spinningpart.png; sourceTree = "<group>"; };
+		25A93F6E1A1A9BDD00C9F145 /* RouletteSpin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouletteSpin.swift; sourceTree = "<group>"; };
 		4905AABF1A1166E20094C5A2 /* Collidable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collidable.swift; sourceTree = "<group>"; };
 		4905AAC41A1169460094C5A2 /* GridBound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridBound.swift; sourceTree = "<group>"; };
 		491EECC31A18E31700F33D50 /* SliderHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderHandle.swift; sourceTree = "<group>"; };
@@ -148,6 +154,7 @@
 				4933E0EC1A17F6FD00DDCE0D /* Pannable.swift */,
 				491EECC31A18E31700F33D50 /* SliderHandle.swift */,
 				491EECC51A18E79600F33D50 /* Tappable.swift */,
+				25A93F6E1A1A9BDD00C9F145 /* RouletteSpin.swift */,
 			);
 			name = SoundObject;
 			sourceTree = "<group>";
@@ -196,6 +203,8 @@
 		2557DBD61A13FCB20003AB5D /* ROLETA */ = {
 			isa = PBXGroup;
 			children = (
+				25A93F6A1A1A9B7D00C9F145 /* roulette_background.png */,
+				25A93F6B1A1A9B7D00C9F145 /* roulette_spinningpart.png */,
 				2557DBEF1A14068C0003AB5D /* roulette.png */,
 				2557DBD71A13FCB20003AB5D /* Roleta_V1.psd */,
 			);
@@ -378,12 +387,14 @@
 				4933E0E91A17F3FE00DDCE0D /* buttonSelected.png in Resources */,
 				2557DBF21A1406AB0003AB5D /* slider.png in Resources */,
 				2557DBEE1A14067B0003AB5D /* spring.png in Resources */,
+				25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */,
 				2557DBDF1A13FCB20003AB5D /* slider_MOLA_V1.psd in Resources */,
 				259B90A619F96D1400737E04 /* Main.storyboard in Resources */,
 				4933E0F11A18005700DDCE0D /* sliderTrack.png in Resources */,
 				259B90AB19F96D1400737E04 /* LaunchScreen.xib in Resources */,
 				2557DBDE1A13FCB20003AB5D /* DEMO.mp4 in Resources */,
 				2557DBF41A1406B80003AB5D /* thermal.png in Resources */,
+				25A93F6C1A1A9B7D00C9F145 /* roulette_background.png in Resources */,
 				2557DBE01A13FCB20003AB5D /* Roleta_V1.psd in Resources */,
 				2557DBDD1A13FCB20003AB5D /* CANVAS.psd in Resources */,
 				259B90C919F9756200737E04 /* Images-3.xcassets in Resources */,
@@ -414,6 +425,7 @@
 				259B90A319F96D1400737E04 /* ViewController.swift in Sources */,
 				258D1FFB1A019BF900ACFC93 /* SoundObjectTemplate.swift in Sources */,
 				4905AAC51A1169460094C5A2 /* GridBound.swift in Sources */,
+				25A93F6F1A1A9BDD00C9F145 /* RouletteSpin.swift in Sources */,
 				4905AAC01A1166E20094C5A2 /* Collidable.swift in Sources */,
 				259B90A119F96D1400737E04 /* AppDelegate.swift in Sources */,
 				4933E0ED1A17F6FD00DDCE0D /* Pannable.swift in Sources */,

@@ -23,10 +23,6 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Collidable, GridBound
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
         super.init(texture: texture, color: color, size: size)
-    }
-    
-    func initializeProperties()
-    {
         var texture:SKTexture = SKTexture(imageNamed: self.imageName)
         self.texture = texture
         self.anchorPoint = CGPoint(x: 0, y: 0)
@@ -34,31 +30,29 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Collidable, GridBound
     
     init(size:CGSize) {
         super.init()
-        self.initializeProperties()
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init()
-        self.initializeProperties()
         self.position.x = CGFloat(aDecoder.decodeObjectForKey("x")!.integerValue)
         self.position.y = CGFloat(aDecoder.decodeObjectForKey("y")!.integerValue)
     }
     
     init(gridSize:CGFloat) {
         super.init()
-        self.initializeProperties()
         self.updateGridSize(gridSize)
     }
     
     func startPhysicalBody() {
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
+        self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size, center:CGPoint(x:self.size.width / 2 , y:self.size.height / 2))
+        self.physicsBody?.collisionBitMask = 0
+        self.physicsBody?.dynamic = false
     }
     
     override func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.position.x, forKey: "x")
         aCoder.encodeObject(self.position.y, forKey: "y")
     }
-    
     
     func collidesWith(otherObj: AnyObject) -> Bool
     {
