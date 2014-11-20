@@ -8,6 +8,7 @@
 
 import Foundation
 import SpriteKit
+import AVFoundation
 
 class SliderSoundObject : SoundObject
 {
@@ -24,6 +25,8 @@ class SliderSoundObject : SoundObject
     
     let handlerWidthBorder:CGFloat = 5
     let handlerHeightBorder:CGFloat = 10
+    
+    var auTimePitch:AVAudioUnitTimePitch?
 
     override init()
     {
@@ -72,6 +75,7 @@ class SliderSoundObject : SoundObject
             sliderObj.physicsBody?.friction = 0.9
             sliderObj.physicsBody?.restitution = 0
             sliderObj.physicsBody?.linearDamping = 0.9
+            self.sliderHandle = sliderObj
         }
     }
         
@@ -106,12 +110,19 @@ class SliderSoundObject : SoundObject
 
     override func currentSoundIntensity() -> UInt32
     {
-        for obj in self.children {
-            if (obj is SliderHandle) {
-                let sliderHandle:SliderHandle = obj as SliderHandle
-                return self.sliderHandle!.currentSoundIntensity()
-            }
-        }
+        return self.sliderHandle!.currentSoundIntensity()
         return 0
+    }
+    
+    override func startSoundEngine() {
+        self.startPitch()
+    }
+    
+    func startPitch()
+    {
+        self.auTimePitch =  AVAudioUnitTimePitch()
+        self.auTimePitch!.pitch = 0 // In cents. The default value is 1.0. The range of values is -2400 to 2400
+        self.auTimePitch!.rate = 2 //The default value is 1.0. The range of supported values is 1/32 to 32.0.
+        SoundManager.sharedInstance.audioEngine.attachNode(self.auTimePitch!)
     }
 }

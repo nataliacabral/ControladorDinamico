@@ -8,6 +8,7 @@
 
 import Foundation
 import SpriteKit
+import AVFoundation
 
 class PlayScene : SKScene, SKPhysicsContactDelegate
 {
@@ -53,7 +54,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
         var panRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePanFromRecognizer:"))
         var tapRecognizer:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleTapFromRecognizer:"))
         var longPressRecognizer:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: Selector("handleTouchFromRecognizer:"))
-        longPressRecognizer.minimumPressDuration = 0.07
+        longPressRecognizer.minimumPressDuration = 0.15
         longPressRecognizer.allowableMovement = 1
 
         self.view?.addGestureRecognizer(panRecognizer)
@@ -66,7 +67,24 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
             var objCopy = soundObj.copy() as SoundObject
             self.addChild(objCopy)
             objCopy.startPhysicalBody()
+            objCopy.startSoundEngine()
         }
+        
+        for obj in self.children
+        {
+            if (obj is SliderSoundObject) {
+                let sliderObj = obj as SliderSoundObject
+                for otherObj in self.children {
+                    if (otherObj is ButtonSoundObject) {
+                        let buttonObj = otherObj as ButtonSoundObject
+                        SoundManager.sharedInstance.audioEngine.connect(buttonObj.playerNode, to: sliderObj.auTimePitch, format: SoundManager.sharedInstance.audioEngine.mainMixerNode.outputFormatForBus(0))
+                        SoundManager.sharedInstance.audioEngine.connect(sliderObj.auTimePitch, to: SoundManager.sharedInstance.audioEngine.mainMixerNode, format: SoundManager.sharedInstance.audioEngine.mainMixerNode.outputFormatForBus(0))
+                    }
+                }
+            }
+        }
+        
+        SoundManager.sharedInstance.startEngine()
     }
     
     func handleTapFromRecognizer(recognizer:UITapGestureRecognizer) {
@@ -170,12 +188,21 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
     {
         for obj in self.children {
             if (obj is SoundObject) {
-                let currentSoundIntensity : UInt32 = (obj as SoundObject).currentSoundIntensity()
-                let velocity : UInt32 = 20
-                
-                if (currentSoundIntensity > 0) {
-                    SoundManager.sharedInstance.playNoteOn(currentSoundIntensity, velocity: velocity)
-                    SoundManager.sharedInstance.playNoteOff(currentSoundIntensity)
+                let soundObj:SoundObject = obj as SoundObject
+                let currentSoundIntensity : UInt32 = soundObj.currentSoundIntensity()
+                if (obj is SliderSoundObject) {
+                    let sliderObj:SliderSoundObject = obj as SliderSoundObject
+                    sliderObj.auTimePitch!.pitch =  Float(currentSoundIntensity * 5) // In cents. The default value is 1.0. The range of values is -2400 to 2400
+                    sliderObj.auTimePitch!.rate = 2 //The default value is 1.0. The range of supported values is 1/32 to 32.0.
+                }
+                else if (obj is ButtonSoundObject) {
+                    let buttonObj:ButtonSoundObject = obj as ButtonSoundObject
+                    if (currentSoundIntensity > 0) {
+                        soundObj.playSound()
+                    }
+                    else {
+                        soundObj.stopSound()
+                    }
                 }
             }
         }

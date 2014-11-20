@@ -44,6 +44,8 @@
 		25A93F6C1A1A9B7D00C9F145 /* roulette_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A93F6A1A1A9B7D00C9F145 /* roulette_background.png */; };
 		25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A93F6B1A1A9B7D00C9F145 /* roulette_spinningpart.png */; };
 		25A93F6F1A1A9BDD00C9F145 /* RouletteSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A93F6E1A1A9BDD00C9F145 /* RouletteSpin.swift */; };
+		490120CD1A1E7AA200F3E653 /* bass.wav in Resources */ = {isa = PBXBuildFile; fileRef = 490120CC1A1E7AA200F3E653 /* bass.wav */; };
+		490120CF1A1E7BC200F3E653 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490120CE1A1E7BC200F3E653 /* AVFoundation.framework */; };
 		4905AAC01A1166E20094C5A2 /* Collidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905AABF1A1166E20094C5A2 /* Collidable.swift */; };
 		4905AAC51A1169460094C5A2 /* GridBound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905AAC41A1169460094C5A2 /* GridBound.swift */; };
 		491EECC41A18E31700F33D50 /* SliderHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491EECC31A18E31700F33D50 /* SliderHandle.swift */; };
@@ -55,7 +57,6 @@
 		4933E0F11A18005700DDCE0D /* sliderTrack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4933E0EF1A18005700DDCE0D /* sliderTrack.png */; };
 		495BDEC91A1226A8000941E8 /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495BDEC81A1226A8000941E8 /* PlayScene.swift */; };
 		49C0152F1A1D316900DBAC0D /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0152E1A1D316900DBAC0D /* SoundManager.swift */; };
-		49C015311A1D31C300DBAC0D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C015301A1D31C300DBAC0D /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,8 @@
 		25A93F6A1A1A9B7D00C9F145 /* roulette_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette_background.png; sourceTree = "<group>"; };
 		25A93F6B1A1A9B7D00C9F145 /* roulette_spinningpart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette_spinningpart.png; sourceTree = "<group>"; };
 		25A93F6E1A1A9BDD00C9F145 /* RouletteSpin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouletteSpin.swift; sourceTree = "<group>"; };
+		490120CC1A1E7AA200F3E653 /* bass.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bass.wav; sourceTree = "<group>"; };
+		490120CE1A1E7BC200F3E653 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4905AABF1A1166E20094C5A2 /* Collidable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collidable.swift; sourceTree = "<group>"; };
 		4905AAC41A1169460094C5A2 /* GridBound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridBound.swift; sourceTree = "<group>"; };
 		491EECC31A18E31700F33D50 /* SliderHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderHandle.swift; sourceTree = "<group>"; };
@@ -130,7 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49C015311A1D31C300DBAC0D /* AudioToolbox.framework in Frameworks */,
+				490120CF1A1E7BC200F3E653 /* AVFoundation.framework in Frameworks */,
 				2509940319FEE64B00A6D24F /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +242,7 @@
 		259B909219F96D1400737E04 = {
 			isa = PBXGroup;
 			children = (
+				490120CE1A1E7BC200F3E653 /* AVFoundation.framework */,
 				49C015301A1D31C300DBAC0D /* AudioToolbox.framework */,
 				2509940219FEE64B00A6D24F /* SpriteKit.framework */,
 				259B909D19F96D1400737E04 /* ControladorDinamico */,
@@ -259,6 +263,7 @@
 		259B909D19F96D1400737E04 /* ControladorDinamico */ = {
 			isa = PBXGroup;
 			children = (
+				490120C91A1E7A6E00F3E653 /* samples */,
 				2557DBCE1A13FCB20003AB5D /* images */,
 				2556636A1A13F95000F6F820 /* SoundObject */,
 				4905AAC41A1169460094C5A2 /* GridBound.swift */,
@@ -307,6 +312,14 @@
 				259B90B519F96D1400737E04 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		490120C91A1E7A6E00F3E653 /* samples */ = {
+			isa = PBXGroup;
+			children = (
+				490120CC1A1E7AA200F3E653 /* bass.wav */,
+			);
+			name = samples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,6 +406,7 @@
 			files = (
 				4933E0E91A17F3FE00DDCE0D /* buttonSelected.png in Resources */,
 				2557DBF21A1406AB0003AB5D /* slider.png in Resources */,
+				490120CD1A1E7AA200F3E653 /* bass.wav in Resources */,
 				2557DBEE1A14067B0003AB5D /* spring.png in Resources */,
 				25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */,
 				2557DBDF1A13FCB20003AB5D /* slider_MOLA_V1.psd in Resources */,

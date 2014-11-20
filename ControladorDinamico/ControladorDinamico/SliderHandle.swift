@@ -61,14 +61,12 @@ class SliderHandle : SKSpriteNode, Pannable
     
     func currentSoundIntensity() -> UInt32
     {
-        if (self.physicsBody?.velocity.dy > 0) {
             var relativePosition:CGPoint = self.parent!.parent!.convertPoint(self.position, fromNode: self.parent!)
             let ratio:CGFloat = relativePosition.y / self.parent!.frame.size.height
             let currentSoundIntensity : UInt32 = UInt32(ratio * 127)
             NSLog("currentSoundIntensity %ul", currentSoundIntensity)
 
             return currentSoundIntensity
-        }
         return 0
     }
 

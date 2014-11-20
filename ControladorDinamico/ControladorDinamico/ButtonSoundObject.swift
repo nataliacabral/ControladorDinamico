@@ -8,6 +8,7 @@
 
 import Foundation
 import SpriteKit
+import AVFoundation
 
 class ButtonSoundObject : SoundObject, Touchable
 {
@@ -71,4 +72,13 @@ class ButtonSoundObject : SoundObject, Touchable
             return self.minSoundIntensity
         }
     }
+    
+    override func startSoundEngine() {
+        self.playerNode =  AVAudioPlayerNode()
+        let path = NSBundle.mainBundle().pathForResource(String("bass"), ofType:"wav")
+        let fileURL = NSURL(fileURLWithPath: path!)
+        self.audioFile = AVAudioFile(forReading:fileURL, error: nil);
+        SoundManager.sharedInstance.audioEngine.attachNode(self.playerNode)
+    }
+
 }
