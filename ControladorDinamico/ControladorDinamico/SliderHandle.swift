@@ -13,22 +13,27 @@ import SpriteKit
 
 class SliderHandle : SKSpriteNode, Pannable
 {
+    var touching : Bool
+    
     override init()
     {
+        self.touching = false
         super.init()
     }
     
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
+        self.touching = false
         super.init(texture: texture, color: color, size: size)
     }
     
     required init(coder aDecoder: NSCoder) {
+        self.touching = false
        super.init()
     }
     
     func panStarted(position:CGPoint) {
-
+        self.touching = true
     }
     // BEWARE!!! magic stuff below
     // Palavras de um sabio: "Quanto mais comentarios um metodo tem, maior a probabilidade de ser gambiarra"
@@ -48,7 +53,23 @@ class SliderHandle : SKSpriteNode, Pannable
         // Quando o número três for multiplicado, então o impulso será aplicado, fazendo o objeto se mover!!!
         self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: translation.y * 3))
     }
+    
     func panEnded() {
         self.physicsBody?.velocity.dy = 0
+        self.touching = false
     }
+    
+    func currentSoundIntensity() -> UInt32
+    {
+        if (self.physicsBody?.velocity.dy > 0) {
+            var relativePosition:CGPoint = self.parent!.parent!.convertPoint(self.position, fromNode: self.parent!)
+            let ratio:CGFloat = relativePosition.y / self.parent!.frame.size.height
+            let currentSoundIntensity : UInt32 = UInt32(ratio * 127)
+            NSLog("currentSoundIntensity %ul", currentSoundIntensity)
+
+            return currentSoundIntensity
+        }
+        return 0
+    }
+
 }

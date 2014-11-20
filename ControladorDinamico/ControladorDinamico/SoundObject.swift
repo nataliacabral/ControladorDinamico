@@ -15,6 +15,9 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Collidable, GridBound
     var gridHeight:CGFloat { get { return 0 } }
     var gridWidth:CGFloat { get { return 0 } }
     
+    let minSoundIntensity : UInt32 = 0
+    let maxSoundIntensity : UInt32 = 127
+
     override init()
     {
         super.init()
@@ -72,5 +75,11 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Collidable, GridBound
     {
         self.size = CGSize(width: gridWidth * gridSize, height: gridHeight * gridSize)
     }
+    
+    func currentSoundIntensity() -> UInt32
+    {
+        return 0;
+    }
+    
 }
 

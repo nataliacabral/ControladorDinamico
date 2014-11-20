@@ -11,10 +11,16 @@ import UIKit
 
 class Project : NSObject
 {
-    var projectName:NSString
+    var projectName:NSString?
     var objects:NSArray
     var preview:UIImage
 
+    override init () {
+        self.objects = NSArray()
+        self.preview = UIImage()
+        super.init()
+    }
+    
     init(projectName:NSString) {
         self.projectName = projectName
         self.objects = NSArray()

@@ -26,11 +26,13 @@ class ProjectManager {
     }
     
     func saveProject(project: Project) -> Bool {
-        
-        let fullName:NSString = project.projectName.stringByAppendingPathExtension("txt")!
-        let destinationPath:NSString = documentsPath.stringByAppendingPathComponent(fullName)
-        
-        return NSKeyedArchiver.archiveRootObject(project, toFile:destinationPath)
+        if (project.projectName != nil) {
+            let fullName:NSString = project.projectName!.stringByAppendingPathExtension("txt")!
+            let destinationPath:NSString = documentsPath.stringByAppendingPathComponent(fullName)
+            
+            return NSKeyedArchiver.archiveRootObject(project, toFile:destinationPath)
+        }
+        return false;
     }
     
     func allProjects() -> NSArray {
@@ -52,13 +54,14 @@ class ProjectManager {
     }
     
     func removeProject(project : Project, error:NSErrorPointer) -> Bool {
-        let projectName:NSString = project.projectName.stringByAppendingPathExtension("txt")!
-        let projectPath:NSString = documentsPath.stringByAppendingPathComponent(projectName)
-        
-        if(fileManager.fileExistsAtPath(projectPath)){
-            return fileManager.removeItemAtPath(projectPath, error: error)
+        if (project.projectName != nil) {
+            let projectName:NSString = project.projectName!.stringByAppendingPathExtension("txt")!
+            let projectPath:NSString = documentsPath.stringByAppendingPathComponent(projectName)
+            
+            if(fileManager.fileExistsAtPath(projectPath)){
+                return fileManager.removeItemAtPath(projectPath, error: error)
+            }
         }
-
     return false
     }
 }

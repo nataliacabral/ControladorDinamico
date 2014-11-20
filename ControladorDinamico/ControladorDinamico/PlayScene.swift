@@ -51,10 +51,14 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
     
     override func didMoveToView(view: SKView) {
         var panRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePanFromRecognizer:"))
-        var touchRecognizer:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleTapFromRecognizer:"))
-        
+        var tapRecognizer:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleTapFromRecognizer:"))
+        var longPressRecognizer:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: Selector("handleTouchFromRecognizer:"))
+        longPressRecognizer.minimumPressDuration = 0.07
+        longPressRecognizer.allowableMovement = 1
+
         self.view?.addGestureRecognizer(panRecognizer)
-        self.view?.addGestureRecognizer(touchRecognizer)
+        self.view?.addGestureRecognizer(tapRecognizer)
+        self.view?.addGestureRecognizer(longPressRecognizer)
 
         for obj in objects
         {
@@ -162,4 +166,18 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
         NSLog("Contact End")
     }
     
+    override func update(currentTime: NSTimeInterval)
+    {
+        for obj in self.children {
+            if (obj is SoundObject) {
+                let currentSoundIntensity : UInt32 = (obj as SoundObject).currentSoundIntensity()
+                let velocity : UInt32 = 20
+                
+                if (currentSoundIntensity > 0) {
+                    SoundManager.sharedInstance.playNoteOn(currentSoundIntensity, velocity: velocity)
+                    SoundManager.sharedInstance.playNoteOff(currentSoundIntensity)
+                }
+            }
+        }
+    }
 }

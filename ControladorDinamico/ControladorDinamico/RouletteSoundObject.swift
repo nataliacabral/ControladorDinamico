@@ -55,19 +55,18 @@ class RouletteSoundObject : SoundObject
         self.physicsBody?.restitution = 0
         
         for obj in self.children {
-            let sliderObj:RouletteSpin = obj as RouletteSpin
-            sliderObj.physicsBody = SKPhysicsBody(rectangleOfSize: sliderObj.size,
-                center:CGPoint(x:sliderObj.size.width / 2 , y:sliderObj.size.height / 2))
-            sliderObj.physicsBody?.categoryBitMask = (1 << 3)
-            sliderObj.physicsBody?.contactTestBitMask = 0
-            sliderObj.physicsBody?.collisionBitMask = 0
-            sliderObj.physicsBody?.dynamic = true
-            sliderObj.physicsBody?.mass = 1
-            sliderObj.physicsBody?.allowsRotation = true
-            sliderObj.physicsBody?.friction = 0.9
-            sliderObj.physicsBody?.restitution = 0
-            sliderObj.physicsBody?.linearDamping = 0.9
-            sliderObj.physicsBody?.angularDamping = 0.9
+            let rouletteSpin:RouletteSpin = obj as RouletteSpin
+            rouletteSpin.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width / 2, center: CGPoint(x:self.size.width / 2 , y:self.size.height / 2))
+            rouletteSpin.physicsBody?.categoryBitMask = (1 << 3)
+            rouletteSpin.physicsBody?.contactTestBitMask = 0
+            rouletteSpin.physicsBody?.collisionBitMask = 0
+            rouletteSpin.physicsBody?.dynamic = true
+            rouletteSpin.physicsBody?.mass = 1
+            rouletteSpin.physicsBody?.allowsRotation = true
+            rouletteSpin.physicsBody?.friction = 0.9
+            rouletteSpin.physicsBody?.restitution = 0
+            rouletteSpin.physicsBody?.linearDamping = 0.9
+            rouletteSpin.physicsBody?.angularDamping = 0.9
 
         }
     }
@@ -99,5 +98,4 @@ class RouletteSoundObject : SoundObject
         self.rouletteSpin!.position.x = 0
         self.rouletteSpin!.position.y = 0
     }
-
 }

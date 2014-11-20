@@ -103,4 +103,15 @@ class SliderSoundObject : SoundObject
         self.sliderHandle!.position.x = self.handlerWidthBorder
         self.sliderHandle!.position.y = self.size.height / 2
     }
+
+    override func currentSoundIntensity() -> UInt32
+    {
+        for obj in self.children {
+            if (obj is SliderHandle) {
+                let sliderHandle:SliderHandle = obj as SliderHandle
+                return self.sliderHandle!.currentSoundIntensity()
+            }
+        }
+        return 0
+    }
 }

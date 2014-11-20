@@ -11,9 +11,10 @@ import SpriteKit
 
 class EditViewController : UIViewController, UIAlertViewDelegate {
     var scene:EditScene?
-    var project:Project?
+    var project:Project
 
     required init(coder aDecoder: NSCoder) {
+        self.project = Project()
         super.init(coder: aDecoder)
     }
     override func viewDidLoad() {
@@ -26,14 +27,12 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
         skView.showsNodeCount = true;
         
         self.scene = EditScene(size: skView.bounds.size);
-        if self.project != nil {
-            self.scene!.objects = NSMutableArray(array:self.project!.objects)
-        }
+        self.scene!.objects = NSMutableArray(array:self.project.objects)
         skView.presentScene(scene)
     }
     
     @IBAction func saveProjectAction(AnyObject) {
-         if (self.project == nil) {
+         if (self.project.projectName == nil) {
             let alert = UIAlertView(title: "Save", message: "Insert the project name", delegate:self, cancelButtonTitle: "OK")
             alert.alertViewStyle = UIAlertViewStyle.PlainTextInput;
             alert.show()
@@ -47,16 +46,16 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
     }
     
     func saveProject() -> Bool {
-        if (self.project != nil) {
+        if (self.project.projectName != nil) {
             
             UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, UIScreen.mainScreen().scale);
             self.view.drawViewHierarchyInRect(self.view.bounds, afterScreenUpdates: true)
             let image = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
 
-            self.project!.preview = image
-            self.project!.objects = self.scene!.objects
-            return ProjectManager.sharedInstance.saveProject(self.project!)
+            self.project.preview = image
+            self.project.objects = self.scene!.objects
+            return ProjectManager.sharedInstance.saveProject(self.project)
         }
         return false
     }
@@ -72,7 +71,8 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "play" {
             let playViewController = segue.destinationViewController as PlayViewController
-            playViewController.project = self.project!
+            self.project.objects = self.scene!.objects
+            playViewController.project = self.project
         }
     }
 }
