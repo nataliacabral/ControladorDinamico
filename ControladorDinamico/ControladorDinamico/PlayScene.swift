@@ -14,7 +14,8 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
 {
     var gridSize:CGFloat
     var selectedNode:SKSpriteNode?
-    var objects:NSMutableArray = NSMutableArray()
+    var objects:Array<SoundObject> = Array<SoundObject>()
+    var touchMapping = Dictionary<UITouch , Touchable>()
     
     override init(size: CGSize)
     {
@@ -48,23 +49,15 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
         self.physicsBody?.collisionBitMask = 1
         self.physicsBody?.contactTestBitMask = 1
         self.physicsBody?.categoryBitMask = 1
+        
+        self.view?.multipleTouchEnabled = true
     }
     
     override func didMoveToView(view: SKView) {
-        var panRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePanFromRecognizer:"))
-        var tapRecognizer:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleTapFromRecognizer:"))
-        var longPressRecognizer:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: Selector("handleTouchFromRecognizer:"))
-        longPressRecognizer.minimumPressDuration = 0.15
-        longPressRecognizer.allowableMovement = 1
-
-        self.view?.addGestureRecognizer(panRecognizer)
-        self.view?.addGestureRecognizer(tapRecognizer)
-        self.view?.addGestureRecognizer(longPressRecognizer)
 
         for obj in objects
         {
-            let soundObj:SoundObject = obj as SoundObject
-            var objCopy = soundObj.copy() as SoundObject
+            var objCopy = obj.copy() as SoundObject
             self.addChild(objCopy)
             objCopy.startPhysicalBody()
             objCopy.startSoundEngine()
@@ -83,95 +76,68 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                 }
             }
         }
-        
+        SoundManager.sharedInstance.audioEngine.mainMixerNode.outputVolume = 1.0
         SoundManager.sharedInstance.startEngine()
     }
     
-    func handleTapFromRecognizer(recognizer:UITapGestureRecognizer) {
-        var touchLocation:CGPoint = recognizer.locationInView(recognizer.view)
-        touchLocation = self.convertPointFromView(touchLocation)
-        var touchedNode:SKNode? = self.nodeAtPoint(touchLocation)
-        if (touchedNode != nil && touchedNode is Tappable) {
-            var tappableNode = touchedNode as Tappable
-            switch(recognizer.state) {
-            case UIGestureRecognizerState.Ended:
-                tappableNode.tapStarted()
-                break;
-            default:
-                break;
+    override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
+        
+    }
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        super.touchesBegan(touches, withEvent: event)
+
+        for touch in touches
+        {
+            let uiTouch = touch as UITouch
+            var touchLocation:CGPoint = uiTouch.locationInView(uiTouch.view)
+            touchLocation = self.convertPointFromView(touchLocation)
+            var touchedNode:SKNode? = self.nodeAtPoint(touchLocation)
+            
+            if (touchedNode! is Touchable) {
+                let touchableObj = touchedNode as Touchable
+                touchMapping[uiTouch] = touchableObj
+                touchableObj.touchStarted(uiTouch.locationInView(uiTouch.view))
             }
         }
     }
     
-    func handleTouchFromRecognizer(recognizer:UILongPressGestureRecognizer) {
-        var touchLocation:CGPoint = recognizer.locationInView(recognizer.view)
-        touchLocation = self.convertPointFromView(touchLocation)
-        var touchedNode:SKNode? = self.nodeAtPoint(touchLocation)
-        if (touchedNode != nil && touchedNode is Touchable) {
-            var touchableNode = touchedNode as Touchable
-            switch(recognizer.state) {
-            case UIGestureRecognizerState.Began:
-                touchableNode.touchStarted()
-                break;
-            case UIGestureRecognizerState.Ended:
-                touchableNode.touchEnded()
-                break;
-            default:
-                break;
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        super.touchesEnded(touches, withEvent: event)
+       
+        for touch in touches
+        {
+            let uiTouch = touch as UITouch
+            let touchedNode:Touchable? = touchMapping[uiTouch]
+            
+            if (touchedNode != nil) {
+                touchedNode!.touchEnded(uiTouch.locationInView(uiTouch.view))
+                touchMapping .removeValueForKey(uiTouch)
             }
         }
     }
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        super.touchesMoved(touches, withEvent: event)
+        for touch in touches
+        {
+            let uiTouch = touch as UITouch
 
-
-    func handlePanFromRecognizer(recognizer:UIPanGestureRecognizer) {
-        switch(recognizer.state) {
-        case UIGestureRecognizerState.Began:
-            var touchLocation:CGPoint = recognizer.locationInView(recognizer.view)
+            var touchLocation:CGPoint = uiTouch.locationInView(uiTouch.view)
             touchLocation = self.convertPointFromView(touchLocation)
-            var touchedNode:SKNode? = self.nodeAtPoint(touchLocation)
-            
-            if (selectedNode == nil ||
-                !self.selectedNode!.isEqual(touchedNode)) {
-                    
-                    if (selectedNode != nil) {
-                        self.selectedNode!.removeAllActions()
-                    }
-                    if (touchedNode is Pannable) {
-                        self.selectedNode = touchedNode as SKSpriteNode?
-                        let pannableObject:Pannable = selectedNode as Pannable;
-                        //var convertedPoint = self.convertPoint(touchLocation, toNode:selectedNode!)
-                        pannableObject.panStarted(touchLocation);
-                    }
-            }
-            
-            break;
-            
-        case UIGestureRecognizerState.Changed:
-            var translation:CGPoint = recognizer.translationInView(recognizer.view!)
-            translation = CGPointMake(translation.x, -translation.y)
-            if (selectedNode != nil) {
-                if (selectedNode is Pannable) {
-                    let pannableObject:Pannable = selectedNode as Pannable;
 
-                    pannableObject.panMoved(translation);
-                    recognizer.setTranslation(CGPointZero, inView: recognizer.view)
-                }
-            }
-            break;
+            let touchBoundNode:Touchable? = touchMapping[uiTouch]
             
-        case UIGestureRecognizerState.Ended:
-            if (self.selectedNode != nil) {
-                if (selectedNode is Pannable) {
-                    let pannableObject:Pannable = selectedNode as Pannable;
-                    pannableObject.panEnded();
+            if (touchBoundNode != nil) {
+                touchBoundNode!.touchMoved(touchLocation)
+                
+                var touchedNode:SKNode? = self.nodeAtPoint(touchLocation)
+                if (touchedNode !== touchBoundNode) {
+                    touchBoundNode!.touchEnded(touchLocation)
+                    touchMapping.removeValueForKey(uiTouch)
                 }
-                self.selectedNode = nil
             }
-            break;
-        default:
-            break;
         }
     }
+    
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

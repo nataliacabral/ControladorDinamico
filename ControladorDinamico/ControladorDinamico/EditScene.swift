@@ -16,7 +16,7 @@ class EditScene : SKScene
 
     var selectedNodeOriginalPos:CGPoint?
     var selectedNode:SKSpriteNode?
-    var objects:NSMutableArray = NSMutableArray()
+    var objects:Array<SoundObject> = Array<SoundObject>()
     var palette:ObjectsPalette?
     var creatingObject:Bool = false
     
@@ -135,7 +135,7 @@ class EditScene : SKScene
                     var newObject:SoundObject = (self.selectedNode as SoundObjectTemplate).createSoundObject()
                     self.selectNode(newObject)
                     self.addChild(newObject)
-                    self.objects.addObject(newObject)
+                    self.objects.append(newObject)
                 }
                 else
                 {

@@ -12,23 +12,23 @@ import UIKit
 class Project : NSObject
 {
     var projectName:NSString?
-    var objects:NSArray
+    var objects:Array<SoundObject>
     var preview:UIImage
 
     override init () {
-        self.objects = NSArray()
+        self.objects = Array<SoundObject>()
         self.preview = UIImage()
         super.init()
     }
     
     init(projectName:NSString) {
         self.projectName = projectName
-        self.objects = NSArray()
+        self.objects = Array<SoundObject>()
         self.preview = UIImage()
         super.init()
     }
     
-    init(projectName:NSString, objects:NSArray, image:UIImage) {
+    init(projectName:NSString, objects:Array<SoundObject>, image:UIImage) {
         self.projectName = projectName
         self.objects = objects
         self.preview = image
@@ -38,7 +38,7 @@ class Project : NSObject
     required convenience init(coder aDecoder: NSCoder) {
         var name:NSString = aDecoder.decodeObjectForKey("projectName") as String
         var image:UIImage = aDecoder.decodeObjectForKey("image") as UIImage
-        var objectList:NSArray = aDecoder.decodeObjectForKey("objects") as NSArray
+        var objectList:Array<SoundObject> = aDecoder.decodeObjectForKey("objects") as Array<SoundObject>
         self.init(projectName:name, objects:objectList, image:image)
     }
     

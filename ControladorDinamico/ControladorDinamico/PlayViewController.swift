@@ -29,7 +29,7 @@ class PlayViewController : UIViewController {
         skView.showsPhysics = true
         
         self.scene = PlayScene(size: skView.bounds.size);
-        self.scene!.objects = NSMutableArray(array:self.project!.objects)
+        self.scene!.objects = self.project!.objects
         skView.presentScene(scene)
     }
     

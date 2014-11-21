@@ -24,7 +24,6 @@ class SliderSoundObject : SoundObject
     var sliderTrackTexture:SKTexture?
     
     let handlerWidthBorder:CGFloat = 5
-    let handlerHeightBorder:CGFloat = 10
     
     var auTimePitch:AVAudioUnitTimePitch?
 
@@ -51,32 +50,32 @@ class SliderSoundObject : SoundObject
     }
     
     override func startPhysicalBody() {
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(origin:CGPoint(x:0,y:0), size:self.size))
-        self.physicsBody?.affectedByGravity = false
-        self.physicsBody?.categoryBitMask = 1
-        self.physicsBody?.contactTestBitMask = 1
-        self.physicsBody?.collisionBitMask = 1
-        self.physicsBody?.dynamic = false
-        self.physicsBody?.mass = 5000
-        self.physicsBody?.usesPreciseCollisionDetection = true
-        self.physicsBody?.restitution = 0
-
+//        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(origin:CGPoint(x:0,y:0), size:self.size))
+//        self.physicsBody?.affectedByGravity = false
+//        self.physicsBody?.categoryBitMask = 1
+//        self.physicsBody?.contactTestBitMask = 1
+//        self.physicsBody?.collisionBitMask = 1
+//        self.physicsBody?.dynamic = false
+//        self.physicsBody?.mass = 5000
+//        self.physicsBody?.usesPreciseCollisionDetection = true
+//        self.physicsBody?.restitution = 0
+//
         for obj in self.children {
             let sliderObj:SliderHandle = obj as SliderHandle
-            sliderObj.physicsBody = SKPhysicsBody(rectangleOfSize: sliderObj.size,
-                center:CGPoint(x:sliderObj.size.width / 2 + handlerWidthBorder, y:sliderObj.size.height / 2))
-            sliderObj.physicsBody?.categoryBitMask = 1
-            sliderObj.physicsBody?.contactTestBitMask = 1
-            sliderObj.physicsBody?.collisionBitMask = 1
-            sliderObj.physicsBody?.dynamic = true
-            sliderObj.physicsBody?.mass = 1
-            sliderObj.physicsBody?.allowsRotation = false
-            sliderObj.physicsBody?.usesPreciseCollisionDetection = true
-            sliderObj.physicsBody?.friction = 0.9
-            sliderObj.physicsBody?.restitution = 0
-            sliderObj.physicsBody?.linearDamping = 0.9
+//            sliderObj.physicsBody = SKPhysicsBody(rectangleOfSize: sliderObj.size,
+//                center:CGPoint(x:sliderObj.size.width / 2 + handlerWidthBorder, y:sliderObj.size.height / 2))
+//            sliderObj.physicsBody?.categoryBitMask = 1
+//            sliderObj.physicsBody?.contactTestBitMask = 1
+//            sliderObj.physicsBody?.collisionBitMask = 1
+//            sliderObj.physicsBody?.dynamic = true
+//            sliderObj.physicsBody?.mass = 1
+//            sliderObj.physicsBody?.allowsRotation = false
+//            sliderObj.physicsBody?.usesPreciseCollisionDetection = true
+//            sliderObj.physicsBody?.friction = 0.9
+//            sliderObj.physicsBody?.restitution = 0
+//            sliderObj.physicsBody?.linearDamping = 0.9
             self.sliderHandle = sliderObj
-        }
+       }
     }
         
     func loadHandle()
@@ -111,7 +110,6 @@ class SliderSoundObject : SoundObject
     override func currentSoundIntensity() -> UInt32
     {
         return self.sliderHandle!.currentSoundIntensity()
-        return 0
     }
     
     override func startSoundEngine() {

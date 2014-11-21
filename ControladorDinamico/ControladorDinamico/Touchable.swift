@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import SpriteKit
 
 @objc protocol Touchable
 {
-    func touchStarted();
-    func touchEnded();
+    func touchStarted(position:CGPoint);
+    func touchEnded(position:CGPoint);
+    func touchMoved(position:CGPoint);
 }

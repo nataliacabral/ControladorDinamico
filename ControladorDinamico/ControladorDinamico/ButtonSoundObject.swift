@@ -45,18 +45,23 @@ class ButtonSoundObject : SoundObject, Touchable
         super.init(gridSize:gridSize)
     }
     
-    func touchStarted()
+    func touchStarted(position:CGPoint)
     {
         let changeTexture:SKAction = SKAction.setTexture(self.selectedTexture!)
         self.pressed = true
         self.runAction(changeTexture)
     }
     
-    func touchEnded()
+    func touchEnded(position:CGPoint)
     {
         let changeTexture:SKAction = SKAction.setTexture(self.stillTexture!)
         self.pressed = false
         self.runAction(changeTexture)
+    }
+    
+    func touchMoved(position:CGPoint)
+    {
+        
     }
     
     func loadTextures() {

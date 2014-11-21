@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class RouletteSpin : SKSpriteNode, Pannable
+class RouletteSpin : SKSpriteNode, Touchable
 {
     var startRotationPoint:CGPoint?
     
@@ -27,13 +27,15 @@ class RouletteSpin : SKSpriteNode, Pannable
         super.init()
     }
     
-    func panStarted(position:CGPoint) {
+    func touchStarted(position:CGPoint)
+    {
         startRotationPoint = self.parent!.parent!.convertPoint(position, toNode:self.parent!)
 
     }
- 
-    func panMoved(translation:CGPoint) {
-        var convertedPoint = self.convertPoint(translation, toNode:self.parent!)
+
+     func touchMoved(position: CGPoint) {
+        let translation:CGPoint = position;
+                var convertedPoint = self.convertPoint(translation, toNode:self.parent!)
 //        // Valida se a direcao mudou. Se mudou, paramos o objeto (mudando velocidade vertical para 0)
 //        if (self.physicsBody?.velocity.dy > 0 && translation.y < 0 ||
 //            self.physicsBody?.velocity.dy < 0 && translation.y > 0) {
@@ -65,7 +67,7 @@ class RouletteSpin : SKSpriteNode, Pannable
 
         //self.physicsBody?.angularVelocity = 80
     }
-    func panEnded() {
+    func touchEnded(position: CGPoint) {
         startRotationPoint = nil
     }
 }
