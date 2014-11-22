@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 import AVFoundation
 
-class ButtonSoundObject : SoundObject, Touchable
+class ButtonSoundObject : SoundObject, Touchable, Sampler
 {
     override var gridHeight:CGFloat { get { return 1 } }
     override var gridWidth:CGFloat { get { return 1 } }
@@ -21,6 +21,9 @@ class ButtonSoundObject : SoundObject, Touchable
     var stillTexture:SKTexture?
 
     var pressed : Bool
+    var playing : Bool = false
+    
+    var audioSampler:AVAudioUnitSampler?
 
     override init()
     {
@@ -69,21 +72,49 @@ class ButtonSoundObject : SoundObject, Touchable
         self.stillTexture = SKTexture(imageNamed: self.imageName);
     }
     
-    override func currentSoundIntensity() -> UInt32
+    override func currentSoundIntensity() -> Float
     {
         if (self.pressed) {
-            return 100
+            return 1.0
         } else {
-            return self.minSoundIntensity
+            return 0
         }
     }
     
-    override func startSoundEngine() {
-        self.playerNode =  AVAudioPlayerNode()
-        let path = NSBundle.mainBundle().pathForResource(String("bass"), ofType:"wav")
-        let fileURL = NSURL(fileURLWithPath: path!)
-        self.audioFile = AVAudioFile(forReading:fileURL, error: nil);
-        SoundManager.sharedInstance.audioEngine.attachNode(self.playerNode)
-    }
+    func startSampler() {
+//        self.playerNode =  AVAudioPlayerNode()
+//        let path = NSBundle.mainBundle().pathForResource(String("bass"), ofType:"wav")
+//        let fileURL = NSURL(fileURLWithPath: path!)
+//        self.audioFile = AVAudioFile(forReading:fileURL, error: nil);
+//        SoundManager.sharedInstance.audioEngine.attachNode(self.playerNode)
+        
+        let path = NSBundle.mainBundle().pathForResource(String("piano"), ofType:"sf2")
 
+        self.audioSampler = AVAudioUnitSampler()
+    }
+    
+    func sampler() -> AVAudioUnitSampler
+    {
+        return self.audioSampler!
+    }
+    
+    func playSound()
+    {
+        //self.playerNode?.scheduleFile(self.audioFile, atTime: nil, completionHandler: nil)
+        //self.playerNode?.play()
+        if (!playing) {
+            self.audioSampler?.startNote(60, withVelocity: 64, onChannel: 0)
+            self.playing = true
+        }
+    }
+    
+    func stopSound()
+    {
+        //        self.playerNode?.stop()
+        if (self.playing) {
+            self.audioSampler?.stopNote(60,  onChannel: 0)
+            self.playing = false
+        }
+        
+    }
 }

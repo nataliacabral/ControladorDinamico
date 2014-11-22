@@ -56,11 +56,14 @@ class SliderHandle : SKSpriteNode, Touchable
     {
     }
     
-    func currentSoundIntensity() -> UInt32
+    func currentSoundIntensity() -> Float
     {
-        var relativePosition:CGPoint = self.parent!.parent!.convertPoint(self.position, fromNode: self.parent!)
-        let ratio:CGFloat = relativePosition.y / self.parent!.frame.size.height
-        let currentSoundIntensity : UInt32 = UInt32(ratio * 127)
+        let parent = self.parent as SKSpriteNode
+        let topLimit = parent.size.height - handlerHeightBorder - self.size.height
+        let bottomLimit = handlerHeightBorder
+        let ratio:CGFloat = (self.position.y  - bottomLimit) / (topLimit - bottomLimit)
+
+        let currentSoundIntensity = Float(ratio)
         
         return currentSoundIntensity
     }

@@ -19,9 +19,6 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Collidable, GridBound
     let minSoundIntensity : UInt32 = 0
     let maxSoundIntensity : UInt32 = 127
     
-    var playerNode:AVAudioPlayerNode?
-    var audioFile:AVAudioFile?
-
     override init()
     {
         super.init()
@@ -80,25 +77,9 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Collidable, GridBound
         self.size = CGSize(width: gridWidth * gridSize, height: gridHeight * gridSize)
     }
     
-    func currentSoundIntensity() -> UInt32
+    func currentSoundIntensity() -> Float
     {
         return 0;
     }
-    
-    func playSound()
-    {
-        self.playerNode?.scheduleFile(self.audioFile, atTime: nil, completionHandler: nil)
-        self.playerNode?.play()
-    }
-    
-    func stopSound()
-    {
-        self.playerNode?.stop()
-    }
-    
-    func startSoundEngine() {
-
-    }
-
 }
 

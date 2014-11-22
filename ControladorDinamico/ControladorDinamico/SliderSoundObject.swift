@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 import AVFoundation
 
-class SliderSoundObject : SoundObject
+class SliderSoundObject : SoundObject, Touchable, Modulator
 {
     override var gridHeight:CGFloat { get { return 3 } }
     override var gridWidth:CGFloat { get { return 1 } }
@@ -25,7 +25,9 @@ class SliderSoundObject : SoundObject
     
     let handlerWidthBorder:CGFloat = 5
     
-    var auTimePitch:AVAudioUnitTimePitch?
+    var volumeMixer:AVAudioMixerNode?
+    var pitchMixer:AVAudioUnitTimePitch?
+
 
     override init()
     {
@@ -46,6 +48,7 @@ class SliderSoundObject : SoundObject
     
     override init(gridSize:CGFloat) {
         super.init(gridSize:gridSize)
+        self.removeAllChildren()
         self.texture = self.sliderTrackTexture
     }
     
@@ -80,16 +83,18 @@ class SliderSoundObject : SoundObject
         
     func loadHandle()
     {
-        self.removeAllChildren()
-        self.sliderHandle = SliderHandle(texture: self.sliderHandleTexture)
-        self.sliderHandle!.anchorPoint = CGPoint(x: 0, y: 0)
+        //self.removeAllChildren()
+        if (self.sliderHandle == nil) {
+            self.sliderHandle = SliderHandle(texture: self.sliderHandleTexture)
+            self.sliderHandle!.anchorPoint = CGPoint(x: 0, y: 0)
 
-        self.sliderHandle!.size.width = 0
-        self.sliderHandle!.size.height = 0
-        self.sliderHandle!.position.x = 0;
-        self.sliderHandle!.position.y = 0;
+            self.sliderHandle!.size.width = 0
+            self.sliderHandle!.size.height = 0
+            self.sliderHandle!.position.x = 0;
+            self.sliderHandle!.position.y = 0;
 
-        self.addChild(self.sliderHandle!);
+            self.addChild(self.sliderHandle!);
+        }
     }
     
     func loadTextures() {
@@ -107,20 +112,61 @@ class SliderSoundObject : SoundObject
         self.sliderHandle!.position.y = self.size.height / 2
     }
 
-    override func currentSoundIntensity() -> UInt32
+    override func currentSoundIntensity() -> Float
     {
         return self.sliderHandle!.currentSoundIntensity()
     }
     
-    override func startSoundEngine() {
+    func startModulator() {
         self.startPitch()
+        self.startVolume()
     }
     
     func startPitch()
     {
-        self.auTimePitch =  AVAudioUnitTimePitch()
-        self.auTimePitch!.pitch = 0 // In cents. The default value is 1.0. The range of values is -2400 to 2400
-        self.auTimePitch!.rate = 2 //The default value is 1.0. The range of supported values is 1/32 to 32.0.
-        SoundManager.sharedInstance.audioEngine.attachNode(self.auTimePitch!)
+        self.pitchMixer = AVAudioUnitTimePitch()
+        self.pitchMixer!.pitch = 0 // In cents. The default value is 1.0. The range of values is -2400 to 2400
+        self.pitchMixer!.rate = 2 //The default value is 1.0. The range of supported values is 1/32 to 32.0.
+    }
+
+    func startVolume()
+    {
+        var volume = AVAudioMixerNode()
+        volume.outputVolume = 0.5
+        self.volumeMixer = volume
+    }
+    
+    
+    func touchStarted(position:CGPoint)
+    {
+    }
+    
+    func touchMoved(position:CGPoint)
+    {
+        self.sliderHandle!.touchMoved(position)
+    }
+    
+    func touchEnded(position:CGPoint)
+    {
+    }
+    
+    func getVolumeModulator() -> AVAudioNode
+    {
+        return self.volumeMixer!
+    }
+
+    func getPitchModulator() -> AVAudioNode
+    {
+        return self.pitchMixer!
+    }
+    
+    func setModule(module:Float)
+    {
+        NSLog("module: %lf", module)
+        self.pitchMixer!.pitch = (module - 0.3) * 2800
+        NSLog("pitch: %lf", self.pitchMixer!.pitch)
+        self.volumeMixer!.outputVolume = module
+        NSLog("volume: %lf", self.volumeMixer!.outputVolume)
+
     }
 }

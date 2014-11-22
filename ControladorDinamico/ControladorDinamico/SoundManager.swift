@@ -11,7 +11,6 @@ import AVFoundation
 class SoundManager : NSObject {
     var audioEngine:AVAudioEngine
 
-    
     class var sharedInstance: SoundManager {
         struct Static {
             static var instance: SoundManager?

@@ -55,6 +55,9 @@
 		4933E0F11A18005700DDCE0D /* sliderTrack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4933E0EF1A18005700DDCE0D /* sliderTrack.png */; };
 		495BDEC91A1226A8000941E8 /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495BDEC81A1226A8000941E8 /* PlayScene.swift */; };
 		49C0152F1A1D316900DBAC0D /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0152E1A1D316900DBAC0D /* SoundManager.swift */; };
+		49EC59F91A2006C800A36D2C /* piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 49EC59F81A2006C800A36D2C /* piano.sf2 */; };
+		49EC59FB1A2009F200A36D2C /* Modulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC59FA1A2009F200A36D2C /* Modulator.swift */; };
+		49EC59FD1A2009FA00A36D2C /* Sampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC59FC1A2009FA00A36D2C /* Sampler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +125,9 @@
 		495BDEC81A1226A8000941E8 /* PlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayScene.swift; sourceTree = "<group>"; };
 		49C0152E1A1D316900DBAC0D /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		49C015301A1D31C300DBAC0D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		49EC59F81A2006C800A36D2C /* piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = piano.sf2; sourceTree = "<group>"; };
+		49EC59FA1A2009F200A36D2C /* Modulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modulator.swift; sourceTree = "<group>"; };
+		49EC59FC1A2009FA00A36D2C /* Sampler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sampler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +163,8 @@
 				4933E0EA1A17F6D500DDCE0D /* Touchable.swift */,
 				491EECC31A18E31700F33D50 /* SliderHandle.swift */,
 				25A93F6E1A1A9BDD00C9F145 /* RouletteSpin.swift */,
+				49EC59FA1A2009F200A36D2C /* Modulator.swift */,
+				49EC59FC1A2009FA00A36D2C /* Sampler.swift */,
 			);
 			name = SoundObject;
 			sourceTree = "<group>";
@@ -257,6 +265,7 @@
 		259B909D19F96D1400737E04 /* ControladorDinamico */ = {
 			isa = PBXGroup;
 			children = (
+				49EC59F71A2006C800A36D2C /* SoundFonts */,
 				490120C91A1E7A6E00F3E653 /* samples */,
 				2557DBCE1A13FCB20003AB5D /* images */,
 				2556636A1A13F95000F6F820 /* SoundObject */,
@@ -314,6 +323,14 @@
 				490120CC1A1E7AA200F3E653 /* bass.wav */,
 			);
 			name = samples;
+			sourceTree = "<group>";
+		};
+		49EC59F71A2006C800A36D2C /* SoundFonts */ = {
+			isa = PBXGroup;
+			children = (
+				49EC59F81A2006C800A36D2C /* piano.sf2 */,
+			);
+			path = SoundFonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,6 +422,7 @@
 				25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */,
 				2557DBDF1A13FCB20003AB5D /* slider_MOLA_V1.psd in Resources */,
 				259B90A619F96D1400737E04 /* Main.storyboard in Resources */,
+				49EC59F91A2006C800A36D2C /* piano.sf2 in Resources */,
 				4933E0F11A18005700DDCE0D /* sliderTrack.png in Resources */,
 				259B90AB19F96D1400737E04 /* LaunchScreen.xib in Resources */,
 				2557DBDE1A13FCB20003AB5D /* DEMO.mp4 in Resources */,
@@ -446,6 +464,7 @@
 				255663701A13FA0000F6F820 /* SliderSoundObject.swift in Sources */,
 				258D1FF11A01849800ACFC93 /* ObjectsPalette.swift in Sources */,
 				2556633C1A11555900F6F820 /* ProjectManager.swift in Sources */,
+				49EC59FB1A2009F200A36D2C /* Modulator.swift in Sources */,
 				4933E0EB1A17F6D500DDCE0D /* Touchable.swift in Sources */,
 				2509940519FEE86500A6D24F /* EditScene.swift in Sources */,
 				2556636E1A13F9ED00F6F820 /* SpringSoundObject.swift in Sources */,
@@ -460,6 +479,7 @@
 				2557DC131A16A3000003AB5D /* PlayViewController.swift in Sources */,
 				255663721A13FA9400F6F820 /* RouletteSoundObject.swift in Sources */,
 				495BDEC91A1226A8000941E8 /* PlayScene.swift in Sources */,
+				49EC59FD1A2009FA00A36D2C /* Sampler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

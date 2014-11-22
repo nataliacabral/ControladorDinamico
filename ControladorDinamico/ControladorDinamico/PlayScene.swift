@@ -60,20 +60,69 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
             var objCopy = obj.copy() as SoundObject
             self.addChild(objCopy)
             objCopy.startPhysicalBody()
-            objCopy.startSoundEngine()
+        }
+//        
+//        for obj in self.children
+//        {
+//            if (obj is Modulator) {
+//                let sliderObj = obj as Modulator
+//                for otherObj in self.children {
+//                    if (otherObj is Sampler) {
+//                        let buttonObj = otherObj as ButtonSoundObject
+//                        SoundManager.sharedInstance.audioEngine.connect(buttonObj.audioSampler, to: sliderObj.modulator(), format: SoundManager.sharedInstance.audioEngine.mainMixerNode.outputFormatForBus(0))
+//                        SoundManager.sharedInstance.audioEngine.connect(sliderObj.modulator(), to: SoundManager.sharedInstance.audioEngine.mainMixerNode, format: SoundManager.sharedInstance.audioEngine.mainMixerNode.outputFormatForBus(0))
+//                    }
+//                }
+//            }
+//        }
+        
+        let audioEngine:AVAudioEngine = SoundManager.sharedInstance.audioEngine
+        
+        // Start all modulators
+        for obj in self.children
+        {
+            if (obj is Modulator)
+            {
+                let modulator:Modulator = obj as Modulator
+                modulator.startModulator()
+                // Attach modulator nodes
+                audioEngine.attachNode(modulator.getPitchModulator())
+                audioEngine.attachNode(modulator.getVolumeModulator())
+            }
         }
         
         for obj in self.children
         {
-            if (obj is SliderSoundObject) {
-                let sliderObj = obj as SliderSoundObject
-                for otherObj in self.children {
-                    if (otherObj is ButtonSoundObject) {
-                        let buttonObj = otherObj as ButtonSoundObject
-                        SoundManager.sharedInstance.audioEngine.connect(buttonObj.playerNode, to: sliderObj.auTimePitch, format: SoundManager.sharedInstance.audioEngine.mainMixerNode.outputFormatForBus(0))
-                        SoundManager.sharedInstance.audioEngine.connect(sliderObj.auTimePitch, to: SoundManager.sharedInstance.audioEngine.mainMixerNode, format: SoundManager.sharedInstance.audioEngine.mainMixerNode.outputFormatForBus(0))
-                    }
+            if (obj is Sampler)
+            {
+                let sampler:Sampler = obj as Sampler
+                sampler.startSampler()
+                // Attach sampler node
+                audioEngine.attachNode(sampler.sampler())
+                
+                // Attach neighbor modulators
+                let skNodeObj = obj as SKNode
+                let leftObj:SKNode? = self.nodeAtPoint(CGPoint(x:obj.position.x - self.gridSize, y:obj.position.y))
+                let rightObj:SKNode? = self.nodeAtPoint(CGPoint(x:obj.position.x + self.gridSize, y:obj.position.y))
+                let topObj:SKNode? = self.nodeAtPoint(CGPoint(x:obj.position.x, y:obj.position.y - self.gridSize))
+                let bottomObj:SKNode? = self.nodeAtPoint(CGPoint(x:obj.position.x, y:obj.position.y + self.gridSize))
+                
+                var modulatorCount = 0
+                var parentNode:AVAudioNode = audioEngine.mainMixerNode
+                
+                if (leftObj is Modulator)
+                {
+                    let modulator = leftObj as Modulator
+                    audioEngine.connect(modulator.getPitchModulator(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
+                    parentNode = modulator.getPitchModulator()
                 }
+                if (rightObj is Modulator)
+                {
+                    let modulator = rightObj as Modulator
+                    audioEngine.connect(modulator.getVolumeModulator(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
+                    parentNode = modulator.getVolumeModulator()
+                }
+                    audioEngine.connect(sampler.sampler(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
             }
         }
         SoundManager.sharedInstance.audioEngine.mainMixerNode.outputVolume = 1.0
@@ -125,14 +174,21 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
             touchLocation = self.convertPointFromView(touchLocation)
 
             let touchBoundNode:Touchable? = touchMapping[uiTouch]
-            
+            var touchedNode:SKNode? = self.nodeAtPoint(touchLocation)
+
             if (touchBoundNode != nil) {
                 touchBoundNode!.touchMoved(touchLocation)
-                
-                var touchedNode:SKNode? = self.nodeAtPoint(touchLocation)
-                if (touchedNode !== touchBoundNode) {
+            }
+            
+            if (touchedNode !== touchBoundNode) {
+                if (touchBoundNode != nil) {
                     touchBoundNode!.touchEnded(touchLocation)
                     touchMapping.removeValueForKey(uiTouch)
+                }
+                if (touchedNode != nil && touchedNode is Touchable) {
+                    let touchableObj = touchedNode as Touchable
+                    touchMapping[uiTouch] = touchableObj
+                    touchableObj.touchStarted(uiTouch.locationInView(uiTouch.view))
                 }
             }
         }
@@ -155,19 +211,19 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
         for obj in self.children {
             if (obj is SoundObject) {
                 let soundObj:SoundObject = obj as SoundObject
-                let currentSoundIntensity : UInt32 = soundObj.currentSoundIntensity()
+                let currentSoundIntensity : Float = soundObj.currentSoundIntensity()
                 if (obj is SliderSoundObject) {
                     let sliderObj:SliderSoundObject = obj as SliderSoundObject
-                    sliderObj.auTimePitch!.pitch =  Float(currentSoundIntensity * 5) // In cents. The default value is 1.0. The range of values is -2400 to 2400
-                    sliderObj.auTimePitch!.rate = 2 //The default value is 1.0. The range of supported values is 1/32 to 32.0.
+                    sliderObj.setModule(currentSoundIntensity) // In cents. The default value is 1.0. The range of values is -2400 to 2400
+                    //sliderObj.auTimePitch!.rate = 2 //The default value is 1.0. The range of supported values is 1/32 to 32.0.
                 }
-                else if (obj is ButtonSoundObject) {
-                    let buttonObj:ButtonSoundObject = obj as ButtonSoundObject
+                else if (obj is Sampler) {
+                    let samplerObj:Sampler = obj as Sampler
                     if (currentSoundIntensity > 0) {
-                        soundObj.playSound()
+                        samplerObj.playSound()
                     }
                     else {
-                        soundObj.stopSound()
+                        samplerObj.stopSound()
                     }
                 }
             }
