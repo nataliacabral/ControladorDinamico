@@ -92,13 +92,15 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                 audioEngine.attachNode(modulator.rightModulator())
             }
         }
-        
+        var note:UInt8 = 60 // C
+
         for obj in self.children
         {
             if (obj is Sampler)
             {
                 let sampler:Sampler = obj as Sampler
-                sampler.startSampler()
+                sampler.startSampler(note)
+                note += 2 // +1 tone
                 // Attach sampler node
                 audioEngine.attachNode(sampler.sampler())
                 

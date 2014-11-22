@@ -82,7 +82,7 @@ class ButtonSoundObject : SoundObject, Touchable, Sampler
         }
     }
     
-    func startSampler() {
+    func startSampler(note:UInt8) {
 //        self.playerNode =  AVAudioPlayerNode()
 //        let path = NSBundle.mainBundle().pathForResource(String("bass"), ofType:"wav")
 //        let fileURL = NSURL(fileURLWithPath: path!)
@@ -90,7 +90,7 @@ class ButtonSoundObject : SoundObject, Touchable, Sampler
 //        SoundManager.sharedInstance.audioEngine.attachNode(self.playerNode)
         
         let path = NSBundle.mainBundle().pathForResource(String("piano"), ofType:"sf2")
-
+        self.note = note
         self.audioSampler = AVAudioUnitSampler()
     }
     
@@ -104,7 +104,6 @@ class ButtonSoundObject : SoundObject, Touchable, Sampler
         //self.playerNode?.scheduleFile(self.audioFile, atTime: nil, completionHandler: nil)
         //self.playerNode?.play()
         if (!playing) {
-            self.note = (UInt8)(arc4random() % 20) + 40
             self.audioSampler?.startNote(self.note, withVelocity: 127, onChannel: 0)
             self.playing = true
         }
