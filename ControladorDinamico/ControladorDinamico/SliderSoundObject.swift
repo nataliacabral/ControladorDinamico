@@ -52,8 +52,8 @@ class SliderSoundObject : SoundObject, Touchable, Modulator
     
     override init(gridSize:CGFloat) {
         super.init(gridSize:gridSize)
-        self.loadHandle()
         self.texture = self.sliderTrackTexture
+        //self.loadHandle()
     }
     
     override func startPhysicalBody() {
