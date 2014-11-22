@@ -22,7 +22,7 @@ class EditScene : SKScene
     
     override init(size: CGSize)
     {
-        self.gridSize = size.width / 8
+        self.gridSize = size.width / 16
         super.init(size: size)
         self.scene?.backgroundColor = UIColor.blackColor()
 

@@ -34,6 +34,7 @@ class PlayViewController : UIViewController {
     }
     
     @IBAction func backAction(AnyObject) {
+        SoundManager.sharedInstance.audioEngine.stop()
         self.navigationController?.popViewControllerAnimated(true)
     }
 }
