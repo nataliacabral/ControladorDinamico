@@ -11,8 +11,10 @@ import AVFoundation
 
 @objc protocol Modulator
 {
-    func getVolumeModulator() -> AVAudioNode
-    func getPitchModulator() -> AVAudioNode
+    func leftModulator() -> AVAudioNode
+    func rightModulator() -> AVAudioNode
+    func topModulator() -> AVAudioNode
+    func bottomModulator() -> AVAudioNode
     func setModule(module:Float)
     func startModulator()
 }

@@ -27,6 +27,9 @@ class SliderSoundObject : SoundObject, Touchable, Modulator
     
     var volumeMixer:AVAudioMixerNode?
     var pitchMixer:AVAudioUnitTimePitch?
+    var distortionMixer:AVAudioUnitDistortion?
+    var reverbMixer:AVAudioUnitReverb?
+
 
 
     override init()
@@ -44,11 +47,12 @@ class SliderSoundObject : SoundObject, Touchable, Modulator
     required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
         self.texture = self.sliderTrackTexture
+        self.loadHandle()
     }
     
     override init(gridSize:CGFloat) {
         super.init(gridSize:gridSize)
-        self.removeAllChildren()
+        self.loadHandle()
         self.texture = self.sliderTrackTexture
     }
     
@@ -83,7 +87,8 @@ class SliderSoundObject : SoundObject, Touchable, Modulator
         
     func loadHandle()
     {
-        //self.removeAllChildren()
+        self.sliderHandle = nil
+        self.removeAllChildren()
         if (self.sliderHandle == nil) {
             self.sliderHandle = SliderHandle(texture: self.sliderHandleTexture)
             self.sliderHandle!.anchorPoint = CGPoint(x: 0, y: 0)
@@ -120,6 +125,9 @@ class SliderSoundObject : SoundObject, Touchable, Modulator
     func startModulator() {
         self.startPitch()
         self.startVolume()
+        self.startDistortion()
+        self.startReverb()
+
     }
     
     func startPitch()
@@ -131,11 +139,24 @@ class SliderSoundObject : SoundObject, Touchable, Modulator
 
     func startVolume()
     {
-        var volume = AVAudioMixerNode()
-        volume.outputVolume = 0.5
-        self.volumeMixer = volume
+        self.volumeMixer = AVAudioMixerNode()
+        self.volumeMixer!.outputVolume = 0.5
     }
     
+    func startDistortion()
+    {
+        self.distortionMixer = AVAudioUnitDistortion()
+        self.distortionMixer!.loadFactoryPreset(AVAudioUnitDistortionPreset.MultiEcho2)
+        self.distortionMixer!.wetDryMix = 50
+        self.distortionMixer!.preGain = 0
+    }
+    
+    func startReverb()
+    {
+        self.reverbMixer = AVAudioUnitReverb()
+        self.reverbMixer!.loadFactoryPreset(AVAudioUnitReverbPreset.Cathedral)
+        self.reverbMixer!.wetDryMix = 50
+    }
     
     func touchStarted(position:CGPoint)
     {
@@ -150,23 +171,32 @@ class SliderSoundObject : SoundObject, Touchable, Modulator
     {
     }
     
-    func getVolumeModulator() -> AVAudioNode
+    func topModulator() -> AVAudioNode
     {
         return self.volumeMixer!
     }
 
-    func getPitchModulator() -> AVAudioNode
+    func bottomModulator() -> AVAudioNode
     {
         return self.pitchMixer!
     }
     
+    func leftModulator() -> AVAudioNode
+    {
+        return self.distortionMixer!
+    }
+    
+    func rightModulator() -> AVAudioNode
+    {
+        return self.reverbMixer!
+    }
+    
     func setModule(module:Float)
     {
-        NSLog("module: %lf", module)
         self.pitchMixer!.pitch = (module - 0.3) * 2800
-        NSLog("pitch: %lf", self.pitchMixer!.pitch)
         self.volumeMixer!.outputVolume = module
-        NSLog("volume: %lf", self.volumeMixer!.outputVolume)
-
+        //self.distortionMixer!.preGain = (module - 0.8) * 100
+        self.distortionMixer!.wetDryMix = module * 100
+        self.reverbMixer!.wetDryMix = module * 100
     }
 }

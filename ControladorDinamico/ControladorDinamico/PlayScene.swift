@@ -86,8 +86,10 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                 let modulator:Modulator = obj as Modulator
                 modulator.startModulator()
                 // Attach modulator nodes
-                audioEngine.attachNode(modulator.getPitchModulator())
-                audioEngine.attachNode(modulator.getVolumeModulator())
+                audioEngine.attachNode(modulator.leftModulator())
+                audioEngine.attachNode(modulator.topModulator())
+                audioEngine.attachNode(modulator.bottomModulator())
+                audioEngine.attachNode(modulator.rightModulator())
             }
         }
         
@@ -104,23 +106,35 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                 let skNodeObj = obj as SKNode
                 let leftObj:SKNode? = self.nodeAtPoint(CGPoint(x:obj.position.x - self.gridSize, y:obj.position.y))
                 let rightObj:SKNode? = self.nodeAtPoint(CGPoint(x:obj.position.x + self.gridSize, y:obj.position.y))
-                let topObj:SKNode? = self.nodeAtPoint(CGPoint(x:obj.position.x, y:obj.position.y - self.gridSize))
-                let bottomObj:SKNode? = self.nodeAtPoint(CGPoint(x:obj.position.x, y:obj.position.y + self.gridSize))
+                let topObj:SKNode? = self.nodeAtPoint(CGPoint(x:obj.position.x, y:obj.position.y + self.gridSize))
+                let bottomObj:SKNode? = self.nodeAtPoint(CGPoint(x:obj.position.x, y:obj.position.y - self.gridSize))
                 
                 var modulatorCount = 0
                 var parentNode:AVAudioNode = audioEngine.mainMixerNode
                 
+                if (topObj is Modulator)
+                {
+                    let modulator = topObj as Modulator
+                    audioEngine.connect(modulator.topModulator(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
+                    parentNode = modulator.topModulator()
+                }
+                if (bottomObj is Modulator)
+                {
+                    let modulator = bottomObj as Modulator
+                    audioEngine.connect(modulator.bottomModulator(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
+                    parentNode = modulator.bottomModulator()
+                }
                 if (leftObj is Modulator)
                 {
                     let modulator = leftObj as Modulator
-                    audioEngine.connect(modulator.getPitchModulator(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
-                    parentNode = modulator.getPitchModulator()
+                    audioEngine.connect(modulator.leftModulator(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
+                    parentNode = modulator.leftModulator()
                 }
                 if (rightObj is Modulator)
                 {
                     let modulator = rightObj as Modulator
-                    audioEngine.connect(modulator.getVolumeModulator(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
-                    parentNode = modulator.getVolumeModulator()
+                    audioEngine.connect(modulator.rightModulator(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
+                    parentNode = modulator.rightModulator()
                 }
                     audioEngine.connect(sampler.sampler(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
             }

@@ -22,6 +22,7 @@ class ButtonSoundObject : SoundObject, Touchable, Sampler
 
     var pressed : Bool
     var playing : Bool = false
+    var note : UInt8 = 0
     
     var audioSampler:AVAudioUnitSampler?
 
@@ -103,7 +104,8 @@ class ButtonSoundObject : SoundObject, Touchable, Sampler
         //self.playerNode?.scheduleFile(self.audioFile, atTime: nil, completionHandler: nil)
         //self.playerNode?.play()
         if (!playing) {
-            self.audioSampler?.startNote(60, withVelocity: 64, onChannel: 0)
+            self.note = (UInt8)(arc4random() % 20) + 40
+            self.audioSampler?.startNote(self.note, withVelocity: 127, onChannel: 0)
             self.playing = true
         }
     }
@@ -112,7 +114,7 @@ class ButtonSoundObject : SoundObject, Touchable, Sampler
     {
         //        self.playerNode?.stop()
         if (self.playing) {
-            self.audioSampler?.stopNote(60,  onChannel: 0)
+            self.audioSampler?.stopNote(self.note,  onChannel: 0)
             self.playing = false
         }
         
