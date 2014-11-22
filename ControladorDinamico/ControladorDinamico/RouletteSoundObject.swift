@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class RouletteSoundObject : SoundObject
+class RouletteSoundObject : SoundObject, ModulatorNode
 {
     override var gridHeight:CGFloat { get { return 2 } }
     override var gridWidth:CGFloat { get { return 2 } }
@@ -21,6 +21,8 @@ class RouletteSoundObject : SoundObject
     var rouletteSpin:RouletteSpin?
     var rouletteSpinTexture:SKTexture?
     var rouletteBackgroundTexture:SKTexture?
+    
+    var modulators:Array<Modulator> = Array<Modulator>()
     
     override init()
     {
@@ -56,6 +58,7 @@ class RouletteSoundObject : SoundObject
         
         for obj in self.children {
             let rouletteSpin:RouletteSpin = obj as RouletteSpin
+            self.rouletteSpin = rouletteSpin
             rouletteSpin.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width / 2, center: CGPoint(x:self.size.width / 2 , y:self.size.height / 2))
             rouletteSpin.physicsBody?.categoryBitMask = (1 << 3)
             rouletteSpin.physicsBody?.contactTestBitMask = 0
@@ -90,6 +93,24 @@ class RouletteSoundObject : SoundObject
         self.rouletteBackgroundTexture = SKTexture(imageNamed: self.rouletteBackgroundImageName);
     }
     
+    override func currentSoundIntensity() -> Float
+    {
+        let radianRotation = Double(self.rouletteSpin!.zRotation) / (2 * M_PI)
+        return Float(abs(radianRotation))
+    }
+    
+    
+    func setModule(module:Float)
+    {
+        for modulator in self.modulators {
+            modulator.modulate(module)
+        }
+    }
+    
+    func addModulator(modulator:Modulator) {
+        self.modulators.append(modulator)
+    }
+    
     override func updateGridSize(gridSize:CGFloat)
     {
         super.updateGridSize(gridSize)
@@ -98,4 +119,5 @@ class RouletteSoundObject : SoundObject
         self.rouletteSpin!.position.x = 0
         self.rouletteSpin!.position.y = 0
     }
+
 }

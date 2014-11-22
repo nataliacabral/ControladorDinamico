@@ -61,37 +61,9 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
             self.addChild(objCopy)
             objCopy.startPhysicalBody()
         }
-//        
-//        for obj in self.children
-//        {
-//            if (obj is Modulator) {
-//                let sliderObj = obj as Modulator
-//                for otherObj in self.children {
-//                    if (otherObj is Sampler) {
-//                        let buttonObj = otherObj as ButtonSoundObject
-//                        SoundManager.sharedInstance.audioEngine.connect(buttonObj.audioSampler, to: sliderObj.modulator(), format: SoundManager.sharedInstance.audioEngine.mainMixerNode.outputFormatForBus(0))
-//                        SoundManager.sharedInstance.audioEngine.connect(sliderObj.modulator(), to: SoundManager.sharedInstance.audioEngine.mainMixerNode, format: SoundManager.sharedInstance.audioEngine.mainMixerNode.outputFormatForBus(0))
-//                    }
-//                }
-//            }
-//        }
         
         let audioEngine:AVAudioEngine = SoundManager.sharedInstance.audioEngine
-        
-        // Start all modulators
-        for obj in self.children
-        {
-            if (obj is Modulator)
-            {
-                let modulator:Modulator = obj as Modulator
-                modulator.startModulator()
-                // Attach modulator nodes
-                audioEngine.attachNode(modulator.leftModulator())
-                audioEngine.attachNode(modulator.topModulator())
-                audioEngine.attachNode(modulator.bottomModulator())
-                audioEngine.attachNode(modulator.rightModulator())
-            }
-        }
+ 
         var note:UInt8 = 60 // C
 
         for obj in self.children
@@ -99,6 +71,8 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
             if (obj is Sampler)
             {
                 let sampler:Sampler = obj as Sampler
+                var modulatedSampler = ModulatedSampler(sampler: sampler)
+
                 sampler.startSampler(note)
                 note += 2 // +1 tone
                 // Attach sampler node
@@ -114,31 +88,35 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                 var modulatorCount = 0
                 var parentNode:AVAudioNode = audioEngine.mainMixerNode
                 
-                if (topObj is Modulator)
+                if (topObj is ModulatorNode)
                 {
-                    let modulator = topObj as Modulator
-                    audioEngine.connect(modulator.topModulator(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
-                    parentNode = modulator.topModulator()
+                    let modulatorNode = topObj as ModulatorNode
+                    let modulator:VolumeModulator = VolumeModulator()
+                    modulatorNode.addModulator(modulator)
+                    modulatedSampler.addModulator(modulator)
                 }
-                if (bottomObj is Modulator)
+                if (bottomObj is ModulatorNode)
                 {
-                    let modulator = bottomObj as Modulator
-                    audioEngine.connect(modulator.bottomModulator(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
-                    parentNode = modulator.bottomModulator()
+                    let modulatorNode = bottomObj as ModulatorNode
+                    let modulator:PitchModulator = PitchModulator()
+                    modulatorNode.addModulator(modulator)
+                    modulatedSampler.addModulator(modulator)
                 }
-                if (leftObj is Modulator)
+                if (leftObj is ModulatorNode)
                 {
-                    let modulator = leftObj as Modulator
-                    audioEngine.connect(modulator.leftModulator(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
-                    parentNode = modulator.leftModulator()
+                    let modulatorNode = leftObj as ModulatorNode
+                    let modulator:DistortionModulator = DistortionModulator()
+                    modulatorNode.addModulator(modulator)
+                    modulatedSampler.addModulator(modulator)
                 }
-                if (rightObj is Modulator)
+                if (rightObj is ModulatorNode)
                 {
-                    let modulator = rightObj as Modulator
-                    audioEngine.connect(modulator.rightModulator(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
-                    parentNode = modulator.rightModulator()
+                    let modulatorNode = rightObj as ModulatorNode
+                    let modulator:ReverbModulator = ReverbModulator()
+                    modulatorNode.addModulator(modulator)
+                    modulatedSampler.addModulator(modulator)
                 }
-                    audioEngine.connect(sampler.sampler(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
+                modulatedSampler.startWithEngine(audioEngine)
             }
         }
         SoundManager.sharedInstance.audioEngine.mainMixerNode.outputVolume = 1.0
@@ -228,8 +206,8 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
             if (obj is SoundObject) {
                 let soundObj:SoundObject = obj as SoundObject
                 let currentSoundIntensity : Float = soundObj.currentSoundIntensity()
-                if (obj is SliderSoundObject) {
-                    let sliderObj:SliderSoundObject = obj as SliderSoundObject
+                if (obj is ModulatorNode) {
+                    let sliderObj:ModulatorNode = obj as ModulatorNode
                     sliderObj.setModule(currentSoundIntensity) // In cents. The default value is 1.0. The range of values is -2400 to 2400
                     //sliderObj.auTimePitch!.rate = 2 //The default value is 1.0. The range of supported values is 1/32 to 32.0.
                 }

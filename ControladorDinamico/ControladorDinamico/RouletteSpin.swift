@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class RouletteSpin : SKSpriteNode, Touchable
+class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
 {
     var startRotationPoint:CGPoint?
     
@@ -69,5 +69,16 @@ class RouletteSpin : SKSpriteNode, Touchable
     }
     func touchEnded(position: CGPoint) {
         startRotationPoint = nil
+    }
+    
+    func setModule(module:Float)
+    {
+        let modulatorParent:ModulatorNode = self.parent as ModulatorNode
+        modulatorParent.setModule(module)
+    }
+    
+    func addModulator(modulator:Modulator) {
+        let modulatorParent:ModulatorNode = self.parent as ModulatorNode
+        modulatorParent.addModulator(modulator)
     }
 }
