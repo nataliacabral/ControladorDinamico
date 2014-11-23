@@ -30,6 +30,7 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
     func touchStarted(position:CGPoint)
     {
         startRotationPoint = self.scene!.convertPoint(position, toNode:self.parent!)
+        self.physicsBody?.angularVelocity = 0
 
     }
 
