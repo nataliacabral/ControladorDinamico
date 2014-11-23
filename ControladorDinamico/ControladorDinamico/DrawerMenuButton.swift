@@ -22,7 +22,7 @@ class DrawerMenuButton : MenuButton
         self.drawer.position.x = size.width
         //self.drawer.alpha = 0
         self.drawer.size.width = size.width
-        self.addChild(drawer)
+        //self.addChild(drawer)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -31,16 +31,23 @@ class DrawerMenuButton : MenuButton
     
     func showDrawer()
     {
-        showingDrawer = true
-        var showDrawerAction:SKAction = SKAction.moveByX(-(drawer.size.width * 2), y: 0, duration: 0.3)
-        //var showDrawerAction:SKAction = SKAction.fadeInWithDuration(0.3)
-        self.drawer.runAction(showDrawerAction)
+        if (!showingDrawer) {
+            showingDrawer = true
+            self.addChild(self.drawer)
+            var showDrawerAction:SKAction = SKAction.moveByX(-(drawer.size.width * 2), y: 0, duration: 0.3)
+            //var showDrawerAction:SKAction = SKAction.fadeInWithDuration(0.3)
+            self.drawer.runAction(showDrawerAction)
+        }
     }
     func hideDrawer()
     {
-        showingDrawer = false
         var hideDrawerAction:SKAction = SKAction.moveByX(drawer.size.width * 2, y: 0, duration: 0.3)
         //var hideDrawerAction:SKAction = SKAction.fadeOutWithDuration(0.3)
-        self.drawer.runAction(hideDrawerAction)
+        self.drawer.runAction(hideDrawerAction, completion: removeDrawer)
+    }
+    func removeDrawer()
+    {
+        self.drawer.removeFromParent()
+        showingDrawer = false
     }
 }

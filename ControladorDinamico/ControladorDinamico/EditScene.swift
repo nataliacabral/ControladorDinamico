@@ -94,7 +94,7 @@ class EditScene : SKScene
                 buttonTemplateA,
                 buttonTemplateB
             ],
-            position:CGPoint(x: x, y: y),
+            position:CGPoint(x: x, y: -(self.size.height - gridSize)),
             size:CGSize(width: width, height: self.size.height),
             buttonSize:CGSize(width: gridSize, height: gridSize)
         )
@@ -105,7 +105,7 @@ class EditScene : SKScene
                 sliderTemplate,
                 rouletteTemplate,
                 thermalTemplate],
-            position:CGPoint(x: x, y: y),
+            position:CGPoint(x: x, y: -(self.size.height - (gridSize * 2))),
             size:CGSize(width: width, height: self.size.height),
             buttonSize:CGSize(width: gridSize, height: gridSize)
         )
