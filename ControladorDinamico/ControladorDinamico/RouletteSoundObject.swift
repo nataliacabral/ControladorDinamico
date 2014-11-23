@@ -13,7 +13,7 @@ class RouletteSoundObject : SoundObject, ModulatorNode
 {
     override var gridHeight:CGFloat { get { return 2 } }
     override var gridWidth:CGFloat { get { return 2 } }
-    override var imageName:String { get { return "roulette.png" } }
+    override var templateImageName:String { get { return "roulette.png" } }
     
     var rouletteSpinImageName:String { get { return "roulette_spinningpart.png" } }
     var rouletteBackgroundImageName:String { get { return "roulette_background.png" } }

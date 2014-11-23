@@ -12,7 +12,7 @@ import AVFoundation
 
 class SoundObject: SKSpriteNode, NSCoding, NSCopying, Collidable, GridBound, Touchable
 {
-    var imageName:String { get { return "" } }
+    var templateImageName:String { get { return "" } }
     var gridHeight:CGFloat { get { return 0 } }
     var gridWidth:CGFloat { get { return 0 } }
     
@@ -24,7 +24,7 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Collidable, GridBound, Tou
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
         super.init(texture: texture, color: color, size: size)
-        var texture:SKTexture = SKTexture(imageNamed: self.imageName)
+        var texture:SKTexture = SKTexture(imageNamed: self.templateImageName)
         self.texture = texture
         self.anchorPoint = CGPoint(x: 0, y: 0)
     }

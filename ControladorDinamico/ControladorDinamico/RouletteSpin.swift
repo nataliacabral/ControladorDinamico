@@ -37,11 +37,6 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
      func touchMoved(position: CGPoint) {
         let translation:CGPoint = position;
                 var convertedPoint = self.convertPoint(translation, toNode:self.parent!)
-//        // Valida se a direcao mudou. Se mudou, paramos o objeto (mudando velocidade vertical para 0)
-//        if (self.physicsBody?.velocity.dy > 0 && translation.y < 0 ||
-//            self.physicsBody?.velocity.dy < 0 && translation.y > 0) {
-//                self.physicsBody?.velocity.dy = 0
-//        }
         var x:CGFloat = 0
         var y:CGFloat = 0
         // Rotacao em cima, x é positivo para direita
@@ -65,8 +60,6 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
             higherValue = y
         }
         self.physicsBody?.applyAngularImpulse(higherValue / 20)
-
-        //self.physicsBody?.angularVelocity = 80
     }
     func touchEnded(position: CGPoint) {
         startRotationPoint = nil

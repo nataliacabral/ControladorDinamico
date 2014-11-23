@@ -50,13 +50,27 @@ class EditScene : SKScene
         }
         
         // Palette
-        var buttonSprite:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize)
+        var buttonSpriteC:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:60)
+        var buttonSpriteD:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:62)
+        var buttonSpriteE:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:64)
+        var buttonSpriteF:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:65)
+        var buttonSpriteG:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:67)
+        var buttonSpriteA:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:69)
+        var buttonSpriteB:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:71)
+
         var springSprite:SpringSoundObject = SpringSoundObject(gridSize:gridSize)
         var sliderSprite:SliderSoundObject = SliderSoundObject(gridSize:gridSize)
         var rouletteSprite:RouletteSoundObject = RouletteSoundObject(gridSize:gridSize)
         var thermalSprite:ThermalSoundObject = ThermalSoundObject(gridSize:gridSize)
         
-        var buttonTemplate:SoundObjectTemplate = SoundObjectTemplate(object: buttonSprite)
+        var buttonTemplateC:SoundObjectTemplate = SoundObjectTemplate(object: buttonSpriteC)
+        var buttonTemplateD:SoundObjectTemplate = SoundObjectTemplate(object: buttonSpriteD)
+        var buttonTemplateE:SoundObjectTemplate = SoundObjectTemplate(object: buttonSpriteE)
+        var buttonTemplateF:SoundObjectTemplate = SoundObjectTemplate(object: buttonSpriteF)
+        var buttonTemplateG:SoundObjectTemplate = SoundObjectTemplate(object: buttonSpriteG)
+        var buttonTemplateA:SoundObjectTemplate = SoundObjectTemplate(object: buttonSpriteA)
+        var buttonTemplateB:SoundObjectTemplate = SoundObjectTemplate(object: buttonSpriteB)
+
         var springTemplate:SoundObjectTemplate = SoundObjectTemplate(object: springSprite)
         var sliderTemplate:SoundObjectTemplate = SoundObjectTemplate(object: sliderSprite)
         var rouletteTemplate:SoundObjectTemplate = SoundObjectTemplate(object: rouletteSprite)
@@ -67,7 +81,17 @@ class EditScene : SKScene
         var y:CGFloat = -(self.size.height - gridSize)
         
         self.palette = VerticalMenuBar(
-            buttons: [buttonTemplate, springTemplate, sliderTemplate, rouletteTemplate, thermalTemplate],
+            buttons: [buttonTemplateC,
+                buttonTemplateD,
+                buttonTemplateE,
+                buttonTemplateF,
+                buttonTemplateG,
+                buttonTemplateA,
+                buttonTemplateB,
+                springTemplate,
+                sliderTemplate,
+                rouletteTemplate,
+                thermalTemplate],
             position:CGPoint(x: x, y: y),
             size:CGSize(width: width, height: self.size.height),
             buttonSize:CGSize(width: gridSize, height: gridSize)

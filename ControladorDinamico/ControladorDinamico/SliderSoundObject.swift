@@ -11,10 +11,12 @@ import SpriteKit
 import AVFoundation
 
 class SliderSoundObject : SoundObject, Touchable, ModulatorNode
+//class SliderSoundObject
+
 {
     override var gridHeight:CGFloat { get { return 3 } }
     override var gridWidth:CGFloat { get { return 1 } }
-    override var imageName:String { get { return "slider.png" } }
+    override var templateImageName:String { get { return "slider.png" } }
     
     var sliderHandleImageName:String { get { return "sliderHandle.png" } }
     var sliderTrackImageName:String { get { return "sliderTrack.png" } }
@@ -48,7 +50,6 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
     override init(gridSize:CGFloat) {
         super.init(gridSize:gridSize)
         self.texture = self.sliderTrackTexture
-        //self.loadHandle()
     }
     
     override func startPhysicalBody() {
@@ -140,4 +141,18 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
     func addModulator(modulator:Modulator) {
         self.modulators.append(modulator)
     }
+    
+//    override func copy() -> AnyObject
+//    {
+//        var result:SliderSoundObject = SliderSoundObject(
+//            texture:self.texture,
+//            color:self.color,
+//            size:self.size
+//        )
+//        result.sliderHandle = self.sliderHandle
+//        result.sliderHandleTexture = self.sliderHandleTexture
+//        result.sliderTrackTexture = self.sliderTrackTexture
+//        result.position = self.position
+//        return result
+//    }
 }

@@ -13,7 +13,7 @@ class SpringSoundObject : SoundObject
 {
     override var gridHeight:CGFloat { get { return 3 } }
     override var gridWidth:CGFloat { get { return 1 } }
-    override var imageName:String { get { return "spring.png" } }
+    override var templateImageName:String { get { return "spring.png" } }
 
     override init()
     {

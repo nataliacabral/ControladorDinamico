@@ -20,7 +20,7 @@ class DistortionModulator : Modulator
     func startModulator()
     {
         node.wetDryMix = 50
-        node.loadFactoryPreset(AVAudioUnitDistortionPreset.MultiDecimated3)
+        node.loadFactoryPreset(AVAudioUnitDistortionPreset.MultiEcho1)
     }
     
     func audioNode() -> AVAudioNode {

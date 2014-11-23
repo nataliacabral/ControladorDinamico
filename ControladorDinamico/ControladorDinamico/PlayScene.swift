@@ -64,8 +64,6 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
         
         let audioEngine:AVAudioEngine = SoundManager.sharedInstance.audioEngine
  
-        var note:UInt8 = 60 // C
-
         for obj in self.children
         {
             if (obj is Sampler)
@@ -73,8 +71,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                 let sampler:Sampler = obj as Sampler
                 var modulatedSampler = ModulatedSampler(sampler: sampler)
 
-                sampler.startSampler(note)
-                note += 2 // +1 tone
+                sampler.startSampler()
                 // Attach sampler node
                 audioEngine.attachNode(sampler.sampler())
                 

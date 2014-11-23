@@ -13,7 +13,7 @@ class ThermalSoundObject : SoundObject
 {
     override var gridHeight:CGFloat { get { return 2 } }
     override var gridWidth:CGFloat { get { return 2 } }
-    override var imageName:String { get { return "thermal.png" } }
+    override var templateImageName:String { get { return "thermal.png" } }
     
     override init()
     {

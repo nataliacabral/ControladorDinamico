@@ -11,7 +11,7 @@ import SpriteKit
 
 class TreadmillSoundObject : SoundObject
 {
-    override var imageName:String { get { return "" } }
+    override var templateImageName:String { get { return "" } }
     
     override init()
     {

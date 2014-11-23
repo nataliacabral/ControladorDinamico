@@ -14,5 +14,6 @@ import AVFoundation
     func sampler() -> AVAudioUnitSampler
     func playSound()
     func stopSound()
-    func startSampler(note:UInt8)
+    func startSampler()
+    func getNote() -> UInt8
 }
