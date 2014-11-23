@@ -16,9 +16,11 @@ class EditScene : SKScene
 
     var selectedNodeOriginalPos:CGPoint?
     var objects:Array<SoundObject> = Array<SoundObject>()
-    var palette:VerticalMenuBar?
+    var buttonDrawer:VerticalMenuBar?
+    var modulatorDrawer:VerticalMenuBar?
     var menuBar:VerticalMenuBar?
     var creatingObject:Bool = false
+    var openDrawer:DrawerMenuButton? = nil
     
     var touchMapping = Dictionary<UITouch , SKNode>()
     
@@ -36,6 +38,7 @@ class EditScene : SKScene
             CGPathAddLineToPoint(gridVerticalLinePath, nil, 0, y)
             gridVerticalLine.path = gridVerticalLinePath
             gridVerticalLine.strokeColor = UIColor.lightGrayColor()
+            gridVerticalLine.zPosition = -10
             self.addChild(gridVerticalLine)
         }
         
@@ -46,6 +49,7 @@ class EditScene : SKScene
             CGPathAddLineToPoint(gridHorizontalLinePath, nil, x, 0)
             gridHorizontalLine.path = gridHorizontalLinePath
             gridHorizontalLine.strokeColor = UIColor.lightGrayColor()
+            gridHorizontalLine.zPosition = -10
             self.addChild(gridHorizontalLine)
         }
         
@@ -80,14 +84,23 @@ class EditScene : SKScene
         var x:CGFloat = self.size.width - gridSize
         var y:CGFloat = -(self.size.height - gridSize)
         
-        self.palette = VerticalMenuBar(
-            buttons: [buttonTemplateC,
+        self.buttonDrawer = VerticalMenuBar(
+            buttons: [
+                buttonTemplateC,
                 buttonTemplateD,
                 buttonTemplateE,
                 buttonTemplateF,
                 buttonTemplateG,
                 buttonTemplateA,
-                buttonTemplateB,
+                buttonTemplateB
+            ],
+            position:CGPoint(x: x, y: y),
+            size:CGSize(width: width, height: self.size.height),
+            buttonSize:CGSize(width: gridSize, height: gridSize)
+        )
+        
+        self.modulatorDrawer = VerticalMenuBar(
+            buttons: [
                 springTemplate,
                 sliderTemplate,
                 rouletteTemplate,
@@ -97,13 +110,20 @@ class EditScene : SKScene
             buttonSize:CGSize(width: gridSize, height: gridSize)
         )
         
-        var objectsButton:MenuButton = DrawerMenuButton(texture:SKTexture(imageNamed: "button.png"),
-            color:nil,
+        var buttonsDrawerButton:MenuButton = DrawerMenuButton(
+            texture:SKTexture(imageNamed: "button.png"),
+            color:UIColor(),
             size:CGSize(width: self.gridSize, height: self.gridSize),
-            drawer:self.palette!)
+            drawer:self.buttonDrawer!)
+        
+        var modulatorDrawerButton:MenuButton = DrawerMenuButton(
+            texture:SKTexture(imageNamed: "slider.png"),
+            color:UIColor(),
+            size:CGSize(width: self.gridSize, height: self.gridSize),
+            drawer:self.modulatorDrawer!)
         
         self.menuBar = VerticalMenuBar(
-            buttons: [objectsButton],
+            buttons: [buttonsDrawerButton, modulatorDrawerButton],
             position:CGPoint(x: x, y: 0),
             size:CGSize(width: width, height: self.size.height),
             buttonSize:CGSize(width: gridSize, height: gridSize)
@@ -192,11 +212,15 @@ class EditScene : SKScene
                 }
                 else if (boundNode is DrawerMenuButton) {
                     let drawer = boundNode as DrawerMenuButton
-                    if (drawer.showingDrawer) {
-                        drawer.hideDrawer()
+                    if (openDrawer != nil) {
+                        openDrawer?.hideDrawer()
+                    }
+                    if (openDrawer !== drawer) {
+                        drawer.showDrawer()
+                        openDrawer = drawer
                     }
                     else {
-                        drawer.showDrawer()
+                        openDrawer = nil
                     }
                 }
                 touchMapping .removeValueForKey(uiTouch)

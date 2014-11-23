@@ -21,13 +21,12 @@ class VerticalMenuBar : SKSpriteNode
         self.name = "VerticalMenuBar"
         self.position = position
         self.anchorPoint = CGPoint(x:0,y:0)
+        self.zPosition = -1
         reloadObjs()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.buttonList = Array<MenuButton>()
-        self.buttonSize = CGSize(width: 0, height: 0)
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
     
     func reloadObjs()
@@ -44,6 +43,5 @@ class VerticalMenuBar : SKSpriteNode
             
             self.addChild(button)
         }
-        //self.checkObjectsOpacity()
     }
 }

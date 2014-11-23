@@ -18,9 +18,9 @@ class DrawerMenuButton : MenuButton
         self.drawer = drawer
         super.init(texture:texture, color:color, size:size)
         self.name = "DrawerMenuButton"
-        self.drawer.zPosition = 0
-        self.drawer.position.x = -size.width
-        self.drawer.alpha = 0
+        self.drawer.zPosition = -1
+        self.drawer.position.x = size.width
+        //self.drawer.alpha = 0
         self.drawer.size.width = size.width
         self.addChild(drawer)
     }
@@ -32,15 +32,15 @@ class DrawerMenuButton : MenuButton
     func showDrawer()
     {
         showingDrawer = true
-        //var showDrawerAction:SKAction = SKAction.moveByX(-drawer.size.width, y: 0, duration: 0.3)
-        var showDrawerAction:SKAction = SKAction.fadeInWithDuration(0.3)
+        var showDrawerAction:SKAction = SKAction.moveByX(-(drawer.size.width * 2), y: 0, duration: 0.3)
+        //var showDrawerAction:SKAction = SKAction.fadeInWithDuration(0.3)
         self.drawer.runAction(showDrawerAction)
     }
     func hideDrawer()
     {
         showingDrawer = false
-        //var hideDrawerAction:SKAction = SKAction.moveByX(drawer.size.width, y: 0, duration: 0.3)
-        var hideDrawerAction:SKAction = SKAction.fadeOutWithDuration(0.3)
+        var hideDrawerAction:SKAction = SKAction.moveByX(drawer.size.width * 2, y: 0, duration: 0.3)
+        //var hideDrawerAction:SKAction = SKAction.fadeOutWithDuration(0.3)
         self.drawer.runAction(hideDrawerAction)
     }
 }

@@ -74,7 +74,6 @@ class ButtonSoundObject : SoundObject, Sampler
         super.init(gridSize:gridSize)
         self.note = note
         let colorMap:Array<UIColor> = ButtonSoundObject.colorMap()
-        NSLog("ColorMap: %@", colorMap)
         self.color = colorMap[Int(note) % 12]
         self.colorBlendFactor = 1.0
     }
