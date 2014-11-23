@@ -58,11 +58,18 @@ class ButtonSoundObject : SoundObject, Sampler
         super.init(texture: texture, color: color, size: size)
         self.loadTextures();
     }
+
+    func colorize()
+    {
+        self.color = ButtonSoundObject.colorMap()[Int(self.note) % 12]
+        self.colorBlendFactor = 1.0
+    }
     
     required init(coder aDecoder: NSCoder) {
         self.pressed = false
         super.init(coder:aDecoder)
         self.note = (aDecoder.decodeObjectForKey("note") as NSNumber).unsignedCharValue
+        self.colorize()
     }
     override func encodeWithCoder(aCoder: NSCoder) {
         super.encodeWithCoder(aCoder)
@@ -73,9 +80,7 @@ class ButtonSoundObject : SoundObject, Sampler
         self.pressed = false
         super.init(gridSize:gridSize)
         self.note = note
-        let colorMap:Array<UIColor> = ButtonSoundObject.colorMap()
-        self.color = colorMap[Int(note) % 12]
-        self.colorBlendFactor = 1.0
+        self.colorize()
     }
     
     override func touchStarted(position:CGPoint)
@@ -116,8 +121,10 @@ class ButtonSoundObject : SoundObject, Sampler
     }
     
     func startSampler() {
-        let path = NSBundle.mainBundle().pathForResource(String("piano"), ofType:"sf2")
+        var error:NSError?
         self.audioSampler = AVAudioUnitSampler()
+        let path = NSBundle.mainBundle().URLForResource(String("guitar"), withExtension:"sf2")
+        self.audioSampler?.loadSoundBankInstrumentAtURL(path, program: 1, bankMSB: UInt8(kAUSampler_DefaultMelodicBankMSB), bankLSB: UInt8(kAUSampler_DefaultBankLSB), error: &error)
     }
     
     func sampler() -> AVAudioUnitSampler

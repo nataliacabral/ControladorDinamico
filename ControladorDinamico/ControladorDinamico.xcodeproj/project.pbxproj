@@ -47,6 +47,7 @@
 		490120CF1A1E7BC200F3E653 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490120CE1A1E7BC200F3E653 /* AVFoundation.framework */; };
 		4905AAC01A1166E20094C5A2 /* Collidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905AABF1A1166E20094C5A2 /* Collidable.swift */; };
 		4905AAC51A1169460094C5A2 /* GridBound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905AAC41A1169460094C5A2 /* GridBound.swift */; };
+		4918FC711A228F41007E1F64 /* guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 4918FC701A228F41007E1F64 /* guitar.sf2 */; };
 		491EECC41A18E31700F33D50 /* SliderHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491EECC31A18E31700F33D50 /* SliderHandle.swift */; };
 		4933E0E91A17F3FE00DDCE0D /* buttonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4933E0E81A17F3FE00DDCE0D /* buttonSelected.png */; };
 		4933E0EB1A17F6D500DDCE0D /* Touchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933E0EA1A17F6D500DDCE0D /* Touchable.swift */; };
@@ -125,6 +126,7 @@
 		490120CE1A1E7BC200F3E653 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4905AABF1A1166E20094C5A2 /* Collidable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collidable.swift; sourceTree = "<group>"; };
 		4905AAC41A1169460094C5A2 /* GridBound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridBound.swift; sourceTree = "<group>"; };
+		4918FC701A228F41007E1F64 /* guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; name = guitar.sf2; path = ../guitar.sf2; sourceTree = "<group>"; };
 		491EECC31A18E31700F33D50 /* SliderHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderHandle.swift; sourceTree = "<group>"; };
 		4933E0E81A17F3FE00DDCE0D /* buttonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonSelected.png; sourceTree = "<group>"; };
 		4933E0EA1A17F6D500DDCE0D /* Touchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Touchable.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 		49EC59F71A2006C800A36D2C /* SoundFonts */ = {
 			isa = PBXGroup;
 			children = (
+				4918FC701A228F41007E1F64 /* guitar.sf2 */,
 				49EC59F81A2006C800A36D2C /* piano.sf2 */,
 			);
 			path = SoundFonts;
@@ -452,6 +455,7 @@
 			files = (
 				4933E0E91A17F3FE00DDCE0D /* buttonSelected.png in Resources */,
 				2557DBF21A1406AB0003AB5D /* slider.png in Resources */,
+				4918FC711A228F41007E1F64 /* guitar.sf2 in Resources */,
 				2557DBEE1A14067B0003AB5D /* spring.png in Resources */,
 				25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */,
 				2557DBDF1A13FCB20003AB5D /* slider_MOLA_V1.psd in Resources */,
