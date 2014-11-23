@@ -9,10 +9,10 @@
 import Foundation
 import SpriteKit
 
-class SoundObjectTemplate: SKSpriteNode
+class SoundObjectTemplate : MenuButton
 {
     var object:SoundObject?
-    
+        
     init(object:SoundObject) {
         super.init(texture: SKTexture(imageNamed: object.imageName), color: UIColor(), size:CGSize(width: 50, height: 50))
         self.object = object

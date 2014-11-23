@@ -15,10 +15,12 @@ class EditScene : SKScene
     let distanceToCreateObject:CGFloat = 30
 
     var selectedNodeOriginalPos:CGPoint?
-    var selectedNode:SKSpriteNode?
     var objects:Array<SoundObject> = Array<SoundObject>()
-    var palette:ObjectsPalette?
+    var palette:VerticalMenuBar?
+    var menuBar:VerticalMenuBar?
     var creatingObject:Bool = false
+    
+    var touchMapping = Dictionary<UITouch , SKNode>()
     
     override init(size: CGSize)
     {
@@ -60,37 +62,36 @@ class EditScene : SKScene
         var rouletteTemplate:SoundObjectTemplate = SoundObjectTemplate(object: rouletteSprite)
         var thermalTemplate:SoundObjectTemplate = SoundObjectTemplate(object: thermalSprite)
 
-        var width:CGFloat = self.size.width * 0.7
-        var x:CGFloat = (self.size.width / 2) - width/2
-
-        self.palette = ObjectsPalette(
-            objects: [buttonTemplate, springTemplate, sliderTemplate, rouletteTemplate, thermalTemplate],
-            position:CGPoint(x: x, y: self.size.height - 100), size:CGSize(width: width, height: 100)
+        var width:CGFloat = gridSize
+        var x:CGFloat = self.size.width - gridSize
+        var y:CGFloat = -(self.size.height - gridSize)
+        
+        self.palette = VerticalMenuBar(
+            buttons: [buttonTemplate, springTemplate, sliderTemplate, rouletteTemplate, thermalTemplate],
+            position:CGPoint(x: x, y: y),
+            size:CGSize(width: width, height: self.size.height),
+            buttonSize:CGSize(width: gridSize, height: gridSize)
         )
-        self.addChild(self.palette!)
+        
+        var objectsButton:MenuButton = DrawerMenuButton(texture:SKTexture(imageNamed: "button.png"),
+            color:nil,
+            size:CGSize(width: self.gridSize, height: self.gridSize),
+            drawer:self.palette!)
+        
+        self.menuBar = VerticalMenuBar(
+            buttons: [objectsButton],
+            position:CGPoint(x: x, y: 0),
+            size:CGSize(width: width, height: self.size.height),
+            buttonSize:CGSize(width: gridSize, height: gridSize)
+        )
+        self.addChild(menuBar!)
     }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    func selectNode(node: SKSpriteNode)
-    {
-        self.selectedNode = node
-        self.selectedNodeOriginalPos = CGPoint(x: node.position.x, y: node.position.y)
-    }
-    
-    func deselectNode()
-    {
-        self.selectedNode = nil
-        self.selectedNodeOriginalPos = nil
-    }
-    
     override func didMoveToView(view: SKView) {
-        var gestureRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePanFromRecognizer:"))
-        self.view?.addGestureRecognizer(gestureRecognizer)
-        
         for obj in objects
         {
             (obj as SoundObject).updateGridSize(self.gridSize)
@@ -98,125 +99,117 @@ class EditScene : SKScene
         }
     }
     
-    func handlePanFromRecognizer(recognizer:UIPanGestureRecognizer) {
-        switch(recognizer.state) {
-        case UIGestureRecognizerState.Began:
-            self.creatingObject = false
-            var touchLocation:CGPoint = recognizer.locationInView(recognizer.view)
-            touchLocation = self.convertPointFromView(touchLocation)
-            var touchedNode:SKNode? = self.nodeAtPoint(touchLocation)
-
-            if (selectedNode == nil ||
-                !self.selectedNode!.isEqual(touchedNode)) {
-            
-                if (selectedNode != nil) {
-                    self.selectedNode!.removeAllActions()
-                }
-                if (touchedNode is SoundObjectTemplate) {
-                    self.selectNode(touchedNode! as SoundObjectTemplate)
-                    self.creatingObject = true
-                }
-                else if (touchedNode is ObjectsPalette) {
-                    self.selectNode(touchedNode! as ObjectsPalette)
-                }
-                else if (touchedNode is SoundObject) {
-                    self.selectNode(touchedNode! as SoundObject)
-                }
-            }
-
-            break;
-            
-        case UIGestureRecognizerState.Changed:
-            var translation:CGPoint = recognizer.translationInView(recognizer.view!)
-            translation = CGPointMake(translation.x, -translation.y)
-
-            if (self.selectedNode is SoundObjectTemplate) {
-                if (translation.y < -self.distanceToCreateObject) {
-                    var newObject:SoundObject = (self.selectedNode as SoundObjectTemplate).createSoundObject()
-                    self.selectNode(newObject)
-                    self.addChild(newObject)
-                    self.objects.append(newObject)
-                }
-                else
-                {
-                    self.palette!.scroll(translation.x)
-                }
-            }
-            else if (self.selectedNode is SoundObject)
-            {
-                self.selectedNode!.position = CGPointMake(self.selectedNode!.position.x + translation.x, self.selectedNode!.position.y + translation.y)
-                recognizer.setTranslation(CGPointZero, inView: recognizer.view)
-            }
-            else if (self.selectedNode is ObjectsPalette) {
-                self.palette!.scroll(translation.x)
-            }
-
-            break;
-
-        case UIGestureRecognizerState.Ended:
-            if (self.selectedNode != nil) {
-               
-                if (self.selectedNode is GridBound) {
-                    var position:CGPoint = self.selectedNode!.position
-                    position.x = gridSize * round((position.x / gridSize))
-                    position.y = gridSize * round((position.y / gridSize))
-                    self.selectedNode!.position = position
-                }
-                
-                if (self.selectedNode is Collidable)
-                {
-                    if (self.checkCollisionForCollidable(selectedNode as Collidable))
-                    {
-                        self.cancelPlacement(selectedNode!);
-                    }
-                    else if self.isOutOfScreen(selectedNode!) {
-                            self.cancelPlacement(selectedNode!);
-                    }
-                }
-                if (self.selectedNode is SoundObjectTemplate) {
-                    self.palette!.stopScroll()
-                }
-                if (self.selectedNode is ObjectsPalette) {
-                    self.palette!.stopScroll()
-                }
-            }
-            self.deselectNode()
-            recognizer.setTranslation(CGPointZero, inView: recognizer.view)
-            break;
-        default:
-            break;
-        }
+    override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
+        
     }
-    
-    func isOutOfScreen(node:SKSpriteNode) -> Bool
-    {
-        return (node.position.x < self.position.x ||
-            node.position.x + node.size.width > self.position.x + self.size.width ||
-            node.position.y < self.position.y ||
-            node.position.y + node.size.height > self.position.y + self.size.height);
-    }
-    
-    func cancelPlacement(node:SKSpriteNode) {
-        if (self.creatingObject) {
-            self.selectedNode?.removeFromParent();
-        }
-        else
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        super.touchesBegan(touches, withEvent: event)
+        
+        for touch in touches
         {
-            self.selectedNode!.position = self.selectedNodeOriginalPos!
+            let uiTouch = touch as UITouch
+            var touchLocation:CGPoint = uiTouch.locationInView(uiTouch.view)
+            touchLocation = self.convertPointFromView(touchLocation)
+            var touchedNode:SKNode = self.nodeAtPoint(touchLocation) as SKNode
+            if (touchedNode is RouletteSpin || touchedNode is SliderHandle) {
+                touchedNode = touchedNode.parent!
+            }
+            if (touchedNode is SoundObject) {
+                self.selectedNodeOriginalPos = touchedNode.position
+            }
+            touchMapping[uiTouch] = touchedNode
         }
     }
-
-    func checkCollisionForCollidable(node:Collidable) -> Bool
-    {
-        for otherNode:AnyObject in self.children {
-            if (otherNode is Collidable)
-            {
-                if (otherNode as Collidable).collidesWith(node)
-                {
-                    return true
+    
+    func cancelMove(node:SKNode) {
+        if (selectedNodeOriginalPos != nil) {
+            node.position = selectedNodeOriginalPos!
+        }
+        else {
+            node.removeFromParent()
+        }
+    }
+    
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        super.touchesEnded(touches, withEvent: event)
+        
+        for touch in touches
+        {
+            let uiTouch = touch as UITouch
+            var touchLocation:CGPoint = uiTouch.locationInView(uiTouch.view)
+            let boundNode:SKNode? = touchMapping[uiTouch]
+            if (boundNode != nil) {
+                if (boundNode is SoundObject) {
+                    var moveCancelled = false
+                    let soundObj = boundNode as SoundObject
+                    
+                    if (soundObj.position.x >= self.position.x &&
+                        soundObj.position.x + soundObj.size.width <= self.menuBar?.position.x &&
+                        soundObj.position.y >= self.position.y &&
+                        soundObj.position.y + soundObj.size.height <= self.size.height)
+                    {
+                        for obj in self.objects {
+                            if (obj != soundObj && obj.intersectsNode(soundObj)) {
+                                cancelMove(soundObj)
+                                moveCancelled = true
+                                break;
+                            }
+                        }
+                        if (!moveCancelled && !contains(self.objects, soundObj))
+                        {
+                            self.objects.append(soundObj)
+                        }
+                    }
+                    else {
+                        cancelMove(soundObj)
+                        moveCancelled = true
+                    }
+                    self.selectedNodeOriginalPos = nil
+                }
+                else if (boundNode is DrawerMenuButton) {
+                    let drawer = boundNode as DrawerMenuButton
+                    if (drawer.showingDrawer) {
+                        drawer.hideDrawer()
+                    }
+                    else {
+                        drawer.showDrawer()
+                    }
+                }
+                touchMapping .removeValueForKey(uiTouch)
+            }
+        }
+    }
+    
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        super.touchesMoved(touches, withEvent: event)
+        for touch in touches
+        {
+            let uiTouch = touch as UITouch
+            
+            var touchLocation:CGPoint = uiTouch.locationInView(uiTouch.view)
+            touchLocation = self.convertPointFromView(touchLocation)
+            
+            let touchBoundNode:SKNode? = touchMapping[uiTouch]
+            var touchedNode:SKNode = self.nodeAtPoint(touchLocation)
+            
+            if (touchBoundNode != nil) {
+                if (touchBoundNode is SoundObject) {
+                    let soundObj = touchBoundNode as SoundObject
+                    soundObj.position.x = touchLocation.x - touchLocation.x % gridSize
+                    soundObj.position.y = touchLocation.y - touchLocation.y % gridSize
+                }
+            }
+            
+            if (touchedNode !== touchBoundNode) {
+                if (touchBoundNode is SoundObjectTemplate) {
+                    let template = touchBoundNode as SoundObjectTemplate
+                    var newSoundObj:SoundObject = template.createSoundObject()
+                    newSoundObj.position.x = touchLocation.x
+                    newSoundObj.position.y = touchLocation.y
+                    self.addChild(newSoundObj)
+                    touchMapping[uiTouch] = newSoundObj
                 }
             }
         }
-        return false;
     }
 }

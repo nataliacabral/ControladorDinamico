@@ -117,16 +117,16 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
         return self.sliderHandle!.currentSoundIntensity()
     }
 
-    func touchStarted(position:CGPoint)
+    override func touchStarted(position:CGPoint)
     {
     }
     
-    func touchMoved(position:CGPoint)
+    override func touchMoved(position:CGPoint)
     {
         self.sliderHandle!.touchMoved(position)
     }
     
-    func touchEnded(position:CGPoint)
+    override func touchEnded(position:CGPoint)
     {
     }
     

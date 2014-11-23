@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 import AVFoundation
 
-class SoundObject: SKSpriteNode, NSCoding, NSCopying, Collidable, GridBound
+class SoundObject: SKSpriteNode, NSCoding, NSCopying, Collidable, GridBound, Touchable
 {
     var imageName:String { get { return "" } }
     var gridHeight:CGFloat { get { return 0 } }
@@ -77,6 +77,19 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Collidable, GridBound
     func currentSoundIntensity() -> Float
     {
         return 0;
+    }
+    
+    func touchStarted(position:CGPoint)
+    {
+        
+    }
+    func touchEnded(position:CGPoint)
+    {
+        
+    }
+    func touchMoved(position:CGPoint)
+    {
+        
     }
 }
 

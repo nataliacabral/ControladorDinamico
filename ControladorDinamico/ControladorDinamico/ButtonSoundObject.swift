@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 import AVFoundation
 
-class ButtonSoundObject : SoundObject, Touchable, Sampler
+class ButtonSoundObject : SoundObject, Sampler
 {
     override var gridHeight:CGFloat { get { return 1 } }
     override var gridWidth:CGFloat { get { return 1 } }
@@ -49,21 +49,21 @@ class ButtonSoundObject : SoundObject, Touchable, Sampler
         super.init(gridSize:gridSize)
     }
     
-    func touchStarted(position:CGPoint)
+    override func touchStarted(position:CGPoint)
     {
         let changeTexture:SKAction = SKAction.setTexture(self.selectedTexture!)
         self.pressed = true
         self.runAction(changeTexture)
     }
     
-    func touchEnded(position:CGPoint)
+    override func touchEnded(position:CGPoint)
     {
         let changeTexture:SKAction = SKAction.setTexture(self.stillTexture!)
         self.pressed = false
         self.runAction(changeTexture)
     }
     
-    func touchMoved(position:CGPoint)
+    override func touchMoved(position:CGPoint)
     {
         
     }
