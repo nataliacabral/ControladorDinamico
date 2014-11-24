@@ -15,7 +15,7 @@ class VelocityModulator : Modulator
     
     func modulate(modulation:Float)
     {
-        self.node.rate = (modulation * 3.75) + 0.25
+        self.node.rate = (modulation + 0.5) + (1.0 / 3.0)
     }
     func startModulator()
     {

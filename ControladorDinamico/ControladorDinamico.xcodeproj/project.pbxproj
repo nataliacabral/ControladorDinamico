@@ -48,6 +48,8 @@
 		4905AAC01A1166E20094C5A2 /* Collidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905AABF1A1166E20094C5A2 /* Collidable.swift */; };
 		4905AAC51A1169460094C5A2 /* GridBound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905AAC41A1169460094C5A2 /* GridBound.swift */; };
 		4918FC711A228F41007E1F64 /* guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 4918FC701A228F41007E1F64 /* guitar.sf2 */; };
+		4918FC731A22AEB7007E1F64 /* DelayModulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918FC721A22AEB7007E1F64 /* DelayModulator.swift */; };
+		4918FC751A22B09A007E1F64 /* EQModulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918FC741A22B09A007E1F64 /* EQModulator.swift */; };
 		491EECC41A18E31700F33D50 /* SliderHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491EECC31A18E31700F33D50 /* SliderHandle.swift */; };
 		4933E0E91A17F3FE00DDCE0D /* buttonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4933E0E81A17F3FE00DDCE0D /* buttonSelected.png */; };
 		4933E0EB1A17F6D500DDCE0D /* Touchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933E0EA1A17F6D500DDCE0D /* Touchable.swift */; };
@@ -127,6 +129,8 @@
 		4905AABF1A1166E20094C5A2 /* Collidable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collidable.swift; sourceTree = "<group>"; };
 		4905AAC41A1169460094C5A2 /* GridBound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridBound.swift; sourceTree = "<group>"; };
 		4918FC701A228F41007E1F64 /* guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; name = guitar.sf2; path = ../guitar.sf2; sourceTree = "<group>"; };
+		4918FC721A22AEB7007E1F64 /* DelayModulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayModulator.swift; sourceTree = "<group>"; };
+		4918FC741A22B09A007E1F64 /* EQModulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EQModulator.swift; sourceTree = "<group>"; };
 		491EECC31A18E31700F33D50 /* SliderHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderHandle.swift; sourceTree = "<group>"; };
 		4933E0E81A17F3FE00DDCE0D /* buttonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonSelected.png; sourceTree = "<group>"; };
 		4933E0EA1A17F6D500DDCE0D /* Touchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Touchable.swift; sourceTree = "<group>"; };
@@ -356,6 +360,8 @@
 				49EC5A0B1A220C2E00A36D2C /* VelocityModulator.swift */,
 				49EC5A101A22168C00A36D2C /* MenuButton.swift */,
 				49EC5A121A22176100A36D2C /* DrawerMenuButton.swift */,
+				4918FC721A22AEB7007E1F64 /* DelayModulator.swift */,
+				4918FC741A22B09A007E1F64 /* EQModulator.swift */,
 			);
 			name = Modulator;
 			sourceTree = "<group>";
@@ -494,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				259B90A319F96D1400737E04 /* ViewController.swift in Sources */,
+				4918FC731A22AEB7007E1F64 /* DelayModulator.swift in Sources */,
 				258D1FFB1A019BF900ACFC93 /* SoundObjectTemplate.swift in Sources */,
 				49EC5A061A20449F00A36D2C /* PitchModulator.swift in Sources */,
 				4905AAC51A1169460094C5A2 /* GridBound.swift in Sources */,
@@ -504,6 +511,7 @@
 				259B90A119F96D1400737E04 /* AppDelegate.swift in Sources */,
 				255663701A13FA0000F6F820 /* SliderSoundObject.swift in Sources */,
 				49EC5A041A20449700A36D2C /* VolumeModulator.swift in Sources */,
+				4918FC751A22B09A007E1F64 /* EQModulator.swift in Sources */,
 				258D1FF11A01849800ACFC93 /* ObjectsPalette.swift in Sources */,
 				2556633C1A11555900F6F820 /* ProjectManager.swift in Sources */,
 				49EC59FB1A2009F200A36D2C /* ModulatorNode.swift in Sources */,

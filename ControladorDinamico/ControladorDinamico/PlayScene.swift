@@ -136,7 +136,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
             if (touchedNode! is Touchable) {
                 let touchableObj = touchedNode as Touchable
                 touchMapping[uiTouch] = touchableObj
-                touchableObj.touchStarted(uiTouch.locationInView(uiTouch.view))
+                touchableObj.touchStarted(touchLocation)
             }
         }
     }

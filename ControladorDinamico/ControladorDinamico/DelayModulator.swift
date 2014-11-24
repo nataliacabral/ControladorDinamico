@@ -1,25 +1,25 @@
 //
-//  DistortionModulator.swift
+//  DelayModulator.swift
 //  ControladorDinamico
 //
-//  Created by Sergio Sette on 11/22/14.
+//  Created by Sergio Sette on 11/23/14.
 //  Copyright (c) 2014 Natália Cabral. All rights reserved.
 //
 
 import Foundation
 import AVFoundation
 
-class DistortionModulator : Modulator
+class DelayModulator : Modulator
 {
-    var node:AVAudioUnitDistortion = AVAudioUnitDistortion()
+    var node:AVAudioUnitDelay = AVAudioUnitDelay()
     
     func modulate(modulation:Float)
     {
-        node.wetDryMix = modulation * 100
+        node.wetDryMix = modulation * 100.0
     }
     func startModulator()
     {
-        node.loadFactoryPreset(AVAudioUnitDistortionPreset.MultiDistortedCubed)
+        node.feedback = -100
         node.wetDryMix = 50
     }
     

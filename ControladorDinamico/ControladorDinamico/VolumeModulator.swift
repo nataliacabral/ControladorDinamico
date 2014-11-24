@@ -16,6 +16,7 @@ class VolumeModulator : Modulator
     func modulate(modulation:Float)
     {
         self.node.volume = modulation
+        
     }
     func startModulator()
     {
