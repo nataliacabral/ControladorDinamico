@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 import AVFoundation
 
-class SoundObject: SKSpriteNode, NSCoding, NSCopying, Collidable, GridBound, Touchable
+class SoundObject: SKSpriteNode, NSCoding, NSCopying, Touchable
 {
     var templateImageName:String { get { return "" } }
     var gridHeight:CGFloat { get { return 0 } }
@@ -53,20 +53,6 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Collidable, GridBound, Tou
     override func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.position.x, forKey: "x")
         aCoder.encodeObject(self.position.y, forKey: "y")
-    }
-    
-    func collidesWith(otherObj: AnyObject) -> Bool
-    {
-        if (otherObj is SoundObject && otherObj !== self) {
-            let otherSoundObj = otherObj as SoundObject
-            let collides:Bool = CGPointEqualToPoint(self.position, otherObj.position)
-                || (self.position.x < otherObj.position.x + otherObj.size.width &&
-                self.position.x + self.size.width > otherObj.position.x &&
-                self.position.y < otherObj.position.y + otherObj.size.height &&
-                self.size.height + self.position.y > otherObj.position.y)
-            return collides
-        }
-        return false
     }
     
     func updateGridSize(gridSize:CGFloat)

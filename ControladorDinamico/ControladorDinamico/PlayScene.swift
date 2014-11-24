@@ -123,6 +123,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
     override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
         
     }
+
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         super.touchesBegan(touches, withEvent: event)
 
@@ -155,6 +156,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
             }
         }
     }
+
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
         super.touchesMoved(touches, withEvent: event)
         for touch in touches
@@ -204,9 +206,8 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                 let soundObj:SoundObject = obj as SoundObject
                 let currentSoundIntensity : Float = soundObj.currentSoundIntensity()
                 if (obj is ModulatorNode) {
-                    let sliderObj:ModulatorNode = obj as ModulatorNode
-                    sliderObj.setModule(currentSoundIntensity) // In cents. The default value is 1.0. The range of values is -2400 to 2400
-                    //sliderObj.auTimePitch!.rate = 2 //The default value is 1.0. The range of supported values is 1/32 to 32.0.
+                    let modulator:ModulatorNode = obj as ModulatorNode
+                    modulator.setModule(currentSoundIntensity)
                 }
                 else if (obj is Sampler) {
                     let samplerObj:Sampler = obj as Sampler

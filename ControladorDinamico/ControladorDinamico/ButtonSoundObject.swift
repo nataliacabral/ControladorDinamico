@@ -71,6 +71,7 @@ class ButtonSoundObject : SoundObject, Sampler
         self.note = (aDecoder.decodeObjectForKey("note") as NSNumber).unsignedCharValue
         self.colorize()
     }
+    
     override func encodeWithCoder(aCoder: NSCoder) {
         super.encodeWithCoder(aCoder)
         aCoder.encodeObject(NSNumber(unsignedChar:self.note), forKey: "note")
@@ -134,8 +135,6 @@ class ButtonSoundObject : SoundObject, Sampler
     
     func playSound()
     {
-        //self.playerNode?.scheduleFile(self.audioFile, atTime: nil, completionHandler: nil)
-        //self.playerNode?.play()
         if (!playing) {
             self.audioSampler?.startNote(self.note, withVelocity: 127, onChannel: 0)
             self.playing = true
@@ -144,7 +143,6 @@ class ButtonSoundObject : SoundObject, Sampler
     
     func stopSound()
     {
-        //        self.playerNode?.stop()
         if (self.playing) {
             self.audioSampler?.stopNote(self.note,  onChannel: 0)
             self.playing = false
