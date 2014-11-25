@@ -44,6 +44,7 @@
 		25A93F6C1A1A9B7D00C9F145 /* roulette_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A93F6A1A1A9B7D00C9F145 /* roulette_background.png */; };
 		25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A93F6B1A1A9B7D00C9F145 /* roulette_spinningpart.png */; };
 		25A93F6F1A1A9BDD00C9F145 /* RouletteSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A93F6E1A1A9BDD00C9F145 /* RouletteSpin.swift */; };
+		25AF9BC61A23C34D00CED1CD /* ProjectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25AF9BC51A23C34D00CED1CD /* ProjectView.xib */; };
 		490120CF1A1E7BC200F3E653 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490120CE1A1E7BC200F3E653 /* AVFoundation.framework */; };
 		4918FC711A228F41007E1F64 /* guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 4918FC701A228F41007E1F64 /* guitar.sf2 */; };
 		4918FC731A22AEB7007E1F64 /* DelayModulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918FC721A22AEB7007E1F64 /* DelayModulator.swift */; };
@@ -123,6 +124,7 @@
 		25A93F6A1A1A9B7D00C9F145 /* roulette_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette_background.png; sourceTree = "<group>"; };
 		25A93F6B1A1A9B7D00C9F145 /* roulette_spinningpart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette_spinningpart.png; sourceTree = "<group>"; };
 		25A93F6E1A1A9BDD00C9F145 /* RouletteSpin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouletteSpin.swift; sourceTree = "<group>"; };
+		25AF9BC51A23C34D00CED1CD /* ProjectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectView.xib; sourceTree = "<group>"; };
 		490120CE1A1E7BC200F3E653 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4918FC701A228F41007E1F64 /* guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; name = guitar.sf2; path = ../guitar.sf2; sourceTree = "<group>"; };
 		4918FC721A22AEB7007E1F64 /* DelayModulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayModulator.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				495BDEC81A1226A8000941E8 /* PlayScene.swift */,
 				2557DC121A16A3000003AB5D /* PlayViewController.swift */,
 				49C0152E1A1D316900DBAC0D /* SoundManager.swift */,
+				25AF9BC51A23C34D00CED1CD /* ProjectView.xib */,
 			);
 			path = ControladorDinamico;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				259B90C919F9756200737E04 /* Images-3.xcassets in Resources */,
 				2557DBE21A13FCB20003AB5D /* Term_TOQUE_V1.psd in Resources */,
 				2557DBE41A13FE940003AB5D /* button.png in Resources */,
+				25AF9BC61A23C34D00CED1CD /* ProjectView.xib in Resources */,
 				2557DBF01A14068C0003AB5D /* roulette.png in Resources */,
 				4933E0F01A18005700DDCE0D /* sliderHandle.png in Resources */,
 				2557DBE11A13FCB20003AB5D /* slider_V1.psd in Resources */,

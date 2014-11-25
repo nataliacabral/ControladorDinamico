@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uBR-PN-tVm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uBR-PN-tVm">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -17,69 +17,63 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="PT5-cu-uql">
-                                <rect key="frame" x="304" y="0.0" width="292" height="592"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" maximumZoomScale="6" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BEZ-an-FRP">
+                                <rect key="frame" x="16" y="20" width="561" height="560"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2Db-AY-cIA">
+                                    <size key="itemSize" width="272" height="212"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="oDb-9M-0rC">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="272" height="212"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <segue destination="kdB-qw-FxK" kind="show" identifier="openProject" id="d7f-0x-jBt"/>
+                                    <outlet property="dataSource" destination="0Ip-BT-yIP" id="2qK-Jh-a8B"/>
+                                    <outlet property="delegate" destination="0Ip-BT-yIP" id="e63-vk-zGF"/>
                                 </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2VG-8A-BWH">
-                                <rect key="frame" x="0.0" y="0.0" width="294" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="294" id="Jaj-J5-2xl"/>
-                                </constraints>
-                                <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="1ac-pa-ISE">
-                                    <rect key="frame" x="0.0" y="0.0" width="294" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                    <items>
-                                        <barButtonItem systemItem="add" id="Vaa-Hm-55h">
-                                            <connections>
-                                                <segue destination="kdB-qw-FxK" kind="show" id="8de-xT-hHu"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem title="—" id="6JB-D3-0yH">
-                                            <connections>
-                                                <action selector="removeSelectedObject:" destination="0Ip-BT-yIP" id="a1B-D8-96G"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </items>
-                                </toolbar>
-                                <connections>
-                                    <outlet property="dataSource" destination="0Ip-BT-yIP" id="DRW-VM-Ipa"/>
-                                    <outlet property="delegate" destination="0Ip-BT-yIP" id="DdY-LE-zLn"/>
-                                </connections>
-                            </tableView>
+                            </collectionView>
                         </subviews>
-                        <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="2VG-8A-BWH" firstAttribute="top" secondItem="S3W-B8-6Mu" secondAttribute="topMargin" id="2bA-Ck-ayo"/>
-                            <constraint firstItem="PT5-cu-uql" firstAttribute="leading" secondItem="2VG-8A-BWH" secondAttribute="trailing" constant="10" id="Hqe-sJ-R4n"/>
-                            <constraint firstItem="V2p-8n-cgb" firstAttribute="top" secondItem="2VG-8A-BWH" secondAttribute="bottom" id="RGf-uO-fYt"/>
-                            <constraint firstItem="2VG-8A-BWH" firstAttribute="leading" secondItem="S3W-B8-6Mu" secondAttribute="leadingMargin" constant="-16" id="Vs7-td-GuD"/>
-                            <constraint firstItem="2VG-8A-BWH" firstAttribute="leading" secondItem="S3W-B8-6Mu" secondAttribute="leadingMargin" constant="-16" id="khq-ih-fFj"/>
-                            <constraint firstItem="2VG-8A-BWH" firstAttribute="top" secondItem="PT5-cu-uql" secondAttribute="top" id="sPF-GX-pbx"/>
+                            <constraint firstItem="BEZ-an-FRP" firstAttribute="leading" secondItem="S3W-B8-6Mu" secondAttribute="leadingMargin" constant="20" id="AYh-SX-pk1"/>
+                            <constraint firstItem="BEZ-an-FRP" firstAttribute="top" secondItem="iwv-ZU-5Qk" secondAttribute="bottom" constant="20" id="T8x-Oj-Dv1"/>
+                            <constraint firstItem="V2p-8n-cgb" firstAttribute="top" secondItem="BEZ-an-FRP" secondAttribute="bottom" constant="20" id="UKD-Bh-bYC"/>
+                            <constraint firstItem="BEZ-an-FRP" firstAttribute="top" secondItem="S3W-B8-6Mu" secondAttribute="topMargin" id="Xj4-tt-8Mt"/>
+                            <constraint firstItem="V2p-8n-cgb" firstAttribute="top" secondItem="BEZ-an-FRP" secondAttribute="bottom" id="Yxk-tN-XM6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BEZ-an-FRP" secondAttribute="trailing" constant="20" id="eFJ-0c-loG"/>
+                            <constraint firstItem="BEZ-an-FRP" firstAttribute="leading" secondItem="S3W-B8-6Mu" secondAttribute="leadingMargin" id="jwi-FG-Gk9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BEZ-an-FRP" secondAttribute="trailing" id="xOC-m7-Lt4"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="khq-ih-fFj"/>
+                                <exclude reference="Xj4-tt-8Mt"/>
+                                <exclude reference="jwi-FG-Gk9"/>
+                                <exclude reference="xOC-m7-Lt4"/>
+                                <exclude reference="Yxk-tN-XM6"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="gQf-nu-fEh"/>
                     <connections>
-                        <outlet property="previewView" destination="PT5-cu-uql" id="eBd-xZ-hpk"/>
-                        <outlet property="tableView" destination="2VG-8A-BWH" id="ts3-Gf-Gez"/>
+                        <outlet property="collectionView" destination="BEZ-an-FRP" id="tYV-Rm-38w"/>
                         <outlet property="view" destination="S3W-B8-6Mu" id="YN5-8h-Tct"/>
+                        <segue destination="kdB-qw-FxK" kind="show" identifier="newProject" id="aYL-iY-8kr"/>
+                        <segue destination="kdB-qw-FxK" kind="show" identifier="openProject" id="j46-Jl-xY3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmV-hw-RpC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-17" y="180"/>
+            <point key="canvasLocation" x="4" y="194"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a3x-Q3-qCi">
@@ -112,43 +106,12 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7T-DA-Kfw">
                                 <rect key="frame" x="16" y="6" width="22" height="22"/>
                             </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HbV-TP-QrJ">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem style="plain" id="vMT-bj-VG2">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LFN-Tg-7nf">
-                                            <rect key="frame" x="16" y="28" width="34" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Save">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="saveProjectAction:" destination="kdB-qw-FxK" eventType="touchUpInside" id="xGI-Kq-Rrk"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="reply" id="ERu-hk-Qig">
-                                        <connections>
-                                            <action selector="backAction:" destination="kdB-qw-FxK" id="cyu-FT-YsK"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="play" id="RMk-0Y-UcZ">
-                                        <connections>
-                                            <segue destination="Cir-OV-m12" kind="show" identifier="play" id="ToK-rS-KlL"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="HbV-TP-QrJ" firstAttribute="bottom" secondItem="4SX-PK-wvz" secondAttribute="top" id="KGj-hs-Bkb"/>
-                            <constraint firstItem="HbV-TP-QrJ" firstAttribute="leading" secondItem="ISY-8I-Sxl" secondAttribute="leading" id="Mv8-rV-OEY"/>
-                            <constraint firstAttribute="trailing" secondItem="HbV-TP-QrJ" secondAttribute="trailing" id="mNl-UA-dzM"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="view" destination="ISY-8I-Sxl" id="8JN-Jf-0ZS"/>
+                        <segue destination="Cir-OV-m12" kind="show" identifier="play" id="ZyM-XB-nPr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIW-Md-RMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -193,6 +156,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="d7f-0x-jBt"/>
+        <segue reference="j46-Jl-xY3"/>
     </inferredMetricsTieBreakers>
 </document>

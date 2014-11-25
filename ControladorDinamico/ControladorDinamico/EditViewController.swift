@@ -17,6 +17,7 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
         self.project = Project()
         super.init(coder: aDecoder)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,14 +32,8 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
         skView.presentScene(scene)
     }
     
-    @IBAction func saveProjectAction(AnyObject) {
-         if (self.project.projectName == nil) {
-            let alert = UIAlertView(title: "Save", message: "Insert the project name", delegate:self, cancelButtonTitle: "OK")
-            alert.alertViewStyle = UIAlertViewStyle.PlainTextInput;
-            alert.show()
-        } else {
-            self.saveProject()
-        }
+    override func viewWillDisappear(animated: Bool) {
+        self.saveProject()
     }
     
     @IBAction func backAction(AnyObject) {
@@ -58,14 +53,6 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
             return ProjectManager.sharedInstance.saveProject(self.project)
         }
         return false
-    }
-    
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        if (buttonIndex == 0) {
-            let projectName = alertView.textFieldAtIndex(0)!.text!
-            self.project = Project(projectName:projectName)
-            self.saveProject()
-        }
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {

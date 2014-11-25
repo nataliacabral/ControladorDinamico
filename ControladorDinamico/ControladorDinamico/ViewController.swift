@@ -8,77 +8,148 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate, UIAlertViewDelegate  {
     
-    @IBOutlet var previewView:UIButton!
-    @IBOutlet var tableView:UITableView!
+    @IBOutlet var collectionView:UICollectionView!
 
-    var selectedIndex:Int = -1
+    let projectCellViewIdentifier:String = "projectView"
+    let projectNameLabelTag:Int = 10
+    let projectBackgroundViewTag:Int = 20
+
+    var deleteProjectAlert:UIAlertView?
+    var newProjetAlert:UIAlertView?
+    
+    var selectedProject:Project?
     var projects:NSMutableArray = NSMutableArray()
 
+    override func viewDidLoad() {
+        
+        newProjetAlert = UIAlertView(title: "New project", message: "Insert the project name:", delegate:self, cancelButtonTitle: "Cancel", otherButtonTitles:"Save")
+        newProjetAlert!.alertViewStyle = UIAlertViewStyle.PlainTextInput;
+
+        deleteProjectAlert = UIAlertView(title: "Delete?", message: "Are you sure you want to delete this project?", delegate:self, cancelButtonTitle: "No", otherButtonTitles:"Yes")
+
+        var projectCell:UINib = UINib(nibName:"ProjectView", bundle: nil)
+        self.collectionView.registerNib(projectCell, forCellWithReuseIdentifier:projectCellViewIdentifier)
+        
+        var longPresGestureRecognizer:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
+        longPresGestureRecognizer.minimumPressDuration = 0.5
+        longPresGestureRecognizer.delegate = self
+        longPresGestureRecognizer.delaysTouchesBegan = true
+        self.collectionView.addGestureRecognizer(longPresGestureRecognizer)
+
+    }
+    
+    func handleLongPress(gestureRecognizer:UILongPressGestureRecognizer)
+    {
+        var cell:UICollectionViewCell?
+        var touchedProject:Project?
+
+        let point:CGPoint = gestureRecognizer.locationInView(self.collectionView)
+        let indexPath:NSIndexPath? = self.collectionView.indexPathForItemAtPoint(point)
+        
+        if (indexPath != nil) {
+            cell = self.collectionView.cellForItemAtIndexPath(indexPath!)
+        
+            if (indexPath!.row < self.projects.count) {
+                touchedProject = self.projects[indexPath!.row] as? Project
+            }
+        }
+        
+        switch gestureRecognizer.state {
+        case .Began:
+            if (cell != nil) {
+                cell!.backgroundColor = UIColor.grayColor()
+                if (touchedProject != nil) {
+                    self.selectedProject = touchedProject
+                }
+            }
+            
+            break
+        case .Changed, .Ended:
+            if (cell != nil) {
+                cell!.backgroundColor = UIColor.blackColor()
+                if (self.selectedProject != nil) {
+                    deleteProjectAlert!.show()
+                }
+            }
+            break
+        
+        default:
+            break
+        }
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.projects = NSMutableArray(array: ProjectManager.sharedInstance.allProjects())
-        self.tableView .reloadData()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return projects.count;
+        self.collectionView.reloadData()
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var tableCell:UITableViewCell = UITableViewCell()
-        tableCell.textLabel.text = (projects.objectAtIndex(indexPath.row) as Project).projectName
-        return tableCell
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return projects.count + 1;
     }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-            self.selectProject(atIndex: indexPath.row)
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        var collectionViewCell:UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(projectCellViewIdentifier, forIndexPath: indexPath) as UICollectionViewCell
+        collectionViewCell.backgroundColor = UIColor.blackColor()
+       
+        if (indexPath.row < projects.count) {
+            let project:Project = (projects.objectAtIndex(indexPath.row) as Project)
+            let projectNameLabel:UILabel = collectionViewCell.viewWithTag(projectNameLabelTag) as UILabel
+            projectNameLabel.text = project.projectName
+            
+            let previewView:UIImageView = collectionViewCell.viewWithTag(projectBackgroundViewTag) as UIImageView
+            previewView.image = project.preview
+            return collectionViewCell
+        
+        } else {
+            
+            let projectNameLabel:UILabel = collectionViewCell.viewWithTag(projectNameLabelTag) as UILabel
+            projectNameLabel.text = "+"
+            let previewView:UIImageView = collectionViewCell.viewWithTag(projectBackgroundViewTag) as UIImageView
+            previewView.image = nil
+            return collectionViewCell
+        }
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if (projects.count > indexPath.row) {
+            self.selectedProject = self.projects.objectAtIndex(indexPath.row) as? Project
+            self.performSegueWithIdentifier("openProject", sender: self)
+        } else {
+            newProjetAlert!.show()
+        }
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if (alertView == deleteProjectAlert) {
+
+            if (buttonIndex == 1) {
+                self.projects.removeObject(self.selectedProject!)
+                var error: NSError? = nil
+                if(ProjectManager.sharedInstance.removeProject(self.selectedProject!, error: &error)) {
+                    self.collectionView.reloadData()
+                }
+             }
+        } else if (alertView == newProjetAlert) {
+        
+            if (buttonIndex == 1) {
+                let projectName = alertView.textFieldAtIndex(0)!.text!
+                var project = Project(projectName:projectName)
+                if (ProjectManager.sharedInstance.saveProject(project)) {
+                    self.selectedProject = project
+                    self.performSegueWithIdentifier("openProject", sender: self)
+                }
+            }
+        }
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "openProject" {
-            let editViewController = segue.destinationViewController as EditViewController
-            let selectedProject = self.projects[self.selectedIndex] as Project
-            editViewController.project = selectedProject
-        }
-    }
-    
-    func selectProject(atIndex index:Int)
-    {
-        self.selectedIndex = index
-        
-        if (index >= 0){
-            self.tableView.selectRowAtIndexPath(NSIndexPath(forRow:index, inSection:0), animated:false, scrollPosition:UITableViewScrollPosition.None)
-            let selectedProject:Project = projects[index] as Project
-            var currentPreview:UIImage = selectedProject.preview;
-            self.previewView.setImage(currentPreview, forState: .Normal)
-        } else {
-            self.previewView.setImage(nil, forState: UIControlState.Normal)
-        }
-    }
-    
-    @IBAction func removeSelectedObject(AnyObject)  {
-        if (self.selectedIndex >= 0) {
-            let selectedProject:Project = self.projects.objectAtIndex(self.selectedIndex) as Project
-            self.projects.removeObjectAtIndex(self.selectedIndex)
-
-            var error: NSError? = nil
-            if(ProjectManager.sharedInstance.removeProject(selectedProject, error: &error)) {
-                self.tableView.reloadData()
-                
-                if (self.selectedIndex < self.projects.count) {
-                    self.selectProject(atIndex: self.selectedIndex)
-                } else {
-                    self.selectProject(atIndex: (self.selectedIndex-1))
-                }
-                
-            } else {
-                NSLog("error %@ ", error!.localizedDescription)
+            if (self.selectedProject != nil) {
+                let editViewController = segue.destinationViewController as EditViewController
+                editViewController.project = self.selectedProject!
             }
         }
     }
