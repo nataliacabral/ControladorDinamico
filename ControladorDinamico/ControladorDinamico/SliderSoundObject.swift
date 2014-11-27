@@ -49,24 +49,13 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
         if (self.sliderHandle == nil) {
             self.sliderHandle = SliderHandle()
 
-            self.sliderHandle!.size.width = 0
-            self.sliderHandle!.size.height = 0
+            self.sliderHandle!.size.width = self.size.width - (self.handlerWidthBorder * 2)
+            let ratio:CGFloat = self.sliderHandle!.texture!.size().width / self.sliderHandle!.size.width
+            self.sliderHandle!.size.height = self.sliderHandle!.texture!.size().height / ratio
             self.sliderHandle!.position.x = 0;
             self.sliderHandle!.position.y = 0;
 
             self.addChild(self.sliderHandle!);
-        }
-    }
-    
-    override func updateGridSize(gridSize:CGFloat)
-    {
-        super.updateGridSize(gridSize)
-        if (self.sliderHandle != nil) {
-            self.sliderHandle!.size.width = self.size.width - (self.handlerWidthBorder * 2)
-            let ratio:CGFloat = self.sliderHandle!.texture!.size().width / self.sliderHandle!.size.width
-            self.sliderHandle!.size.height = self.sliderHandle!.texture!.size().height / ratio
-            self.sliderHandle!.position.x = 0
-            self.sliderHandle!.position.y = 0
         }
     }
 
