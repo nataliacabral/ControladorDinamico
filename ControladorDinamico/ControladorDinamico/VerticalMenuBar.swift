@@ -31,7 +31,7 @@ class VerticalMenuBar : SKSpriteNode
     func reloadObjs()
     {
         var i = 0
-        var yPos = self.size.height - self.buttonSize.height
+        var yPos = (self.size.height / 2) - self.buttonSize.height / 2
         for button in self.buttonList {
             button.position.y = yPos
             button.position.x = 0
