@@ -48,7 +48,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
         self.removeAllChildren()
         if (self.springHandle == nil) {
             self.springHandle = SpringHandle()
-            self.springHandle!.anchorPoint = CGPoint(x: 0, y: 0)
+//            self.springHandle!.anchorPoint = CGPoint(x: 0, y: 0)
             
             self.springHandle!.size.width = 0
             self.springHandle!.size.height = 0
@@ -61,7 +61,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
         for stickIndex in 0...10
         {
             var stick:SKSpriteNode = SKSpriteNode(imageNamed: "spring_stick.png")
-            stick.anchorPoint = CGPoint(x: 0, y: 0)
+            //stick.anchorPoint = CGPoint(x: 0, y: 0)
             stick.size.width = 0
             stick.size.height = 0
             stick.position.x = 0;
@@ -78,8 +78,8 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
             self.springHandle!.size.width = self.size.width - (self.handlerWidthBorder * 2)
             let ratio:CGFloat = self.springHandle!.texture!.size().width / self.springHandle!.size.width
             self.springHandle!.size.height = self.springHandle!.texture!.size().height / ratio
-            self.springHandle!.position.x = self.handlerWidthBorder
-            self.springHandle!.position.y = self.size.height / 2
+            self.springHandle!.position.x = 0
+            self.springHandle!.position.y = 0
         }
         
         for stick in self.sticksList
@@ -128,9 +128,9 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
             var handleSize:CGFloat = self.springHandle!.size.height
 
             let stickHeight:CGFloat = (self.sticksList[0] as SKSpriteNode).size.height
-            let range:CGFloat = self.size.height - self.springHandle!.handlerHeightBorder - handlePosition - handleSize
+            let range:CGFloat = (self.size.height / 2) - handlePosition - handleSize
             let distance:CGFloat = range / CGFloat(self.sticksList.count)
-            var currentPosition:CGFloat = self.size.height - self.springHandle!.handlerHeightBorder/2 - stickHeight
+            var currentPosition:CGFloat = (self.size.height / 2) - stickHeight
 
             for stick in self.sticksList {
                 stick.position.y = currentPosition

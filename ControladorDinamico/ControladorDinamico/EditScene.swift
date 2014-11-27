@@ -28,7 +28,7 @@ class EditScene : SKScene
     
     override init(size: CGSize)
     {
-        self.gridSize = size.width / 12
+        self.gridSize = 64
         // Menu
         var buttonSpriteC:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:60)
         var buttonSpriteD:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:62)
@@ -112,6 +112,15 @@ class EditScene : SKScene
             color:UIColor(),
             size:CGSize(width: self.gridSize, height: self.gridSize),
             drawer:self.modulatorDrawer!)
+        
+        self.modulatorDrawer!.position.x = x;
+        self.modulatorDrawer!.position.y = 0;
+        
+        self.buttonDrawer!.position.x = x;
+        self.buttonDrawer!.position.y = 0;
+        
+        self.addChild(self.modulatorDrawer!)
+        self.addChild(self.buttonDrawer!)
 
         
         //Grid
@@ -203,16 +212,16 @@ class EditScene : SKScene
                     var moveCancelled = false
                     let soundObj = boundNode as SoundObject
                     
-                    if (soundObj.position.x >= self.position.x &&
-                        soundObj.position.x + soundObj.size.width <= self.menuBar?.position.x &&
-                        soundObj.position.y >= self.position.y &&
-                        soundObj.position.y + soundObj.size.height <= self.size.height)
+                    if (soundObj.containsPoint(soundObj.position))
                     {
-                        for obj in self.objects {
-                            if (obj != soundObj && obj.intersectsNode(soundObj)) {
-                                cancelMove(soundObj)
-                                moveCancelled = true
-                                break;
+                        for child in self.children {
+                            if (child is SoundObject) {
+                                var soundChild = child as SoundObject
+                                if (soundChild !== soundObj && soundObj.intersectsNode(soundChild)) {
+                                    cancelMove(soundObj)
+                                    moveCancelled = true
+                                    break;
+                                }
                             }
                         }
                         if (!moveCancelled && !contains(self.objects, soundObj))
@@ -275,8 +284,8 @@ class EditScene : SKScene
             if (touchBoundNode != nil) {
                 if (touchBoundNode is SoundObject) {
                     let soundObj = touchBoundNode as SoundObject
-                    soundObj.position.x = touchLocation.x - touchLocation.x % gridSize
-                    soundObj.position.y = touchLocation.y - touchLocation.y % gridSize
+                    soundObj.position.x = (touchLocation.x - touchLocation.x % gridSize) + gridSize / 2
+                    soundObj.position.y = (touchLocation.y - touchLocation.y % gridSize) + gridSize / 2
                 }
             }
             
