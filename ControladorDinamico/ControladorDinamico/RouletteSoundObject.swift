@@ -52,10 +52,9 @@ class RouletteSoundObject : SoundObject, ModulatorNode
         self.physicsBody?.restitution = 0
         
         if (self.rouletteSpin != nil) {
-            rouletteSpin!.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width / 2, center: CGPoint(x:self.size.width / 2 , y:self.size.height / 2))
             rouletteSpin!.physicsBody?.categoryBitMask = (1 << 3)
             rouletteSpin!.physicsBody?.contactTestBitMask = 0
-            rouletteSpin!.physicsBody?.collisionBitMask = 0
+            rouletteSpin!.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width / 2)
             rouletteSpin!.physicsBody?.dynamic = true
             rouletteSpin!.physicsBody?.mass = 1
             rouletteSpin!.physicsBody?.allowsRotation = true
@@ -69,7 +68,7 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     {
         self.removeAllChildren()
         self.rouletteSpin = RouletteSpin()
-        self.rouletteSpin!.anchorPoint = CGPoint(x: 0, y: 0)
+//        self.rouletteSpin!.anchorPoint = CGPoint(x: 0, y: 0)
         
         self.rouletteSpin!.size.width = 0
         self.rouletteSpin!.size.height = 0
@@ -79,7 +78,7 @@ class RouletteSoundObject : SoundObject, ModulatorNode
         self.addChild(self.rouletteSpin!)
         
         self.rouletteFrame = RouletteFrame()
-        self.rouletteFrame!.anchorPoint = CGPoint(x: 0, y: 0)
+//        self.rouletteFrame!.anchorPoint = CGPoint(x: 0, y: 0)
         
         self.rouletteFrame!.size.width = 0
         self.rouletteFrame!.size.height = 0
@@ -89,7 +88,7 @@ class RouletteSoundObject : SoundObject, ModulatorNode
         self.addChild(self.rouletteFrame!)
         
         self.rouletteButton = RouletteButton()
-        self.rouletteButton!.anchorPoint = CGPoint(x: 0, y: 0)
+//        self.rouletteButton!.anchorPoint = CGPoint(x: 0, y: 0)
         
         self.rouletteButton!.size.width = 0
         self.rouletteButton!.size.height = 0
@@ -137,8 +136,8 @@ class RouletteSoundObject : SoundObject, ModulatorNode
         if (self.rouletteButton != nil) {
             self.rouletteButton!.size.width = self.size.width / 2.5
             self.rouletteButton!.size.height = self.size.height / 2.5
-            self.rouletteButton!.position.x = (self.size.width - self.rouletteButton!.size.width ) / 2
-            self.rouletteButton!.position.y = (self.size.height - self.rouletteButton!.size.height) / 2
+            self.rouletteButton!.position.x = 0
+            self.rouletteButton!.position.y = 0
         }
     }
     

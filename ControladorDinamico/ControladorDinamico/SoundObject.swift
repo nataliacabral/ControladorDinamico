@@ -26,7 +26,7 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Touchable
         super.init(texture: texture, color: color, size: size)
         var texture:SKTexture = SKTexture(imageNamed: self.templateImageName)
         self.texture = texture
-        self.anchorPoint = CGPoint(x: 0, y: 0)
+        //self.anchorPoint = CGPoint(x: 0, y: 0)
     }
     
     init(size:CGSize) {

@@ -20,7 +20,7 @@ class VerticalMenuBar : SKSpriteNode
         super.init(texture: nil, color: UIColor.yellowColor(), size:size)
         self.name = "VerticalMenuBar"
         self.position = position
-        self.anchorPoint = CGPoint(x:0,y:0)
+//        self.anchorPoint = CGPoint(x:0,y:0)
         self.zPosition = -1
         reloadObjs()
     }
@@ -34,7 +34,7 @@ class VerticalMenuBar : SKSpriteNode
         var i = 0
         var yPos = self.size.height - self.buttonSize.height
         for button in self.buttonList {
-            button.anchorPoint = CGPoint(x:0, y:0)
+//            button.anchorPoint = CGPoint(x:0, y:0)
             button.position.y = yPos
             button.position.x = 0
             button.size.width = self.buttonSize.width

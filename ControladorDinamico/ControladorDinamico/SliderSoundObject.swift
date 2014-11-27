@@ -48,7 +48,6 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
         self.removeAllChildren()
         if (self.sliderHandle == nil) {
             self.sliderHandle = SliderHandle()
-            self.sliderHandle!.anchorPoint = CGPoint(x: 0, y: 0)
 
             self.sliderHandle!.size.width = 0
             self.sliderHandle!.size.height = 0
@@ -66,8 +65,8 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
             self.sliderHandle!.size.width = self.size.width - (self.handlerWidthBorder * 2)
             let ratio:CGFloat = self.sliderHandle!.texture!.size().width / self.sliderHandle!.size.width
             self.sliderHandle!.size.height = self.sliderHandle!.texture!.size().height / ratio
-            self.sliderHandle!.position.x = self.handlerWidthBorder
-            self.sliderHandle!.position.y = self.size.height / 2
+            self.sliderHandle!.position.x = 0
+            self.sliderHandle!.position.y = 0
         }
     }
 

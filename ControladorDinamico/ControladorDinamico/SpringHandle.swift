@@ -38,10 +38,10 @@ class SpringHandle : SKSpriteNode, Touchable
     func touchMoved(position:CGPoint)
     {
         let parent = self.parent as SKSpriteNode
-        let topLimit = parent.size.height - handlerHeightBorder
-        let bottomLimit = handlerHeightBorder
+        let topLimit = (parent.size.height / 2) - handlerHeightBorder + self.size.height / 2
+        let bottomLimit = (-parent.size.height / 2) + handlerHeightBorder + self.size.height / 2
         
-        var relativePosition:CGPoint = self.parent!.parent!.convertPoint(position, toNode: self.parent!)
+        var relativePosition:CGPoint = self.scene!.convertPoint(position, toNode: self.parent!)
         self.position.y = relativePosition.y
         
         if (self.position.y < bottomLimit) {
