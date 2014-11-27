@@ -17,6 +17,9 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
     var objects:Array<SoundObject> = Array<SoundObject>()
     var touchMapping = Dictionary<UITouch , Touchable>()
     
+    var menuBar:VerticalMenuBar?
+    var backButton:MenuButton?
+    
     override init(size: CGSize)
     {
         self.gridSize = 64
@@ -31,6 +34,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
             CGPathAddLineToPoint(gridVerticalLinePath, nil, 0, y)
             gridVerticalLine.path = gridVerticalLinePath
             gridVerticalLine.strokeColor = UIColor.lightGrayColor()
+            gridVerticalLine.zPosition = -10
             self.addChild(gridVerticalLine)
         }
         
@@ -41,6 +45,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
             CGPathAddLineToPoint(gridHorizontalLinePath, nil, x, 0)
             gridHorizontalLine.path = gridHorizontalLinePath
             gridHorizontalLine.strokeColor = UIColor.lightGrayColor()
+            gridHorizontalLine.zPosition = -10
             self.addChild(gridHorizontalLine)
         }
         self.physicsWorld.contactDelegate = self
@@ -51,6 +56,25 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
         self.physicsBody?.categoryBitMask = 1
         
         self.view?.multipleTouchEnabled = true
+        
+        // MenuBar
+        
+        backButton = MenuButton(
+            texture:SKTexture(imageNamed: "roulette.png"),
+            color:UIColor(),
+            size:CGSize(width: gridSize, height: gridSize))
+
+        var width:CGFloat = gridSize
+        var x:CGFloat = self.size.width - gridSize / 2
+        var y:CGFloat = (self.size.height / 2)
+        
+        menuBar = VerticalMenuBar(
+            buttons: [backButton!],
+            position:CGPoint(x: x, y: y),
+            size:CGSize(width: width, height: self.size.height),
+            buttonSize:CGSize(width: gridSize, height: gridSize)
+        )
+        self.addChild(menuBar!)
     }
     
     override func didMoveToView(view: SKView) {
@@ -148,11 +172,20 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
         for touch in touches
         {
             let uiTouch = touch as UITouch
-            let touchedNode:Touchable? = touchMapping[uiTouch]
+            let touchBound:Touchable? = touchMapping[uiTouch]
+            var touchLocation:CGPoint = uiTouch.locationInView(uiTouch.view)
+            touchLocation = self.convertPointFromView(touchLocation)
+            var touchedNode:SKNode? = self.nodeAtPoint(touchLocation)
             
-            if (touchedNode != nil) {
-                touchedNode!.touchEnded(uiTouch.locationInView(uiTouch.view))
+            if (touchBound != nil) {
+                touchBound!.touchEnded(uiTouch.locationInView(uiTouch.view))
                 touchMapping .removeValueForKey(uiTouch)
+            }
+            else if (touchedNode == self.backButton) {
+                let navigationController = self.view!.window!.rootViewController!
+                if (navigationController is UINavigationController) {
+                    (navigationController as UINavigationController).popViewControllerAnimated(true)
+                }
             }
         }
     }
