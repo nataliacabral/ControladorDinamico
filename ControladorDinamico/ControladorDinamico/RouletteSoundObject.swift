@@ -9,6 +9,12 @@
 import Foundation
 import SpriteKit
 
+struct RouletteStatus
+{
+    var angularVelocity:CGFloat
+    var buttonToggled:Bool
+}
+
 class RouletteSoundObject : SoundObject, ModulatorNode
 {
     override var gridHeight:CGFloat { get { return 2 } }
@@ -22,6 +28,8 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     let rouletteBackgroundTexture:SKTexture = SKTexture(imageNamed: "roulette_background.png")
     
     var modulators:Array<Modulator> = Array<Modulator>()
+    var status:RouletteStatus = RouletteStatus(angularVelocity: CGFloat(0), buttonToggled:false)
+    var savedStatus : Array<RouletteStatus> = Array<RouletteStatus>(count: 4, repeatedValue: RouletteStatus(angularVelocity: CGFloat(0), buttonToggled:false))
     
     override init()
     {
@@ -42,7 +50,7 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     }
     
     override func startPhysicalBody() {
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(origin:CGPoint(x:0,y:0), size:self.size))
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.categoryBitMask = 2
         self.physicsBody?.contactTestBitMask = 0
@@ -154,5 +162,18 @@ class RouletteSoundObject : SoundObject, ModulatorNode
         result.position = self.position
         result.loadSpin()
         return result
+    }
+    
+    override func saveStatus(slot:Int)
+    {
+        self.status.angularVelocity = self.rouletteSpin!.physicsBody!.angularVelocity
+        self.status.buttonToggled = self.rouletteButton!.toggled
+        self.savedStatus[slot] = self.status;
+    }
+    override func loadStatus(slot:Int)
+    {
+        self.status = self.savedStatus[slot];
+        self.rouletteSpin!.physicsBody!.angularVelocity = self.status.angularVelocity
+        self.rouletteButton!.setToggle(self.status.buttonToggled)
     }
 }

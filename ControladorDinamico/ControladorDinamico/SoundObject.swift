@@ -44,7 +44,7 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Touchable
     }
     
     func startPhysicalBody() {
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size, center:CGPoint(x:self.size.width / 2 , y:self.size.height / 2))
+        self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
         self.physicsBody?.collisionBitMask = 0
         self.physicsBody?.dynamic = false
     }
@@ -82,6 +82,13 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Touchable
     {
         return SoundObject()
     }
-
+    func saveStatus(slot:Int)
+    {
+        
+    }
+    func loadStatus(slot:Int)
+    {
+        
+    }
 }
 

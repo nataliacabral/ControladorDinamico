@@ -121,11 +121,11 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     }
     
     override func startPhysicalBody() {
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(origin:CGPoint(x:0,y:0), size:self.size))
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.categoryBitMask = 2
         self.physicsBody?.contactTestBitMask = 0
-        self.physicsBody?.collisionBitMask = 1 << 3
+        self.physicsBody?.collisionBitMask = 4
         self.physicsBody?.dynamic = false
         self.physicsBody?.mass = 5000
         self.physicsBody?.restitution = 0
@@ -133,7 +133,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
         if (self.springHandle != nil) {
             springHandle!.physicsBody = SKPhysicsBody(rectangleOfSize: springHandle!.size)
             springHandle!.physicsBody?.collisionBitMask = 2
-            springHandle!.physicsBody?.categoryBitMask = (1 << 3)
+            springHandle!.physicsBody?.categoryBitMask = 4
             springHandle!.physicsBody?.contactTestBitMask = 0
             springHandle!.physicsBody?.dynamic = true
             springHandle!.physicsBody?.mass = 1
@@ -155,7 +155,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     override func update(currentTime: NSTimeInterval)
     {
         if (self.springHandle != nil) {
-            self.springHandle!.update(currentTime)
+            //self.springHandle!.update(currentTime)
             self.updateSticksPosition()
         }
     }

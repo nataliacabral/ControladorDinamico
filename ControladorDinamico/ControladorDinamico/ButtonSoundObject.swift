@@ -10,6 +10,12 @@ import Foundation
 import SpriteKit
 import AVFoundation
 
+struct ButtonStatus
+{
+    var pressed : Bool
+    var playing : Bool
+}
+
 class ButtonSoundObject : SoundObject, Sampler
 //class ButtonSoundObject
 {
@@ -20,10 +26,10 @@ class ButtonSoundObject : SoundObject, Sampler
     let selectedTexture:SKTexture = SKTexture(imageNamed: "buttonSelected.png")
     let stillTexture:SKTexture =  SKTexture(imageNamed: "button.png")
 
-    var pressed : Bool
-    var playing : Bool = false
     var note : UInt8 = 0
     
+    var status : ButtonStatus = ButtonStatus(pressed: false, playing: false)
+    var savedStatus : Array<ButtonStatus> = Array<ButtonStatus>(count: 4, repeatedValue: ButtonStatus(pressed: false, playing: false))
     
     class func colorMap() -> Array<UIColor> {
         return [
@@ -47,13 +53,12 @@ class ButtonSoundObject : SoundObject, Sampler
 
     override init()
     {
-        self.pressed = false
+        self.note = 1;
         super.init()
     }
     
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
-        self.pressed = false
         super.init(texture: texture, color: color, size: size)
     }
 
@@ -64,7 +69,6 @@ class ButtonSoundObject : SoundObject, Sampler
     }
     
     required init(coder aDecoder: NSCoder) {
-        self.pressed = false
         super.init(coder:aDecoder)
         self.note = (aDecoder.decodeObjectForKey("note") as NSNumber).unsignedCharValue
         self.colorize()
@@ -76,7 +80,6 @@ class ButtonSoundObject : SoundObject, Sampler
     }
     
     init(gridSize:CGFloat, note:UInt8) {
-        self.pressed = false
         super.init(gridSize:gridSize)
         self.note = note
         self.colorize()
@@ -85,14 +88,14 @@ class ButtonSoundObject : SoundObject, Sampler
     override func touchStarted(position:CGPoint)
     {
         let changeTexture:SKAction = SKAction.setTexture(self.selectedTexture)
-        self.pressed = true
+        self.status.pressed = true
         self.runAction(changeTexture)
     }
     
     override func touchEnded(position:CGPoint)
     {
         let changeTexture:SKAction = SKAction.setTexture(self.stillTexture)
-        self.pressed = false
+        self.status.pressed = false
         self.runAction(changeTexture)
     }
     
@@ -103,7 +106,7 @@ class ButtonSoundObject : SoundObject, Sampler
     
     override func currentSoundIntensity() -> Float
     {
-        if (self.pressed) {
+        if (self.status.pressed) {
             return 1.0
         } else {
             return 0
@@ -128,17 +131,17 @@ class ButtonSoundObject : SoundObject, Sampler
     
     func playSound()
     {
-        if (!playing) {
+        if (!self.status.playing) {
             self.audioSampler?.startNote(self.note, withVelocity: 127, onChannel: 0)
-            self.playing = true
+            self.status.playing = true
         }
     }
     
     func stopSound()
     {
-        if (self.playing) {
+        if (self.status.playing) {
             self.audioSampler?.stopNote(self.note,  onChannel: 0)
-            self.playing = false
+            self.status.playing = false
         }
     }
     
@@ -152,6 +155,21 @@ class ButtonSoundObject : SoundObject, Sampler
         result.colorBlendFactor = 1.0
         result.note = self.note
         result.position = self.position
+        return result
+    }
+    
+    override func saveStatus(slot:Int)
+    {
+        self.savedStatus[slot] = self.status;
+    }
+    override func loadStatus(slot:Int)
+    {
+        self.status = self.savedStatus[slot];
+    }
+    
+    override func copy() -> AnyObject {
+        var result:ButtonSoundObject = super.copy() as ButtonSoundObject
+        result.note = self.note
         return result
     }
     

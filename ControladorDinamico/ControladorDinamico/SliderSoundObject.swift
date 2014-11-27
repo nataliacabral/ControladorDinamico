@@ -10,6 +10,11 @@ import Foundation
 import SpriteKit
 import AVFoundation
 
+struct SliderStatus
+{
+    var sliderPosition:CGFloat
+}
+
 class SliderSoundObject : SoundObject, Touchable, ModulatorNode
 
 {
@@ -23,6 +28,9 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
     let handlerWidthBorder:CGFloat = 3.5
 
     var modulators:Array<Modulator> = Array<Modulator>()
+    
+    var status:SliderStatus = SliderStatus(sliderPosition: CGFloat(0))
+    var savedStatus : Array<SliderStatus> = Array<SliderStatus>(count: 4, repeatedValue: SliderStatus(sliderPosition: CGFloat(0)))
 
     override init()
     {
@@ -99,5 +107,16 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
         result.position = self.position
         result.loadHandle()
         return result
+    }
+    
+    override func saveStatus(slot:Int)
+    {
+        self.status.sliderPosition = self.sliderHandle!.position.y
+        self.savedStatus[slot] = self.status;
+    }
+    override func loadStatus(slot:Int)
+    {
+        self.status = self.savedStatus[slot];
+        self.sliderHandle!.position.y = self.status.sliderPosition
     }
 }
