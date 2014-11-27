@@ -7,17 +7,18 @@
 //
 
 import Foundation
-
-import Foundation
 import SpriteKit
 
 class SliderHandle : SKSpriteNode, Touchable
 {
-    let handlerHeightBorder:CGFloat = 20
+    let handlerHeightBorder:CGFloat = 12
+
+    let sliderHandleTexture:SKTexture = SKTexture(imageNamed: "sliderHandle.png")
 
     override init()
     {
         super.init()
+        self.texture = sliderHandleTexture
     }
     
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)

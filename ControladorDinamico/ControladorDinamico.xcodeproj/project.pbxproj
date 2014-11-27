@@ -18,13 +18,7 @@
 		255663721A13FA9400F6F820 /* RouletteSoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255663711A13FA9400F6F820 /* RouletteSoundObject.swift */; };
 		255663741A13FAAA00F6F820 /* TreadmillSoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255663731A13FAAA00F6F820 /* TreadmillSoundObject.swift */; };
 		255663761A13FAB800F6F820 /* ThermalSoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255663751A13FAB800F6F820 /* ThermalSoundObject.swift */; };
-		2557DBDC1A13FCB20003AB5D /* Botão_V1.psd in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBD01A13FCB20003AB5D /* Botão_V1.psd */; };
 		2557DBDD1A13FCB20003AB5D /* CANVAS.psd in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBD21A13FCB20003AB5D /* CANVAS.psd */; };
-		2557DBDE1A13FCB20003AB5D /* DEMO.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBD31A13FCB20003AB5D /* DEMO.mp4 */; };
-		2557DBDF1A13FCB20003AB5D /* slider_MOLA_V1.psd in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBD51A13FCB20003AB5D /* slider_MOLA_V1.psd */; };
-		2557DBE01A13FCB20003AB5D /* Roleta_V1.psd in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBD71A13FCB20003AB5D /* Roleta_V1.psd */; };
-		2557DBE11A13FCB20003AB5D /* slider_V1.psd in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBD91A13FCB20003AB5D /* slider_V1.psd */; };
-		2557DBE21A13FCB20003AB5D /* Term_TOQUE_V1.psd in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBDB1A13FCB20003AB5D /* Term_TOQUE_V1.psd */; };
 		2557DBE41A13FE940003AB5D /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBE31A13FE940003AB5D /* button.png */; };
 		2557DBEE1A14067B0003AB5D /* spring.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBED1A14067B0003AB5D /* spring.png */; };
 		2557DBF01A14068C0003AB5D /* roulette.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBEF1A14068C0003AB5D /* roulette.png */; };
@@ -45,6 +39,13 @@
 		25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A93F6B1A1A9B7D00C9F145 /* roulette_spinningpart.png */; };
 		25A93F6F1A1A9BDD00C9F145 /* RouletteSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A93F6E1A1A9BDD00C9F145 /* RouletteSpin.swift */; };
 		25AF9BC61A23C34D00CED1CD /* ProjectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25AF9BC51A23C34D00CED1CD /* ProjectView.xib */; };
+		25AF9BE21A265FE400CED1CD /* roulette_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 25AF9BE01A265FE400CED1CD /* roulette_frame.png */; };
+		25AF9BE31A265FE400CED1CD /* roullete_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 25AF9BE11A265FE400CED1CD /* roullete_button.png */; };
+		25AF9BE51A26620D00CED1CD /* RouletteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF9BE41A26620D00CED1CD /* RouletteButton.swift */; };
+		25AF9BE71A266F0C00CED1CD /* RouletteFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF9BE61A266F0C00CED1CD /* RouletteFrame.swift */; };
+		25AF9BE91A267ADC00CED1CD /* SpringHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF9BE81A267ADC00CED1CD /* SpringHandle.swift */; };
+		25AF9BEC1A267BDE00CED1CD /* spring_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 25AF9BEA1A267BDE00CED1CD /* spring_background.png */; };
+		25AF9BED1A267BDE00CED1CD /* spring_stick.png in Resources */ = {isa = PBXBuildFile; fileRef = 25AF9BEB1A267BDE00CED1CD /* spring_stick.png */; };
 		490120CF1A1E7BC200F3E653 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490120CE1A1E7BC200F3E653 /* AVFoundation.framework */; };
 		4918FC711A228F41007E1F64 /* guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 4918FC701A228F41007E1F64 /* guitar.sf2 */; };
 		4918FC731A22AEB7007E1F64 /* DelayModulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918FC721A22AEB7007E1F64 /* DelayModulator.swift */; };
@@ -94,13 +95,7 @@
 		255663711A13FA9400F6F820 /* RouletteSoundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouletteSoundObject.swift; sourceTree = "<group>"; };
 		255663731A13FAAA00F6F820 /* TreadmillSoundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreadmillSoundObject.swift; sourceTree = "<group>"; };
 		255663751A13FAB800F6F820 /* ThermalSoundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThermalSoundObject.swift; sourceTree = "<group>"; };
-		2557DBD01A13FCB20003AB5D /* Botão_V1.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Botão_V1.psd"; sourceTree = "<group>"; };
 		2557DBD21A13FCB20003AB5D /* CANVAS.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = CANVAS.psd; sourceTree = "<group>"; };
-		2557DBD31A13FCB20003AB5D /* DEMO.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = DEMO.mp4; sourceTree = "<group>"; };
-		2557DBD51A13FCB20003AB5D /* slider_MOLA_V1.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = slider_MOLA_V1.psd; sourceTree = "<group>"; };
-		2557DBD71A13FCB20003AB5D /* Roleta_V1.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = Roleta_V1.psd; sourceTree = "<group>"; };
-		2557DBD91A13FCB20003AB5D /* slider_V1.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = slider_V1.psd; sourceTree = "<group>"; };
-		2557DBDB1A13FCB20003AB5D /* Term_TOQUE_V1.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = Term_TOQUE_V1.psd; sourceTree = "<group>"; };
 		2557DBE31A13FE940003AB5D /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		2557DBED1A14067B0003AB5D /* spring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spring.png; sourceTree = "<group>"; };
 		2557DBEF1A14068C0003AB5D /* roulette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette.png; sourceTree = "<group>"; };
@@ -125,6 +120,13 @@
 		25A93F6B1A1A9B7D00C9F145 /* roulette_spinningpart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette_spinningpart.png; sourceTree = "<group>"; };
 		25A93F6E1A1A9BDD00C9F145 /* RouletteSpin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouletteSpin.swift; sourceTree = "<group>"; };
 		25AF9BC51A23C34D00CED1CD /* ProjectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectView.xib; sourceTree = "<group>"; };
+		25AF9BE01A265FE400CED1CD /* roulette_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette_frame.png; sourceTree = "<group>"; };
+		25AF9BE11A265FE400CED1CD /* roullete_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roullete_button.png; sourceTree = "<group>"; };
+		25AF9BE41A26620D00CED1CD /* RouletteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouletteButton.swift; sourceTree = "<group>"; };
+		25AF9BE61A266F0C00CED1CD /* RouletteFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouletteFrame.swift; sourceTree = "<group>"; };
+		25AF9BE81A267ADC00CED1CD /* SpringHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringHandle.swift; sourceTree = "<group>"; };
+		25AF9BEA1A267BDE00CED1CD /* spring_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spring_background.png; sourceTree = "<group>"; };
+		25AF9BEB1A267BDE00CED1CD /* spring_stick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spring_stick.png; sourceTree = "<group>"; };
 		490120CE1A1E7BC200F3E653 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4918FC701A228F41007E1F64 /* guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; name = guitar.sf2; path = ../guitar.sf2; sourceTree = "<group>"; };
 		4918FC721A22AEB7007E1F64 /* DelayModulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayModulator.swift; sourceTree = "<group>"; };
@@ -185,6 +187,9 @@
 				4933E0EA1A17F6D500DDCE0D /* Touchable.swift */,
 				491EECC31A18E31700F33D50 /* SliderHandle.swift */,
 				25A93F6E1A1A9BDD00C9F145 /* RouletteSpin.swift */,
+				25AF9BE41A26620D00CED1CD /* RouletteButton.swift */,
+				25AF9BE61A266F0C00CED1CD /* RouletteFrame.swift */,
+				25AF9BE81A267ADC00CED1CD /* SpringHandle.swift */,
 			);
 			name = SoundObject;
 			sourceTree = "<group>";
@@ -194,7 +199,6 @@
 			children = (
 				2557DBCF1A13FCB20003AB5D /* BOTAO */,
 				2557DBD11A13FCB20003AB5D /* CANVAS */,
-				2557DBD31A13FCB20003AB5D /* DEMO.mp4 */,
 				2557DBD41A13FCB20003AB5D /* MOLA */,
 				2557DBD61A13FCB20003AB5D /* ROLETA */,
 				2557DBD81A13FCB20003AB5D /* SLIDER */,
@@ -208,7 +212,6 @@
 			children = (
 				4933E0E81A17F3FE00DDCE0D /* buttonSelected.png */,
 				2557DBE31A13FE940003AB5D /* button.png */,
-				2557DBD01A13FCB20003AB5D /* Botão_V1.psd */,
 			);
 			path = BOTAO;
 			sourceTree = "<group>";
@@ -224,8 +227,9 @@
 		2557DBD41A13FCB20003AB5D /* MOLA */ = {
 			isa = PBXGroup;
 			children = (
+				25AF9BEA1A267BDE00CED1CD /* spring_background.png */,
+				25AF9BEB1A267BDE00CED1CD /* spring_stick.png */,
 				2557DBED1A14067B0003AB5D /* spring.png */,
-				2557DBD51A13FCB20003AB5D /* slider_MOLA_V1.psd */,
 			);
 			path = MOLA;
 			sourceTree = "<group>";
@@ -233,10 +237,11 @@
 		2557DBD61A13FCB20003AB5D /* ROLETA */ = {
 			isa = PBXGroup;
 			children = (
+				25AF9BE01A265FE400CED1CD /* roulette_frame.png */,
+				25AF9BE11A265FE400CED1CD /* roullete_button.png */,
 				25A93F6A1A1A9B7D00C9F145 /* roulette_background.png */,
 				25A93F6B1A1A9B7D00C9F145 /* roulette_spinningpart.png */,
 				2557DBEF1A14068C0003AB5D /* roulette.png */,
-				2557DBD71A13FCB20003AB5D /* Roleta_V1.psd */,
 			);
 			path = ROLETA;
 			sourceTree = "<group>";
@@ -247,7 +252,6 @@
 				4933E0EE1A18005700DDCE0D /* sliderHandle.png */,
 				4933E0EF1A18005700DDCE0D /* sliderTrack.png */,
 				2557DBF11A1406AB0003AB5D /* slider.png */,
-				2557DBD91A13FCB20003AB5D /* slider_V1.psd */,
 			);
 			path = SLIDER;
 			sourceTree = "<group>";
@@ -256,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				2557DBF31A1406B80003AB5D /* thermal.png */,
-				2557DBDB1A13FCB20003AB5D /* Term_TOQUE_V1.psd */,
 			);
 			path = TERM_TOQUE;
 			sourceTree = "<group>";
@@ -459,26 +462,24 @@
 				4933E0E91A17F3FE00DDCE0D /* buttonSelected.png in Resources */,
 				2557DBF21A1406AB0003AB5D /* slider.png in Resources */,
 				4918FC711A228F41007E1F64 /* guitar.sf2 in Resources */,
+				25AF9BED1A267BDE00CED1CD /* spring_stick.png in Resources */,
+				25AF9BE21A265FE400CED1CD /* roulette_frame.png in Resources */,
 				2557DBEE1A14067B0003AB5D /* spring.png in Resources */,
 				25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */,
-				2557DBDF1A13FCB20003AB5D /* slider_MOLA_V1.psd in Resources */,
 				259B90A619F96D1400737E04 /* Main.storyboard in Resources */,
 				49EC59F91A2006C800A36D2C /* piano.sf2 in Resources */,
 				4933E0F11A18005700DDCE0D /* sliderTrack.png in Resources */,
 				259B90AB19F96D1400737E04 /* LaunchScreen.xib in Resources */,
-				2557DBDE1A13FCB20003AB5D /* DEMO.mp4 in Resources */,
 				2557DBF41A1406B80003AB5D /* thermal.png in Resources */,
 				25A93F6C1A1A9B7D00C9F145 /* roulette_background.png in Resources */,
-				2557DBE01A13FCB20003AB5D /* Roleta_V1.psd in Resources */,
 				2557DBDD1A13FCB20003AB5D /* CANVAS.psd in Resources */,
+				25AF9BEC1A267BDE00CED1CD /* spring_background.png in Resources */,
 				259B90C919F9756200737E04 /* Images-3.xcassets in Resources */,
-				2557DBE21A13FCB20003AB5D /* Term_TOQUE_V1.psd in Resources */,
 				2557DBE41A13FE940003AB5D /* button.png in Resources */,
 				25AF9BC61A23C34D00CED1CD /* ProjectView.xib in Resources */,
+				25AF9BE31A265FE400CED1CD /* roullete_button.png in Resources */,
 				2557DBF01A14068C0003AB5D /* roulette.png in Resources */,
 				4933E0F01A18005700DDCE0D /* sliderHandle.png in Resources */,
-				2557DBE11A13FCB20003AB5D /* slider_V1.psd in Resources */,
-				2557DBDC1A13FCB20003AB5D /* Botão_V1.psd in Resources */,
 				259B90CB19F9768500737E04 /* LaunchImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,8 +501,10 @@
 				259B90A319F96D1400737E04 /* ViewController.swift in Sources */,
 				4918FC731A22AEB7007E1F64 /* DelayModulator.swift in Sources */,
 				258D1FFB1A019BF900ACFC93 /* SoundObjectTemplate.swift in Sources */,
+				25AF9BE51A26620D00CED1CD /* RouletteButton.swift in Sources */,
 				49EC5A061A20449F00A36D2C /* PitchModulator.swift in Sources */,
 				25A93F6F1A1A9BDD00C9F145 /* RouletteSpin.swift in Sources */,
+				25AF9BE91A267ADC00CED1CD /* SpringHandle.swift in Sources */,
 				49EC5A0F1A2210B800A36D2C /* VerticalMenuBar.swift in Sources */,
 				49EC5A131A22176100A36D2C /* DrawerMenuButton.swift in Sources */,
 				259B90A119F96D1400737E04 /* AppDelegate.swift in Sources */,
@@ -521,6 +524,7 @@
 				2556636C1A13F98C00F6F820 /* ButtonSoundObject.swift in Sources */,
 				255663741A13FAAA00F6F820 /* TreadmillSoundObject.swift in Sources */,
 				258D1FEF1A0182EE00ACFC93 /* SoundObject.swift in Sources */,
+				25AF9BE71A266F0C00CED1CD /* RouletteFrame.swift in Sources */,
 				49EC5A081A2044A800A36D2C /* ReverbModulator.swift in Sources */,
 				2509940119FEE2CF00A6D24F /* EditViewController.swift in Sources */,
 				49EC5A0C1A220C2E00A36D2C /* VelocityModulator.swift in Sources */,

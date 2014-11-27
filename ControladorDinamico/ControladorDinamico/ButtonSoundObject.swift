@@ -17,9 +17,8 @@ class ButtonSoundObject : SoundObject, Sampler
     override var gridWidth:CGFloat { get { return 1 } }
     override var templateImageName:String { get { return "button.png" } }
     
-    let selectedTextureName:String = "buttonSelected.png"
-    var selectedTexture:SKTexture?
-    var stillTexture:SKTexture?
+    var selectedTexture:SKTexture = SKTexture(imageNamed: "buttonSelected.png")
+    var stillTexture:SKTexture =  SKTexture(imageNamed: "button.png")
 
     var pressed : Bool
     var playing : Bool = false
@@ -56,7 +55,6 @@ class ButtonSoundObject : SoundObject, Sampler
     {
         self.pressed = false
         super.init(texture: texture, color: color, size: size)
-        self.loadTextures();
     }
 
     func colorize()
@@ -86,14 +84,14 @@ class ButtonSoundObject : SoundObject, Sampler
     
     override func touchStarted(position:CGPoint)
     {
-        let changeTexture:SKAction = SKAction.setTexture(self.selectedTexture!)
+        let changeTexture:SKAction = SKAction.setTexture(self.selectedTexture)
         self.pressed = true
         self.runAction(changeTexture)
     }
     
     override func touchEnded(position:CGPoint)
     {
-        let changeTexture:SKAction = SKAction.setTexture(self.stillTexture!)
+        let changeTexture:SKAction = SKAction.setTexture(self.stillTexture)
         self.pressed = false
         self.runAction(changeTexture)
     }
@@ -101,11 +99,6 @@ class ButtonSoundObject : SoundObject, Sampler
     override func touchMoved(position:CGPoint)
     {
         
-    }
-    
-    func loadTextures() {
-        self.selectedTexture = SKTexture(imageNamed: self.selectedTextureName);
-        self.stillTexture = SKTexture(imageNamed: self.templateImageName);
     }
     
     override func currentSoundIntensity() -> Float

@@ -12,10 +12,12 @@ import SpriteKit
 class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
 {
     var startRotationPoint:CGPoint?
-    
+    let rouletteSpinTexture:SKTexture = SKTexture(imageNamed: "roulette_spinningpart.png")
+
     override init()
     {
         super.init()
+        self.texture = rouletteSpinTexture
     }
     
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
@@ -59,8 +61,16 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
         else {
             higherValue = y
         }
-        self.physicsBody?.applyAngularImpulse(higherValue / 20)
+        self.physicsBody?.applyAngularImpulse(higherValue / 800)
+        
+        let maxVelocity:CGFloat = 40
+        if (self.physicsBody?.angularVelocity > maxVelocity) {
+            self.physicsBody?.angularVelocity = maxVelocity
+        } else if (self.physicsBody?.angularVelocity < -maxVelocity) {
+            self.physicsBody?.angularVelocity = -maxVelocity
+        }
     }
+    
     func touchEnded(position: CGPoint) {
         startRotationPoint = nil
     }

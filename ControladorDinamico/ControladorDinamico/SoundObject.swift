@@ -77,5 +77,9 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Touchable
     {
         
     }
+    
+    func update(currentTime: NSTimeInterval)
+    {
+    }
 }
 

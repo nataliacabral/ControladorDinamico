@@ -15,12 +15,11 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     override var gridWidth:CGFloat { get { return 2 } }
     override var templateImageName:String { get { return "roulette.png" } }
     
-    var rouletteSpinImageName:String { get { return "roulette_spinningpart.png" } }
-    var rouletteBackgroundImageName:String { get { return "roulette_background.png" } }
-    
     var rouletteSpin:RouletteSpin?
-    var rouletteSpinTexture:SKTexture?
-    var rouletteBackgroundTexture:SKTexture?
+    var rouletteButton:RouletteButton?
+    var rouletteFrame:RouletteFrame?
+
+    let rouletteBackgroundTexture:SKTexture = SKTexture(imageNamed: "roulette_background.png")
     
     var modulators:Array<Modulator> = Array<Modulator>()
     
@@ -32,8 +31,7 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
         super.init(texture: texture, color: color, size: size)
-        self.loadTextures()
-        self.loadHandle()
+        self.loadSpin()
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -57,6 +55,7 @@ class RouletteSoundObject : SoundObject, ModulatorNode
         self.physicsBody?.restitution = 0
         
         for obj in self.children {
+            if (obj is RouletteSpin) {
             let rouletteSpin:RouletteSpin = obj as RouletteSpin
             self.rouletteSpin = rouletteSpin
             rouletteSpin.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width / 2, center: CGPoint(x:self.size.width / 2 , y:self.size.height / 2))
@@ -66,31 +65,45 @@ class RouletteSoundObject : SoundObject, ModulatorNode
             rouletteSpin.physicsBody?.dynamic = true
             rouletteSpin.physicsBody?.mass = 1
             rouletteSpin.physicsBody?.allowsRotation = true
-            rouletteSpin.physicsBody?.friction = 0.9
             rouletteSpin.physicsBody?.restitution = 0
             rouletteSpin.physicsBody?.linearDamping = 0.9
-            rouletteSpin.physicsBody?.angularDamping = 0.9
-
+            rouletteSpin.physicsBody?.angularDamping = 0.2
+            }
         }
     }
     
-    func loadHandle()
+    func loadSpin()
     {
         self.removeAllChildren()
-        self.rouletteSpin = RouletteSpin(texture: self.rouletteSpinTexture)
+        self.rouletteSpin = RouletteSpin()
         self.rouletteSpin!.anchorPoint = CGPoint(x: 0, y: 0)
         
         self.rouletteSpin!.size.width = 0
         self.rouletteSpin!.size.height = 0
-        self.rouletteSpin!.position.x = 0;
-        self.rouletteSpin!.position.y = 0;
+        self.rouletteSpin!.position.x = 0
+        self.rouletteSpin!.position.y = 0
         
-        self.addChild(self.rouletteSpin!);
-    }
-    
-    func loadTextures() {
-        self.rouletteSpinTexture = SKTexture(imageNamed: self.rouletteSpinImageName);
-        self.rouletteBackgroundTexture = SKTexture(imageNamed: self.rouletteBackgroundImageName);
+        self.addChild(self.rouletteSpin!)
+        
+        self.rouletteFrame = RouletteFrame()
+        self.rouletteFrame!.anchorPoint = CGPoint(x: 0, y: 0)
+        
+        self.rouletteFrame!.size.width = 0
+        self.rouletteFrame!.size.height = 0
+        self.rouletteFrame!.position.x = 0
+        self.rouletteFrame!.position.y = 0
+        
+        self.addChild(self.rouletteFrame!)
+        
+        self.rouletteButton = RouletteButton()
+        self.rouletteButton!.anchorPoint = CGPoint(x: 0, y: 0)
+        
+        self.rouletteButton!.size.width = 0
+        self.rouletteButton!.size.height = 0
+        self.rouletteButton!.position.x = 0
+        self.rouletteButton!.position.y = 0
+        self.rouletteButton!.colorBlendFactor = 1.0
+        self.addChild(self.rouletteButton!)
     }
     
     override func currentSoundIntensity() -> Float
@@ -118,6 +131,40 @@ class RouletteSoundObject : SoundObject, ModulatorNode
         self.rouletteSpin!.size.height = self.size.height
         self.rouletteSpin!.position.x = 0
         self.rouletteSpin!.position.y = 0
+        
+        self.rouletteFrame!.size.width = self.rouletteSpin!.size.width
+        self.rouletteFrame!.size.height = self.rouletteSpin!.size.height
+        self.rouletteFrame!.position.x = 0
+        self.rouletteFrame!.position.y = 0
+        
+        self.rouletteButton!.size.width = self.size.width / 2.5
+        self.rouletteButton!.size.height = self.size.height / 2.5
+        self.rouletteButton!.position.x = (self.size.width - self.rouletteButton!.size.width ) / 2
+        self.rouletteButton!.position.y = (self.size.height - self.rouletteButton!.size.height) / 2
+    }
+    
+    func toggleFriction(dampened:Bool)
+    {
+        if (!dampened) {
+            self.rouletteSpin!.physicsBody?.angularDamping = 0.2
+        } else {
+            self.rouletteSpin!.physicsBody?.angularDamping = 0
+        }
+    }
+    
+    override func touchStarted(position:CGPoint)
+    {
+        self.rouletteSpin!.touchStarted(position)
+    }
+    
+    override func touchEnded(position:CGPoint)
+    {
+        self.rouletteSpin!.touchEnded(position)
+    }
+    
+    override func touchMoved(position:CGPoint)
+    {
+        self.rouletteSpin!.touchMoved(position)
     }
 
 }

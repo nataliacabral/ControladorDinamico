@@ -19,7 +19,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
     
     override init(size: CGSize)
     {
-        self.gridSize = size.width / 16
+        self.gridSize = size.width / 12
         super.init(size: size)
         self.scene?.backgroundColor = UIColor.blackColor()
         
@@ -204,6 +204,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
         for obj in self.children {
             if (obj is SoundObject) {
                 let soundObj:SoundObject = obj as SoundObject
+                soundObj.update(currentTime)
                 let currentSoundIntensity : Float = soundObj.currentSoundIntensity()
                 if (obj is ModulatorNode) {
                     let modulator:ModulatorNode = obj as ModulatorNode

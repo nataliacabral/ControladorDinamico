@@ -11,7 +11,7 @@ import SpriteKit
 
 @objc protocol Touchable
 {
-    func touchStarted(position:CGPoint);
-    func touchEnded(position:CGPoint);
-    func touchMoved(position:CGPoint);
+    func touchStarted(position:CGPoint)
+    func touchEnded(position:CGPoint)
+    func touchMoved(position:CGPoint)
 }

@@ -11,21 +11,16 @@ import SpriteKit
 import AVFoundation
 
 class SliderSoundObject : SoundObject, Touchable, ModulatorNode
-//class SliderSoundObject
 
 {
     override var gridHeight:CGFloat { get { return 3 } }
     override var gridWidth:CGFloat { get { return 1 } }
     override var templateImageName:String { get { return "slider.png" } }
-    
-    var sliderHandleImageName:String { get { return "sliderHandle.png" } }
-    var sliderTrackImageName:String { get { return "sliderTrack.png" } }
 
     var sliderHandle:SliderHandle?
-    var sliderHandleTexture:SKTexture?
-    var sliderTrackTexture:SKTexture?
+    let sliderTrackTexture:SKTexture = SKTexture(imageNamed: "sliderTrack.png")
     
-    let handlerWidthBorder:CGFloat = 5
+    let handlerWidthBorder:CGFloat = 3.5
 
     var modulators:Array<Modulator> = Array<Modulator>()
 
@@ -37,7 +32,6 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
         super.init(texture: texture, color: color, size: size)
-        self.loadTextures()
         self.loadHandle()
     }
     
@@ -53,30 +47,8 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
     }
     
     override func startPhysicalBody() {
-//        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(origin:CGPoint(x:0,y:0), size:self.size))
-//        self.physicsBody?.affectedByGravity = false
-//        self.physicsBody?.categoryBitMask = 1
-//        self.physicsBody?.contactTestBitMask = 1
-//        self.physicsBody?.collisionBitMask = 1
-//        self.physicsBody?.dynamic = false
-//        self.physicsBody?.mass = 5000
-//        self.physicsBody?.usesPreciseCollisionDetection = true
-//        self.physicsBody?.restitution = 0
-//
         for obj in self.children {
             let sliderObj:SliderHandle = obj as SliderHandle
-//            sliderObj.physicsBody = SKPhysicsBody(rectangleOfSize: sliderObj.size,
-//                center:CGPoint(x:sliderObj.size.width / 2 + handlerWidthBorder, y:sliderObj.size.height / 2))
-//            sliderObj.physicsBody?.categoryBitMask = 1
-//            sliderObj.physicsBody?.contactTestBitMask = 1
-//            sliderObj.physicsBody?.collisionBitMask = 1
-//            sliderObj.physicsBody?.dynamic = true
-//            sliderObj.physicsBody?.mass = 1
-//            sliderObj.physicsBody?.allowsRotation = false
-//            sliderObj.physicsBody?.usesPreciseCollisionDetection = true
-//            sliderObj.physicsBody?.friction = 0.9
-//            sliderObj.physicsBody?.restitution = 0
-//            sliderObj.physicsBody?.linearDamping = 0.9
             self.sliderHandle = sliderObj
        }
     }
@@ -86,7 +58,7 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
         self.sliderHandle = nil
         self.removeAllChildren()
         if (self.sliderHandle == nil) {
-            self.sliderHandle = SliderHandle(texture: self.sliderHandleTexture)
+            self.sliderHandle = SliderHandle()
             self.sliderHandle!.anchorPoint = CGPoint(x: 0, y: 0)
 
             self.sliderHandle!.size.width = 0
@@ -98,17 +70,12 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
         }
     }
     
-    func loadTextures() {
-        self.sliderHandleTexture = SKTexture(imageNamed: self.sliderHandleImageName);
-        self.sliderTrackTexture = SKTexture(imageNamed: self.sliderTrackImageName);
-    }
-    
     override func updateGridSize(gridSize:CGFloat)
     {
         super.updateGridSize(gridSize)
         self.sliderHandle!.size.width = self.size.width - (self.handlerWidthBorder * 2)
-        let ratio:CGFloat = self.sliderHandleTexture!.size().width / self.sliderHandle!.size.width
-        self.sliderHandle!.size.height = self.sliderHandleTexture!.size().height / ratio
+        let ratio:CGFloat = self.sliderHandle!.texture!.size().width / self.sliderHandle!.size.width
+        self.sliderHandle!.size.height = self.sliderHandle!.texture!.size().height / ratio
         self.sliderHandle!.position.x = self.handlerWidthBorder
         self.sliderHandle!.position.y = self.size.height / 2
     }

@@ -28,7 +28,7 @@ class EditScene : SKScene
     
     override init(size: CGSize)
     {
-        self.gridSize = size.width / 16
+        self.gridSize = size.width / 12
         // Menu
         var buttonSpriteC:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:60)
         var buttonSpriteD:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:62)
@@ -171,7 +171,7 @@ class EditScene : SKScene
             var touchLocation:CGPoint = uiTouch.locationInView(uiTouch.view)
             touchLocation = self.convertPointFromView(touchLocation)
             var touchedNode:SKNode = self.nodeAtPoint(touchLocation) as SKNode
-            if (touchedNode is RouletteSpin || touchedNode is SliderHandle) {
+            if (touchedNode is RouletteSpin || touchedNode is SliderHandle || touchedNode is RouletteButton) {
                 touchedNode = touchedNode.parent!
             }
             if (touchedNode is SoundObject) {

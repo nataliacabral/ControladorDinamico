@@ -69,28 +69,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ControladorDinamico/ControladorDinamico/SliderSoundObject.swift"
-            timestampString = "438298899.012564"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "SliderSoundObject"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/ButtonSoundObject.swift"
-            timestampString = "437947967.083377"
+            timestampString = "438724617.755236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "colorMap()"
             landmarkType = "5">
          </BreakpointContent>
@@ -102,12 +86,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/RouletteSpin.swift"
-            timestampString = "438208046.196795"
+            timestampString = "438727958.188181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "panEnded()"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "setModule(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -118,12 +102,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/RouletteSpin.swift"
-            timestampString = "438208046.196795"
+            timestampString = "438724617.755236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "panMoved(_:)"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "touchMoved(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -134,12 +118,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/RouletteSpin.swift"
-            timestampString = "438208046.196795"
+            timestampString = "438724617.755236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "panMoved(_:)"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "touchMoved(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -150,12 +134,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/RouletteSpin.swift"
-            timestampString = "438208046.196795"
+            timestampString = "438724617.755236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "panMoved(_:)"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "touchMoved(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -166,12 +150,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/RouletteSpin.swift"
-            timestampString = "438208046.196795"
+            timestampString = "438724617.755236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "panMoved(_:)"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "touchMoved(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -204,6 +188,138 @@
             startingLineNumber = "243"
             endingLineNumber = "243"
             landmarkName = "touchesEnded(_:withEvent:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ControladorDinamico/ControladorDinamico/SpringSoundObject.swift"
+            timestampString = "438729880.682097"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "SpringSoundObject"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ControladorDinamico.SpringSoundObject.sticksList.getter : Swift.Array&lt;ObjectiveC.SKSpriteNode&gt;"
+                  moduleName = "ControladorDinamico"
+                  urlString = "file:///Users/nataliacabral/Documents/ControladorDinamico/ControladorDinamico/ControladorDinamico/SpringSoundObject.swift"
+                  timestampString = "438730790.464788"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ControladorDinamico.SpringSoundObject.sticksList.setter : Swift.Array&lt;ObjectiveC.SKSpriteNode&gt;"
+                  moduleName = "ControladorDinamico"
+                  urlString = "file:///Users/nataliacabral/Documents/ControladorDinamico/ControladorDinamico/ControladorDinamico/SpringSoundObject.swift"
+                  timestampString = "438730790.464916"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ControladorDinamico.SpringSoundObject.init (ControladorDinamico.SpringSoundObject.Type)() -&gt; ControladorDinamico.SpringSoundObject"
+                  moduleName = "ControladorDinamico"
+                  urlString = "file:///Users/nataliacabral/Documents/ControladorDinamico/ControladorDinamico/ControladorDinamico/SpringSoundObject.swift"
+                  timestampString = "438730790.465036"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ControladorDinamico.SpringSoundObject.init (ControladorDinamico.SpringSoundObject.Type)(texture : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.SKTexture&gt;, color : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UIColor&gt;, size : C.CGSize) -&gt; ControladorDinamico.SpringSoundObject"
+                  moduleName = "ControladorDinamico"
+                  urlString = "file:///Users/nataliacabral/Documents/ControladorDinamico/ControladorDinamico/ControladorDinamico/SpringSoundObject.swift"
+                  timestampString = "438730790.465155"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ControladorDinamico.SpringSoundObject.init (ControladorDinamico.SpringSoundObject.Type)(coder : ObjectiveC.NSCoder) -&gt; ControladorDinamico.SpringSoundObject"
+                  moduleName = "ControladorDinamico"
+                  urlString = "file:///Users/nataliacabral/Documents/ControladorDinamico/ControladorDinamico/ControladorDinamico/SpringSoundObject.swift"
+                  timestampString = "438730790.46527"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ControladorDinamico.SpringSoundObject.init (ControladorDinamico.SpringSoundObject.Type)(gridSize : CoreGraphics.CGFloat) -&gt; ControladorDinamico.SpringSoundObject"
+                  moduleName = "ControladorDinamico"
+                  urlString = "file:///Users/nataliacabral/Documents/ControladorDinamico/ControladorDinamico/ControladorDinamico/SpringSoundObject.swift"
+                  timestampString = "438730790.465396"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ControladorDinamico.SpringSoundObject.sticksList.materializeForSet : Swift.Array&lt;ObjectiveC.SKSpriteNode&gt;"
+                  moduleName = "ControladorDinamico"
+                  urlString = "file:///Users/nataliacabral/Documents/ControladorDinamico/ControladorDinamico/ControladorDinamico/SpringSoundObject.swift"
+                  timestampString = "438730790.465514"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "0">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ControladorDinamico/ControladorDinamico/SpringSoundObject.swift"
+            timestampString = "438731589.26993"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "updateSticksPosition()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
