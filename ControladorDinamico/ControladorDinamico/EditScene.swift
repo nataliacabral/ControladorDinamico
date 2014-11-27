@@ -25,6 +25,7 @@ class EditScene : SKScene
     var touchMapping = Dictionary<UITouch , SKNode>()
     var backButton:MenuButton
     var playButton:MenuButton
+    var trashButton:MenuButton
     
     override init(size: CGSize)
     {
@@ -64,6 +65,11 @@ class EditScene : SKScene
         
         playButton = MenuButton(
             texture:SKTexture(imageNamed: "thermal.png"),
+            color:UIColor(),
+            size:CGSize(width: gridSize, height: gridSize))
+        
+        trashButton = MenuButton(
+            texture:SKTexture(imageNamed: "bin.png"),
             color:UIColor(),
             size:CGSize(width: gridSize, height: gridSize))
         
@@ -145,9 +151,8 @@ class EditScene : SKScene
             self.addChild(gridHorizontalLine)
         }
         
-        
         self.menuBar = VerticalMenuBar(
-            buttons: [buttonsDrawerButton, modulatorDrawerButton, self.backButton, self.playButton],
+            buttons: [buttonsDrawerButton, modulatorDrawerButton, self.backButton, self.playButton, self.trashButton],
             position:CGPoint(x: x, y: y),
             size:CGSize(width: width, height: self.size.height),
             buttonSize:CGSize(width: gridSize, height: gridSize)
@@ -189,12 +194,23 @@ class EditScene : SKScene
         }
     }
     
-    func cancelMove(node:SKNode) {
+    func cancelMove(soundObj:SoundObject) {
         if (selectedNodeOriginalPos != nil) {
-            node.position = selectedNodeOriginalPos!
+            soundObj.position = selectedNodeOriginalPos!
         }
         else {
-            node.removeFromParent()
+            self.removeObj(soundObj)
+        }
+    }
+    
+    func removeObj(soundObj:SoundObject) {
+        soundObj.removeFromParent()
+        for i in 0...objects.count {
+            let obj = objects[i]
+            if (obj === soundObj) {
+                objects.removeAtIndex(i)
+                return
+            }
         }
     }
     
@@ -211,26 +227,32 @@ class EditScene : SKScene
                     var moveCancelled = false
                     let soundObj = boundNode as SoundObject
                     
-                    if (soundObj.containsPoint(soundObj.position))
+                    if (self.trashButton.intersectsNode(soundObj))
                     {
-                        for child in self.children {
-                            if (child is SoundObject) {
-                                var soundChild = child as SoundObject
-                                if (soundChild !== soundObj && soundObj.intersectsNode(soundChild)) {
-                                    cancelMove(soundObj)
-                                    moveCancelled = true
-                                    break;
-                                }
-                            }
-                        }
-                        if (!moveCancelled && !contains(self.objects, soundObj))
-                        {
-                            self.objects.append(soundObj)
-                        }
+                        self.removeObj(soundObj)
                     }
                     else {
-                        cancelMove(soundObj)
-                        moveCancelled = true
+                        if (!(self.menuBar!.intersectsNode(soundObj)))
+                        {
+                            for child in self.children {
+                                if (child is SoundObject) {
+                                    var soundChild = child as SoundObject
+                                    if (soundChild !== soundObj && soundObj.intersectsNode(soundChild)) {
+                                        cancelMove(soundObj)
+                                        moveCancelled = true
+                                        break;
+                                    }
+                                }
+                            }
+                            if (!moveCancelled && !contains(self.objects, soundObj))
+                            {
+                                self.objects.append(soundObj)
+                            }
+                        }
+                        else {
+                            cancelMove(soundObj)
+                            moveCancelled = true
+                        }
                     }
                     self.selectedNodeOriginalPos = nil
                 }
