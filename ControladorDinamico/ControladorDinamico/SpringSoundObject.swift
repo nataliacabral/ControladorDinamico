@@ -31,27 +31,14 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
         super.init(texture: texture, color: color, size: size)
-        self.loadHandle()
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
-        self.texture = self.springTrackTexture
-        self.loadHandle()
     }
     
     override init(gridSize:CGFloat) {
         super.init(gridSize:gridSize)
-        self.texture = self.springTrackTexture
-    }
-    
-    override func startPhysicalBody() {
-        for obj in self.children {
-            if (obj is SpringHandle) {
-                let springObj:SpringHandle = obj as SpringHandle
-                self.springHandle = springObj
-            }
-        }
     }
     
     func loadHandle()
@@ -70,7 +57,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
             self.addChild(self.springHandle!);
         }
         
-        for stickIndex in 0...5
+        for stickIndex in 0...7
         {
             var stick:SKSpriteNode = SKSpriteNode(imageNamed: "spring_stick.png")
             stick.anchorPoint = CGPoint(x: 0, y: 0)
@@ -86,12 +73,13 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     override func updateGridSize(gridSize:CGFloat)
     {
         super.updateGridSize(gridSize)
-        self.springHandle!.size.width = self.size.width - (self.handlerWidthBorder * 2)
-        let ratio:CGFloat = self.springHandle!.texture!.size().width / self.springHandle!.size.width
-        self.springHandle!.size.height = self.springHandle!.texture!.size().height / ratio
-        self.springHandle!.position.x = self.handlerWidthBorder
-        self.springHandle!.position.y = self.size.height / 2
-        
+        if (self.springHandle != nil) {
+            self.springHandle!.size.width = self.size.width - (self.handlerWidthBorder * 2)
+            let ratio:CGFloat = self.springHandle!.texture!.size().width / self.springHandle!.size.width
+            self.springHandle!.size.height = self.springHandle!.texture!.size().height / ratio
+            self.springHandle!.position.x = self.handlerWidthBorder
+            self.springHandle!.position.y = self.size.height / 2
+        }
         for stick in self.sticksList
         {
             stick.size.width = self.springHandle!.size.width
@@ -133,35 +121,37 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     
     func updateSticksPosition()
     {
-        var handlePosition:CGFloat = 0
-        var handleSize:CGFloat = 0
+        if (self.springHandle != nil) {
+            var handlePosition:CGFloat = self.springHandle!.position.y
+            var handleSize:CGFloat = self.springHandle!.size.height
 
-        for obj in self.children {
-            if (obj is SpringHandle) {
-                let springObj:SpringHandle = obj as SpringHandle
-                handlePosition = springObj.position.y
-                handleSize = springObj.size.height
-            }
-        }
-        
-        let range = self.size.height - handlePosition + handleSize
-        
-        let distance:CGFloat = range / CGFloat(self.sticksList.count)
-        var currentPosition:CGFloat = handlePosition
-        
-        for obj in self.children {
-            if (!(obj is SpringHandle)) {
-                let stick = obj as SKSpriteNode
+            let stickHeight:CGFloat = (self.sticksList[0] as SKSpriteNode).size.height
+            let range:CGFloat = self.size.height - self.springHandle!.handlerHeightBorder - handlePosition - handleSize
+            let distance:CGFloat = range / CGFloat(self.sticksList.count)
+            var currentPosition:CGFloat = self.size.height - self.springHandle!.handlerHeightBorder/2 - stickHeight
+
+            for stick in self.sticksList {
                 stick.position.y = currentPosition
                 currentPosition -= distance
-                break
             }
         }
-
     }
     
     override func update(currentTime: NSTimeInterval)
     {
         self.updateSticksPosition()
+    }
+    
+    override func playObject() -> SoundObject
+    {
+        var result:SpringSoundObject = SpringSoundObject(
+            texture:self.texture,
+            color:self.color,
+            size:self.size
+        )
+        result.texture = springTrackTexture
+        result.position = self.position
+        result.loadHandle()
+        return result
     }
 }

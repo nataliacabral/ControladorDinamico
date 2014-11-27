@@ -31,17 +31,14 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
         super.init(texture: texture, color: color, size: size)
-        self.loadSpin()
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
-        self.texture = self.rouletteBackgroundTexture
     }
     
     override init(gridSize:CGFloat) {
         super.init(gridSize:gridSize)
-        self.texture = self.rouletteBackgroundTexture
     }
     
     override func startPhysicalBody() {
@@ -54,21 +51,17 @@ class RouletteSoundObject : SoundObject, ModulatorNode
         self.physicsBody?.mass = 5000
         self.physicsBody?.restitution = 0
         
-        for obj in self.children {
-            if (obj is RouletteSpin) {
-            let rouletteSpin:RouletteSpin = obj as RouletteSpin
-            self.rouletteSpin = rouletteSpin
-            rouletteSpin.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width / 2, center: CGPoint(x:self.size.width / 2 , y:self.size.height / 2))
-            rouletteSpin.physicsBody?.categoryBitMask = (1 << 3)
-            rouletteSpin.physicsBody?.contactTestBitMask = 0
-            rouletteSpin.physicsBody?.collisionBitMask = 0
-            rouletteSpin.physicsBody?.dynamic = true
-            rouletteSpin.physicsBody?.mass = 1
-            rouletteSpin.physicsBody?.allowsRotation = true
-            rouletteSpin.physicsBody?.restitution = 0
-            rouletteSpin.physicsBody?.linearDamping = 0.9
-            rouletteSpin.physicsBody?.angularDamping = 0.2
-            }
+        if (self.rouletteSpin != nil) {
+            rouletteSpin!.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width / 2, center: CGPoint(x:self.size.width / 2 , y:self.size.height / 2))
+            rouletteSpin!.physicsBody?.categoryBitMask = (1 << 3)
+            rouletteSpin!.physicsBody?.contactTestBitMask = 0
+            rouletteSpin!.physicsBody?.collisionBitMask = 0
+            rouletteSpin!.physicsBody?.dynamic = true
+            rouletteSpin!.physicsBody?.mass = 1
+            rouletteSpin!.physicsBody?.allowsRotation = true
+            rouletteSpin!.physicsBody?.restitution = 0
+            rouletteSpin!.physicsBody?.linearDamping = 0.9
+            rouletteSpin!.physicsBody?.angularDamping = 0.2
         }
     }
     
@@ -127,44 +120,70 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     override func updateGridSize(gridSize:CGFloat)
     {
         super.updateGridSize(gridSize)
-        self.rouletteSpin!.size.width = self.size.width
-        self.rouletteSpin!.size.height = self.size.height
-        self.rouletteSpin!.position.x = 0
-        self.rouletteSpin!.position.y = 0
+        if (self.rouletteSpin != nil) {
+            self.rouletteSpin!.size.width = self.size.width
+            self.rouletteSpin!.size.height = self.size.height
+            self.rouletteSpin!.position.x = 0
+            self.rouletteSpin!.position.y = 0
+        }
         
-        self.rouletteFrame!.size.width = self.rouletteSpin!.size.width
-        self.rouletteFrame!.size.height = self.rouletteSpin!.size.height
-        self.rouletteFrame!.position.x = 0
-        self.rouletteFrame!.position.y = 0
+        if (self.rouletteFrame != nil) {
+            self.rouletteFrame!.size.width = self.rouletteSpin!.size.width
+            self.rouletteFrame!.size.height = self.rouletteSpin!.size.height
+            self.rouletteFrame!.position.x = 0
+            self.rouletteFrame!.position.y = 0
+        }
         
-        self.rouletteButton!.size.width = self.size.width / 2.5
-        self.rouletteButton!.size.height = self.size.height / 2.5
-        self.rouletteButton!.position.x = (self.size.width - self.rouletteButton!.size.width ) / 2
-        self.rouletteButton!.position.y = (self.size.height - self.rouletteButton!.size.height) / 2
+        if (self.rouletteButton != nil) {
+            self.rouletteButton!.size.width = self.size.width / 2.5
+            self.rouletteButton!.size.height = self.size.height / 2.5
+            self.rouletteButton!.position.x = (self.size.width - self.rouletteButton!.size.width ) / 2
+            self.rouletteButton!.position.y = (self.size.height - self.rouletteButton!.size.height) / 2
+        }
     }
     
     func toggleFriction(dampened:Bool)
     {
-        if (!dampened) {
-            self.rouletteSpin!.physicsBody?.angularDamping = 0.2
-        } else {
-            self.rouletteSpin!.physicsBody?.angularDamping = 0
+        if (self.rouletteSpin != nil) {
+            if (!dampened) {
+                self.rouletteSpin!.physicsBody?.angularDamping = 0.2
+            } else {
+                self.rouletteSpin!.physicsBody?.angularDamping = 0
+            }
         }
     }
     
     override func touchStarted(position:CGPoint)
     {
-        self.rouletteSpin!.touchStarted(position)
+        if (self.rouletteSpin != nil) {
+            self.rouletteSpin!.touchStarted(position)
+        }
     }
     
     override func touchEnded(position:CGPoint)
     {
-        self.rouletteSpin!.touchEnded(position)
+        if (self.rouletteSpin != nil) {
+            self.rouletteSpin!.touchEnded(position)
+        }
     }
     
     override func touchMoved(position:CGPoint)
     {
-        self.rouletteSpin!.touchMoved(position)
+        if (self.rouletteSpin != nil) {
+            self.rouletteSpin!.touchMoved(position)
+        }
     }
 
+    override func playObject() -> SoundObject
+    {
+        var result:RouletteSoundObject = RouletteSoundObject(
+            texture:self.texture,
+            color:self.color,
+            size:self.size
+        )
+        result.texture = rouletteBackgroundTexture
+        result.position = self.position
+        result.loadSpin()
+        return result
+    }
 }

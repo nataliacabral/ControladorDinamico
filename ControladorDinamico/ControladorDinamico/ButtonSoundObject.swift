@@ -17,8 +17,8 @@ class ButtonSoundObject : SoundObject, Sampler
     override var gridWidth:CGFloat { get { return 1 } }
     override var templateImageName:String { get { return "button.png" } }
     
-    var selectedTexture:SKTexture = SKTexture(imageNamed: "buttonSelected.png")
-    var stillTexture:SKTexture =  SKTexture(imageNamed: "button.png")
+    let selectedTexture:SKTexture = SKTexture(imageNamed: "buttonSelected.png")
+    let stillTexture:SKTexture =  SKTexture(imageNamed: "button.png")
 
     var pressed : Bool
     var playing : Bool = false
@@ -142,21 +142,17 @@ class ButtonSoundObject : SoundObject, Sampler
         }
     }
     
-    override func copy() -> AnyObject
+    override func playObject() -> SoundObject
     {
         var result:ButtonSoundObject = ButtonSoundObject(
             texture:self.texture,
             color:self.color,
             size:self.size
         )
-        result.color = self.color
         result.colorBlendFactor = 1.0
-        result.pressed = self.pressed
         result.note = self.note
-        result.playing = self.playing
-        result.stillTexture = self.stillTexture
-        result.selectedTexture = self.selectedTexture
         result.position = self.position
         return result
     }
+    
 }

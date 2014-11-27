@@ -57,9 +57,10 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
 
         for obj in objects
         {
-            var objCopy = obj.copy() as SoundObject
-            self.addChild(objCopy)
-            objCopy.startPhysicalBody()
+            var playObject = obj.playObject()
+            playObject.updateGridSize(self.gridSize)
+            self.addChild(playObject)
+            playObject.startPhysicalBody()
         }
         
         let audioEngine:AVAudioEngine = SoundManager.sharedInstance.audioEngine

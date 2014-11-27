@@ -32,25 +32,14 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
         super.init(texture: texture, color: color, size: size)
-        self.loadHandle()
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
-        self.texture = self.sliderTrackTexture
-        self.loadHandle()
     }
     
     override init(gridSize:CGFloat) {
         super.init(gridSize:gridSize)
-        self.texture = self.sliderTrackTexture
-    }
-    
-    override func startPhysicalBody() {
-        for obj in self.children {
-            let sliderObj:SliderHandle = obj as SliderHandle
-            self.sliderHandle = sliderObj
-       }
     }
         
     func loadHandle()
@@ -73,11 +62,13 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
     override func updateGridSize(gridSize:CGFloat)
     {
         super.updateGridSize(gridSize)
-        self.sliderHandle!.size.width = self.size.width - (self.handlerWidthBorder * 2)
-        let ratio:CGFloat = self.sliderHandle!.texture!.size().width / self.sliderHandle!.size.width
-        self.sliderHandle!.size.height = self.sliderHandle!.texture!.size().height / ratio
-        self.sliderHandle!.position.x = self.handlerWidthBorder
-        self.sliderHandle!.position.y = self.size.height / 2
+        if (self.sliderHandle != nil) {
+            self.sliderHandle!.size.width = self.size.width - (self.handlerWidthBorder * 2)
+            let ratio:CGFloat = self.sliderHandle!.texture!.size().width / self.sliderHandle!.size.width
+            self.sliderHandle!.size.height = self.sliderHandle!.texture!.size().height / ratio
+            self.sliderHandle!.position.x = self.handlerWidthBorder
+            self.sliderHandle!.position.y = self.size.height / 2
+        }
     }
 
     override func currentSoundIntensity() -> Float
@@ -109,17 +100,16 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
         self.modulators.append(modulator)
     }
     
-//    override func copy() -> AnyObject
-//    {
-//        var result:SliderSoundObject = SliderSoundObject(
-//            texture:self.texture,
-//            color:self.color,
-//            size:self.size
-//        )
-//        result.sliderHandle = self.sliderHandle
-//        result.sliderHandleTexture = self.sliderHandleTexture
-//        result.sliderTrackTexture = self.sliderTrackTexture
-//        result.position = self.position
-//        return result
-//    }
+    override func playObject() -> SoundObject
+    {
+        var result:SliderSoundObject = SliderSoundObject(
+            texture:self.texture,
+            color:self.color,
+            size:self.size
+        )
+        result.texture = sliderTrackTexture
+        result.position = self.position
+        result.loadHandle()
+        return result
+    }
 }
