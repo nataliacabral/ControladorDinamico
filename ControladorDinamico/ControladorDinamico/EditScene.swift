@@ -67,12 +67,11 @@ class EditScene : SKScene
             color:UIColor(),
             size:CGSize(width: gridSize, height: gridSize))
         
-
         super.init(size: size)
         self.scene?.backgroundColor = UIColor.blackColor()
         var width:CGFloat = gridSize
-        var x:CGFloat = self.size.width - gridSize
-        var y:CGFloat = -(self.size.height - gridSize)
+        var x:CGFloat = self.size.width - gridSize / 2
+        var y:CGFloat = (self.size.height / 2)
         
         //Drawer menus
         self.buttonDrawer = VerticalMenuBar(
@@ -114,10 +113,10 @@ class EditScene : SKScene
             drawer:self.modulatorDrawer!)
         
         self.modulatorDrawer!.position.x = x;
-        self.modulatorDrawer!.position.y = 0;
+        self.modulatorDrawer!.position.y = y;
         
         self.buttonDrawer!.position.x = x;
-        self.buttonDrawer!.position.y = 0;
+        self.buttonDrawer!.position.y = y;
         
         self.addChild(self.modulatorDrawer!)
         self.addChild(self.buttonDrawer!)
@@ -149,7 +148,7 @@ class EditScene : SKScene
         
         self.menuBar = VerticalMenuBar(
             buttons: [buttonsDrawerButton, modulatorDrawerButton, self.backButton, self.playButton],
-            position:CGPoint(x: x, y: 0),
+            position:CGPoint(x: x, y: y),
             size:CGSize(width: width, height: self.size.height),
             buttonSize:CGSize(width: gridSize, height: gridSize)
         )
