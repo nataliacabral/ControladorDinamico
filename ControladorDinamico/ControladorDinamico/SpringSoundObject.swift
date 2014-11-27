@@ -20,7 +20,8 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     let springTrackTexture:SKTexture = SKTexture(imageNamed: "spring_background.png")
     
     let handlerWidthBorder:CGFloat = 3.5
-    
+    let stickWidthBorder:CGFloat = 10
+
     var modulators:Array<Modulator> = Array<Modulator>()
     
     override init()
@@ -57,7 +58,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
             self.addChild(self.springHandle!);
         }
         
-        for stickIndex in 0...7
+        for stickIndex in 0...10
         {
             var stick:SKSpriteNode = SKSpriteNode(imageNamed: "spring_stick.png")
             stick.anchorPoint = CGPoint(x: 0, y: 0)
@@ -80,11 +81,12 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
             self.springHandle!.position.x = self.handlerWidthBorder
             self.springHandle!.position.y = self.size.height / 2
         }
+        
         for stick in self.sticksList
         {
-            stick.size.width = self.springHandle!.size.width
-            stick.size.height = self.springHandle!.size.height / 4
-            stick.position.x = self.springHandle!.position.x
+            stick.size.width = self.size.width - (self.stickWidthBorder * 2)
+            stick.size.height = self.springHandle!.size.height / 8
+            stick.position.x = self.stickWidthBorder
         }
         
         self.updateSticksPosition()
