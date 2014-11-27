@@ -29,7 +29,6 @@ class SoundObjectTemplate : MenuButton
         var newObject = object!.copy() as SoundObject
         newObject.position.x = self.position.x
         newObject.position.y = self.position.y
-//        newObject.anchorPoint = CGPoint(x:0, y:0)
         return newObject
     }
 }

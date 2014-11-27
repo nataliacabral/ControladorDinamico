@@ -26,7 +26,6 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Touchable
         super.init(texture: texture, color: color, size: size)
         var texture:SKTexture = SKTexture(imageNamed: self.templateImageName)
         self.texture = texture
-        //self.anchorPoint = CGPoint(x: 0, y: 0)
     }
     
     init(size:CGSize) {
@@ -67,15 +66,12 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Touchable
     
     func touchStarted(position:CGPoint)
     {
-        
     }
     func touchEnded(position:CGPoint)
     {
-        
     }
     func touchMoved(position:CGPoint)
     {
-        
     }
     
     func update(currentTime: NSTimeInterval)

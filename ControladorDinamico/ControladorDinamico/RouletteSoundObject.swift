@@ -67,31 +67,26 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     func loadSpin()
     {
         self.removeAllChildren()
-        self.rouletteSpin = RouletteSpin()
-//        self.rouletteSpin!.anchorPoint = CGPoint(x: 0, y: 0)
         
-        self.rouletteSpin!.size.width = 0
-        self.rouletteSpin!.size.height = 0
+        self.rouletteSpin = RouletteSpin()
+        self.rouletteSpin!.size.width = self.size.width
+        self.rouletteSpin!.size.height = self.size.height
         self.rouletteSpin!.position.x = 0
         self.rouletteSpin!.position.y = 0
         
         self.addChild(self.rouletteSpin!)
         
         self.rouletteFrame = RouletteFrame()
-//        self.rouletteFrame!.anchorPoint = CGPoint(x: 0, y: 0)
-        
-        self.rouletteFrame!.size.width = 0
-        self.rouletteFrame!.size.height = 0
+        self.rouletteFrame!.size.width = self.rouletteSpin!.size.width
+        self.rouletteFrame!.size.height = self.rouletteSpin!.size.height
         self.rouletteFrame!.position.x = 0
         self.rouletteFrame!.position.y = 0
         
         self.addChild(self.rouletteFrame!)
         
         self.rouletteButton = RouletteButton()
-//        self.rouletteButton!.anchorPoint = CGPoint(x: 0, y: 0)
-        
-        self.rouletteButton!.size.width = 0
-        self.rouletteButton!.size.height = 0
+        self.rouletteButton!.size.width = self.size.width / 2.5
+        self.rouletteButton!.size.height = self.size.height / 2.5
         self.rouletteButton!.position.x = 0
         self.rouletteButton!.position.y = 0
         self.rouletteButton!.colorBlendFactor = 1.0
@@ -114,31 +109,6 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     
     func addModulator(modulator:Modulator) {
         self.modulators.append(modulator)
-    }
-    
-    override func updateGridSize(gridSize:CGFloat)
-    {
-        super.updateGridSize(gridSize)
-        if (self.rouletteSpin != nil) {
-            self.rouletteSpin!.size.width = self.size.width
-            self.rouletteSpin!.size.height = self.size.height
-            self.rouletteSpin!.position.x = 0
-            self.rouletteSpin!.position.y = 0
-        }
-        
-        if (self.rouletteFrame != nil) {
-            self.rouletteFrame!.size.width = self.rouletteSpin!.size.width
-            self.rouletteFrame!.size.height = self.rouletteSpin!.size.height
-            self.rouletteFrame!.position.x = 0
-            self.rouletteFrame!.position.y = 0
-        }
-        
-        if (self.rouletteButton != nil) {
-            self.rouletteButton!.size.width = self.size.width / 2.5
-            self.rouletteButton!.size.height = self.size.height / 2.5
-            self.rouletteButton!.position.x = 0
-            self.rouletteButton!.position.y = 0
-        }
     }
     
     func toggleFriction(dampened:Bool)

@@ -18,9 +18,7 @@ class ObjectsPalette : SKSpriteNode
     init(objects:NSArray, position:CGPoint, size:CGSize) {
         self.objects = objects
         super.init(texture: nil, color: UIColor.yellowColor(), size:size)
-
         self.position = position
-        //self.anchorPoint = CGPoint(x:0,y:0)
         reloadObjs()
     }
     
@@ -34,7 +32,6 @@ class ObjectsPalette : SKSpriteNode
         var i = 0
         for object in objects {
             var soundObject:SoundObjectTemplate = (object as SoundObjectTemplate)
-            //soundObject.anchorPoint = CGPoint(x:0, y:0)
             soundObject.position.y = 1.75 * self.originalTemplateSize * CGFloat(i);
             soundObject.position.x = self.size.width / 2 - (self.originalTemplateSize / 2)
             soundObject.size.width = originalTemplateSize
@@ -43,7 +40,6 @@ class ObjectsPalette : SKSpriteNode
             self.addChild(object as SKNode)
             i++;
         }
-        //self.checkObjectsOpacity()
     }
 //    
 //    func checkObjectsOpacity()
