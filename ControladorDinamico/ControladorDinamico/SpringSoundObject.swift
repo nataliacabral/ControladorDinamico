@@ -23,6 +23,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     let stickWidthBorder:CGFloat = 10
 
     var modulators:Array<Modulator> = Array<Modulator>()
+    var springJoint:SKPhysicsJointSpring?
     
     override init()
     {
@@ -52,7 +53,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
             let ratio:CGFloat = self.springHandle!.texture!.size().width / self.springHandle!.size.width
             self.springHandle!.size.height = self.springHandle!.texture!.size().height / ratio
             self.springHandle!.position.x = 0;
-            self.springHandle!.position.y = 0;
+            self.springHandle!.position.y = self.size.height / 4;
             
             self.addChild(self.springHandle!);
         }
@@ -87,6 +88,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     
     override func touchEnded(position:CGPoint)
     {
+        self.springHandle!.touchMoved(position)
     }
     
     func setModule(module:Float)
@@ -109,7 +111,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
             let stickHeight:CGFloat = (self.sticksList[0] as SKSpriteNode).size.height
             let range:CGFloat = (self.size.height / 2) - handlePosition - handleSize
             let distance:CGFloat = range / CGFloat(self.sticksList.count)
-            var currentPosition:CGFloat = (self.size.height / 2) - stickHeight
+            var currentPosition:CGFloat = (self.size.height / 2) - self.stickWidthBorder
 
             for stick in self.sticksList {
                 stick.position.y = currentPosition
@@ -118,13 +120,47 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
         }
     }
     
+    override func startPhysicalBody() {
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(origin:CGPoint(x:0,y:0), size:self.size))
+        self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.categoryBitMask = 2
+        self.physicsBody?.contactTestBitMask = 0
+        self.physicsBody?.collisionBitMask = 1 << 3
+        self.physicsBody?.dynamic = false
+        self.physicsBody?.mass = 5000
+        self.physicsBody?.restitution = 0
+        
+        if (self.springHandle != nil) {
+            springHandle!.physicsBody = SKPhysicsBody(rectangleOfSize: springHandle!.size)
+            springHandle!.physicsBody?.collisionBitMask = 2
+            springHandle!.physicsBody?.categoryBitMask = (1 << 3)
+            springHandle!.physicsBody?.contactTestBitMask = 0
+            springHandle!.physicsBody?.dynamic = true
+            springHandle!.physicsBody?.mass = 1
+            springHandle!.physicsBody?.restitution = 0
+            springHandle!.physicsBody?.linearDamping = 0
+            springHandle!.physicsBody?.allowsRotation = false
+
+            let positionY:CGFloat = self.position.y + self.size.height / 2
+            let springHandleAnchor = self.convertPoint(self.springHandle!.position, toNode: self.scene!)
+            self.springJoint = SKPhysicsJointSpring .jointWithBodyA(self.physicsBody!, bodyB: self.springHandle!.physicsBody!, anchorA: springHandleAnchor, anchorB: CGPoint(x: self.position.x, y: positionY))
+            
+            springJoint!.frequency = 0.5;
+            springJoint!.damping = 0.2;
+            self.scene?.physicsWorld .addJoint(springJoint!)
+        }
+    }
+
+    
     override func update(currentTime: NSTimeInterval)
     {
-        self.updateSticksPosition()
+        if (self.springHandle != nil) {
+            self.springHandle!.update(currentTime)
+            self.updateSticksPosition()
+        }
     }
     
-    override func playObject(
-        ) -> SoundObject
+    override func playObject() -> SoundObject
     {
         var result:SpringSoundObject = SpringSoundObject(
             texture:self.texture,

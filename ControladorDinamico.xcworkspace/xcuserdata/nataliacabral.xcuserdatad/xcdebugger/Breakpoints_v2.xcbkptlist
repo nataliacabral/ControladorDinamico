@@ -182,13 +182,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/SpringSoundObject.swift"
-            timestampString = "438807800.719137"
+            timestampString = "438813317.870446"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "playObject(_:)"
-            landmarkType = "5">
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "SpringSoundObject"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

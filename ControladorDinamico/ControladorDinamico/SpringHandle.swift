@@ -12,7 +12,6 @@ import SpriteKit
 class SpringHandle : SKSpriteNode, Touchable
 {
     let handlerHeightBorder:CGFloat = 12
-    
     let sliderHandleTexture:SKTexture = SKTexture(imageNamed: "sliderHandle.png")
     
     override init()
@@ -55,6 +54,7 @@ class SpringHandle : SKSpriteNode, Touchable
     
     func touchEnded(position:CGPoint)
     {
+       self.physicsBody!.applyForce(CGVector(dx: 0, dy: 100))
     }
     
     func currentSoundIntensity() -> Float
@@ -69,9 +69,6 @@ class SpringHandle : SKSpriteNode, Touchable
         return currentSoundIntensity
     }
     
-    func update(currentTime: NSTimeInterval)
-    {
-        
-    }
+
     
 }

@@ -38,7 +38,7 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
 
      func touchMoved(position: CGPoint) {
         let translation:CGPoint = position;
-                var convertedPoint = self.convertPoint(translation, toNode:self.parent!)
+        var convertedPoint = self.convertPoint(translation, toNode:self.parent!)
         var x:CGFloat = 0
         var y:CGFloat = 0
         // Rotacao em cima, x é positivo para direita
