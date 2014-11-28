@@ -60,8 +60,8 @@ class SpringHandle : SKSpriteNode, Touchable
     func currentSoundIntensity() -> Float
     {
         let parent = self.parent as SKSpriteNode
-        let topLimit = parent.size.height - handlerHeightBorder - self.size.height
-        let bottomLimit = handlerHeightBorder
+        let topLimit = (parent.size.height / 2) - handlerHeightBorder - (self.size.height / 2)
+        let bottomLimit = -(parent.size.height / 2) + handlerHeightBorder - (self.size.height / 2)
         let ratio:CGFloat = (self.position.y  - bottomLimit) / (topLimit - bottomLimit)
         
         let currentSoundIntensity = Float(ratio)

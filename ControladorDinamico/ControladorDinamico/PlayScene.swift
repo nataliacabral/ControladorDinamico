@@ -145,41 +145,53 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                 
                 // Attach neighbor modulators
                 let skNodeObj = obj as SKNode
-                let leftObj:SKNode? = self.nodeAtPoint(CGPoint(x:obj.position.x - self.gridSize, y:obj.position.y))
-                let rightObj:SKNode? = self.nodeAtPoint(CGPoint(x:obj.position.x + self.gridSize, y:obj.position.y))
-                let topObj:SKNode? = self.nodeAtPoint(CGPoint(x:obj.position.x, y:obj.position.y + self.gridSize))
-                let bottomObj:SKNode? = self.nodeAtPoint(CGPoint(x:obj.position.x, y:obj.position.y - self.gridSize))
+                let leftObjs:NSArray = self.nodesAtPoint(CGPoint(x:obj.position.x - self.gridSize, y:obj.position.y))
+                let rightObjs:NSArray = self.nodesAtPoint(CGPoint(x:obj.position.x + self.gridSize, y:obj.position.y))
+                let topObjs:NSArray = self.nodesAtPoint(CGPoint(x:obj.position.x, y:obj.position.y + self.gridSize))
+                let bottomObjs:NSArray = self.nodesAtPoint(CGPoint(x:obj.position.x, y:obj.position.y - self.gridSize))
                 
                 var modulatorCount = 0
                 var parentNode:AVAudioNode = audioEngine.mainMixerNode
                 
-                if (topObj is ModulatorNode)
-                {
-                    let modulatorNode = topObj as ModulatorNode
-                    let modulator:VolumeModulator = VolumeModulator()
-                    modulatorNode.addModulator(modulator)
-                    modulatedSampler.addModulator(modulator)
+                for topObj in topObjs {
+                    if (topObj is ModulatorNode)
+                    {
+                        let modulatorNode = topObj as ModulatorNode
+                        let modulator:VolumeModulator = VolumeModulator()
+                        modulatorNode.addModulator(modulator)
+                        modulatedSampler.addModulator(modulator)
+                        break;
+                    }
                 }
-                if (bottomObj is ModulatorNode)
-                {
-                    let modulatorNode = bottomObj as ModulatorNode
-                    let modulator:PitchModulator = PitchModulator()
-                    modulatorNode.addModulator(modulator)
-                    modulatedSampler.addModulator(modulator)
+                for bottomObj in bottomObjs {
+                    if (bottomObj is ModulatorNode)
+                    {
+                        let modulatorNode = bottomObj as ModulatorNode
+                        let modulator:PitchModulator = PitchModulator()
+                        modulatorNode.addModulator(modulator)
+                        modulatedSampler.addModulator(modulator)
+                        break;
+                    }
                 }
-                if (leftObj is ModulatorNode)
-                {
-                    let modulatorNode = leftObj as ModulatorNode
-                    let modulator:DistortionModulator = DistortionModulator()
-                    modulatorNode.addModulator(modulator)
-                    modulatedSampler.addModulator(modulator)
+                for leftObj in leftObjs {
+                    if (leftObj is ModulatorNode)
+                    {
+                        let modulatorNode = leftObj as ModulatorNode
+                        let modulator:DistortionModulator = DistortionModulator()
+                        modulatorNode.addModulator(modulator)
+                        modulatedSampler.addModulator(modulator)
+                        break;
+                    }
                 }
-                if (rightObj is ModulatorNode)
-                {
-                    let modulatorNode = rightObj as ModulatorNode
-                    let modulator:ReverbModulator = ReverbModulator()
-                    modulatorNode.addModulator(modulator)
-                    modulatedSampler.addModulator(modulator)
+                for rightObj in rightObjs {
+                    if (rightObj is ModulatorNode)
+                    {
+                        let modulatorNode = rightObj as ModulatorNode
+                        let modulator:ReverbModulator = ReverbModulator()
+                        modulatorNode.addModulator(modulator)
+                        modulatedSampler.addModulator(modulator)
+                        break;
+                    }
                 }
                 modulatedSampler.startWithEngine(audioEngine)
             }
