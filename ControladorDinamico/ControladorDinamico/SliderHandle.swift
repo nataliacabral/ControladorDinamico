@@ -51,6 +51,7 @@ class SliderHandle : SKSpriteNode, Touchable
         if (self.position.y + self.size.height > topLimit) {
             self.position.y = topLimit - self.size.height
         }
+        NSLog("Slider intensity: %f", self.currentSoundIntensity())
     }
     
     func touchEnded(position:CGPoint)
@@ -60,10 +61,16 @@ class SliderHandle : SKSpriteNode, Touchable
     func currentSoundIntensity() -> Float
     {
         let parent = self.parent as SKSpriteNode
-        let topLimit = parent.size.height - handlerHeightBorder - self.size.height
-        let bottomLimit = handlerHeightBorder
-        let ratio:CGFloat = (self.position.y  - bottomLimit) / (topLimit - bottomLimit)
-
+        let topLimit = (parent.size.height / 2) - handlerHeightBorder - (self.size.height / 2)
+        let bottomLimit = -(parent.size.height / 2) + handlerHeightBorder - (self.size.height / 2)
+        var ratio:CGFloat = (self.position.y  - bottomLimit) / (topLimit - bottomLimit)
+        
+        if (ratio < 0) {
+            ratio = 0.0;
+        }
+        if (ratio > 1.0){
+            ratio = 1.0;
+        }
         let currentSoundIntensity = Float(ratio)
         
         return currentSoundIntensity
