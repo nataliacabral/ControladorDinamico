@@ -51,10 +51,9 @@ class SpringHandle : SKSpriteNode, Touchable
             self.position.y = topLimit - self.size.height
         }
     }
-    
+
     func touchEnded(position:CGPoint)
     {
-       self.physicsBody!.applyForce(CGVector(dx: 0, dy: 100))
     }
     
     func currentSoundIntensity() -> Float
