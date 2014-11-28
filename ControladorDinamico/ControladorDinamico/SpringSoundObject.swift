@@ -157,7 +157,6 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     override func update(currentTime: NSTimeInterval)
     {
         if (self.springHandle != nil) {
-            //self.springHandle!.update(currentTime)
             self.updateSticksPosition()
         }
     }
