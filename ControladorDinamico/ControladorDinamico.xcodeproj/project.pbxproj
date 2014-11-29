@@ -10,6 +10,9 @@
 		2509940119FEE2CF00A6D24F /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509940019FEE2CF00A6D24F /* EditViewController.swift */; };
 		2509940319FEE64B00A6D24F /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2509940219FEE64B00A6D24F /* SpriteKit.framework */; };
 		2509940519FEE86500A6D24F /* EditScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509940419FEE86500A6D24F /* EditScene.swift */; };
+		251174521A291CD7005E37C5 /* thermal_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 251174501A291CD7005E37C5 /* thermal_background.png */; };
+		251174531A291CD7005E37C5 /* thermal_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 251174511A291CD7005E37C5 /* thermal_frame.png */; };
+		251174581A291D74005E37C5 /* ThermalFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251174571A291D74005E37C5 /* ThermalFrame.swift */; };
 		251218491A08625D0025ACEE /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251218481A08625D0025ACEE /* Project.swift */; };
 		2556633C1A11555900F6F820 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556633B1A11555900F6F820 /* ProjectManager.swift */; };
 		2556636C1A13F98C00F6F820 /* ButtonSoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556636B1A13F98C00F6F820 /* ButtonSoundObject.swift */; };
@@ -92,6 +95,9 @@
 		2509940019FEE2CF00A6D24F /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		2509940219FEE64B00A6D24F /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		2509940419FEE86500A6D24F /* EditScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditScene.swift; sourceTree = "<group>"; };
+		251174501A291CD7005E37C5 /* thermal_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thermal_background.png; sourceTree = "<group>"; };
+		251174511A291CD7005E37C5 /* thermal_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thermal_frame.png; sourceTree = "<group>"; };
+		251174571A291D74005E37C5 /* ThermalFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThermalFrame.swift; sourceTree = "<group>"; };
 		251218441A0862480025ACEE /* ControladorDinamico-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ControladorDinamico-Bridging-Header.h"; sourceTree = "<group>"; };
 		251218481A08625D0025ACEE /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		2556633B1A11555900F6F820 /* ProjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
@@ -202,6 +208,7 @@
 				25AF9BE41A26620D00CED1CD /* RouletteButton.swift */,
 				25AF9BE61A266F0C00CED1CD /* RouletteFrame.swift */,
 				25AF9BE81A267ADC00CED1CD /* SpringHandle.swift */,
+				251174571A291D74005E37C5 /* ThermalFrame.swift */,
 			);
 			name = SoundObject;
 			sourceTree = "<group>";
@@ -276,6 +283,8 @@
 		2557DBDA1A13FCB20003AB5D /* TERM_TOQUE */ = {
 			isa = PBXGroup;
 			children = (
+				251174501A291CD7005E37C5 /* thermal_background.png */,
+				251174511A291CD7005E37C5 /* thermal_frame.png */,
 				2557DBF31A1406B80003AB5D /* thermal.png */,
 			);
 			path = TERM_TOQUE;
@@ -484,6 +493,7 @@
 				25AF9BED1A267BDE00CED1CD /* spring_stick.png in Resources */,
 				492A429F1A27B05D00731F26 /* bin.png in Resources */,
 				25AF9BE21A265FE400CED1CD /* roulette_frame.png in Resources */,
+				251174531A291CD7005E37C5 /* thermal_frame.png in Resources */,
 				492A42A71A27BC0B00731F26 /* savedState4.jpg in Resources */,
 				2557DBEE1A14067B0003AB5D /* spring.png in Resources */,
 				25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */,
@@ -494,6 +504,7 @@
 				2557DBF41A1406B80003AB5D /* thermal.png in Resources */,
 				25A93F6C1A1A9B7D00C9F145 /* roulette_background.png in Resources */,
 				2557DBDD1A13FCB20003AB5D /* CANVAS.psd in Resources */,
+				251174521A291CD7005E37C5 /* thermal_background.png in Resources */,
 				25AF9BEC1A267BDE00CED1CD /* spring_background.png in Resources */,
 				259B90C919F9756200737E04 /* Images-3.xcassets in Resources */,
 				2557DBE41A13FE940003AB5D /* button.png in Resources */,
@@ -526,6 +537,7 @@
 				258D1FFB1A019BF900ACFC93 /* SoundObjectTemplate.swift in Sources */,
 				25AF9BE51A26620D00CED1CD /* RouletteButton.swift in Sources */,
 				49EC5A061A20449F00A36D2C /* PitchModulator.swift in Sources */,
+				251174581A291D74005E37C5 /* ThermalFrame.swift in Sources */,
 				25A93F6F1A1A9BDD00C9F145 /* RouletteSpin.swift in Sources */,
 				25AF9BE91A267ADC00CED1CD /* SpringHandle.swift in Sources */,
 				49EC5A0F1A2210B800A36D2C /* VerticalMenuBar.swift in Sources */,
