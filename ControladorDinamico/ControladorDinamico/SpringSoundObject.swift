@@ -120,37 +120,33 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     }
     
     override func startPhysicalBody() {
-        super.startPhysicalBody()
-        //self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
-//        self.physicsBody?.affectedByGravity = false
-//        self.physicsBody?.allowsRotation = false
-//        self.physicsBody?.categoryBitMask = 1
-//        self.physicsBody?.contactTestBitMask = 1
-//        self.physicsBody?.collisionBitMask = 1
-        //self.physicsBody?.dynamic = false
-        self.physicsBody?.mass = 5000
-        self.physicsBody?.restitution = 0.5
+        //super.startPhysicalBody()
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(origin: CGPoint(x:-self.size.width / 2,y:-self.size.height / 2), size: self.size))
+        self.physicsBody!.affectedByGravity = false
+        self.physicsBody!.allowsRotation = false
+        self.physicsBody!.categoryBitMask = 3
+        self.physicsBody!.contactTestBitMask = 3
+        self.physicsBody!.collisionBitMask = 3
+        self.physicsBody!.dynamic = false
+        self.physicsBody!.restitution = 0.5
         
-        if (self.springHandle != nil) {
-            springHandle!.physicsBody = SKPhysicsBody(rectangleOfSize: springHandle!.size)
-//            springHandle!.physicsBody?.collisionBitMask = 1
-//            springHandle!.physicsBody?.categoryBitMask = 1
-//            springHandle!.physicsBody?.contactTestBitMask = 1
-            springHandle!.physicsBody?.dynamic = true
-            springHandle!.physicsBody?.mass = 1
-            springHandle!.physicsBody?.restitution = 0.5
-            springHandle!.physicsBody?.linearDamping = 0
-            springHandle!.physicsBody?.allowsRotation = false
-            springHandle!.physicsBody?.affectedByGravity = false
+        springHandle!.physicsBody = SKPhysicsBody(rectangleOfSize: springHandle!.size)
+        springHandle!.physicsBody?.collisionBitMask = 3
+        springHandle!.physicsBody?.categoryBitMask = 3
+        springHandle!.physicsBody?.contactTestBitMask = 3
+        springHandle!.physicsBody?.dynamic = true
+        springHandle!.physicsBody?.restitution = 0.5
+        springHandle!.physicsBody?.linearDamping = 0
+        springHandle!.physicsBody?.allowsRotation = false
+        springHandle!.physicsBody?.affectedByGravity = false
 
-            let positionY:CGFloat = self.position.y - self.size.height / 2
-            let springHandleAnchor = self.convertPoint(self.springHandle!.position, toNode: self.scene!)
-            self.springJoint = SKPhysicsJointSpring .jointWithBodyA(self.springHandle!.physicsBody!, bodyB:self.physicsBody!, anchorA:CGPoint(x: self.position.x, y: positionY) , anchorB:springHandleAnchor)
-            
-            springJoint!.frequency = 0.4;
-            springJoint!.damping = 0.2;
-            self.scene?.physicsWorld .addJoint(springJoint!)
-        }
+        let positionY:CGFloat = self.position.y - self.size.height / 2
+        let springHandleAnchor = self.convertPoint(self.springHandle!.position, toNode: self.scene!)
+        self.springJoint = SKPhysicsJointSpring .jointWithBodyA(self.springHandle!.physicsBody!, bodyB:self.physicsBody!, anchorA:CGPoint(x: self.position.x, y: positionY) , anchorB:springHandleAnchor)
+        
+        springJoint!.frequency = 0.4;
+        springJoint!.damping = 0.05;
+        self.scene?.physicsWorld .addJoint(springJoint!)
     }
 
     
