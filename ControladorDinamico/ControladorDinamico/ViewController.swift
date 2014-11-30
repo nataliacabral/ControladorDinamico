@@ -134,14 +134,35 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
              }
         } else if (alertView == newProjetAlert) {
         
+            let textField : UITextField? = alertView.textFieldAtIndex(0)
             if (buttonIndex == 1) {
-                let projectName = alertView.textFieldAtIndex(0)!.text!
-                var project = Project(projectName:projectName)
-                if (ProjectManager.sharedInstance.saveProject(project)) {
-                    self.selectedProject = project
-                    self.performSegueWithIdentifier("openProject", sender: self)
+                let projectName:String = textField!.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                
+                var error:String? = nil
+                if (countElements(projectName) == 0) {
+                    error = "Invalid name"
+                
+                } else if (ProjectManager.sharedInstance.projectExists(projectName)) {
+                    error = "Project already exists"
+               
+                } else {
+                    var project = Project(projectName:projectName)
+                    if (ProjectManager.sharedInstance.saveProject(project)) {
+                        self.selectedProject = project
+                        self.performSegueWithIdentifier("openProject", sender: self)
+                    } else {
+                        error = "Invalid name"
+                    }
+                }
+                
+                if (error != nil) {
+                    var alert = UIAlertController(title: "Project", message:error, preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
                 }
             }
+            
+            textField!.text = ""
         }
     }
 

@@ -50,7 +50,7 @@ class ThermalFrame : SKSpriteNode, Touchable
     
     func currentSoundIntensity() -> Float
     {
-        return Float(self.alpha) * 127;
+        return Float(self.alpha);
     }
     
     func update(currentTime: NSTimeInterval)

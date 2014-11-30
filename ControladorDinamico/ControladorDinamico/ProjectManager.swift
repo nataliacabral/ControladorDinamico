@@ -53,10 +53,17 @@ class ProjectManager {
         return projects
     }
     
+    func projectExists(name : String) -> Bool
+    {
+        var projectName:String = name.stringByAppendingPathExtension("txt")!
+        let projectPath:String = documentsPath.stringByAppendingPathComponent(projectName)
+        return fileManager.fileExistsAtPath(projectPath)
+    }
+    
     func removeProject(project : Project, error:NSErrorPointer) -> Bool {
         if (project.projectName != nil) {
-            let projectName:NSString = project.projectName!.stringByAppendingPathExtension("txt")!
-            let projectPath:NSString = documentsPath.stringByAppendingPathComponent(projectName)
+            let projectName:String = project.projectName!.stringByAppendingPathExtension("txt")!
+            let projectPath:String = documentsPath.stringByAppendingPathComponent(projectName)
             
             if(fileManager.fileExistsAtPath(projectPath)){
                 return fileManager.removeItemAtPath(projectPath, error: error)
