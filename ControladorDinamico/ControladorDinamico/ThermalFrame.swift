@@ -13,9 +13,8 @@ class ThermalFrame : SKSpriteNode, Touchable, ModulatorNode
 {
     let thermalFrameTexture:SKTexture = SKTexture(imageNamed: "thermal_frame.png")
     var touching:Bool = false
-    
-    let initialAlpha:CGFloat = 0.1
-    let alphaRatio:CGFloat = 0.015
+    var lastUpdateTimestamp:NSTimeInterval?;
+    let alphaRatio:CGFloat = 0.008
 
     var modulators:Array<Modulator> = Array<Modulator>()
 
@@ -24,7 +23,7 @@ class ThermalFrame : SKSpriteNode, Touchable, ModulatorNode
     {
         super.init()
         self.texture = thermalFrameTexture
-        self.alpha = initialAlpha
+        self.alpha = 0
     }
     
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
@@ -58,14 +57,20 @@ class ThermalFrame : SKSpriteNode, Touchable, ModulatorNode
     
     func update(currentTime: NSTimeInterval)
     {
-        if (touching && self.alpha < 1) {
-            self.alpha = self.alpha * (1 + alphaRatio)
-        } else if (self.alpha - initialAlpha > 0.01) {
-            self.alpha = self.alpha * (1 - alphaRatio/2)
+        if (self.lastUpdateTimestamp != nil) {
+            let interval:NSTimeInterval = currentTime - self.lastUpdateTimestamp!
+
+            if (touching && self.alpha < 1) {
+                self.alpha = self.alpha + CGFloat(interval)
+            } else if (self.alpha > 0) {
+                self.alpha = self.alpha - CGFloat(interval/2)
+            }
+            
+            for modulator in self.modulators {
+                modulator.modulate(self.currentSoundIntensity())
+            }
         }
-        for modulator in self.modulators {
-            modulator.modulate(self.currentSoundIntensity())
-        }
+        self.lastUpdateTimestamp = currentTime
     }
     
     func setModule(module:Float)

@@ -56,7 +56,7 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Touchable
     
     func updateGridSize(gridSize:CGFloat)
     {
-        self.size = CGSize(width: gridWidth * gridSize, height: gridHeight * gridSize)
+        self.size = CGSize(width: gridWidth * gridSize - 1, height: gridHeight * gridSize - 1)
     }
     
     func currentSoundIntensity() -> Float

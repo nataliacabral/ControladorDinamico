@@ -44,7 +44,7 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
-        self.zRotation = CGFloat(aDecoder.decodeObjectForKey("zRotation")!.integerValue)
+        self.zRotation = CGFloat(aDecoder.decodeObjectForKey("zRotation")!.doubleValue)
 
     }
     

@@ -181,52 +181,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ControladorDinamico/ControladorDinamico/ThermalFrame.swift"
-            timestampString = "439157142.550999"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "update(_:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ControladorDinamico.ThermalFrame.update (ControladorDinamico.ThermalFrame)(Swift.Double) -&gt; ()"
-                  moduleName = "ControladorDinamico"
-                  urlString = "file:///Users/nataliacabral/Documents/ControladorDinamico/ControladorDinamico/ControladorDinamico/ThermalFrame.swift"
-                  timestampString = "439161253.121215"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "52">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ControladorDinamico.ThermalFrame.update (ControladorDinamico.ThermalFrame)(Swift.Double) -&gt; ()"
-                  moduleName = "ControladorDinamico"
-                  urlString = "file:///Users/nataliacabral/Documents/ControladorDinamico/ControladorDinamico/ControladorDinamico/ThermalFrame.swift"
-                  timestampString = "439161253.12139"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "264">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/ProjectManager.swift"
             timestampString = "439044147.250235"
             startingColumnNumber = "9223372036854775807"
@@ -244,11 +198,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/SliderSoundObject.swift"
-            timestampString = "439161330.428398"
+            timestampString = "439161702.132749"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "playObject()"
             landmarkType = "5">
          </BreakpointContent>
@@ -260,11 +214,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/SliderSoundObject.swift"
-            timestampString = "439161330.428398"
+            timestampString = "439161702.132749"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "playObject()"
             landmarkType = "5">
          </BreakpointContent>
