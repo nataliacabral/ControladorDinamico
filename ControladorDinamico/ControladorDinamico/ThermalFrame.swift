@@ -9,13 +9,16 @@
 import Foundation
 import SpriteKit
 
-class ThermalFrame : SKSpriteNode, Touchable
+class ThermalFrame : SKSpriteNode, Touchable, ModulatorNode
 {
     let thermalFrameTexture:SKTexture = SKTexture(imageNamed: "thermal_frame.png")
     var touching:Bool = false
     
     let initialAlpha:CGFloat = 0.1
     let alphaRatio:CGFloat = 1.015
+    
+    var modulators:Array<Modulator> = Array<Modulator>()
+
     
     override init()
     {
@@ -60,5 +63,20 @@ class ThermalFrame : SKSpriteNode, Touchable
         } else if (self.alpha - initialAlpha > 0.01) {
             self.alpha = self.alpha * (1/alphaRatio)
         }
+        for modulator in self.modulators {
+            modulator.modulate(self.currentSoundIntensity())
+        }
     }
+    
+    func setModule(module:Float)
+    {
+        for modulator in self.modulators {
+            modulator.modulate(module)
+        }
+    }
+    
+    func addModulator(modulator:Modulator) {
+        self.modulators.append(modulator)
+    }
+
 }
