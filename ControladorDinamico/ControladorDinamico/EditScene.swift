@@ -290,6 +290,13 @@ class EditScene : SKScene
         }
     }
     
+    func containsObj(obj:SoundObject) -> Bool {
+        return (obj.position.x >= obj.size.width / 2 &&
+        obj.position.x <= self.size.width - obj.size.width / 2 &&
+obj.position.y >= obj.size.height / 2 &&
+obj.position.y <= self.size.height - obj.size.height / 2)
+    }
+    
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
         super.touchesMoved(touches, withEvent: event)
         for touch in touches
@@ -305,8 +312,12 @@ class EditScene : SKScene
             if (touchBoundNode != nil) {
                 if (touchBoundNode is SoundObject) {
                     let soundObj = touchBoundNode as SoundObject
-                    soundObj.position.x = (touchLocation.x - touchLocation.x % gridSize) + gridSize / 2
-                    soundObj.position.y = (touchLocation.y - touchLocation.y % gridSize) + gridSize / 2
+                    let oldPos = soundObj.position
+                    soundObj.position.x = (touchLocation.x - touchLocation.x % gridSize) + soundObj.size.width / 2
+                    soundObj.position.y = (touchLocation.y - touchLocation.y % gridSize) + soundObj.size.height / 2
+                    if (!self.containsObj(soundObj)) {
+                        soundObj.position = oldPos
+                    }
                 }
             }
             
