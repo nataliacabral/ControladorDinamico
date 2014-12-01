@@ -17,13 +17,16 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     
     var sticksList:Array<SKSpriteNode> = Array<SKSpriteNode>()
     var springHandle:SpringHandle?
+    var springHandleBoundEdge:SKSpriteNode = SKSpriteNode()
     let springTrackTexture:SKTexture = SKTexture(imageNamed: "spring_background.png")
     
     let handlerWidthBorder:CGFloat = 3.5
     let stickWidthBorder:CGFloat = 10
+    let springHeightBorder:CGFloat = 12
 
     var modulators:Array<Modulator> = Array<Modulator>()
     var springJoint:SKPhysicsJointSpring?
+
     
     override init()
     {
@@ -69,7 +72,6 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
             self.addChild(stick);
         }
         self.updateSticksPosition()
-
     }
     
     override func currentSoundIntensity() -> Float
@@ -124,21 +126,24 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(origin: CGPoint(x:-self.size.width / 2,y:-self.size.height / 2), size: self.size))
         self.physicsBody!.affectedByGravity = false
         self.physicsBody!.allowsRotation = false
-        self.physicsBody!.categoryBitMask = 3
-        self.physicsBody!.contactTestBitMask = 3
-        self.physicsBody!.collisionBitMask = 3
         self.physicsBody!.dynamic = false
-        self.physicsBody!.restitution = 0.5
         
         springHandle!.physicsBody = SKPhysicsBody(rectangleOfSize: springHandle!.size)
         springHandle!.physicsBody?.collisionBitMask = 3
         springHandle!.physicsBody?.categoryBitMask = 3
         springHandle!.physicsBody?.contactTestBitMask = 3
         springHandle!.physicsBody?.dynamic = true
-        springHandle!.physicsBody?.restitution = 0.5
+        springHandle!.physicsBody?.restitution = 0.8
         springHandle!.physicsBody?.linearDamping = 0
         springHandle!.physicsBody?.allowsRotation = false
         springHandle!.physicsBody?.affectedByGravity = false
+        
+        springHandleBoundEdge.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(
+            origin: CGPoint(x:self.position.x - self.size.width / 2, y:self.position.y + springHeightBorder - self.size.height / 2),
+            size: CGSize(width: self.size.width, height: self.size.height - (springHeightBorder * 2))))
+        springHandleBoundEdge.physicsBody?.collisionBitMask = 3
+        springHandleBoundEdge.physicsBody?.categoryBitMask
+        springHandleBoundEdge.physicsBody?.dynamic = false
 
         let positionY:CGFloat = self.position.y - self.size.height / 2
         let springHandleAnchor = self.convertPoint(self.springHandle!.position, toNode: self.scene!)
@@ -147,6 +152,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
         springJoint!.frequency = 0.4;
         springJoint!.damping = 0.05;
         self.scene?.physicsWorld .addJoint(springJoint!)
+        self.scene?.addChild(self.springHandleBoundEdge)
     }
 
     

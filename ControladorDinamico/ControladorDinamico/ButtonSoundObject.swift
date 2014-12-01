@@ -132,7 +132,12 @@ class ButtonSoundObject : SoundObject, Sampler
     func playSound()
     {
         if (!self.status.playing) {
+            //self.audioSampler?.sendController(69, withValue:127, onChannel:0)
+            //self.audioSampler?.sendController(67, withValue:127, onChannel:0)
             self.audioSampler?.startNote(self.note, withVelocity: 127, onChannel: 0)
+            //self.audioSampler?.sendController(64, withValue:127, onChannel:0)
+            //self.audioSampler?.sendPressure(127, onChannel:0)
+            //self.audioSampler?.sendPitchBend(16383, onChannel: 0)
             self.status.playing = true
         }
     }
