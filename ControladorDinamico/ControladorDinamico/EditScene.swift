@@ -41,6 +41,9 @@ class EditScene : SKScene
         
         var springSprite:SpringSoundObject = SpringSoundObject(gridSize:gridSize)
         var sliderSprite:SliderSoundObject = SliderSoundObject(gridSize:gridSize)
+        var horizontalSliderSprite:SliderSoundObject = SliderSoundObject(gridSize:gridSize)
+        horizontalSliderSprite.zRotation = CGFloat(M_PI_2)
+
         var rouletteSprite:RouletteSoundObject = RouletteSoundObject(gridSize:gridSize)
         var thermalSprite:ThermalSoundObject = ThermalSoundObject(gridSize:gridSize)
         
@@ -54,6 +57,7 @@ class EditScene : SKScene
         
         var springTemplate:SoundObjectTemplate = SoundObjectTemplate(object: springSprite)
         var sliderTemplate:SoundObjectTemplate = SoundObjectTemplate(object: sliderSprite)
+        var horizontalSliderTemplate:SoundObjectTemplate = SoundObjectTemplate(object: horizontalSliderSprite)
         var rouletteTemplate:SoundObjectTemplate = SoundObjectTemplate(object: rouletteSprite)
         var thermalTemplate:SoundObjectTemplate = SoundObjectTemplate(object: thermalSprite)
     
@@ -99,6 +103,7 @@ class EditScene : SKScene
             buttons: [
                 springTemplate,
                 sliderTemplate,
+                horizontalSliderTemplate,
                 rouletteTemplate,
                 thermalTemplate],
             position:CGPoint(x: x, y: -(self.size.height - (gridSize * 2))),

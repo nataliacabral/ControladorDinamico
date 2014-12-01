@@ -44,7 +44,15 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
+        self.zRotation = CGFloat(aDecoder.decodeObjectForKey("zRotation")!.integerValue)
+
     }
+    
+    override func encodeWithCoder(aCoder: NSCoder) {
+       super.encodeWithCoder(aCoder)
+        aCoder.encodeObject(self.zRotation, forKey: "zRotation")
+    }
+
     
     override init(gridSize:CGFloat) {
         super.init(gridSize:gridSize)
@@ -106,6 +114,8 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
         result.texture = sliderTrackTexture
         result.position = self.position
         result.loadHandle()
+        result.zRotation = self.zRotation
+
         return result
     }
     
@@ -114,6 +124,7 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
         self.status.sliderPosition = self.sliderHandle!.position.y
         self.savedStatus[slot] = self.status;
     }
+    
     override func loadStatus(slot:Int)
     {
         self.status = self.savedStatus[slot];

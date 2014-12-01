@@ -15,8 +15,8 @@ class ThermalFrame : SKSpriteNode, Touchable, ModulatorNode
     var touching:Bool = false
     
     let initialAlpha:CGFloat = 0.1
-    let alphaRatio:CGFloat = 1.015
-    
+    let alphaRatio:CGFloat = 0.015
+
     var modulators:Array<Modulator> = Array<Modulator>()
 
     
@@ -59,9 +59,9 @@ class ThermalFrame : SKSpriteNode, Touchable, ModulatorNode
     func update(currentTime: NSTimeInterval)
     {
         if (touching && self.alpha < 1) {
-            self.alpha = self.alpha * alphaRatio
+            self.alpha = self.alpha * (1 + alphaRatio)
         } else if (self.alpha - initialAlpha > 0.01) {
-            self.alpha = self.alpha * (1/alphaRatio)
+            self.alpha = self.alpha * (1 - alphaRatio/2)
         }
         for modulator in self.modulators {
             modulator.modulate(self.currentSoundIntensity())
