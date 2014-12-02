@@ -64,16 +64,19 @@ class EditScene : SKScene
         
         backButton = MenuButton(
             texture:SKTexture(imageNamed: "roulette.png"),
+            pressedTexture:SKTexture(imageNamed: "button.png"),
             color:UIColor(),
             size:CGSize(width: gridSize, height: gridSize))
         
         playButton = MenuButton(
             texture:SKTexture(imageNamed: "thermal.png"),
+            pressedTexture:SKTexture(imageNamed: "button.png"),
             color:UIColor(),
             size:CGSize(width: gridSize, height: gridSize))
         
         trashButton = MenuButton(
             texture:SKTexture(imageNamed: "bin.png"),
+            pressedTexture:SKTexture(imageNamed: "button.png"),
             color:UIColor(),
             size:CGSize(width: gridSize, height: gridSize))
         
@@ -113,20 +116,22 @@ class EditScene : SKScene
 
         var buttonsDrawerButton:MenuButton = DrawerMenuButton(
             texture:SKTexture(imageNamed: "button.png"),
+            pressedTexture:SKTexture(imageNamed: "slider.png"),
             color:UIColor(),
             size:CGSize(width: self.gridSize, height: self.gridSize),
             drawer:self.buttonDrawer!)
         
         var modulatorDrawerButton:MenuButton = DrawerMenuButton(
             texture:SKTexture(imageNamed: "slider.png"),
+            pressedTexture:SKTexture(imageNamed: "button.png"),
             color:UIColor(),
             size:CGSize(width: self.gridSize, height: self.gridSize),
             drawer:self.modulatorDrawer!)
         
-        self.modulatorDrawer!.position.x = x;
+        self.modulatorDrawer!.position.x = x + gridSize;
         self.modulatorDrawer!.position.y = y;
         
-        self.buttonDrawer!.position.x = x;
+        self.buttonDrawer!.position.x = x + gridSize;
         self.buttonDrawer!.position.y = y;
         
         self.addChild(self.modulatorDrawer!)
@@ -210,7 +215,7 @@ class EditScene : SKScene
     
     func removeObj(soundObj:SoundObject) {
         soundObj.removeFromParent()
-        for i in 0...objects.count {
+        for i in 0...objects.count - 1 {
             let obj = objects[i]
             if (obj === soundObj) {
                 objects.removeAtIndex(i)
@@ -274,13 +279,13 @@ class EditScene : SKScene
                         openDrawer = nil
                     }
                 }
-                else if (boundNode == self.backButton) {
+                else if (boundNode === self.backButton) {
                     let navigationController = self.view!.window!.rootViewController!
                     if (navigationController is UINavigationController) {
                         (navigationController as UINavigationController).popViewControllerAnimated(true)
                     }
                 }
-                else if (boundNode == self.playButton) {
+                else if (boundNode === self.playButton) {
                     let navigationController = self.view!.window!.rootViewController!
                     if (navigationController is UINavigationController) {
                         let viewController = (navigationController as UINavigationController).topViewController

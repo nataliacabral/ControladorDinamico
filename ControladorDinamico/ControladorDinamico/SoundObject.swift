@@ -73,6 +73,9 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Touchable
     func touchMoved(position:CGPoint)
     {
     }
+    func touchCancelled(position: CGPoint) {
+        self.touchEnded(position)
+    }
     
     func update(currentTime: NSTimeInterval)
     {

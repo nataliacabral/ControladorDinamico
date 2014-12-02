@@ -9,6 +9,14 @@
 import Foundation
 import SpriteKit
 
+struct ThermalStatus
+{
+    var alphaQ1:CGFloat
+    var alphaQ2:CGFloat
+    var alphaQ3:CGFloat
+    var alphaQ4:CGFloat
+}
+
 class ThermalSoundObject : SoundObject
 {
     override var gridHeight:CGFloat { get { return 2 } }
@@ -18,6 +26,10 @@ class ThermalSoundObject : SoundObject
     var frames:Array<ThermalFrame> = Array<ThermalFrame>()
     let thermalBackgroundTexture:SKTexture = SKTexture(imageNamed: "thermal_background.png")
     let thermalFrameBorder:CGFloat = 5
+    
+    var status:ThermalStatus = ThermalStatus(alphaQ1: CGFloat(0.0), alphaQ2: CGFloat(0.0), alphaQ3: CGFloat(0.0), alphaQ4: CGFloat(0.0))
+    var savedStatus : Array<ThermalStatus> = Array<ThermalStatus>(count: 4, repeatedValue:
+        ThermalStatus(alphaQ1: CGFloat(0.0), alphaQ2: CGFloat(0.0), alphaQ3: CGFloat(0.0), alphaQ4: CGFloat(0.0)))
 
     override init()
     {
@@ -83,6 +95,25 @@ class ThermalSoundObject : SoundObject
         result.position = self.position
         result.loadFrames()
         return result
+    }
+    
+    
+    override func saveStatus(slot:Int)
+    {
+        self.status.alphaQ1 = self.frames[0].alpha
+        self.status.alphaQ2 = self.frames[1].alpha
+        self.status.alphaQ3 = self.frames[2].alpha
+        self.status.alphaQ4 = self.frames[3].alpha
+        self.savedStatus[slot] = self.status;
+    }
+    
+    override func loadStatus(slot:Int)
+    {
+        self.status = self.savedStatus[slot];
+        self.frames[0].alpha = self.status.alphaQ1
+        self.frames[1].alpha = self.status.alphaQ2
+        self.frames[2].alpha = self.status.alphaQ3
+        self.frames[3].alpha = self.status.alphaQ4
     }
 
 }

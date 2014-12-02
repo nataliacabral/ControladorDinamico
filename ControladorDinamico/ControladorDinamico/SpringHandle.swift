@@ -56,6 +56,10 @@ class SpringHandle : SKSpriteNode, Touchable
     {
     }
     
+    func touchCancelled(position: CGPoint) {
+        self.touchEnded(position)
+    }
+    
     func currentSoundIntensity() -> Float
     {
         let parent = self.parent as SKSpriteNode

@@ -67,40 +67,47 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
         
         backButton = MenuButton(
             texture:SKTexture(imageNamed: "roulette.png.jpg"),
+            pressedTexture:SKTexture(imageNamed: "button.png"),
             color:UIColor(),
             size:CGSize(width: gridSize, height: gridSize)
         )
         
         slot1Button = SavedStateMenuButton(
             texture:SKTexture(imageNamed: "savedState1.jpg"),
+            pressedTexture:SKTexture(imageNamed: "button.png"),
+            color:UIColor(),
+            size:CGSize(width: gridSize, height: gridSize),
+            slot:0,
+            objList:self.cloneOjbects
+        )
+        slot2Button = SavedStateMenuButton(
+            texture:SKTexture(imageNamed: "savedState2.jpg"),
+            pressedTexture:SKTexture(imageNamed: "button.png"),
             color:UIColor(),
             size:CGSize(width: gridSize, height: gridSize),
             slot:1,
             objList:self.cloneOjbects
         )
-        slot2Button = SavedStateMenuButton(
-            texture:SKTexture(imageNamed: "savedState2.jpg"),
+        slot3Button = SavedStateMenuButton(
+            texture:SKTexture(imageNamed: "savedState3.jpg"),
+            pressedTexture:SKTexture(imageNamed: "button.png"),
             color:UIColor(),
             size:CGSize(width: gridSize, height: gridSize),
             slot:2,
             objList:self.cloneOjbects
         )
-        slot3Button = SavedStateMenuButton(
-            texture:SKTexture(imageNamed: "savedState3.jpg"),
+        slot4Button = SavedStateMenuButton(
+            texture:SKTexture(imageNamed: "savedState4.jpg"),
+            pressedTexture:SKTexture(imageNamed: "button.png"),
             color:UIColor(),
             size:CGSize(width: gridSize, height: gridSize),
             slot:3,
             objList:self.cloneOjbects
         )
-        slot4Button = SavedStateMenuButton(
-            texture:SKTexture(imageNamed: "savedState4.jpg"),
-            color:UIColor(),
-            size:CGSize(width: gridSize, height: gridSize),
-            slot:4,
-            objList:self.cloneOjbects
-        )
         
         self.savedStates = [slot1Button!, slot2Button!, slot3Button!, slot4Button!]
+        SavedStateManager.sharedInstance.stateButtons = self.savedStates!
+        SavedStateManager.sharedInstance.selectSlot(0)
 
         var width:CGFloat = gridSize
         var x:CGFloat = self.size.width - gridSize / 2
@@ -196,7 +203,6 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                 modulatedSampler.startWithEngine(audioEngine)
             }
         }
-        SoundManager.sharedInstance.audioEngine.mainMixerNode.outputVolume = 1.0
         SoundManager.sharedInstance.startEngine()
     }
     
@@ -237,7 +243,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                 touchBound!.touchEnded(uiTouch.locationInView(uiTouch.view))
                 touchMapping .removeValueForKey(uiTouch)
             }
-            else if (touchedNode == self.backButton) {
+            if (touchedNode == self.backButton) {
                 let navigationController = self.view!.window!.rootViewController!
                 if (navigationController is UINavigationController) {
                     (navigationController as UINavigationController).popViewControllerAnimated(true)
@@ -264,7 +270,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
             
             if (touchedNode !== touchBoundNode) {
                 if (touchBoundNode != nil) {
-                    touchBoundNode!.touchEnded(touchLocation)
+                    touchBoundNode!.touchCancelled(touchLocation)
                     touchMapping.removeValueForKey(uiTouch)
                 }
                 if (touchedNode != nil && touchedNode is Touchable) {

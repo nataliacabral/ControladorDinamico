@@ -60,6 +60,9 @@
 		492A42A61A27BC0B00731F26 /* savedState3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 492A42A21A27BC0B00731F26 /* savedState3.jpg */; };
 		492A42A71A27BC0B00731F26 /* savedState4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 492A42A31A27BC0B00731F26 /* savedState4.jpg */; };
 		492A42A91A27BEB400731F26 /* SavedStateMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492A42A81A27BEB400731F26 /* SavedStateMenuButton.swift */; };
+		492A42C41A2D38E900731F26 /* SavedStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492A42C31A2D38E900731F26 /* SavedStateManager.swift */; };
+		492A42C61A2D4AFD00731F26 /* piano2.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 492A42C51A2D4AF100731F26 /* piano2.sf2 */; };
+		492A42C81A2D4F7900731F26 /* clarinet.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 492A42C71A2D4F7900731F26 /* clarinet.sf2 */; };
 		4933E0E91A17F3FE00DDCE0D /* buttonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4933E0E81A17F3FE00DDCE0D /* buttonSelected.png */; };
 		4933E0EB1A17F6D500DDCE0D /* Touchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933E0EA1A17F6D500DDCE0D /* Touchable.swift */; };
 		4933E0F01A18005700DDCE0D /* sliderHandle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4933E0EE1A18005700DDCE0D /* sliderHandle.png */; };
@@ -150,6 +153,9 @@
 		492A42A21A27BC0B00731F26 /* savedState3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = savedState3.jpg; sourceTree = "<group>"; };
 		492A42A31A27BC0B00731F26 /* savedState4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = savedState4.jpg; sourceTree = "<group>"; };
 		492A42A81A27BEB400731F26 /* SavedStateMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedStateMenuButton.swift; sourceTree = "<group>"; };
+		492A42C31A2D38E900731F26 /* SavedStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedStateManager.swift; sourceTree = "<group>"; };
+		492A42C51A2D4AF100731F26 /* piano2.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = piano2.sf2; sourceTree = "<group>"; };
+		492A42C71A2D4F7900731F26 /* clarinet.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = clarinet.sf2; sourceTree = "<group>"; };
 		4933E0E81A17F3FE00DDCE0D /* buttonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonSelected.png; sourceTree = "<group>"; };
 		4933E0EA1A17F6D500DDCE0D /* Touchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Touchable.swift; sourceTree = "<group>"; };
 		4933E0EE1A18005700DDCE0D /* sliderHandle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sliderHandle.png; sourceTree = "<group>"; };
@@ -335,6 +341,7 @@
 				49C0152E1A1D316900DBAC0D /* SoundManager.swift */,
 				25AF9BC51A23C34D00CED1CD /* ProjectView.xib */,
 				492A42A81A27BEB400731F26 /* SavedStateMenuButton.swift */,
+				492A42C31A2D38E900731F26 /* SavedStateManager.swift */,
 			);
 			path = ControladorDinamico;
 			sourceTree = "<group>";
@@ -367,8 +374,10 @@
 		49EC59F71A2006C800A36D2C /* SoundFonts */ = {
 			isa = PBXGroup;
 			children = (
+				492A42C51A2D4AF100731F26 /* piano2.sf2 */,
 				4918FC701A228F41007E1F64 /* guitar.sf2 */,
 				49EC59F81A2006C800A36D2C /* piano.sf2 */,
+				492A42C71A2D4F7900731F26 /* clarinet.sf2 */,
 			);
 			path = SoundFonts;
 			sourceTree = "<group>";
@@ -487,12 +496,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4933E0E91A17F3FE00DDCE0D /* buttonSelected.png in Resources */,
+				492A42C81A2D4F7900731F26 /* clarinet.sf2 in Resources */,
 				492A42A61A27BC0B00731F26 /* savedState3.jpg in Resources */,
 				2557DBF21A1406AB0003AB5D /* slider.png in Resources */,
 				4918FC711A228F41007E1F64 /* guitar.sf2 in Resources */,
 				25AF9BED1A267BDE00CED1CD /* spring_stick.png in Resources */,
 				492A429F1A27B05D00731F26 /* bin.png in Resources */,
 				25AF9BE21A265FE400CED1CD /* roulette_frame.png in Resources */,
+				492A42C61A2D4AFD00731F26 /* piano2.sf2 in Resources */,
 				251174531A291CD7005E37C5 /* thermal_frame.png in Resources */,
 				492A42A71A27BC0B00731F26 /* savedState4.jpg in Resources */,
 				2557DBEE1A14067B0003AB5D /* spring.png in Resources */,
@@ -538,6 +549,7 @@
 				25AF9BE51A26620D00CED1CD /* RouletteButton.swift in Sources */,
 				49EC5A061A20449F00A36D2C /* PitchModulator.swift in Sources */,
 				251174581A291D74005E37C5 /* ThermalFrame.swift in Sources */,
+				492A42C41A2D38E900731F26 /* SavedStateManager.swift in Sources */,
 				25A93F6F1A1A9BDD00C9F145 /* RouletteSpin.swift in Sources */,
 				25AF9BE91A267ADC00CED1CD /* SpringHandle.swift in Sources */,
 				49EC5A0F1A2210B800A36D2C /* VerticalMenuBar.swift in Sources */,

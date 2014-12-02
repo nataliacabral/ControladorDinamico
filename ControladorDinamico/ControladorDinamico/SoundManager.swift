@@ -26,6 +26,8 @@ class SoundManager : NSObject {
     
     override init() {
         self.audioEngine = AVAudioEngine()
+        self.audioEngine.mainMixerNode.volume = 1.0
+        self.audioEngine.mainMixerNode.outputVolume = 1.0
 //        self.audioEngine!.startAndReturnError(nil)
     }
     

@@ -9,6 +9,12 @@
 import Foundation
 import SpriteKit
 
+struct SpringStatus
+{
+    var handlePosition:CGFloat
+    var handleSpeed:CGFloat
+}
+
 class SpringSoundObject : SoundObject, Touchable, ModulatorNode
 {
     override var gridHeight:CGFloat { get { return 3 } }
@@ -26,7 +32,9 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
 
     var modulators:Array<Modulator> = Array<Modulator>()
     var springJoint:SKPhysicsJointSpring?
-
+    
+    var status:SpringStatus = SpringStatus(handlePosition: CGFloat(64), handleSpeed:CGFloat(0))
+    var savedStatus : Array<SpringStatus> = Array<SpringStatus>(count: 4, repeatedValue: SpringStatus(handlePosition: CGFloat(64), handleSpeed: CGFloat(0)))
     
     override init()
     {
@@ -174,5 +182,20 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
         result.position = self.position
         result.loadHandle()
         return result
+    }
+    
+    
+    override func saveStatus(slot:Int)
+    {
+        self.status.handlePosition = self.springHandle!.position.y
+        self.status.handleSpeed = self.springHandle!.physicsBody!.velocity.dy
+        self.savedStatus[slot] = self.status;
+    }
+    
+    override func loadStatus(slot:Int)
+    {
+        self.status = self.savedStatus[slot];
+        self.springHandle!.position.y = self.status.handlePosition
+        self.springHandle!.physicsBody!.velocity.dy = self.status.handleSpeed
     }
 }

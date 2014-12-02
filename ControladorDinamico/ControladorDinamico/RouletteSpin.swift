@@ -75,6 +75,10 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
         startRotationPoint = nil
     }
     
+    func touchCancelled(position: CGPoint) {
+        self.touchEnded(position)
+    }
+    
     func setModule(module:Float)
     {
         let modulatorParent:ModulatorNode = self.parent as ModulatorNode

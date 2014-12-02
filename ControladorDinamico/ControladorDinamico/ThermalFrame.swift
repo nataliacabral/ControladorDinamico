@@ -49,6 +49,9 @@ class ThermalFrame : SKSpriteNode, Touchable, ModulatorNode
     {
         touching = false
     }
+    func touchCancelled(position: CGPoint) {
+        self.touchEnded(position)
+    }
     
     func currentSoundIntensity() -> Float
     {
@@ -64,6 +67,12 @@ class ThermalFrame : SKSpriteNode, Touchable, ModulatorNode
                 self.alpha = self.alpha + CGFloat(interval)
             } else if (self.alpha > 0) {
                 self.alpha = self.alpha - CGFloat(interval/2)
+            }
+            if (self.alpha < 0) {
+                self.alpha = 0
+            }
+            else if (self.alpha > 1.0) {
+                self.alpha = 1.0
             }
             
             for modulator in self.modulators {

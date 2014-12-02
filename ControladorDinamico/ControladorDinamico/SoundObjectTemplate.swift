@@ -14,8 +14,7 @@ class SoundObjectTemplate : MenuButton
     var object:SoundObject?
         
     init(object:SoundObject) {
-        let texture = SKTexture(imageNamed: object.templateImageName)
-        super.init(texture:texture , color: object.color, size:CGSize(width: 50, height: 50))
+        super.init(texture: SKTexture(imageNamed: object.templateImageName), pressedTexture:nil, color: object.color, size:CGSize(width: 50, height: 50))
         self.object = object
         self.zRotation = object.zRotation
         if (object is ButtonSoundObject) {

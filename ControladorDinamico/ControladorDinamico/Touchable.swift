@@ -14,4 +14,5 @@ import SpriteKit
     func touchStarted(position:CGPoint)
     func touchEnded(position:CGPoint)
     func touchMoved(position:CGPoint)
+    func touchCancelled(position:CGPoint)
 }

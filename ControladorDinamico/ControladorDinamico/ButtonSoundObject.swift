@@ -120,8 +120,8 @@ class ButtonSoundObject : SoundObject, Sampler
     func startSampler() {
         var error:NSError?
         self.audioSampler = AVAudioUnitSampler()
-        let path = NSBundle.mainBundle().URLForResource(String("guitar"), withExtension:"sf2")
-        self.audioSampler?.loadSoundBankInstrumentAtURL(path, program: 1, bankMSB: UInt8(kAUSampler_DefaultMelodicBankMSB), bankLSB: UInt8(kAUSampler_DefaultBankLSB), error: &error)
+        let path = NSBundle.mainBundle().URLForResource(String("clarinet"), withExtension:"sf2")
+        self.audioSampler?.loadSoundBankInstrumentAtURL(path, program: 0, bankMSB: UInt8(kAUSampler_DefaultMelodicBankMSB), bankLSB: UInt8(kAUSampler_DefaultBankLSB), error: &error)
     }
     
     func sampler() -> AVAudioUnitSampler
@@ -134,8 +134,8 @@ class ButtonSoundObject : SoundObject, Sampler
         if (!self.status.playing) {
             //self.audioSampler?.sendController(69, withValue:127, onChannel:0)
             //self.audioSampler?.sendController(67, withValue:127, onChannel:0)
+            //self.audioSampler?.sendController(64, withValue:64, onChannel:0)
             self.audioSampler?.startNote(self.note, withVelocity: 127, onChannel: 0)
-            //self.audioSampler?.sendController(64, withValue:127, onChannel:0)
             //self.audioSampler?.sendPressure(127, onChannel:0)
             //self.audioSampler?.sendPitchBend(16383, onChannel: 0)
             self.status.playing = true
@@ -165,11 +165,15 @@ class ButtonSoundObject : SoundObject, Sampler
     
     override func saveStatus(slot:Int)
     {
+        
         self.savedStatus[slot] = self.status;
     }
     override func loadStatus(slot:Int)
     {
         self.status = self.savedStatus[slot];
+        if (self.status.playing) {
+            self.playSound()
+        }
     }
     
     override func copy() -> AnyObject {

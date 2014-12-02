@@ -56,6 +56,10 @@ class RouletteButton : SKSpriteNode, Touchable
         rouletteObj.toggleFriction(self.toggled)
     }
     
+    func touchCancelled(position: CGPoint) {
+        self.touchEnded(position)
+    }
+    
     func touchMoved(position:CGPoint)
     {
     

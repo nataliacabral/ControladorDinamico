@@ -9,7 +9,8 @@
 import Foundation
 import SpriteKit
 
-class SavedStateMenuButton : MenuButton, Touchable
+//class SavedStateMenuButton
+class SavedStateMenuButton : MenuButton
 
 {
     var slot:Int
@@ -18,27 +19,37 @@ class SavedStateMenuButton : MenuButton, Touchable
     var objList:Array<SoundObject>
     var lastUpdateTime:NSTimeInterval = 0
     var saved:Bool = false
+    var selected:Bool = false
     let timeToSave:NSTimeInterval = 2
+    let timeToStartSaving:NSTimeInterval = 0.5
+    let selectedColor:UIColor = UIColor.greenColor()
+    let savingColor:UIColor = UIColor.blueColor()
+    let deselectedColor:UIColor = UIColor.whiteColor()
+
     
-    init(texture: SKTexture!, color: UIColor!, size: CGSize, slot:Int, objList:Array<SoundObject>) {
+    init(texture: SKTexture!, pressedTexture: SKTexture?, color: UIColor!, size: CGSize, slot:Int, objList:Array<SoundObject>) {
         self.slot = slot
         self.objList = objList
-        super.init(texture: texture, color: color, size: size)
+        super.init(texture: texture, pressedTexture:pressedTexture, color: color, size: size)
+        self.colorBlendFactor = 1.0
+        self.color = self.deselectedColor
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func touchStarted(position: CGPoint) {
+    override func touchStarted(position: CGPoint) {
+        super.touchStarted(position)
         touching = true
         touchingTime = 0
         saved = false
     }
-    func touchMoved(position: CGPoint) {
+    override func touchMoved(position: CGPoint) {
         
     }
-    func touchEnded(position: CGPoint) {
+    override func touchEnded(position: CGPoint) {
+        super.touchEnded(position)
         touching = false
         if (!saved && touchingTime < timeToSave) {
             NSLog("Loading state from slot %d", self.slot)
@@ -46,19 +57,65 @@ class SavedStateMenuButton : MenuButton, Touchable
             for obj in objList {
                 obj.loadStatus(slot)
             }
+            SavedStateManager.sharedInstance.selectSlot(self.slot)
         }
+    }
+    
+    func updateDraw() {
+        if (touching && !saved && touchingTime < timeToSave && touchingTime > timeToStartSaving)
+        {
+            self.color = self.savingColor
+            self.texture = self.pressedTexture
+        }
+        else if (self.selected) {
+            self.color = self.selectedColor
+            self.texture = self.pressedTexture
+        }
+        else {
+            self.color = self.deselectedColor
+            if (self.touching) {
+                self.texture = self.pressedTexture
+            }
+            else {
+                self.texture = self.stillTexture
+            }
+        }
+    }
+
+    override func touchCancelled(position: CGPoint) {
+        self.touching = false
+        self.touchingTime = 0
+        self.updateDraw()
+        self.texture = self.stillTexture
     }
     
     func update(time:NSTimeInterval)
     {
         touchingTime += time - lastUpdateTime
         lastUpdateTime = time
-        if (touching && !saved && touchingTime >= timeToSave) {
-            saved = true
-            NSLog("Saving state to slot %d", self.slot)
-            for obj in objList {
-                obj.saveStatus(slot)
+        if (touching && !saved) {
+            if (touchingTime >= timeToSave) {
+                saved = true
+                NSLog("Saving state to slot %d", self.slot)
+                for obj in objList {
+                    obj.saveStatus(slot)
+                }
+                SavedStateManager.sharedInstance.selectSlot(self.slot)
             }
+            self.updateDraw()
         }
     }
+    
+    func selectSlot()
+    {
+        self.selected = true
+        self.updateDraw()
+    }
+    
+    func deselectSlot()
+    {
+        self.selected = false
+        self.updateDraw()
+    }
+
 }

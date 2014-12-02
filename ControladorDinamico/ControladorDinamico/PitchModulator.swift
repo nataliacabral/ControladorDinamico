@@ -15,11 +15,11 @@ class PitchModulator : Modulator
     
     func modulate(modulation:Float)
     {
-        node.pitch = (modulation - 0.3) * 2800
+        node.pitch = (modulation - 0.5) * 800
     }
     func startModulator()
     {
-        node.pitch = 50
+        node.pitch = 0
         node.rate = 1
     }
     

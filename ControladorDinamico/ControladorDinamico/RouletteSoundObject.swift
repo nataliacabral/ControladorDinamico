@@ -13,6 +13,7 @@ struct RouletteStatus
 {
     var angularVelocity:CGFloat
     var buttonToggled:Bool
+    var zRotation:CGFloat
 }
 
 class RouletteSoundObject : SoundObject, ModulatorNode
@@ -28,8 +29,8 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     let rouletteBackgroundTexture:SKTexture = SKTexture(imageNamed: "roulette_background.png")
     
     var modulators:Array<Modulator> = Array<Modulator>()
-    var status:RouletteStatus = RouletteStatus(angularVelocity: CGFloat(0), buttonToggled:false)
-    var savedStatus : Array<RouletteStatus> = Array<RouletteStatus>(count: 4, repeatedValue: RouletteStatus(angularVelocity: CGFloat(0), buttonToggled:false))
+    var status:RouletteStatus = RouletteStatus(angularVelocity: CGFloat(0), buttonToggled:false, zRotation:0)
+    var savedStatus : Array<RouletteStatus> = Array<RouletteStatus>(count: 4, repeatedValue: RouletteStatus(angularVelocity: CGFloat(0), buttonToggled:false, zRotation:0))
     
     override init()
     {
@@ -167,6 +168,7 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     override func saveStatus(slot:Int)
     {
         self.status.angularVelocity = self.rouletteSpin!.physicsBody!.angularVelocity
+        self.status.zRotation = self.rouletteSpin!.zRotation
         self.status.buttonToggled = self.rouletteButton!.toggled
         self.savedStatus[slot] = self.status;
     }
@@ -174,6 +176,7 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     {
         self.status = self.savedStatus[slot];
         self.rouletteSpin!.physicsBody!.angularVelocity = self.status.angularVelocity
+        self.rouletteSpin!.zRotation = self.status.zRotation
         self.rouletteButton!.setToggle(self.status.buttonToggled)
     }
 }
