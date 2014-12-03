@@ -199,6 +199,7 @@ class EditScene : SKScene
             }
             if (touchedNode is SoundObject) {
                 self.selectedNodeOriginalPos = touchedNode.position
+                touchedNode.zPosition = 1
             }
             touchMapping[uiTouch] = touchedNode
         }
@@ -236,6 +237,7 @@ class EditScene : SKScene
                 if (boundNode is SoundObject) {
                     var moveCancelled = false
                     let soundObj = boundNode as SoundObject
+                    soundObj.zPosition = 0
                     
                     if (self.trashButton.intersectsNode(soundObj))
                     {
