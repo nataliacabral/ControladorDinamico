@@ -63,13 +63,13 @@ class EditScene : SKScene
     
         
         backButton = MenuButton(
-            texture:SKTexture(imageNamed: "roulette.png"),
+            texture:SKTexture(imageNamed: "back.png"),
             pressedTexture:SKTexture(imageNamed: "button.png"),
             color:UIColor(),
             size:CGSize(width: gridSize, height: gridSize))
         
         playButton = MenuButton(
-            texture:SKTexture(imageNamed: "thermal.png"),
+            texture:SKTexture(imageNamed: "play.png"),
             pressedTexture:SKTexture(imageNamed: "button.png"),
             color:UIColor(),
             size:CGSize(width: gridSize, height: gridSize))
@@ -116,14 +116,14 @@ class EditScene : SKScene
 
         var buttonsDrawerButton:MenuButton = DrawerMenuButton(
             texture:SKTexture(imageNamed: "button.png"),
-            pressedTexture:SKTexture(imageNamed: "slider.png"),
+            pressedTexture:SKTexture(imageNamed: "buttonSelected.png"),
             color:UIColor(),
             size:CGSize(width: self.gridSize, height: self.gridSize),
             drawer:self.buttonDrawer!)
         
         var modulatorDrawerButton:MenuButton = DrawerMenuButton(
-            texture:SKTexture(imageNamed: "slider.png"),
-            pressedTexture:SKTexture(imageNamed: "button.png"),
+            texture:SKTexture(imageNamed: "sliderTrack.png"),
+            pressedTexture:SKTexture(imageNamed: "slider.png"),
             color:UIColor(),
             size:CGSize(width: self.gridSize, height: self.gridSize),
             drawer:self.modulatorDrawer!)

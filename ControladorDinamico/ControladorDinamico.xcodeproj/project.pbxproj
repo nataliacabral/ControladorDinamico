@@ -50,7 +50,6 @@
 		25AF9BEC1A267BDE00CED1CD /* spring_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 25AF9BEA1A267BDE00CED1CD /* spring_background.png */; };
 		25AF9BED1A267BDE00CED1CD /* spring_stick.png in Resources */ = {isa = PBXBuildFile; fileRef = 25AF9BEB1A267BDE00CED1CD /* spring_stick.png */; };
 		490120CF1A1E7BC200F3E653 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490120CE1A1E7BC200F3E653 /* AVFoundation.framework */; };
-		4918FC711A228F41007E1F64 /* guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 4918FC701A228F41007E1F64 /* guitar.sf2 */; };
 		4918FC731A22AEB7007E1F64 /* DelayModulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918FC721A22AEB7007E1F64 /* DelayModulator.swift */; };
 		4918FC751A22B09A007E1F64 /* EQModulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918FC741A22B09A007E1F64 /* EQModulator.swift */; };
 		491EECC41A18E31700F33D50 /* SliderHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491EECC31A18E31700F33D50 /* SliderHandle.swift */; };
@@ -69,6 +68,9 @@
 		4933E0F11A18005700DDCE0D /* sliderTrack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4933E0EF1A18005700DDCE0D /* sliderTrack.png */; };
 		495BDEC91A1226A8000941E8 /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495BDEC81A1226A8000941E8 /* PlayScene.swift */; };
 		49C0152F1A1D316900DBAC0D /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0152E1A1D316900DBAC0D /* SoundManager.swift */; };
+		49DD5D061A2EA13F0001252C /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DD5D051A2EA13F0001252C /* back.png */; };
+		49DD5D081A2EA1880001252C /* guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 49DD5D071A2EA1880001252C /* guitar.sf2 */; };
+		49DD5D0A1A2EA1930001252C /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DD5D091A2EA1930001252C /* play.png */; };
 		49EC59F91A2006C800A36D2C /* piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 49EC59F81A2006C800A36D2C /* piano.sf2 */; };
 		49EC59FB1A2009F200A36D2C /* ModulatorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC59FA1A2009F200A36D2C /* ModulatorNode.swift */; };
 		49EC59FD1A2009FA00A36D2C /* Sampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC59FC1A2009FA00A36D2C /* Sampler.swift */; };
@@ -143,15 +145,14 @@
 		25AF9BEA1A267BDE00CED1CD /* spring_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spring_background.png; sourceTree = "<group>"; };
 		25AF9BEB1A267BDE00CED1CD /* spring_stick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spring_stick.png; sourceTree = "<group>"; };
 		490120CE1A1E7BC200F3E653 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		4918FC701A228F41007E1F64 /* guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; name = guitar.sf2; path = ../guitar.sf2; sourceTree = "<group>"; };
 		4918FC721A22AEB7007E1F64 /* DelayModulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayModulator.swift; sourceTree = "<group>"; };
 		4918FC741A22B09A007E1F64 /* EQModulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EQModulator.swift; sourceTree = "<group>"; };
 		491EECC31A18E31700F33D50 /* SliderHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderHandle.swift; sourceTree = "<group>"; };
-		492A429E1A27B05D00731F26 /* bin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bin.png; sourceTree = "<group>"; };
-		492A42A01A27BC0B00731F26 /* savedState1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = savedState1.jpg; sourceTree = "<group>"; };
-		492A42A11A27BC0B00731F26 /* savedState2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = savedState2.jpg; sourceTree = "<group>"; };
-		492A42A21A27BC0B00731F26 /* savedState3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = savedState3.jpg; sourceTree = "<group>"; };
-		492A42A31A27BC0B00731F26 /* savedState4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = savedState4.jpg; sourceTree = "<group>"; };
+		492A429E1A27B05D00731F26 /* bin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bin.png; path = images/bin.png; sourceTree = "<group>"; };
+		492A42A01A27BC0B00731F26 /* savedState1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = savedState1.jpg; path = images/savedState1.jpg; sourceTree = "<group>"; };
+		492A42A11A27BC0B00731F26 /* savedState2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = savedState2.jpg; path = images/savedState2.jpg; sourceTree = "<group>"; };
+		492A42A21A27BC0B00731F26 /* savedState3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = savedState3.jpg; path = images/savedState3.jpg; sourceTree = "<group>"; };
+		492A42A31A27BC0B00731F26 /* savedState4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = savedState4.jpg; path = images/savedState4.jpg; sourceTree = "<group>"; };
 		492A42A81A27BEB400731F26 /* SavedStateMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedStateMenuButton.swift; sourceTree = "<group>"; };
 		492A42C31A2D38E900731F26 /* SavedStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedStateManager.swift; sourceTree = "<group>"; };
 		492A42C51A2D4AF100731F26 /* piano2.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = piano2.sf2; sourceTree = "<group>"; };
@@ -163,6 +164,9 @@
 		495BDEC81A1226A8000941E8 /* PlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayScene.swift; sourceTree = "<group>"; };
 		49C0152E1A1D316900DBAC0D /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		49C015301A1D31C300DBAC0D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		49DD5D051A2EA13F0001252C /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = images/Menu/back.png; sourceTree = "<group>"; };
+		49DD5D071A2EA1880001252C /* guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = guitar.sf2; sourceTree = "<group>"; };
+		49DD5D091A2EA1930001252C /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = images/Menu/play.png; sourceTree = "<group>"; };
 		49EC59F81A2006C800A36D2C /* piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = piano.sf2; sourceTree = "<group>"; };
 		49EC59FA1A2009F200A36D2C /* ModulatorNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModulatorNode.swift; sourceTree = "<group>"; };
 		49EC59FC1A2009FA00A36D2C /* Sampler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sampler.swift; sourceTree = "<group>"; };
@@ -222,11 +226,7 @@
 		2557DBCE1A13FCB20003AB5D /* images */ = {
 			isa = PBXGroup;
 			children = (
-				492A42A01A27BC0B00731F26 /* savedState1.jpg */,
-				492A42A11A27BC0B00731F26 /* savedState2.jpg */,
-				492A42A21A27BC0B00731F26 /* savedState3.jpg */,
-				492A42A31A27BC0B00731F26 /* savedState4.jpg */,
-				492A429E1A27B05D00731F26 /* bin.png */,
+				49DD5D001A2E9FC80001252C /* Menu */,
 				2557DBCF1A13FCB20003AB5D /* BOTAO */,
 				2557DBD11A13FCB20003AB5D /* CANVAS */,
 				2557DBD41A13FCB20003AB5D /* MOLA */,
@@ -371,11 +371,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		49DD5D001A2E9FC80001252C /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				49DD5D091A2EA1930001252C /* play.png */,
+				49DD5D051A2EA13F0001252C /* back.png */,
+				492A42A01A27BC0B00731F26 /* savedState1.jpg */,
+				492A42A11A27BC0B00731F26 /* savedState2.jpg */,
+				492A42A21A27BC0B00731F26 /* savedState3.jpg */,
+				492A42A31A27BC0B00731F26 /* savedState4.jpg */,
+				492A429E1A27B05D00731F26 /* bin.png */,
+			);
+			name = Menu;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		49EC59F71A2006C800A36D2C /* SoundFonts */ = {
 			isa = PBXGroup;
 			children = (
+				49DD5D071A2EA1880001252C /* guitar.sf2 */,
 				492A42C51A2D4AF100731F26 /* piano2.sf2 */,
-				4918FC701A228F41007E1F64 /* guitar.sf2 */,
 				49EC59F81A2006C800A36D2C /* piano.sf2 */,
 				492A42C71A2D4F7900731F26 /* clarinet.sf2 */,
 			);
@@ -499,7 +514,6 @@
 				492A42C81A2D4F7900731F26 /* clarinet.sf2 in Resources */,
 				492A42A61A27BC0B00731F26 /* savedState3.jpg in Resources */,
 				2557DBF21A1406AB0003AB5D /* slider.png in Resources */,
-				4918FC711A228F41007E1F64 /* guitar.sf2 in Resources */,
 				25AF9BED1A267BDE00CED1CD /* spring_stick.png in Resources */,
 				492A429F1A27B05D00731F26 /* bin.png in Resources */,
 				25AF9BE21A265FE400CED1CD /* roulette_frame.png in Resources */,
@@ -511,6 +525,7 @@
 				259B90A619F96D1400737E04 /* Main.storyboard in Resources */,
 				49EC59F91A2006C800A36D2C /* piano.sf2 in Resources */,
 				4933E0F11A18005700DDCE0D /* sliderTrack.png in Resources */,
+				49DD5D081A2EA1880001252C /* guitar.sf2 in Resources */,
 				259B90AB19F96D1400737E04 /* LaunchScreen.xib in Resources */,
 				2557DBF41A1406B80003AB5D /* thermal.png in Resources */,
 				25A93F6C1A1A9B7D00C9F145 /* roulette_background.png in Resources */,
@@ -523,6 +538,8 @@
 				492A42A51A27BC0B00731F26 /* savedState2.jpg in Resources */,
 				492A42A41A27BC0B00731F26 /* savedState1.jpg in Resources */,
 				25AF9BE31A265FE400CED1CD /* roullete_button.png in Resources */,
+				49DD5D061A2EA13F0001252C /* back.png in Resources */,
+				49DD5D0A1A2EA1930001252C /* play.png in Resources */,
 				2557DBF01A14068C0003AB5D /* roulette.png in Resources */,
 				4933E0F01A18005700DDCE0D /* sliderHandle.png in Resources */,
 				259B90CB19F9768500737E04 /* LaunchImage.png in Resources */,

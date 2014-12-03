@@ -19,7 +19,7 @@ class DistortionModulator : Modulator
     }
     func startModulator()
     {
-        node.loadFactoryPreset(AVAudioUnitDistortionPreset.MultiDistortedCubed)
+        node.loadFactoryPreset(AVAudioUnitDistortionPreset.MultiEcho1)
         node.wetDryMix = 50
     }
     

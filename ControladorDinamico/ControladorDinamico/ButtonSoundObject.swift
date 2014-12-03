@@ -120,7 +120,7 @@ class ButtonSoundObject : SoundObject, Sampler
     func startSampler() {
         var error:NSError?
         self.audioSampler = AVAudioUnitSampler()
-        let path = NSBundle.mainBundle().URLForResource(String("clarinet"), withExtension:"sf2")
+        let path = NSBundle.mainBundle().URLForResource(String("guitar"), withExtension:"sf2")
         self.audioSampler?.loadSoundBankInstrumentAtURL(path, program: 0, bankMSB: UInt8(kAUSampler_DefaultMelodicBankMSB), bankLSB: UInt8(kAUSampler_DefaultBankLSB), error: &error)
     }
     
