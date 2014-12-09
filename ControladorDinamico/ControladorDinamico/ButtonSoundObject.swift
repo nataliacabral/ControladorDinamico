@@ -129,16 +129,21 @@ class ButtonSoundObject : SoundObject, Sampler
         return self.audioSampler!
     }
     
+    func playNote()
+    {
+        self.audioSampler?.startNote(self.note, withVelocity: 127, onChannel: 0)
+        self.status.playing = true
+    }
+    
     func playSound()
     {
         if (!self.status.playing) {
             //self.audioSampler?.sendController(69, withValue:127, onChannel:0)
             //self.audioSampler?.sendController(67, withValue:127, onChannel:0)
             //self.audioSampler?.sendController(64, withValue:64, onChannel:0)
-            self.audioSampler?.startNote(self.note, withVelocity: 127, onChannel: 0)
+            self.playNote()
             //self.audioSampler?.sendPressure(127, onChannel:0)
             //self.audioSampler?.sendPitchBend(16383, onChannel: 0)
-            self.status.playing = true
         }
     }
     
@@ -172,7 +177,7 @@ class ButtonSoundObject : SoundObject, Sampler
     {
         self.status = self.savedStatus[slot];
         if (self.status.playing) {
-            self.playSound()
+            self.playNote()
         }
     }
     
