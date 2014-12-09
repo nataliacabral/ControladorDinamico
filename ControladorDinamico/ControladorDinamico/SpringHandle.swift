@@ -32,6 +32,7 @@ class SpringHandle : SKSpriteNode, Touchable
     
     func touchStarted(position:CGPoint)
     {
+        self.physicsBody?.dynamic = false
     }
     
     func touchMoved(position:CGPoint)
@@ -41,6 +42,7 @@ class SpringHandle : SKSpriteNode, Touchable
         let bottomLimit = (-parent.size.height / 2) + handlerHeightBorder + self.size.height / 2
         
         var relativePosition:CGPoint = self.scene!.convertPoint(position, toNode: self.parent!)
+        //relativePosition.y -= self.size.height / 2
         self.position.y = relativePosition.y
         
         if (self.position.y < bottomLimit) {
@@ -54,6 +56,7 @@ class SpringHandle : SKSpriteNode, Touchable
 
     func touchEnded(position:CGPoint)
     {
+        self.physicsBody?.dynamic = true
     }
     
     func touchCancelled(position: CGPoint) {

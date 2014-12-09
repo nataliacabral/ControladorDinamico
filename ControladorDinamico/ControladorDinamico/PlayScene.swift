@@ -28,7 +28,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
     
     override init(size: CGSize)
     {
-        self.gridSize = 64
+        self.gridSize = 128
         super.init(size: size)
         self.scene?.backgroundColor = UIColor.blackColor()
         

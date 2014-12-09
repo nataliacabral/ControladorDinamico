@@ -29,7 +29,7 @@ class EditScene : SKScene
     
     override init(size: CGSize)
     {
-        self.gridSize = 64
+        self.gridSize = 128
         // Menu
         var buttonSpriteC:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:60)
         var buttonSpriteD:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:62)

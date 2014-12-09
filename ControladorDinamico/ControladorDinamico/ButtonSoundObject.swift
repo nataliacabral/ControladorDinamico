@@ -146,12 +146,17 @@ class ButtonSoundObject : SoundObject, Sampler
             //self.audioSampler?.sendPitchBend(16383, onChannel: 0)
         }
     }
+
+    func stopNote()
+    {
+        self.audioSampler?.stopNote(self.note,  onChannel: 0)
+        self.status.playing = false
+    }
     
     func stopSound()
     {
         if (self.status.playing) {
-            self.audioSampler?.stopNote(self.note,  onChannel: 0)
-            self.status.playing = false
+            self.stopNote()
         }
     }
     
@@ -177,6 +182,7 @@ class ButtonSoundObject : SoundObject, Sampler
     {
         self.status = self.savedStatus[slot];
         if (self.status.playing) {
+            self.stopNote()
             self.playNote()
         }
     }

@@ -42,13 +42,13 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
         var x:CGFloat = 0
         var y:CGFloat = 0
         // Rotacao em cima, x é positivo para direita
-        if (self.startRotationPoint?.y > self.size.height / 2) {
+        if (self.startRotationPoint?.y > 0) {
             x = -translation.x
         }
         else {
             x = translation.x
         }
-        if (self.startRotationPoint?.x > self.size.width / 2) {
+        if (self.startRotationPoint?.x > 0) {
             y = translation.y
         }
         else {
@@ -63,7 +63,7 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
         }
         self.physicsBody?.applyAngularImpulse(higherValue / 800)
         
-        let maxVelocity:CGFloat = 40
+        let maxVelocity:CGFloat = 50
         if (self.physicsBody?.angularVelocity > maxVelocity) {
             self.physicsBody?.angularVelocity = maxVelocity
         } else if (self.physicsBody?.angularVelocity < -maxVelocity) {

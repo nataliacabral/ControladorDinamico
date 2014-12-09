@@ -20,8 +20,10 @@ class SavedStateMenuButton : MenuButton
     var lastUpdateTime:NSTimeInterval = 0
     var saved:Bool = false
     var selected:Bool = false
-    let timeToSave:NSTimeInterval = 2
-    let timeToStartSaving:NSTimeInterval = 0.5
+    
+    let timeToSave:NSTimeInterval = 0.8
+    let timeToStartSaving:NSTimeInterval = 0.2
+    
     let selectedColor:UIColor = UIColor.greenColor()
     let savingColor:UIColor = UIColor.blueColor()
     let deselectedColor:UIColor = UIColor.whiteColor()
@@ -100,7 +102,8 @@ class SavedStateMenuButton : MenuButton
                 for obj in objList {
                     obj.saveStatus(slot)
                 }
-                SavedStateManager.sharedInstance.selectSlot(self.slot)
+                // Uncomment to load state after save
+                //SavedStateManager.sharedInstance.selectSlot(self.slot)
             }
             self.updateDraw()
         }

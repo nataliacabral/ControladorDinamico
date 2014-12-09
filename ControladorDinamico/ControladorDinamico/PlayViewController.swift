@@ -26,7 +26,7 @@ class PlayViewController : UIViewController {
         var skView:SKView = self.view as SKView;
         skView.showsFPS = true;
         skView.showsNodeCount = true;
-        skView.showsPhysics = false
+        skView.showsPhysics = true
         
         self.scene = PlayScene(size: skView.bounds.size);
         self.scene!.objects = self.project!.objects

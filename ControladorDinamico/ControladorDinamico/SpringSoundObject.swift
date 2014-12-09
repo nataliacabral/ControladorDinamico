@@ -34,7 +34,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     var springJoint:SKPhysicsJointSpring?
     
     var status:SpringStatus = SpringStatus(handlePosition: CGFloat(64), handleSpeed:CGFloat(0))
-    var savedStatus : Array<SpringStatus> = Array<SpringStatus>(count: 4, repeatedValue: SpringStatus(handlePosition: CGFloat(64), handleSpeed: CGFloat(0)))
+    var savedStatus : Array<SpringStatus>?
     
     override init()
     {
@@ -60,11 +60,12 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
         self.removeAllChildren()
         if (self.springHandle == nil) {
             self.springHandle = SpringHandle()
+            self.springHandle?.zPosition = 1
             self.springHandle!.size.width = self.size.width - (self.handlerWidthBorder * 2)
             let ratio:CGFloat = self.springHandle!.texture!.size().width / self.springHandle!.size.width
             self.springHandle!.size.height = self.springHandle!.texture!.size().height / ratio
-            self.springHandle!.position.x = 0;
-            self.springHandle!.position.y = self.size.height / 4;
+            self.springHandle!.position.x = 0
+            self.springHandle!.position.y = self.size.height / 2 - self.springHandle!.size.height / 2
             
             self.addChild(self.springHandle!);
         }
@@ -80,6 +81,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
             self.addChild(stick);
         }
         self.updateSticksPosition()
+        self.savedStatus = Array<SpringStatus>(count: 4, repeatedValue: SpringStatus(handlePosition: CGFloat(self.size.height / 2 - self.springHandle!.size.height / 2), handleSpeed: CGFloat(0)))
     }
     
     override func currentSoundIntensity() -> Float
@@ -118,9 +120,9 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
             var handleSize:CGFloat = self.springHandle!.size.height
 
             let stickHeight:CGFloat = (self.sticksList[0] as SKSpriteNode).size.height
-            let range:CGFloat = (self.size.height / 2) - handlePosition - handleSize
+            let range:CGFloat = (self.size.height / 2) - handlePosition - handleSize / 2
             let distance:CGFloat = range / CGFloat(self.sticksList.count)
-            var currentPosition:CGFloat = (self.size.height / 2) - self.stickWidthBorder
+            var currentPosition:CGFloat = (self.size.height / 2) - 20
 
             for stick in self.sticksList {
                 stick.position.y = currentPosition
@@ -154,11 +156,12 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
         springHandleBoundEdge.physicsBody?.dynamic = false
 
         let positionY:CGFloat = self.position.y - self.size.height / 2
-        let springHandleAnchor = self.convertPoint(self.springHandle!.position, toNode: self.scene!)
-        self.springJoint = SKPhysicsJointSpring .jointWithBodyA(self.springHandle!.physicsBody!, bodyB:self.physicsBody!, anchorA:CGPoint(x: self.position.x, y: positionY) , anchorB:springHandleAnchor)
+        let springHandleScenePosition = self.convertPoint(self.springHandle!.position, toNode: self.scene!)
+        var springHandleAnchor = springHandleScenePosition
+        self.springJoint = SKPhysicsJointSpring .jointWithBodyA(self.springHandle!.physicsBody!, bodyB:self.physicsBody!, anchorA:springHandleAnchor , anchorB:CGPoint(x: self.position.x, y: positionY))
         
-        springJoint!.frequency = 0.4;
-        springJoint!.damping = 0.05;
+        springJoint!.frequency = 0.8;
+        springJoint!.damping = 0.3;
         self.scene?.physicsWorld .addJoint(springJoint!)
         self.scene?.addChild(self.springHandleBoundEdge)
     }
@@ -189,12 +192,12 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     {
         self.status.handlePosition = self.springHandle!.position.y
         self.status.handleSpeed = self.springHandle!.physicsBody!.velocity.dy
-        self.savedStatus[slot] = self.status;
+        self.savedStatus?[slot] = self.status;
     }
     
     override func loadStatus(slot:Int)
     {
-        self.status = self.savedStatus[slot];
+        self.status = self.savedStatus![slot];
         self.springHandle!.position.y = self.status.handlePosition
         self.springHandle!.physicsBody!.velocity.dy = self.status.handleSpeed
     }
