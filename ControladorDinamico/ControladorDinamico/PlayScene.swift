@@ -183,7 +183,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                     if (leftObj is ModulatorNode)
                     {
                         let modulatorNode = leftObj as ModulatorNode
-                        let modulator:DistortionModulator = DistortionModulator()
+                        let modulator:ReverbModulator = ReverbModulator()
                         modulatorNode.addModulator(modulator)
                         modulatedSampler.addModulator(modulator)
                         break;
@@ -193,7 +193,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                     if (rightObj is ModulatorNode)
                     {
                         let modulatorNode = rightObj as ModulatorNode
-                        let modulator:ReverbModulator = ReverbModulator()
+                        let modulator:EQModulator = EQModulator()
                         modulatorNode.addModulator(modulator)
                         modulatedSampler.addModulator(modulator)
                         break;
@@ -239,7 +239,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
             var touchedNode:SKNode? = self.nodeAtPoint(touchLocation)
             
             if (touchBound != nil) {
-                touchBound!.touchEnded(uiTouch.locationInView(uiTouch.view))
+                touchBound!.touchEnded(touchLocation)
                 touchMapping .removeValueForKey(uiTouch)
             }
             if (touchedNode == self.backButton) {
@@ -275,7 +275,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                 if (touchedNode != nil && touchedNode is Touchable) {
                     let touchableObj = touchedNode as Touchable
                     touchMapping[uiTouch] = touchableObj
-                    touchableObj.touchStarted(uiTouch.locationInView(uiTouch.view))
+                    touchableObj.touchStarted(touchLocation)
                 }
             }
         }
