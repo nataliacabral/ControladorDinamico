@@ -11,7 +11,7 @@ import SpriteKit
 
 class VerticalMenuBar : SKSpriteNode
 {
-    let border:CGFloat = 8
+    class var border:CGFloat  { get { return 8 } }
     let bgColor = UIColor(red:0.5 , green:0.5, blue:0.5, alpha: 1)
 
     var buttonList:Array<MenuButton>
@@ -34,15 +34,15 @@ class VerticalMenuBar : SKSpriteNode
     
     func reloadObjs()
     {
-        var borderDistance = border
+        var borderDistance = VerticalMenuBar.border
         var yPos = (self.size.height / 2) - self.buttonSize.height / 2 - borderDistance
         for button in self.buttonList {
             button.position.y = yPos
             button.position.x = 0
             button.size.width = self.buttonSize.width
             button.size.height = self.buttonSize.height
-            yPos -= self.buttonSize.height + border
-            borderDistance += border
+            yPos -= self.buttonSize.height + VerticalMenuBar.border
+            borderDistance += VerticalMenuBar.border
             self.addChild(button)
         }
     }
