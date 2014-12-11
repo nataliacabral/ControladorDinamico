@@ -28,6 +28,10 @@
 		2557DBF21A1406AB0003AB5D /* slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBF11A1406AB0003AB5D /* slider.png */; };
 		2557DBF41A1406B80003AB5D /* thermal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBF31A1406B80003AB5D /* thermal.png */; };
 		2557DC131A16A3000003AB5D /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2557DC121A16A3000003AB5D /* PlayViewController.swift */; };
+		255DB7FD1A3A2BF6007BC71C /* roulette_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 255DB7F91A3A2BF6007BC71C /* roulette_icon.png */; };
+		255DB7FE1A3A2BF6007BC71C /* slider_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 255DB7FA1A3A2BF6007BC71C /* slider_icon.png */; };
+		255DB7FF1A3A2BF6007BC71C /* spring_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 255DB7FB1A3A2BF6007BC71C /* spring_icon.png */; };
+		255DB8001A3A2BF6007BC71C /* thermal_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 255DB7FC1A3A2BF6007BC71C /* thermal_icon.png */; };
 		258D1FEF1A0182EE00ACFC93 /* SoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FEE1A0182EE00ACFC93 /* SoundObject.swift */; };
 		258D1FF11A01849800ACFC93 /* ObjectsPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FF01A01849800ACFC93 /* ObjectsPalette.swift */; };
 		258D1FFB1A019BF900ACFC93 /* SoundObjectTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */; };
@@ -126,6 +130,10 @@
 		2557DBF11A1406AB0003AB5D /* slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider.png; sourceTree = "<group>"; };
 		2557DBF31A1406B80003AB5D /* thermal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thermal.png; sourceTree = "<group>"; };
 		2557DC121A16A3000003AB5D /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		255DB7F91A3A2BF6007BC71C /* roulette_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = roulette_icon.png; path = "../../../../Downloads/GAVETINHAS SEPARADAS/roulette_icon.png"; sourceTree = "<group>"; };
+		255DB7FA1A3A2BF6007BC71C /* slider_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slider_icon.png; path = "../../../../Downloads/GAVETINHAS SEPARADAS/slider_icon.png"; sourceTree = "<group>"; };
+		255DB7FB1A3A2BF6007BC71C /* spring_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spring_icon.png; path = "../../../../Downloads/GAVETINHAS SEPARADAS/spring_icon.png"; sourceTree = "<group>"; };
+		255DB7FC1A3A2BF6007BC71C /* thermal_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thermal_icon.png; path = "../../../../Downloads/GAVETINHAS SEPARADAS/thermal_icon.png"; sourceTree = "<group>"; };
 		258D1FEE1A0182EE00ACFC93 /* SoundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundObject.swift; sourceTree = "<group>"; };
 		258D1FF01A01849800ACFC93 /* ObjectsPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectsPalette.swift; sourceTree = "<group>"; };
 		258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundObjectTemplate.swift; sourceTree = "<group>"; };
@@ -388,6 +396,10 @@
 		49DD5D001A2E9FC80001252C /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				255DB7F91A3A2BF6007BC71C /* roulette_icon.png */,
+				255DB7FA1A3A2BF6007BC71C /* slider_icon.png */,
+				255DB7FB1A3A2BF6007BC71C /* spring_icon.png */,
+				255DB7FC1A3A2BF6007BC71C /* thermal_icon.png */,
 				259682D11A38E17500101AE2 /* menubutton_about.png */,
 				259682D21A38E17500101AE2 /* menubutton_projects.png */,
 				259682D31A38E17500101AE2 /* menubutton_button.png */,
@@ -539,10 +551,13 @@
 				492A429F1A27B05D00731F26 /* bin.png in Resources */,
 				25AF9BE21A265FE400CED1CD /* roulette_frame.png in Resources */,
 				492A42C61A2D4AFD00731F26 /* piano2.sf2 in Resources */,
+				255DB8001A3A2BF6007BC71C /* thermal_icon.png in Resources */,
 				251174531A291CD7005E37C5 /* thermal_frame.png in Resources */,
 				492A42A71A27BC0B00731F26 /* savedState4.jpg in Resources */,
+				255DB7FD1A3A2BF6007BC71C /* roulette_icon.png in Resources */,
 				2557DBEE1A14067B0003AB5D /* spring.png in Resources */,
 				25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */,
+				255DB7FF1A3A2BF6007BC71C /* spring_icon.png in Resources */,
 				259682DA1A38E17500101AE2 /* menubutton_modulator.png in Resources */,
 				259B90A619F96D1400737E04 /* Main.storyboard in Resources */,
 				49EC59F91A2006C800A36D2C /* piano.sf2 in Resources */,
@@ -568,6 +583,7 @@
 				2557DBF01A14068C0003AB5D /* roulette.png in Resources */,
 				4933E0F01A18005700DDCE0D /* sliderHandle.png in Resources */,
 				259B90CB19F9768500737E04 /* LaunchImage.png in Resources */,
+				255DB7FE1A3A2BF6007BC71C /* slider_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -65,6 +65,8 @@ class EditScene : SKScene
         var thermalTemplate:SoundObjectTemplate = SoundObjectTemplate(object: thermalSprite)
     
         let buttonSize = CGSize(width: 100, height: 100)
+        let drawerButtonSize = CGSize(width: 50, height: 50)
+
         backButton = MenuButton(
             texture:SKTexture(imageNamed: "menubutton_projects.png"),
             color:UIColor(),
@@ -98,32 +100,42 @@ class EditScene : SKScene
         var x:CGFloat = self.size.width - gridSize / 2
         var y:CGFloat = (self.size.height / 2)
         
+        var buttons = [
+            buttonTemplateC,
+            buttonTemplateD,
+            buttonTemplateE,
+            buttonTemplateF,
+            buttonTemplateG,
+            buttonTemplateA,
+            buttonTemplateB
+        ]
+        
+        let barWidth:CGFloat = drawerButtonSize.width + 2 * VerticalMenuBar.border
+        let barHeight:CGFloat = CGFloat( (2 * VerticalMenuBar.border) + ((drawerButtonSize.height + VerticalMenuBar.border) * CGFloat(buttons.count)))
+        
         //Drawer menus
         self.buttonDrawer = VerticalMenuBar(
-            buttons: [
-                buttonTemplateC,
-                buttonTemplateD,
-                buttonTemplateE,
-                buttonTemplateF,
-                buttonTemplateG,
-                buttonTemplateA,
-                buttonTemplateB
-            ],
+            buttons: buttons,
             position:CGPoint(x: x, y: -(self.size.height - gridSize)),
-            size:CGSize(width: width, height: self.size.height),
-            buttonSize:CGSize(width: gridSize, height: gridSize)
+            size:CGSize(width: barWidth, height: barHeight),
+            buttonSize:drawerButtonSize
         )
         
+        let modulators = [
+            springTemplate,
+            sliderTemplate,
+            horizontalSliderTemplate,
+            rouletteTemplate,
+            thermalTemplate]
+        
+        let modulatorBarHeight:CGFloat = CGFloat( (2 * VerticalMenuBar.border) + ((drawerButtonSize.height + VerticalMenuBar.border) * CGFloat(modulators.count)))
+        
+        
         self.modulatorDrawer = VerticalMenuBar(
-            buttons: [
-                springTemplate,
-                sliderTemplate,
-                horizontalSliderTemplate,
-                rouletteTemplate,
-                thermalTemplate],
+            buttons: modulators,
             position:CGPoint(x: x, y: -(self.size.height - (gridSize * 2))),
-            size:CGSize(width: width, height: self.size.height),
-            buttonSize:CGSize(width: gridSize, height: gridSize)
+            size:CGSize(width: barWidth, height: modulatorBarHeight),
+            buttonSize:drawerButtonSize
         )
 
         var buttonsDrawerButton:MenuButton = DrawerMenuButton(
@@ -137,15 +149,7 @@ class EditScene : SKScene
             color:UIColor(),
             size:buttonSize,
             drawer:self.modulatorDrawer!)
-        
-        self.modulatorDrawer!.position.x = x + gridSize;
-        self.modulatorDrawer!.position.y = y;
-        
-        self.buttonDrawer!.position.x = x + gridSize;
-        self.buttonDrawer!.position.y = y;
-        
-        self.addChild(self.modulatorDrawer!)
-        self.addChild(self.buttonDrawer!)
+    
 
         
         //Grid
@@ -178,6 +182,20 @@ class EditScene : SKScene
             buttonSize:buttonSize
         )
         self.addChild(menuBar!)
+        
+        let convertedButtonPosition = self.convertPoint(buttonsDrawerButton.position, fromNode: menuBar!)
+        
+        self.buttonDrawer!.position.x = x + gridSize;
+        self.buttonDrawer!.position.y = convertedButtonPosition.y - self.buttonDrawer!.size.height/2 + buttonSize.height/2
+
+        
+        let convertedModulatorPosition = self.convertPoint(modulatorDrawerButton.position, fromNode: menuBar!)
+
+        self.modulatorDrawer!.position.x = x + gridSize;
+        self.modulatorDrawer!.position.y = convertedModulatorPosition.y - self.modulatorDrawer!.size.height/2 + buttonSize.height/2
+        
+        self.addChild(self.modulatorDrawer!)
+        self.addChild(self.buttonDrawer!)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -297,6 +315,9 @@ class EditScene : SKScene
                         (navigationController as UINavigationController).popViewControllerAnimated(true)
                     }
                 }
+                else if (boundNode === self.saveButton) {
+                    
+                }
                 else if (boundNode === self.playButton) {
                     let navigationController = self.view!.window!.rootViewController!
                     if (navigationController is UINavigationController) {
@@ -355,4 +376,6 @@ obj.position.y <= self.size.height - obj.size.height / 2)
             }
         }
     }
+    
 }
+

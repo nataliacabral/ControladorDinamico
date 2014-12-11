@@ -21,8 +21,8 @@ class ButtonSoundObject : SoundObject, Sampler
 {
     override var gridHeight:CGFloat { get { return 1 } }
     override var gridWidth:CGFloat { get { return 1 } }
-    override var templateImageName:String { get { return "button.png" } }
-    
+    override var editImageName:String { get { return "button.png" } }
+
     let selectedTexture:SKTexture = SKTexture(imageNamed: "buttonSelected.png")
     let stillTexture:SKTexture =  SKTexture(imageNamed: "button.png")
 

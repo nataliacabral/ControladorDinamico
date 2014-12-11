@@ -20,8 +20,9 @@ class RouletteSoundObject : SoundObject, ModulatorNode
 {
     override var gridHeight:CGFloat { get { return 2 } }
     override var gridWidth:CGFloat { get { return 2 } }
-    override var templateImageName:String { get { return "roulette.png" } }
-    
+    override var editImageName:String { get { return "roulette.png" } }
+    override var iconImageName:String { get { return "roulette_icon.png" } }
+
     var rouletteSpin:RouletteSpin?
     var rouletteButton:RouletteButton?
     var rouletteFrame:RouletteFrame?
@@ -51,30 +52,18 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     }
     
     override func startPhysicalBody() {
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
-        self.physicsBody?.affectedByGravity = false
-        self.physicsBody?.categoryBitMask = 2
-        self.physicsBody?.contactTestBitMask = 0
-        self.physicsBody?.collisionBitMask = 0
-        self.physicsBody?.dynamic = false
-        self.physicsBody?.mass = 5000
-        self.physicsBody?.restitution = 0
-        
         if (self.rouletteSpin != nil) {
-            rouletteSpin!.physicsBody?.categoryBitMask = (1 << 3)
-            rouletteSpin!.physicsBody?.contactTestBitMask = 0
             rouletteSpin!.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width / 2)
             rouletteSpin!.physicsBody?.dynamic = true
-            rouletteSpin!.physicsBody?.mass = 1
             rouletteSpin!.physicsBody?.allowsRotation = true
-            rouletteSpin!.physicsBody?.restitution = 0
-            rouletteSpin!.physicsBody?.linearDamping = 0.9
+            rouletteSpin!.physicsBody?.mass = 1
             rouletteSpin!.physicsBody?.angularDamping = 0.2
         }
     }
     
     func loadSpin()
     {
+        self.zPosition = -1
         self.removeAllChildren()
         
         self.rouletteSpin = RouletteSpin()
@@ -94,8 +83,8 @@ class RouletteSoundObject : SoundObject, ModulatorNode
         self.addChild(self.rouletteFrame!)
         
         self.rouletteButton = RouletteButton()
-        self.rouletteButton!.size.width = self.size.width / 2.5
-        self.rouletteButton!.size.height = self.size.height / 2.5
+        self.rouletteButton!.size.width = self.size.width / 2.4
+        self.rouletteButton!.size.height = self.size.height / 2.4
         self.rouletteButton!.position.x = 0
         self.rouletteButton!.position.y = 0
         self.rouletteButton!.colorBlendFactor = 1.0

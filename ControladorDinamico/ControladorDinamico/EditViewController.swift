@@ -31,30 +31,13 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
         self.scene!.objects = self.project.objects
         skView.presentScene(scene)
     }
-    
-    override func viewWillDisappear(animated: Bool) {
-        self.saveProject()
-    }
+
     
     @IBAction func backAction(AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    func saveProject() -> Bool {
-        if (self.project.projectName != nil) {
-            
-            UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, UIScreen.mainScreen().scale);
-            self.view.drawViewHierarchyInRect(self.view.bounds, afterScreenUpdates: true)
-            let image = UIGraphicsGetImageFromCurrentImageContext();
-            UIGraphicsEndImageContext();
-
-            self.project.preview = image
-            self.project.objects = self.scene!.objects
-            return ProjectManager.sharedInstance.saveProject(self.project)
-        }
-        return false
-    }
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "play" {
             let playViewController = segue.destinationViewController as PlayViewController

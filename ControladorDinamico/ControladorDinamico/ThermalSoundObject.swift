@@ -21,8 +21,9 @@ class ThermalSoundObject : SoundObject
 {
     override var gridHeight:CGFloat { get { return 2 } }
     override var gridWidth:CGFloat { get { return 2 } }
-    override var templateImageName:String { get { return "thermal.png" } }
-    
+    override var editImageName:String { get { return "thermal.png" } }
+    override var iconImageName:String { get { return "thermal_icon.png" } }
+
     var frames:Array<ThermalFrame> = Array<ThermalFrame>()
     let thermalBackgroundTexture:SKTexture = SKTexture(imageNamed: "thermal_background.png")
     let thermalFrameBorder:CGFloat = 5
