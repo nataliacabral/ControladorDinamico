@@ -19,8 +19,9 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
 {
     override var gridHeight:CGFloat { get { return 3 } }
     override var gridWidth:CGFloat { get { return 1 } }
-    override var templateImageName:String { get { return "spring.png" } }
-    
+    override var editImageName:String { get { return "spring.png" } }
+    override var iconImageName:String { get { return "spring_icon.png" } }
+
     var sticksList:Array<SKSpriteNode> = Array<SKSpriteNode>()
     var springHandle:SpringHandle?
     var springHandleBoundEdge:SKSpriteNode = SKSpriteNode()

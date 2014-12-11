@@ -20,7 +20,8 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
 {
     override var gridHeight:CGFloat { get { return 3 } }
     override var gridWidth:CGFloat { get { return 1 } }
-    override var templateImageName:String { get { return "slider.png" } }
+    override var editImageName:String { get { return "slider.png" } }
+    override var iconImageName:String { get { return "slider_icon.png" } }
 
     var sliderHandle:SliderHandle?
     let sliderTrackTexture:SKTexture = SKTexture(imageNamed: "sliderTrack.png")

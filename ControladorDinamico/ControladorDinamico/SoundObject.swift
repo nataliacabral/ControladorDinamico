@@ -12,7 +12,8 @@ import AVFoundation
 
 class SoundObject: SKSpriteNode, NSCoding, NSCopying, Touchable
 {
-    var templateImageName:String { get { return "" } }
+    var iconImageName:String { get { return "" } }
+    var editImageName:String { get { return "" } }
     var gridHeight:CGFloat { get { return 0 } }
     var gridWidth:CGFloat { get { return 0 } }
     
@@ -24,7 +25,7 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Touchable
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
         super.init(texture: texture, color: color, size: size)
-        var texture:SKTexture = SKTexture(imageNamed: self.templateImageName)
+        var texture:SKTexture = SKTexture(imageNamed: self.editImageName)
         self.texture = texture
     }
     

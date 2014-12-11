@@ -111,7 +111,7 @@ class EditScene : SKScene
             ],
             position:CGPoint(x: x, y: -(self.size.height - gridSize)),
             size:CGSize(width: width, height: self.size.height),
-            buttonSize:CGSize(width: gridSize, height: gridSize)
+            buttonSize:CGSize(width: 50, height: 50)
         )
         
         self.modulatorDrawer = VerticalMenuBar(
@@ -123,7 +123,7 @@ class EditScene : SKScene
                 thermalTemplate],
             position:CGPoint(x: x, y: -(self.size.height - (gridSize * 2))),
             size:CGSize(width: width, height: self.size.height),
-            buttonSize:CGSize(width: gridSize, height: gridSize)
+            buttonSize:CGSize(width: 50, height: 50)
         )
 
         var buttonsDrawerButton:MenuButton = DrawerMenuButton(
