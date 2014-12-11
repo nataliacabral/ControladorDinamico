@@ -16,12 +16,14 @@ class EQModulator : Modulator
     func modulate(modulation:Float)
     {
         let nodeParam = node.bands[0] as AVAudioUnitEQFilterParameters
-        nodeParam.frequency = modulation * 440000
+        nodeParam.frequency = modulation * 44000
     }
     func startModulator()
     {
         let nodeParam = node.bands[0] as AVAudioUnitEQFilterParameters
-        nodeParam.filterType = AVAudioUnitEQFilterType.Parametric
+        nodeParam.frequency = 0
+        nodeParam.bypass = false
+        nodeParam.filterType = AVAudioUnitEQFilterType.LowPass
     }
     
     func audioNode() -> AVAudioNode {
