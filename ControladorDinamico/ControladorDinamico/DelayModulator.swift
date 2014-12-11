@@ -9,7 +9,7 @@
 import Foundation
 import AVFoundation
 
-class DelayModulator : Modulator
+class DelayModulator : NodeModulator
 {
     var node:AVAudioUnitDelay = AVAudioUnitDelay()
     

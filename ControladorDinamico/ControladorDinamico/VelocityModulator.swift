@@ -9,7 +9,7 @@
 import Foundation
 import AVFoundation
 
-class VelocityModulator : Modulator
+class VelocityModulator : NodeModulator
 {
     var node:AVAudioUnitVarispeed = AVAudioUnitVarispeed()
     

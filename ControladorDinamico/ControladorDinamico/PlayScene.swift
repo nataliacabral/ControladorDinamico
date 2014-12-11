@@ -173,7 +173,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                     if (bottomObj is ModulatorNode)
                     {
                         let modulatorNode = bottomObj as ModulatorNode
-                        let modulator:PitchModulator = PitchModulator()
+                        let modulator:PitchMidiModulator = PitchMidiModulator()
                         modulatorNode.addModulator(modulator)
                         modulatedSampler.addModulator(modulator)
                         break;

@@ -9,19 +9,18 @@
 import Foundation
 import AVFoundation
 
-class EQModulator : Modulator
+class EQModulator : NodeModulator
 {
     var node:AVAudioUnitEQ = AVAudioUnitEQ(numberOfBands: 1)
     
     func modulate(modulation:Float)
     {
         let nodeParam = node.bands[0] as AVAudioUnitEQFilterParameters
-        nodeParam.frequency = modulation * 44000
+        nodeParam.frequency = 20 + (800 * modulation)
     }
     func startModulator()
     {
         let nodeParam = node.bands[0] as AVAudioUnitEQFilterParameters
-        nodeParam.frequency = 0
         nodeParam.bypass = false
         nodeParam.filterType = AVAudioUnitEQFilterType.LowPass
     }

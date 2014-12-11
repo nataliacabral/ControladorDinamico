@@ -9,7 +9,7 @@
 import Foundation
 import AVFoundation
 
-class ReverbModulator : Modulator
+class ReverbModulator : NodeModulator
 {
     var node:AVAudioUnitReverb = AVAudioUnitReverb()
     

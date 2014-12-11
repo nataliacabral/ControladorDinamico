@@ -9,7 +9,7 @@
 import Foundation
 import AVFoundation
 
-class PitchModulator : Modulator
+class PitchModulator : NodeModulator
 {
     var node:AVAudioUnitTimePitch = AVAudioUnitTimePitch()
     

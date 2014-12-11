@@ -9,7 +9,7 @@
 import Foundation
 import AVFoundation
 
-class VolumeModulator : Modulator
+class VolumeModulator : NodeModulator
 {
     var node:AVAudioMixerNode = AVAudioMixerNode()
     

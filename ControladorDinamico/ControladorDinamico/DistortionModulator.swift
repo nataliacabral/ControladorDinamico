@@ -9,7 +9,7 @@
 import Foundation
 import AVFoundation
 
-class DistortionModulator : Modulator
+class DistortionModulator : NodeModulator
 {
     var node:AVAudioUnitDistortion = AVAudioUnitDistortion()
     

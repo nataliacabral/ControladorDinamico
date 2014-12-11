@@ -11,7 +11,7 @@ import AVFoundation
 
 class ModulatedSampler
 {
-    var modulatorNodes:Array<Modulator> = Array<Modulator>()
+    var modulatorList:Array<Modulator> = Array<Modulator>()
     var sampler:Sampler
     
     init(sampler:Sampler) {
@@ -20,17 +20,25 @@ class ModulatedSampler
     
     func addModulator(modulator:Modulator)
     {
-        self.modulatorNodes.append(modulator)
+        self.modulatorList.append(modulator)
     }
     
     func startWithEngine(audioEngine:AVAudioEngine)
     {
         let mainMixer = audioEngine.mainMixerNode
         var parentNode:AVAudioNode = mainMixer
-        for modulator in modulatorNodes {
-            audioEngine.attachNode(modulator.audioNode())
-            audioEngine.connect(modulator.audioNode(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
-            parentNode = modulator.audioNode()
+        for modulator in modulatorList {
+            if (modulator is NodeModulator) {
+                let nodeModulator = modulator as NodeModulator
+                audioEngine.attachNode(nodeModulator.audioNode())
+                audioEngine.connect(nodeModulator.audioNode(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
+                parentNode = nodeModulator.audioNode()
+                modulator.startModulator()
+            }
+            else if (modulator is MidiModulator) {
+                let midiModulator = modulator as MidiModulator
+                midiModulator.setSampler(sampler)
+            }
         }
         audioEngine.connect(sampler.sampler(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
     }

@@ -13,5 +13,4 @@ import AVFoundation
 {
     func modulate(modulation:Float)
     func startModulator()
-    func audioNode() -> AVAudioNode
 }
