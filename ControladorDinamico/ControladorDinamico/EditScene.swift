@@ -26,6 +26,9 @@ class EditScene : SKScene
     var backButton:MenuButton
     var playButton:MenuButton
     var trashButton:MenuButton
+    var saveButton:MenuButton
+    var aboutButton:MenuButton
+
     
     override init(size: CGSize)
     {
@@ -61,26 +64,35 @@ class EditScene : SKScene
         var rouletteTemplate:SoundObjectTemplate = SoundObjectTemplate(object: rouletteSprite)
         var thermalTemplate:SoundObjectTemplate = SoundObjectTemplate(object: thermalSprite)
     
-        
+        let buttonSize = CGSize(width: 100, height: 100)
         backButton = MenuButton(
-            texture:SKTexture(imageNamed: "back.png"),
-            pressedTexture:SKTexture(imageNamed: "button.png"),
+            texture:SKTexture(imageNamed: "menubutton_projects.png"),
             color:UIColor(),
-            size:CGSize(width: gridSize, height: gridSize))
+            size:buttonSize)
         
         playButton = MenuButton(
-            texture:SKTexture(imageNamed: "play.png"),
-            pressedTexture:SKTexture(imageNamed: "button.png"),
+            texture:SKTexture(imageNamed: "menubutton_play.png"),
             color:UIColor(),
-            size:CGSize(width: gridSize, height: gridSize))
+            size:buttonSize)
         
         trashButton = MenuButton(
             texture:SKTexture(imageNamed: "bin.png"),
-            pressedTexture:SKTexture(imageNamed: "button.png"),
             color:UIColor(),
-            size:CGSize(width: gridSize, height: gridSize))
+            size:buttonSize)
+        
+        saveButton = MenuButton(
+            texture:SKTexture(imageNamed: "menubutton_save.png"),
+            color:UIColor(),
+            size:buttonSize)
+
+        aboutButton = MenuButton(
+            texture:SKTexture(imageNamed: "menubutton_about.png"),
+            color:UIColor(),
+            size:buttonSize)
+
         
         super.init(size: size)
+
         self.scene?.backgroundColor = UIColor.blackColor()
         var width:CGFloat = gridSize
         var x:CGFloat = self.size.width - gridSize / 2
@@ -115,17 +127,15 @@ class EditScene : SKScene
         )
 
         var buttonsDrawerButton:MenuButton = DrawerMenuButton(
-            texture:SKTexture(imageNamed: "button.png"),
-            pressedTexture:SKTexture(imageNamed: "buttonSelected.png"),
+            texture:SKTexture(imageNamed: "menubutton_button.png"),
             color:UIColor(),
-            size:CGSize(width: self.gridSize, height: self.gridSize),
+            size:buttonSize,
             drawer:self.buttonDrawer!)
         
         var modulatorDrawerButton:MenuButton = DrawerMenuButton(
-            texture:SKTexture(imageNamed: "sliderTrack.png"),
-            pressedTexture:SKTexture(imageNamed: "slider.png"),
+            texture:SKTexture(imageNamed: "menubutton_modulator.png"),
             color:UIColor(),
-            size:CGSize(width: self.gridSize, height: self.gridSize),
+            size:buttonSize,
             drawer:self.modulatorDrawer!)
         
         self.modulatorDrawer!.position.x = x + gridSize;
@@ -162,10 +172,10 @@ class EditScene : SKScene
         }
         
         self.menuBar = VerticalMenuBar(
-            buttons: [buttonsDrawerButton, modulatorDrawerButton, self.backButton, self.playButton, self.trashButton],
+            buttons: [buttonsDrawerButton, modulatorDrawerButton, self.playButton, self.backButton, self.saveButton, self.trashButton, self.aboutButton],
             position:CGPoint(x: x, y: y),
             size:CGSize(width: width, height: self.size.height),
-            buttonSize:CGSize(width: gridSize, height: gridSize)
+            buttonSize:buttonSize
         )
         self.addChild(menuBar!)
     }

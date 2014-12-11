@@ -13,6 +13,8 @@ import SpriteKit
 class SavedStateMenuButton : MenuButton
 
 {
+    var stillTexture:SKTexture?
+    var pressedTexture:SKTexture?
     var slot:Int
     var touchingTime:NSTimeInterval = 0
     var touching:Bool = false
@@ -32,7 +34,9 @@ class SavedStateMenuButton : MenuButton
     init(texture: SKTexture!, pressedTexture: SKTexture?, color: UIColor!, size: CGSize, slot:Int, objList:Array<SoundObject>) {
         self.slot = slot
         self.objList = objList
-        super.init(texture: texture, pressedTexture:pressedTexture, color: color, size: size)
+        super.init(texture: texture, color: color, size: size)
+        self.stillTexture = texture
+        self.pressedTexture = pressedTexture
         self.colorBlendFactor = 1.0
         self.color = self.deselectedColor
     }

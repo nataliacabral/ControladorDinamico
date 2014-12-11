@@ -33,14 +33,20 @@ class SliderHandle : SKSpriteNode, Touchable
     
     func touchStarted(position:CGPoint)
     {
+        self .updatePosition(position)
     }
 
     func touchMoved(position:CGPoint)
     {
+        self .updatePosition(position)
+    }
+    
+    func updatePosition(position:CGPoint)
+    {
         let parent = self.parent as SKSpriteNode
         let topLimit = (parent.size.height / 2) - handlerHeightBorder + self.size.height / 2
         let bottomLimit = (-parent.size.height / 2) + handlerHeightBorder + self.size.height / 2
-
+        
         var relativePosition:CGPoint = self.scene!.convertPoint(position, toNode: self.parent!)
         self.position.y = relativePosition.y
         
@@ -52,6 +58,7 @@ class SliderHandle : SKSpriteNode, Touchable
             self.position.y = topLimit - self.size.height
         }
         NSLog("Slider intensity: %f", self.currentSoundIntensity())
+
     }
     
     func touchEnded(position:CGPoint)

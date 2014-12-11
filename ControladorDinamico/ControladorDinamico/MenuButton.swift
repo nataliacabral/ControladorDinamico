@@ -11,12 +11,7 @@ import SpriteKit
 
 class MenuButton : SKSpriteNode, Touchable
 {
-    var pressedTexture:SKTexture?
-    var stillTexture:SKTexture?
-    
-    init(texture: SKTexture!, pressedTexture: SKTexture?, color: UIColor!, size: CGSize) {
-        self.pressedTexture = pressedTexture
-        self.stillTexture = texture
+    override init(texture: SKTexture!, color: UIColor!, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
     }
 
@@ -25,11 +20,9 @@ class MenuButton : SKSpriteNode, Touchable
     }
     
     func touchEnded(position: CGPoint) {
-        self.stopPress()
     }
     
     func touchCancelled(position: CGPoint) {
-        self.touchEnded(position)
     }
     
     func touchMoved(position: CGPoint) {
@@ -37,17 +30,6 @@ class MenuButton : SKSpriteNode, Touchable
     }
     
     func touchStarted(position: CGPoint) {
-        self.press()
     }
     
-    func press()
-    {
-        if (self.pressedTexture != nil) {
-            self.texture = pressedTexture
-        }
-    }
-    func stopPress()
-    {
-        self.texture = self.stillTexture
-    }
 }

@@ -66,8 +66,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
         // MenuBar
         
         backButton = MenuButton(
-            texture:SKTexture(imageNamed: "back.png.jpg"),
-            pressedTexture:SKTexture(imageNamed: "button.png"),
+            texture:SKTexture(imageNamed: "menubutton_back.png.jpg"),
             color:UIColor(),
             size:CGSize(width: gridSize, height: gridSize)
         )

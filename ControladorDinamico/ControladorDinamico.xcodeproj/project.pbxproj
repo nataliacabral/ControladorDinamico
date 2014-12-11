@@ -31,6 +31,12 @@
 		258D1FEF1A0182EE00ACFC93 /* SoundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FEE1A0182EE00ACFC93 /* SoundObject.swift */; };
 		258D1FF11A01849800ACFC93 /* ObjectsPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FF01A01849800ACFC93 /* ObjectsPalette.swift */; };
 		258D1FFB1A019BF900ACFC93 /* SoundObjectTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */; };
+		259682D71A38E17500101AE2 /* menubutton_about.png in Resources */ = {isa = PBXBuildFile; fileRef = 259682D11A38E17500101AE2 /* menubutton_about.png */; };
+		259682D81A38E17500101AE2 /* menubutton_projects.png in Resources */ = {isa = PBXBuildFile; fileRef = 259682D21A38E17500101AE2 /* menubutton_projects.png */; };
+		259682D91A38E17500101AE2 /* menubutton_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 259682D31A38E17500101AE2 /* menubutton_button.png */; };
+		259682DA1A38E17500101AE2 /* menubutton_modulator.png in Resources */ = {isa = PBXBuildFile; fileRef = 259682D41A38E17500101AE2 /* menubutton_modulator.png */; };
+		259682DB1A38E17500101AE2 /* menubutton_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 259682D51A38E17500101AE2 /* menubutton_play.png */; };
+		259682DC1A38E17500101AE2 /* menubutton_save.png in Resources */ = {isa = PBXBuildFile; fileRef = 259682D61A38E17500101AE2 /* menubutton_save.png */; };
 		259B90A119F96D1400737E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A019F96D1400737E04 /* AppDelegate.swift */; };
 		259B90A319F96D1400737E04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A219F96D1400737E04 /* ViewController.swift */; };
 		259B90A619F96D1400737E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259B90A419F96D1400737E04 /* Main.storyboard */; };
@@ -68,9 +74,7 @@
 		4933E0F11A18005700DDCE0D /* sliderTrack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4933E0EF1A18005700DDCE0D /* sliderTrack.png */; };
 		495BDEC91A1226A8000941E8 /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495BDEC81A1226A8000941E8 /* PlayScene.swift */; };
 		49C0152F1A1D316900DBAC0D /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0152E1A1D316900DBAC0D /* SoundManager.swift */; };
-		49DD5D061A2EA13F0001252C /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DD5D051A2EA13F0001252C /* back.png */; };
 		49DD5D081A2EA1880001252C /* guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 49DD5D071A2EA1880001252C /* guitar.sf2 */; };
-		49DD5D0A1A2EA1930001252C /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DD5D091A2EA1930001252C /* play.png */; };
 		49EC59F91A2006C800A36D2C /* piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 49EC59F81A2006C800A36D2C /* piano.sf2 */; };
 		49EC59FB1A2009F200A36D2C /* ModulatorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC59FA1A2009F200A36D2C /* ModulatorNode.swift */; };
 		49EC59FD1A2009FA00A36D2C /* Sampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC59FC1A2009FA00A36D2C /* Sampler.swift */; };
@@ -122,6 +126,12 @@
 		258D1FEE1A0182EE00ACFC93 /* SoundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundObject.swift; sourceTree = "<group>"; };
 		258D1FF01A01849800ACFC93 /* ObjectsPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectsPalette.swift; sourceTree = "<group>"; };
 		258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundObjectTemplate.swift; sourceTree = "<group>"; };
+		259682D11A38E17500101AE2 /* menubutton_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubutton_about.png; path = images/Menu/menubutton_about.png; sourceTree = "<group>"; };
+		259682D21A38E17500101AE2 /* menubutton_projects.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubutton_projects.png; path = images/Menu/menubutton_projects.png; sourceTree = "<group>"; };
+		259682D31A38E17500101AE2 /* menubutton_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubutton_button.png; path = images/Menu/menubutton_button.png; sourceTree = "<group>"; };
+		259682D41A38E17500101AE2 /* menubutton_modulator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubutton_modulator.png; path = images/Menu/menubutton_modulator.png; sourceTree = "<group>"; };
+		259682D51A38E17500101AE2 /* menubutton_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubutton_play.png; path = images/Menu/menubutton_play.png; sourceTree = "<group>"; };
+		259682D61A38E17500101AE2 /* menubutton_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubutton_save.png; path = images/Menu/menubutton_save.png; sourceTree = "<group>"; };
 		259B909B19F96D1400737E04 /* ControladorDinamico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControladorDinamico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259B909F19F96D1400737E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		259B90A019F96D1400737E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,9 +174,7 @@
 		495BDEC81A1226A8000941E8 /* PlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayScene.swift; sourceTree = "<group>"; };
 		49C0152E1A1D316900DBAC0D /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		49C015301A1D31C300DBAC0D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		49DD5D051A2EA13F0001252C /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = images/Menu/back.png; sourceTree = "<group>"; };
 		49DD5D071A2EA1880001252C /* guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = guitar.sf2; sourceTree = "<group>"; };
-		49DD5D091A2EA1930001252C /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = images/Menu/play.png; sourceTree = "<group>"; };
 		49EC59F81A2006C800A36D2C /* piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = piano.sf2; sourceTree = "<group>"; };
 		49EC59FA1A2009F200A36D2C /* ModulatorNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModulatorNode.swift; sourceTree = "<group>"; };
 		49EC59FC1A2009FA00A36D2C /* Sampler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sampler.swift; sourceTree = "<group>"; };
@@ -374,8 +382,12 @@
 		49DD5D001A2E9FC80001252C /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				49DD5D091A2EA1930001252C /* play.png */,
-				49DD5D051A2EA13F0001252C /* back.png */,
+				259682D11A38E17500101AE2 /* menubutton_about.png */,
+				259682D21A38E17500101AE2 /* menubutton_projects.png */,
+				259682D31A38E17500101AE2 /* menubutton_button.png */,
+				259682D41A38E17500101AE2 /* menubutton_modulator.png */,
+				259682D51A38E17500101AE2 /* menubutton_play.png */,
+				259682D61A38E17500101AE2 /* menubutton_save.png */,
 				492A42A01A27BC0B00731F26 /* savedState1.jpg */,
 				492A42A11A27BC0B00731F26 /* savedState2.jpg */,
 				492A42A21A27BC0B00731F26 /* savedState3.jpg */,
@@ -522,14 +534,20 @@
 				492A42A71A27BC0B00731F26 /* savedState4.jpg in Resources */,
 				2557DBEE1A14067B0003AB5D /* spring.png in Resources */,
 				25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */,
+				259682DA1A38E17500101AE2 /* menubutton_modulator.png in Resources */,
 				259B90A619F96D1400737E04 /* Main.storyboard in Resources */,
 				49EC59F91A2006C800A36D2C /* piano.sf2 in Resources */,
 				4933E0F11A18005700DDCE0D /* sliderTrack.png in Resources */,
+				259682D81A38E17500101AE2 /* menubutton_projects.png in Resources */,
 				49DD5D081A2EA1880001252C /* guitar.sf2 in Resources */,
 				259B90AB19F96D1400737E04 /* LaunchScreen.xib in Resources */,
+				259682DC1A38E17500101AE2 /* menubutton_save.png in Resources */,
+				259682D91A38E17500101AE2 /* menubutton_button.png in Resources */,
 				2557DBF41A1406B80003AB5D /* thermal.png in Resources */,
+				259682D71A38E17500101AE2 /* menubutton_about.png in Resources */,
 				25A93F6C1A1A9B7D00C9F145 /* roulette_background.png in Resources */,
 				2557DBDD1A13FCB20003AB5D /* CANVAS.psd in Resources */,
+				259682DB1A38E17500101AE2 /* menubutton_play.png in Resources */,
 				251174521A291CD7005E37C5 /* thermal_background.png in Resources */,
 				25AF9BEC1A267BDE00CED1CD /* spring_background.png in Resources */,
 				259B90C919F9756200737E04 /* Images-3.xcassets in Resources */,
@@ -538,8 +556,6 @@
 				492A42A51A27BC0B00731F26 /* savedState2.jpg in Resources */,
 				492A42A41A27BC0B00731F26 /* savedState1.jpg in Resources */,
 				25AF9BE31A265FE400CED1CD /* roullete_button.png in Resources */,
-				49DD5D061A2EA13F0001252C /* back.png in Resources */,
-				49DD5D0A1A2EA1930001252C /* play.png in Resources */,
 				2557DBF01A14068C0003AB5D /* roulette.png in Resources */,
 				4933E0F01A18005700DDCE0D /* sliderHandle.png in Resources */,
 				259B90CB19F9768500737E04 /* LaunchImage.png in Resources */,

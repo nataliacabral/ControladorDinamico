@@ -14,9 +14,9 @@ class DrawerMenuButton : MenuButton
     var showingDrawer:Bool = false
     var drawer:VerticalMenuBar
     
-    init(texture: SKTexture!, pressedTexture: SKTexture!, color: UIColor!, size: CGSize, drawer:VerticalMenuBar) {
+    init(texture: SKTexture!, color: UIColor!, size: CGSize, drawer:VerticalMenuBar) {
         self.drawer = drawer
-        super.init(texture:texture, pressedTexture:pressedTexture, color:color, size:size)
+        super.init(texture:texture, color:color, size:size)
         self.name = "DrawerMenuButton"
         self.drawer.zPosition = -1
         self.drawer.hidden = true
@@ -35,7 +35,6 @@ class DrawerMenuButton : MenuButton
             self.showingDrawer = true
             var showDrawerAction:SKAction = SKAction.moveByX(-drawer.size.width * 2, y: 0, duration: 0.5)
             self.drawer.runAction(showDrawerAction)
-            self.texture = self.pressedTexture
         }
     }
     func hideDrawer()
@@ -44,7 +43,6 @@ class DrawerMenuButton : MenuButton
             self.drawer.zPosition = -2
             var hideDrawerAction:SKAction = SKAction.moveByX(drawer.size.width * 2, y: 0, duration: 0.5)
             self.drawer.runAction(hideDrawerAction, completion: completedHide)
-            self.texture = self.stillTexture
         }
     }
     func completedHide()

@@ -14,7 +14,7 @@ class ThermalFrame : SKSpriteNode, Touchable, ModulatorNode
     let thermalFrameTexture:SKTexture = SKTexture(imageNamed: "thermal_frame.png")
     var touching:Bool = false
     var lastUpdateTimestamp:NSTimeInterval?;
-    let alphaRatio:CGFloat = 0.008
+    let alphaRatio:CGFloat = 0.8
 
     var modulators:Array<Modulator> = Array<Modulator>()
 
@@ -64,10 +64,11 @@ class ThermalFrame : SKSpriteNode, Touchable, ModulatorNode
             let interval:NSTimeInterval = currentTime - self.lastUpdateTimestamp!
 
             if (touching && self.alpha < 1) {
-                self.alpha = self.alpha + CGFloat(interval)
+                self.alpha = self.alpha + CGFloat(interval) * alphaRatio
             } else if (self.alpha > 0) {
-                self.alpha = self.alpha - CGFloat(interval/2)
+                self.alpha = self.alpha - CGFloat(interval/2) * alphaRatio
             }
+            
             if (self.alpha < 0) {
                 self.alpha = 0
             }
