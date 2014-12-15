@@ -21,11 +21,11 @@ class ThermalSoundObject : SoundObject
 {
     override var gridHeight:CGFloat { get { return 2 } }
     override var gridWidth:CGFloat { get { return 2 } }
-    override var editImageName:String { get { return "thermal.png" } }
-    override var iconImageName:String { get { return "thermal_icon.png" } }
 
     var frames:Array<ThermalFrame> = Array<ThermalFrame>()
     let thermalBackgroundTexture:SKTexture = SKTexture(imageNamed: "thermal_background.png")
+    let thermalEditTexture:SKTexture = SKTexture(imageNamed: "thermal.png")
+
     let thermalFrameBorder:CGFloat = 5
     
     var status:ThermalStatus = ThermalStatus(alphaQ1: CGFloat(0.0), alphaQ2: CGFloat(0.0), alphaQ3: CGFloat(0.0), alphaQ4: CGFloat(0.0))
@@ -39,7 +39,8 @@ class ThermalSoundObject : SoundObject
     
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
-        super.init(texture: texture, color: color, size: size)
+        super.init(texture: thermalEditTexture, color: color, size: size)
+        self.iconImageName = "thermal_icon.png"
     }
     
     required init(coder aDecoder: NSCoder) {

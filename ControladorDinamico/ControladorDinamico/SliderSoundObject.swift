@@ -20,12 +20,11 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
 {
     override var gridHeight:CGFloat { get { return 3 } }
     override var gridWidth:CGFloat { get { return 1 } }
-    override var editImageName:String { get { return "slider.png" } }
-    override var iconImageName:String { get { return "slider_icon.png" } }
 
     var sliderHandle:SliderHandle?
     let sliderTrackTexture:SKTexture = SKTexture(imageNamed: "sliderTrack.png")
-    
+    let sliderEditTexture:SKTexture = SKTexture(imageNamed: "slider.png")
+
     let handlerWidthBorder:CGFloat = 3.5
 
     var modulators:Array<Modulator> = Array<Modulator>()
@@ -40,7 +39,8 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
     
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
-        super.init(texture: texture, color: color, size: size)
+        super.init(texture: sliderEditTexture, color: color, size: size)
+        self.iconImageName = "slider_icon.png"
     }
     
     required init(coder aDecoder: NSCoder) {

@@ -19,14 +19,13 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
 {
     override var gridHeight:CGFloat { get { return 3 } }
     override var gridWidth:CGFloat { get { return 1 } }
-    override var editImageName:String { get { return "spring.png" } }
-    override var iconImageName:String { get { return "spring_icon.png" } }
 
     var sticksList:Array<SKSpriteNode> = Array<SKSpriteNode>()
     var springHandle:SpringHandle?
     var springHandleBoundEdge:SKSpriteNode = SKSpriteNode()
     let springTrackTexture:SKTexture = SKTexture(imageNamed: "spring_background.png")
-    
+    let springEditTexture:SKTexture = SKTexture(imageNamed: "spring.png")
+
     let handlerWidthBorder:CGFloat = 3.5
     let stickWidthBorder:CGFloat = 10
     let springHeightBorder:CGFloat = 12
@@ -44,7 +43,8 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
-        super.init(texture: texture, color: color, size: size)
+        super.init(texture: springEditTexture, color: color, size: size)
+        self.iconImageName = "spring_icon.png"
     }
     
     required init(coder aDecoder: NSCoder) {

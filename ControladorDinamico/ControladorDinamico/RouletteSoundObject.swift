@@ -20,15 +20,14 @@ class RouletteSoundObject : SoundObject, ModulatorNode
 {
     override var gridHeight:CGFloat { get { return 2 } }
     override var gridWidth:CGFloat { get { return 2 } }
-    override var editImageName:String { get { return "roulette.png" } }
-    override var iconImageName:String { get { return "roulette_icon.png" } }
 
     var rouletteSpin:RouletteSpin?
     var rouletteButton:RouletteButton?
     var rouletteFrame:RouletteFrame?
 
     let rouletteBackgroundTexture:SKTexture = SKTexture(imageNamed: "roulette_background.png")
-    
+    let rouletteEditTexture:SKTexture = SKTexture(imageNamed: "roulette.png")
+
     var modulators:Array<Modulator> = Array<Modulator>()
     var status:RouletteStatus = RouletteStatus(angularVelocity: CGFloat(0), buttonToggled:false, zRotation:0)
     var savedStatus : Array<RouletteStatus> = Array<RouletteStatus>(count: 4, repeatedValue: RouletteStatus(angularVelocity: CGFloat(0), buttonToggled:false, zRotation:0))
@@ -40,7 +39,8 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
-        super.init(texture: texture, color: color, size: size)
+        super.init(texture: rouletteEditTexture, color: color, size: size)
+        self.iconImageName = "roulette_icon.png"
     }
     
     required init(coder aDecoder: NSCoder) {

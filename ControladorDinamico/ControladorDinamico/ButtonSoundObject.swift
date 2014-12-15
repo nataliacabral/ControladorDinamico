@@ -17,14 +17,12 @@ struct ButtonStatus
 }
 
 class ButtonSoundObject : SoundObject, Sampler
-//class ButtonSoundObject
 {
     override var gridHeight:CGFloat { get { return 1 } }
     override var gridWidth:CGFloat { get { return 1 } }
-    override var editImageName:String { get { return "button.png" } }
 
-    let selectedTexture:SKTexture = SKTexture(imageNamed: "buttonSelected.png")
-    let stillTexture:SKTexture =  SKTexture(imageNamed: "button.png")
+    var selectedTexture:SKTexture?
+    var stillTexture:SKTexture?
 
     var note : UInt8 = 0
     
@@ -49,6 +47,46 @@ class ButtonSoundObject : SoundObject, Sampler
         ]
     }
     
+    class func templateImageMap() -> Array<String> {
+        return [
+            "button1_template.png",
+            "button2_template.png",
+            "button3_template.png",
+            "button4_template.png",
+            "button5_template.png",
+            "button6_template.png",
+            "button7_template.png",
+            "button8_template.png"
+        ]
+    }
+    
+    
+    class func editImageMap() -> Array<String> {
+        return [
+            "button1.png",
+            "button2.png",
+            "button3.png",
+            "button4.png",
+            "button5.png",
+            "button6.png",
+            "button7.png",
+            "button8.png"
+        ]
+    }
+    
+    class func selectedImageMap() -> Array<String> {
+        return [
+            "button1_selected.png",
+            "button2_selected.png",
+            "button3_selected.png",
+            "button4_selected.png",
+            "button5_selected.png",
+            "button6_selected.png",
+            "button7_selected.png",
+            "button8_selected.png"
+        ]
+    }
+    
     var audioSampler:AVAudioUnitSampler?
 
     override init()
@@ -60,18 +98,23 @@ class ButtonSoundObject : SoundObject, Sampler
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
         super.init(texture: texture, color: color, size: size)
+        
     }
-
-    func colorize()
+    
+    func loadTextures()
     {
-        self.color = ButtonSoundObject.colorMap()[Int(self.note) % 12]
-        self.colorBlendFactor = 1.0
+        NSLog ("%lu", self.note)
+        let index = ButtonSoundObject.noteIndexMap(self.note)
+        self.selectedTexture = SKTexture(imageNamed: ButtonSoundObject.selectedImageMap()[index])
+        self.stillTexture = SKTexture(imageNamed: ButtonSoundObject.editImageMap()[index])
+        self.texture = self.stillTexture
+        self.iconImageName = ButtonSoundObject.templateImageMap()[index]
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
         self.note = (aDecoder.decodeObjectForKey("note") as NSNumber).unsignedCharValue
-        self.colorize()
+        self.loadTextures()
     }
     
     override func encodeWithCoder(aCoder: NSCoder) {
@@ -82,19 +125,19 @@ class ButtonSoundObject : SoundObject, Sampler
     init(gridSize:CGFloat, note:UInt8) {
         super.init(gridSize:gridSize)
         self.note = note
-        self.colorize()
+        self.loadTextures()
     }
     
     override func touchStarted(position:CGPoint)
     {
-        let changeTexture:SKAction = SKAction.setTexture(self.selectedTexture)
+        let changeTexture:SKAction = SKAction.setTexture(self.selectedTexture!)
         self.status.pressed = true
         self.runAction(changeTexture)
     }
     
     override func touchEnded(position:CGPoint)
     {
-        let changeTexture:SKAction = SKAction.setTexture(self.stillTexture)
+        let changeTexture:SKAction = SKAction.setTexture(self.stillTexture!)
         self.status.pressed = false
         self.runAction(changeTexture)
     }
@@ -138,10 +181,10 @@ class ButtonSoundObject : SoundObject, Sampler
     func playSound()
     {
         if (!self.status.playing) {
+            self.playNote()
             //self.audioSampler?.sendController(69, withValue:127, onChannel:0)
             //self.audioSampler?.sendController(67, withValue:127, onChannel:0)
             //self.audioSampler?.sendController(64, withValue:64, onChannel:0)
-            self.playNote()
             //self.audioSampler?.sendPressure(127, onChannel:0)
             //self.audioSampler?.sendPitchBend(16383, onChannel: 0)
         }
@@ -167,9 +210,9 @@ class ButtonSoundObject : SoundObject, Sampler
             color:self.color,
             size:self.size
         )
-        result.colorBlendFactor = 1.0
         result.note = self.note
         result.position = self.position
+        result.loadTextures()
         return result
     }
     
@@ -190,6 +233,32 @@ class ButtonSoundObject : SoundObject, Sampler
     override func copy() -> AnyObject {
         var result:ButtonSoundObject = super.copy() as ButtonSoundObject
         result.note = self.note
+        return result
+    }
+    
+    class func noteIndexMap(buttonNote:UInt8) -> Int
+    {
+        var result  = 0
+
+        if (buttonNote == 60) {
+            result = 0
+        } else if (buttonNote == 62) {
+            result = 1
+        } else if (buttonNote == 64) {
+            result = 2
+        } else if (buttonNote == 65) {
+            result = 3
+        } else if (buttonNote == 67) {
+            result = 4
+        } else if (buttonNote == 69) {
+            result = 5
+        } else if (buttonNote == 71) {
+            result = 6
+        } else if (buttonNote == 73) {
+            result = 7
+        } else if (buttonNote == 75) {
+            result = 7
+        }
         return result
     }
     

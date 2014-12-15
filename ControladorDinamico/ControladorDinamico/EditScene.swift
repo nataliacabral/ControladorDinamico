@@ -96,10 +96,6 @@ class EditScene : SKScene
         super.init(size: size)
 
         self.scene?.backgroundColor = UIColor.blackColor()
-        var width:CGFloat = gridSize
-        var x:CGFloat = self.size.width - gridSize / 2
-        var y:CGFloat = (self.size.height / 2)
-        
         var buttons = [
             buttonTemplateC,
             buttonTemplateD,
@@ -110,15 +106,23 @@ class EditScene : SKScene
             buttonTemplateB
         ]
         
-        let barWidth:CGFloat = drawerButtonSize.width + 2 * VerticalMenuBar.border
+        let drawerBarWidth:CGFloat = drawerButtonSize.width + 2 * VerticalMenuBar.border
         let barHeight:CGFloat = CGFloat( (2 * VerticalMenuBar.border) + ((drawerButtonSize.height + VerticalMenuBar.border) * CGFloat(buttons.count)))
         
+        let barWidth:CGFloat = gridSize
+        let x:CGFloat = self.size.width - barWidth / 2
+        let y:CGFloat = (self.size.height / 2)
+        
+        
+        let buttonDrawerTexture:SKTexture = SKTexture(imageNamed: "buttonsDrawer")
+        let modulatorDrawerTexture:SKTexture = SKTexture(imageNamed: "modulatorDrawer")
+
         //Drawer menus
         self.buttonDrawer = VerticalMenuBar(
             buttons: buttons,
             position:CGPoint(x: x, y: -(self.size.height - gridSize)),
-            size:CGSize(width: barWidth, height: barHeight),
-            buttonSize:drawerButtonSize
+            size:CGSize(width: drawerBarWidth, height: barHeight),
+            buttonSize:drawerButtonSize, background:buttonDrawerTexture
         )
         
         let modulators = [
@@ -134,8 +138,8 @@ class EditScene : SKScene
         self.modulatorDrawer = VerticalMenuBar(
             buttons: modulators,
             position:CGPoint(x: x, y: -(self.size.height - (gridSize * 2))),
-            size:CGSize(width: barWidth, height: modulatorBarHeight),
-            buttonSize:drawerButtonSize
+            size:CGSize(width: drawerBarWidth, height: modulatorBarHeight),
+            buttonSize:drawerButtonSize, background:modulatorDrawerTexture
         )
 
         var buttonsDrawerButton:MenuButton = DrawerMenuButton(
@@ -175,23 +179,24 @@ class EditScene : SKScene
             self.addChild(gridHorizontalLine)
         }
         
+
         self.menuBar = VerticalMenuBar(
             buttons: [buttonsDrawerButton, modulatorDrawerButton, self.playButton, self.backButton, self.saveButton, self.trashButton, self.aboutButton],
             position:CGPoint(x: x, y: y),
-            size:CGSize(width: width, height: self.size.height),
+            size:CGSize(width: barWidth, height: self.size.height),
             buttonSize:buttonSize
         )
         self.addChild(menuBar!)
         
-        let convertedButtonPosition = self.convertPoint(buttonsDrawerButton.position, fromNode: menuBar!)
+        let convertedX = x + barWidth / 2 + drawerBarWidth / 2;
         
-        self.buttonDrawer!.position.x = x + gridSize;
+        let convertedButtonPosition = self.convertPoint(buttonsDrawerButton.position, fromNode: menuBar!)
+        self.buttonDrawer!.position.x = convertedX
         self.buttonDrawer!.position.y = convertedButtonPosition.y - self.buttonDrawer!.size.height/2 + buttonSize.height/2
 
-        
-        let convertedModulatorPosition = self.convertPoint(modulatorDrawerButton.position, fromNode: menuBar!)
 
-        self.modulatorDrawer!.position.x = x + gridSize;
+        let convertedModulatorPosition = self.convertPoint(modulatorDrawerButton.position, fromNode: menuBar!)
+        self.modulatorDrawer!.position.x = convertedX
         self.modulatorDrawer!.position.y = convertedModulatorPosition.y - self.modulatorDrawer!.size.height/2 + buttonSize.height/2
         
         self.addChild(self.modulatorDrawer!)
@@ -316,7 +321,7 @@ class EditScene : SKScene
                     }
                 }
                 else if (boundNode === self.saveButton) {
-                    
+                    NSNotificationCenter.defaultCenter().postNotificationName("SaveProjectNotification", object: self)
                 }
                 else if (boundNode === self.playButton) {
                     let navigationController = self.view!.window!.rootViewController!

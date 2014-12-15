@@ -10,9 +10,7 @@ import Foundation
 import SpriteKit
 
 class TreadmillSoundObject : SoundObject
-{
-    override var editImageName:String { get { return "" } }
-    
+{    
     override init()
     {
         super.init()

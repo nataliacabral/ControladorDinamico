@@ -32,6 +32,25 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
         skView.presentScene(scene)
     }
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "saveProject", name: "SaveProjectNotification", object: nil)
+    }
+    
+    func saveProject()
+    {
+        if (self.project.projectName != nil) {
+            
+            UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, UIScreen.mainScreen().scale);
+            self.view.drawViewHierarchyInRect(self.view.bounds, afterScreenUpdates: true)
+            let image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            
+            self.project.preview = image
+            self.project.objects = self.scene!.objects
+            ProjectManager.sharedInstance.saveProject(self.project)
+        }
+    }
     
     @IBAction func backAction(AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
@@ -45,4 +64,5 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
             playViewController.project = self.project
         }
     }
+
 }
