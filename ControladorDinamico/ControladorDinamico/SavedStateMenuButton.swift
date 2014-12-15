@@ -9,12 +9,10 @@
 import Foundation
 import SpriteKit
 
-//class SavedStateMenuButton
 class SavedStateMenuButton : MenuButton
-
 {
-    var stillTexture:SKTexture?
-    var pressedTexture:SKTexture?
+    var stillTexture:SKTexture
+    var pressedTexture:SKTexture
     var slot:Int
     var touchingTime:NSTimeInterval = 0
     var touching:Bool = false
@@ -26,19 +24,33 @@ class SavedStateMenuButton : MenuButton
     let timeToSave:NSTimeInterval = 0.8
     let timeToStartSaving:NSTimeInterval = 0.2
     
-    let selectedColor:UIColor = UIColor.greenColor()
-    let savingColor:UIColor = UIColor.blueColor()
-    let deselectedColor:UIColor = UIColor.whiteColor()
-
-    
-    init(texture: SKTexture!, pressedTexture: SKTexture?, color: UIColor!, size: CGSize, slot:Int, objList:Array<SoundObject>) {
+    init(slot:Int, size: CGSize, objList:Array<SoundObject>) {
         self.slot = slot
         self.objList = objList
-        super.init(texture: texture, color: color, size: size)
-        self.stillTexture = texture
-        self.pressedTexture = pressedTexture
-        self.colorBlendFactor = 1.0
-        self.color = self.deselectedColor
+        self.stillTexture = SKTexture(imageNamed: SavedStateMenuButton.imageMap()[slot])
+        self.pressedTexture = SKTexture(imageNamed: SavedStateMenuButton.selectedImageMap()[slot])
+        super.init(texture: self.stillTexture, color: nil, size: size)
+    }
+    
+    
+    class func selectedImageMap()->Array<String>
+    {
+        return [
+            "savestate_button1_selected",
+            "savestate_button2_selected",
+            "savestate_button3_selected",
+            "savestate_button4_selected"
+        ]
+    }
+    
+    class func imageMap()->Array<String>
+    {
+        return [
+            "savestate_button1",
+            "savestate_button2",
+            "savestate_button3",
+            "savestate_button4"
+        ]
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -70,22 +82,20 @@ class SavedStateMenuButton : MenuButton
     func updateDraw() {
         if (touching && !saved && touchingTime < timeToSave && touchingTime > timeToStartSaving)
         {
-            self.color = self.savingColor
-            self.texture = self.pressedTexture
-        }
-        else if (self.selected) {
-            self.color = self.selectedColor
-            self.texture = self.pressedTexture
-        }
-        else {
-            self.color = self.deselectedColor
-            if (self.touching) {
+            if (self.texture == self.pressedTexture) {
+                self.texture = self.stillTexture
+            } else {
                 self.texture = self.pressedTexture
             }
-            else {
+        }
+        else {
+            if (self.selected) {
+                self.texture = self.pressedTexture
+            } else {
                 self.texture = self.stillTexture
             }
         }
+        
     }
 
     override func touchCancelled(position: CGPoint) {

@@ -20,6 +20,8 @@ class VerticalMenuBar : SKSpriteNode
     init(buttons:Array<MenuButton>, position:CGPoint, size:CGSize, buttonSize:CGSize) {
         super.init(texture: nil, color: bgColor, size:size)
         self.initializeProperties(buttons, position: position, size: size, buttonSize: buttonSize)
+        
+        
     }
     
     init(buttons:Array<MenuButton>, position:CGPoint, size:CGSize, buttonSize:CGSize, background:SKTexture) {

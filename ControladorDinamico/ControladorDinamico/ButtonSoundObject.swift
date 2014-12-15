@@ -98,12 +98,10 @@ class ButtonSoundObject : SoundObject, Sampler
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
         super.init(texture: texture, color: color, size: size)
-        
     }
     
     func loadTextures()
     {
-        NSLog ("%lu", self.note)
         let index = ButtonSoundObject.noteIndexMap(self.note)
         self.selectedTexture = SKTexture(imageNamed: ButtonSoundObject.selectedImageMap()[index])
         self.stillTexture = SKTexture(imageNamed: ButtonSoundObject.editImageMap()[index])

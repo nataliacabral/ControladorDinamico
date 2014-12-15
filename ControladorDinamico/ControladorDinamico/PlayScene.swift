@@ -19,16 +19,60 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
     var touchMapping = Dictionary<UITouch , Touchable>()
     
     var menuBar:VerticalMenuBar?
-    var slot1Button:SavedStateMenuButton?
-    var slot2Button:SavedStateMenuButton?
-    var slot3Button:SavedStateMenuButton?
-    var slot4Button:SavedStateMenuButton?
-    var savedStates:Array<SavedStateMenuButton>?
-    var backButton:MenuButton?
-    
+    var slot1Button:SavedStateMenuButton
+    var slot2Button:SavedStateMenuButton
+    var slot3Button:SavedStateMenuButton
+    var slot4Button:SavedStateMenuButton
+    var savedStates:Array<SavedStateMenuButton>
+    var backButton:MenuButton
+    var aboutButton:MenuButton
+
     override init(size: CGSize)
     {
         self.gridSize = 128
+        
+        let barWidth:CGFloat = gridSize
+        let buttonSize = CGSize(width: 119, height: 119)
+        
+        // MenuBar
+        
+        backButton = MenuButton(
+            texture:SKTexture(imageNamed: "menubutton_edit.png.jpg"),
+            color:UIColor(),
+            size:buttonSize
+        )
+        
+        slot1Button = SavedStateMenuButton(
+            slot:0,
+            size:buttonSize,
+            objList:self.cloneOjbects
+        )
+        
+        slot2Button = SavedStateMenuButton(
+            slot:1,
+            size:buttonSize,
+            objList:self.cloneOjbects
+        )
+        
+        slot3Button = SavedStateMenuButton(
+            slot:2,
+            size:buttonSize,
+            objList:self.cloneOjbects
+        )
+        
+        slot4Button = SavedStateMenuButton(
+            slot:3,
+            size:buttonSize,
+            objList:self.cloneOjbects
+        )
+        
+        aboutButton = MenuButton(
+            texture:SKTexture(imageNamed: "menubutton_about.png"),
+            color:UIColor(),
+            size:buttonSize)
+        
+        savedStates = [slot1Button, slot2Button, slot3Button, slot4Button]
+
         super.init(size: size)
         self.scene?.backgroundColor = UIColor.blackColor()
         
@@ -62,61 +106,17 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
         self.physicsBody?.categoryBitMask = 1
         
         self.view?.multipleTouchEnabled = true
-        
-        // MenuBar
-        
-        backButton = MenuButton(
-            texture:SKTexture(imageNamed: "menubutton_back.png.jpg"),
-            color:UIColor(),
-            size:CGSize(width: gridSize, height: gridSize)
-        )
-        
-        slot1Button = SavedStateMenuButton(
-            texture:SKTexture(imageNamed: "savedState1.jpg"),
-            pressedTexture:SKTexture(imageNamed: "button.png"),
-            color:UIColor(),
-            size:CGSize(width: gridSize, height: gridSize),
-            slot:0,
-            objList:self.cloneOjbects
-        )
-        slot2Button = SavedStateMenuButton(
-            texture:SKTexture(imageNamed: "savedState2.jpg"),
-            pressedTexture:SKTexture(imageNamed: "button.png"),
-            color:UIColor(),
-            size:CGSize(width: gridSize, height: gridSize),
-            slot:1,
-            objList:self.cloneOjbects
-        )
-        slot3Button = SavedStateMenuButton(
-            texture:SKTexture(imageNamed: "savedState3.jpg"),
-            pressedTexture:SKTexture(imageNamed: "button.png"),
-            color:UIColor(),
-            size:CGSize(width: gridSize, height: gridSize),
-            slot:2,
-            objList:self.cloneOjbects
-        )
-        slot4Button = SavedStateMenuButton(
-            texture:SKTexture(imageNamed: "savedState4.jpg"),
-            pressedTexture:SKTexture(imageNamed: "button.png"),
-            color:UIColor(),
-            size:CGSize(width: gridSize, height: gridSize),
-            slot:3,
-            objList:self.cloneOjbects
-        )
-        
-        self.savedStates = [slot1Button!, slot2Button!, slot3Button!, slot4Button!]
-        SavedStateManager.sharedInstance.stateButtons = self.savedStates!
+        SavedStateManager.sharedInstance.stateButtons = self.savedStates
         SavedStateManager.sharedInstance.selectSlot(0)
 
-        var width:CGFloat = gridSize
-        var x:CGFloat = self.size.width - gridSize / 2
+        var x:CGFloat = self.size.width - barWidth / 2
         var y:CGFloat = (self.size.height / 2)
         
         menuBar = VerticalMenuBar(
-            buttons: [slot1Button!, slot2Button!, slot3Button!, slot4Button!, backButton!],
+            buttons: [backButton, slot1Button, slot2Button, slot3Button, slot4Button, aboutButton],
             position:CGPoint(x: x, y: y),
-            size:CGSize(width: width, height: self.size.height),
-            buttonSize:CGSize(width: gridSize, height: gridSize)
+            size:CGSize(width: barWidth, height: self.size.height),
+            buttonSize:buttonSize
         )
         self.addChild(menuBar!)
     }
@@ -131,10 +131,10 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
             playObject.startPhysicalBody()
         }
         
-        slot1Button!.objList = self.cloneOjbects
-        slot2Button!.objList = self.cloneOjbects
-        slot3Button!.objList = self.cloneOjbects
-        slot4Button!.objList = self.cloneOjbects
+        slot1Button.objList = self.cloneOjbects
+        slot2Button.objList = self.cloneOjbects
+        slot3Button.objList = self.cloneOjbects
+        slot4Button.objList = self.cloneOjbects
         
         let audioEngine:AVAudioEngine = SoundManager.sharedInstance.audioEngine
  
@@ -315,7 +315,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                 }
             }
         }
-        for state in self.savedStates! {
+        for state in self.savedStates {
             state.update(currentTime)
         }
     }

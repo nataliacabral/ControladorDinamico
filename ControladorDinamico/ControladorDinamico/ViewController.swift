@@ -17,15 +17,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     let projectBackgroundViewTag:Int = 20
 
     var deleteProjectAlert:UIAlertView?
-    var newProjetAlert:UIAlertView?
+    var newProjectAlert:UIAlertView?
     
     var selectedProject:Project?
     var projects:NSMutableArray = NSMutableArray()
 
     override func viewDidLoad() {
         
-        newProjetAlert = UIAlertView(title: "New project", message: "Insert the project name:", delegate:self, cancelButtonTitle: "Cancel", otherButtonTitles:"Save")
-        newProjetAlert!.alertViewStyle = UIAlertViewStyle.PlainTextInput;
+        newProjectAlert = UIAlertView(title: "New project", message: "Insert the project name:", delegate:self, cancelButtonTitle: "Cancel", otherButtonTitles:"Save")
+        newProjectAlert!.alertViewStyle = UIAlertViewStyle.PlainTextInput;
 
         deleteProjectAlert = UIAlertView(title: "Delete?", message: "Are you sure you want to delete this project?", delegate:self, cancelButtonTitle: "No", otherButtonTitles:"Yes")
 
@@ -118,7 +118,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             self.selectedProject = self.projects.objectAtIndex(indexPath.row) as? Project
             self.performSegueWithIdentifier("openProject", sender: self)
         } else {
-            newProjetAlert!.show()
+           let operation =  NSOperation()
+                self.newProjectAlert!.show()
         }
     }
     
@@ -132,7 +133,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     self.collectionView.reloadData()
                 }
              }
-        } else if (alertView == newProjetAlert) {
+        } else if (alertView == newProjectAlert) {
         
             let textField : UITextField? = alertView.textFieldAtIndex(0)
             if (buttonIndex == 1) {
@@ -154,7 +155,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         error = "Invalid name"
                     }
                 }
-                
                 if (error != nil) {
                     var alert = UIAlertController(title: "Project", message:error, preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
