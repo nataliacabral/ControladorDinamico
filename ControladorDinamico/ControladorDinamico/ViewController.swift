@@ -16,18 +16,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     let projectNameLabelTag:Int = 10
     let projectBackgroundViewTag:Int = 20
 
-    var deleteProjectAlert:UIAlertView?
-    var newProjectAlert:UIAlertView?
+    var newProjectTextfield:UITextField?
     
     var selectedProject:Project?
     var projects:NSMutableArray = NSMutableArray()
 
     override func viewDidLoad() {
-        
-        newProjectAlert = UIAlertView(title: "New project", message: "Insert the project name:", delegate:self, cancelButtonTitle: "Cancel", otherButtonTitles:"Save")
-        newProjectAlert!.alertViewStyle = UIAlertViewStyle.PlainTextInput;
-
-        deleteProjectAlert = UIAlertView(title: "Delete?", message: "Are you sure you want to delete this project?", delegate:self, cancelButtonTitle: "No", otherButtonTitles:"Yes")
 
         var projectCell:UINib = UINib(nibName:"ProjectView", bundle: nil)
         self.collectionView.registerNib(projectCell, forCellWithReuseIdentifier:projectCellViewIdentifier)
@@ -38,6 +32,44 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         longPresGestureRecognizer.delaysTouchesBegan = true
         self.collectionView.addGestureRecognizer(longPresGestureRecognizer)
 
+    }
+    
+    func addTextField(textField: UITextField!){
+        self.newProjectTextfield = textField
+    }
+    
+    func newProjectEntered(alert: UIAlertAction!){
+        let projectName:String = self.newProjectTextfield!.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        
+        var error:String? = nil
+        if (countElements(projectName) == 0) {
+            error = "Invalid name"
+            
+        } else if (ProjectManager.sharedInstance.projectExists(projectName)) {
+            error = "Project already exists"
+            
+        } else {
+            var project = Project(projectName:projectName)
+            if (ProjectManager.sharedInstance.saveProject(project)) {
+                self.selectedProject = project
+                self.performSegueWithIdentifier("openProject", sender: self)
+            } else {
+                error = "Invalid name"
+            }
+        }
+        if (error != nil) {
+            var alert = UIAlertController(title: "Project", message:error, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func deleteProject(alert: UIAlertAction!){
+        self.projects.removeObject(self.selectedProject!)
+        var error: NSError? = nil
+        if(ProjectManager.sharedInstance.removeProject(self.selectedProject!, error: &error)) {
+            self.collectionView.reloadData()
+        }
     }
     
     func handleLongPress(gestureRecognizer:UILongPressGestureRecognizer)
@@ -70,7 +102,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             if (cell != nil) {
                 cell!.backgroundColor = UIColor.blackColor()
                 if (self.selectedProject != nil) {
-                    deleteProjectAlert!.show()
+                    
+                    var deleteAlertController = UIAlertController(title: "Delete?", message:"Are you sure you want to delete this project?", preferredStyle: UIAlertControllerStyle.Alert)
+                    deleteAlertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+                    deleteAlertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: deleteProject))
+
+                    self.presentViewController(deleteAlertController, animated: true, completion: nil)
+
                 }
             }
             break
@@ -118,54 +156,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             self.selectedProject = self.projects.objectAtIndex(indexPath.row) as? Project
             self.performSegueWithIdentifier("openProject", sender: self)
         } else {
-           let operation =  NSOperation()
-                self.newProjectAlert!.show()
+            let newProjectAlertController = UIAlertController(title: "New Project", message: "Insert the project name:", preferredStyle: UIAlertControllerStyle.Alert)
+            newProjectAlertController.addTextFieldWithConfigurationHandler(addTextField)
+            newProjectAlertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+            newProjectAlertController.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: newProjectEntered))
+            presentViewController(newProjectAlertController, animated: true, completion: nil)
         }
     }
     
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        if (alertView == deleteProjectAlert) {
-
-            if (buttonIndex == 1) {
-                self.projects.removeObject(self.selectedProject!)
-                var error: NSError? = nil
-                if(ProjectManager.sharedInstance.removeProject(self.selectedProject!, error: &error)) {
-                    self.collectionView.reloadData()
-                }
-             }
-        } else if (alertView == newProjectAlert) {
-        
-            let textField : UITextField? = alertView.textFieldAtIndex(0)
-            if (buttonIndex == 1) {
-                let projectName:String = textField!.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-                
-                var error:String? = nil
-                if (countElements(projectName) == 0) {
-                    error = "Invalid name"
-                
-                } else if (ProjectManager.sharedInstance.projectExists(projectName)) {
-                    error = "Project already exists"
-               
-                } else {
-                    var project = Project(projectName:projectName)
-                    if (ProjectManager.sharedInstance.saveProject(project)) {
-                        self.selectedProject = project
-                        self.performSegueWithIdentifier("openProject", sender: self)
-                    } else {
-                        error = "Invalid name"
-                    }
-                }
-                if (error != nil) {
-                    var alert = UIAlertController(title: "Project", message:error, preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                }
-            }
-            
-            textField!.text = ""
-        }
-    }
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "openProject" {
             if (self.selectedProject != nil) {
