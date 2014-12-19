@@ -68,7 +68,7 @@ class SpringHandle : SKSpriteNode, Touchable
         let parent = self.parent as SKSpriteNode
         let topLimit = (parent.size.height / 2) - handlerHeightBorder - (self.size.height / 2)
         let bottomLimit = -(parent.size.height / 2) + handlerHeightBorder + (self.size.height / 2)
-        var ratio:CGFloat = (self.position.y  - bottomLimit) / (topLimit - bottomLimit)
+        var ratio:CGFloat = 1.0 - (self.position.y  - bottomLimit) / (topLimit - bottomLimit)
         
         if (ratio < 0) {
             ratio = 0.0;

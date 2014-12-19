@@ -75,29 +75,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
 
         super.init(size: size)
         self.scene?.backgroundColor = UIColor.blackColor()
-        
-        //Grid
-        for (var y:CGFloat = 0 ; y < self.size.height ; y += gridSize) {
-            var gridVerticalLine:SKShapeNode = SKShapeNode()
-            var gridVerticalLinePath:CGMutablePathRef = CGPathCreateMutable()
-            CGPathMoveToPoint(gridVerticalLinePath, nil, self.size.width, y)
-            CGPathAddLineToPoint(gridVerticalLinePath, nil, 0, y)
-            gridVerticalLine.path = gridVerticalLinePath
-            gridVerticalLine.strokeColor = UIColor.lightGrayColor()
-            gridVerticalLine.zPosition = -10
-            self.addChild(gridVerticalLine)
-        }
-        
-        for (var x:CGFloat = 0 ; x < self.size.width ; x += gridSize) {
-            var gridHorizontalLine:SKShapeNode = SKShapeNode()
-            var gridHorizontalLinePath:CGMutablePathRef = CGPathCreateMutable()
-            CGPathMoveToPoint(gridHorizontalLinePath, nil, x, self.size.width)
-            CGPathAddLineToPoint(gridHorizontalLinePath, nil, x, 0)
-            gridHorizontalLine.path = gridHorizontalLinePath
-            gridHorizontalLine.strokeColor = UIColor.lightGrayColor()
-            gridHorizontalLine.zPosition = -10
-            self.addChild(gridHorizontalLine)
-        }
+
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)

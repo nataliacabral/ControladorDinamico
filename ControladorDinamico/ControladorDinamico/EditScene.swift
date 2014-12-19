@@ -13,7 +13,7 @@ class EditScene : SKScene
 {
     var gridSize:CGFloat
     let distanceToCreateObject:CGFloat = 30
-
+    
     var selectedNodeOriginalPos:CGPoint?
     var objects:Array<SoundObject> = Array<SoundObject>()
     var buttonDrawer:VerticalMenuBar?
@@ -23,12 +23,14 @@ class EditScene : SKScene
     var openDrawer:DrawerMenuButton? = nil
     
     var touchMapping = Dictionary<UITouch , SKNode>()
+    var touchPositionMap = Dictionary<UITouch , CGPoint>()
+    
     var backButton:MenuButton
     var playButton:MenuButton
     var trashButton:MenuButton
     var saveButton:MenuButton
     var aboutButton:MenuButton
-
+    
     
     override init(size: CGSize)
     {
@@ -46,7 +48,7 @@ class EditScene : SKScene
         var sliderSprite:SliderSoundObject = SliderSoundObject(gridSize:gridSize)
         var horizontalSliderSprite:SliderSoundObject = SliderSoundObject(gridSize:gridSize)
         horizontalSliderSprite.zRotation = -CGFloat(M_PI_2)
-
+        
         var rouletteSprite:RouletteSoundObject = RouletteSoundObject(gridSize:gridSize)
         var thermalSprite:ThermalSoundObject = ThermalSoundObject(gridSize:gridSize)
         
@@ -63,10 +65,10 @@ class EditScene : SKScene
         var horizontalSliderTemplate:SoundObjectTemplate = SoundObjectTemplate(object: horizontalSliderSprite)
         var rouletteTemplate:SoundObjectTemplate = SoundObjectTemplate(object: rouletteSprite)
         var thermalTemplate:SoundObjectTemplate = SoundObjectTemplate(object: thermalSprite)
-    
+        
         let buttonSize = CGSize(width: 100, height: 100)
         let drawerButtonSize = CGSize(width: 50, height: 50)
-
+        
         backButton = MenuButton(
             texture:SKTexture(imageNamed: "menubutton_projects.png"),
             color:UIColor(),
@@ -86,15 +88,15 @@ class EditScene : SKScene
             texture:SKTexture(imageNamed: "menubutton_save.png"),
             color:UIColor(),
             size:buttonSize)
-
+        
         aboutButton = MenuButton(
             texture:SKTexture(imageNamed: "menubutton_about.png"),
             color:UIColor(),
             size:buttonSize)
-
+        
         
         super.init(size: size)
-
+        
         self.scene?.backgroundColor = UIColor.blackColor()
         var buttons = [
             buttonTemplateC,
@@ -116,7 +118,7 @@ class EditScene : SKScene
         
         let buttonDrawerTexture:SKTexture = SKTexture(imageNamed: "buttonsDrawer")
         let modulatorDrawerTexture:SKTexture = SKTexture(imageNamed: "modulatorDrawer")
-
+        
         //Drawer menus
         self.buttonDrawer = VerticalMenuBar(
             buttons: buttons,
@@ -141,7 +143,7 @@ class EditScene : SKScene
             size:CGSize(width: drawerBarWidth, height: modulatorBarHeight),
             buttonSize:drawerButtonSize, background:modulatorDrawerTexture
         )
-
+        
         var buttonsDrawerButton:MenuButton = DrawerMenuButton(
             texture:SKTexture(imageNamed: "menubutton_button.png"),
             color:UIColor(),
@@ -153,8 +155,8 @@ class EditScene : SKScene
             color:UIColor(),
             size:buttonSize,
             drawer:self.modulatorDrawer!)
-    
-
+        
+        
         
         //Grid
         for (var y:CGFloat = 0 ; y < self.size.height ; y += gridSize) {
@@ -179,7 +181,7 @@ class EditScene : SKScene
             self.addChild(gridHorizontalLine)
         }
         
-
+        
         self.menuBar = VerticalMenuBar(
             buttons: [buttonsDrawerButton, modulatorDrawerButton, self.playButton, self.backButton, self.saveButton, self.trashButton, self.aboutButton],
             position:CGPoint(x: x, y: y),
@@ -193,8 +195,8 @@ class EditScene : SKScene
         let convertedButtonPosition = self.convertPoint(buttonsDrawerButton.position, fromNode: menuBar!)
         self.buttonDrawer!.position.x = convertedX
         self.buttonDrawer!.position.y = convertedButtonPosition.y - self.buttonDrawer!.size.height/2 + buttonSize.height/2
-
-
+        
+        
         let convertedModulatorPosition = self.convertPoint(modulatorDrawerButton.position, fromNode: menuBar!)
         self.modulatorDrawer!.position.x = convertedX
         self.modulatorDrawer!.position.y = convertedModulatorPosition.y - self.modulatorDrawer!.size.height/2 + buttonSize.height/2
@@ -202,7 +204,7 @@ class EditScene : SKScene
         self.addChild(self.modulatorDrawer!)
         self.addChild(self.buttonDrawer!)
     }
-
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -232,9 +234,10 @@ class EditScene : SKScene
             }
             if (touchedNode is SoundObject) {
                 self.selectedNodeOriginalPos = touchedNode.position
-                touchedNode.zPosition = 1
+                touchedNode.zPosition = 10
             }
             touchMapping[uiTouch] = touchedNode
+            touchPositionMap[uiTouch] = self.convertPoint(touchLocation, toNode: touchedNode)
         }
     }
     
@@ -258,6 +261,43 @@ class EditScene : SKScene
         }
     }
     
+    func snapToGrid(soundObj:SoundObject) {
+        let bottomLeftGridX = soundObj.position.x - soundObj.size.width / 2
+        let bottomLeftGridY = soundObj.position.y - soundObj.size.height / 2
+        
+        let xRemain = bottomLeftGridX % gridSize
+        let yRemain = bottomLeftGridY % gridSize
+        
+        var newX = CGFloat(Int(bottomLeftGridX) / Int(gridSize) * Int(gridSize))
+        var newY = CGFloat(Int(bottomLeftGridY) / Int(gridSize) * Int(gridSize))
+        
+        if (xRemain > gridSize / 2) {
+            newX += gridSize
+        }
+        if (yRemain > gridSize / 2) {
+            newY += gridSize
+        }
+        
+        soundObj.position.x = newX + soundObj.size.width / 2
+        soundObj.position.y = newY + soundObj.size.height / 2
+
+        
+        // Check if obj is out of screen
+        
+        if (soundObj.position.y + soundObj.size.height / 2 > self.size.height) {
+            soundObj.position.y = self.size.height - soundObj.size.height / 2
+        }
+        else if (soundObj.position.y < soundObj.size.height / 2) {
+            soundObj.position.y = soundObj.size.height / 2
+        }
+        if (soundObj.position.x + soundObj.size.width / 2 > self.size.width) {
+            soundObj.position.x = self.size.width - soundObj.size.width / 2
+        }
+        else if (soundObj.position.x < soundObj.size.width / 2) {
+            soundObj.position.x = soundObj.size.width / 2
+        }
+    }
+    
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         super.touchesEnded(touches, withEvent: event)
         
@@ -268,6 +308,8 @@ class EditScene : SKScene
             let boundNode:SKNode? = touchMapping[uiTouch]
             if (boundNode != nil) {
                 if (boundNode is SoundObject) {
+                    self.snapToGrid(boundNode as SoundObject)
+                    
                     var moveCancelled = false
                     let soundObj = boundNode as SoundObject
                     soundObj.zPosition = 0
@@ -332,7 +374,7 @@ class EditScene : SKScene
                         }
                     }
                 }
-
+                
                 touchMapping .removeValueForKey(uiTouch)
             }
         }
@@ -340,9 +382,9 @@ class EditScene : SKScene
     
     func containsObj(obj:SoundObject) -> Bool {
         return (obj.position.x >= obj.size.width / 2 &&
-        obj.position.x <= self.size.width - obj.size.width / 2 &&
-obj.position.y >= obj.size.height / 2 &&
-obj.position.y <= self.size.height - obj.size.height / 2)
+            obj.position.x <= self.size.width - obj.size.width / 2 &&
+            obj.position.y >= obj.size.height / 2 &&
+            obj.position.y <= self.size.height - obj.size.height / 2)
     }
     
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
@@ -360,12 +402,9 @@ obj.position.y <= self.size.height - obj.size.height / 2)
             if (touchBoundNode != nil) {
                 if (touchBoundNode is SoundObject) {
                     let soundObj = touchBoundNode as SoundObject
-                    let oldPos = soundObj.position
-                    soundObj.position.x = (touchLocation.x - touchLocation.x % gridSize) + soundObj.size.width / 2
-                    soundObj.position.y = (touchLocation.y - touchLocation.y % gridSize) + soundObj.size.height / 2
-                    if (!self.containsObj(soundObj)) {
-                        soundObj.position = oldPos
-                    }
+                    let touchAnchorPoint = touchPositionMap[uiTouch]
+                    soundObj.position.x = touchLocation.x - touchAnchorPoint!.x
+                    soundObj.position.y = touchLocation.y - touchAnchorPoint!.y
                 }
             }
             

@@ -28,10 +28,6 @@
 		2557DBF21A1406AB0003AB5D /* slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBF11A1406AB0003AB5D /* slider.png */; };
 		2557DBF41A1406B80003AB5D /* thermal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBF31A1406B80003AB5D /* thermal.png */; };
 		2557DC131A16A3000003AB5D /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2557DC121A16A3000003AB5D /* PlayViewController.swift */; };
-		255DB7FD1A3A2BF6007BC71C /* roulette_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 255DB7F91A3A2BF6007BC71C /* roulette_icon.png */; };
-		255DB7FE1A3A2BF6007BC71C /* slider_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 255DB7FA1A3A2BF6007BC71C /* slider_icon.png */; };
-		255DB7FF1A3A2BF6007BC71C /* spring_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 255DB7FB1A3A2BF6007BC71C /* spring_icon.png */; };
-		255DB8001A3A2BF6007BC71C /* thermal_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 255DB7FC1A3A2BF6007BC71C /* thermal_icon.png */; };
 		255DB8191A3D112B007BC71C /* button1_template.png in Resources */ = {isa = PBXBuildFile; fileRef = 255DB8111A3D112B007BC71C /* button1_template.png */; };
 		255DB81A1A3D112B007BC71C /* button2_template.png in Resources */ = {isa = PBXBuildFile; fileRef = 255DB8121A3D112B007BC71C /* button2_template.png */; };
 		255DB81B1A3D112B007BC71C /* button3_template.png in Resources */ = {isa = PBXBuildFile; fileRef = 255DB8131A3D112B007BC71C /* button3_template.png */; };
@@ -656,7 +652,6 @@
 				492A42C61A2D4AFD00731F26 /* piano2.sf2 in Resources */,
 				255DB8201A3D112B007BC71C /* button8_template.png in Resources */,
 				25B521031A3F757900735263 /* button7.png in Resources */,
-				255DB8001A3A2BF6007BC71C /* thermal_icon.png in Resources */,
 				25B520FA1A3F757900735263 /* button2.png in Resources */,
 				25B520FF1A3F757900735263 /* button5.png in Resources */,
 				25B521171A3F9C6B00735263 /* savestate_button1.png in Resources */,
@@ -665,12 +660,10 @@
 				255DB81E1A3D112B007BC71C /* button6_template.png in Resources */,
 				25B520FB1A3F757900735263 /* button3_selected.png in Resources */,
 				25B520FE1A3F757900735263 /* button4.png in Resources */,
-				255DB7FD1A3A2BF6007BC71C /* roulette_icon.png in Resources */,
 				2557DBEE1A14067B0003AB5D /* spring.png in Resources */,
 				25B521151A3F9C6B00735263 /* menubutton_edit.png in Resources */,
 				25B5211C1A3F9C6B00735263 /* savestate_button4_selected.png in Resources */,
 				25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */,
-				255DB7FF1A3A2BF6007BC71C /* spring_icon.png in Resources */,
 				259682DA1A38E17500101AE2 /* menubutton_modulator.png in Resources */,
 				49EC59F91A2006C800A36D2C /* piano.sf2 in Resources */,
 				25B521161A3F9C6B00735263 /* savestate_button1_selected.png in Resources */,
@@ -707,7 +700,6 @@
 				255DB81D1A3D112B007BC71C /* button5_template.png in Resources */,
 				2557DBF01A14068C0003AB5D /* roulette.png in Resources */,
 				4933E0F01A18005700DDCE0D /* sliderHandle.png in Resources */,
-				255DB7FE1A3A2BF6007BC71C /* slider_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
