@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Project View Controller-->
         <scene sceneID="aok-V5-sXn">
             <objects>
-                <viewController id="0Ip-BT-yIP" customClass="ViewController" customModule="ControladorDinamico" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0Ip-BT-yIP" customClass="ProjectViewController" customModule="ControladorDinamico" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iwv-ZU-5Qk"/>
                         <viewControllerLayoutGuide type="bottom" id="V2p-8n-cgb"/>
@@ -20,7 +20,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" maximumZoomScale="6" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BEZ-an-FRP">
                                 <rect key="frame" x="16" y="20" width="561" height="517"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="2Db-AY-cIA">
-                                    <size key="itemSize" width="300" height="265"/>
+                                    <size key="itemSize" width="300" height="249"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -31,31 +31,34 @@
                                     <outlet property="delegate" destination="0Ip-BT-yIP" id="e63-vk-zGF"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDb-OZ-sLQ">
-                                <rect key="frame" x="199" y="570" width="30" height="30"/>
-                                <state key="normal" title="Add">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDb-OZ-sLQ">
+                                <rect key="frame" x="408" y="690" width="50" height="50"/>
+                                <state key="normal" title="Add" image="bt_add.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="highlighted" image="bt_add_selected.png"/>
                                 <connections>
                                     <action selector="addProject:" destination="jmV-hw-RpC" eventType="touchUpInside" id="3y6-N1-lkI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M99-hK-MPf">
-                                <rect key="frame" x="254" y="570" width="57" height="30"/>
-                                <state key="normal" title="Remove">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M99-hK-MPf">
+                                <rect key="frame" x="481" y="690" width="50" height="50"/>
+                                <state key="normal" image="bt_remve.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="highlighted" image="bt_remove_selected.png"/>
                                 <connections>
                                     <action selector="removeProject:" destination="jmV-hw-RpC" eventType="touchUpInside" id="b6m-jX-c4B"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TpT-gP-luz">
-                                <rect key="frame" x="338" y="570" width="38" height="30"/>
-                                <state key="normal" title="Open">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TpT-gP-luz">
+                                <rect key="frame" x="556" y="690" width="50" height="50"/>
+                                <state key="normal" image="bt_open.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="highlighted" image="bt_open_selected.png"/>
                                 <connections>
-                                    <segue destination="kdB-qw-FxK" kind="show" identifier="openProject" id="HuV-Jl-rhw"/>
+                                    <action selector="openProject:" destination="jmV-hw-RpC" eventType="touchUpInside" id="Dcd-NP-nmw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -83,12 +86,59 @@
                     <connections>
                         <outlet property="collectionView" destination="BEZ-an-FRP" id="tYV-Rm-38w"/>
                         <outlet property="view" destination="S3W-B8-6Mu" id="YN5-8h-Tct"/>
-                        <segue destination="kdB-qw-FxK" kind="show" identifier="newProject" id="aYL-iY-8kr"/>
+                        <segue destination="kdB-qw-FxK" kind="show" identifier="openProject" id="aYL-iY-8kr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmV-hw-RpC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4" y="194"/>
+            <point key="canvasLocation" x="936" y="30"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="tp0-W4-Wge">
+            <objects>
+                <viewController id="f57-UM-IvV" customClass="HomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yZZ-3G-cRm"/>
+                        <viewControllerLayoutGuide type="bottom" id="l3r-SI-iDK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3ED-OI-wFj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="tocada_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="80s-29-KtQ">
+                                <rect key="frame" x="0.0" y="5" width="600" height="595"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmA-xU-yWa">
+                                <rect key="frame" x="463" y="470" width="36" height="20"/>
+                                <state key="normal" image="bt_play.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="bt_play_selected.png"/>
+                                <connections>
+                                    <segue destination="0Ip-BT-yIP" kind="show" id="1mr-JN-2vI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nb-iC-Q9o">
+                                <rect key="frame" x="520" y="470" width="70" height="20"/>
+                                <state key="normal" image="bt_tutorial.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="bt_tutorial_selected.png"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196078431372551" green="0.90588235294117647" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="80s-29-KtQ" secondAttribute="trailing" id="8Ia-MX-LDm"/>
+                            <constraint firstItem="80s-29-KtQ" firstAttribute="leading" secondItem="3ED-OI-wFj" secondAttribute="leadingMargin" id="OVI-qw-GMN"/>
+                            <constraint firstItem="l3r-SI-iDK" firstAttribute="top" secondItem="80s-29-KtQ" secondAttribute="bottom" id="XHh-3A-q06"/>
+                            <constraint firstItem="80s-29-KtQ" firstAttribute="top" secondItem="3ED-OI-wFj" secondAttribute="topMargin" id="npE-bN-3fN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="n1l-61-cqg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lHL-z1-PZ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="111" y="41"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a3x-Q3-qCi">
@@ -99,12 +149,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="0Ip-BT-yIP" kind="relationship" relationship="rootViewController" id="Efj-qw-2L1"/>
+                        <segue destination="f57-UM-IvV" kind="relationship" relationship="rootViewController" id="mbh-GW-8oj"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="znG-w3-L3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-861" y="188"/>
+            <point key="canvasLocation" x="-939" y="16"/>
         </scene>
         <!--Edit View Controller-->
         <scene sceneID="GT2-h3-Noc">
@@ -131,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIW-Md-RMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="666" y="188"/>
+            <point key="canvasLocation" x="1598" y="24"/>
         </scene>
         <!--Play View Controller-->
         <scene sceneID="SrC-89-hWn">
@@ -152,10 +202,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jep-LW-uIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1455" y="180"/>
+            <point key="canvasLocation" x="2387" y="16"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="HuV-Jl-rhw"/>
-    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="bt_add.png" width="178" height="179"/>
+        <image name="bt_add_selected.png" width="178" height="179"/>
+        <image name="bt_open.png" width="174" height="175"/>
+        <image name="bt_open_selected.png" width="174" height="175"/>
+        <image name="bt_play.png" width="72" height="41"/>
+        <image name="bt_play_selected.png" width="72" height="41"/>
+        <image name="bt_remove_selected.png" width="177" height="179"/>
+        <image name="bt_remve.png" width="177" height="179"/>
+        <image name="bt_tutorial.png" width="141" height="42"/>
+        <image name="bt_tutorial_selected.png" width="141" height="42"/>
+        <image name="tocada_background.png" width="2048" height="1536"/>
+    </resources>
 </document>

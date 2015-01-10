@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250055811A5C7DD800CD3273 /* NewProjectViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2500557F1A5C7DD800CD3273 /* NewProjectViewCell.xib */; };
 		2509940119FEE2CF00A6D24F /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509940019FEE2CF00A6D24F /* EditViewController.swift */; };
 		2509940319FEE64B00A6D24F /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2509940219FEE64B00A6D24F /* SpriteKit.framework */; };
 		2509940519FEE86500A6D24F /* EditScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509940419FEE86500A6D24F /* EditScene.swift */; };
@@ -51,7 +52,7 @@
 		259682DB1A38E17500101AE2 /* menubutton_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 259682D51A38E17500101AE2 /* menubutton_play.png */; };
 		259682DC1A38E17500101AE2 /* menubutton_save.png in Resources */ = {isa = PBXBuildFile; fileRef = 259682D61A38E17500101AE2 /* menubutton_save.png */; };
 		259B90A119F96D1400737E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A019F96D1400737E04 /* AppDelegate.swift */; };
-		259B90A319F96D1400737E04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A219F96D1400737E04 /* ViewController.swift */; };
+		259B90A319F96D1400737E04 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A219F96D1400737E04 /* ProjectViewController.swift */; };
 		259B90AB19F96D1400737E04 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 259B90A919F96D1400737E04 /* LaunchScreen.xib */; };
 		259B90B719F96D1400737E04 /* ControladorDinamicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90B619F96D1400737E04 /* ControladorDinamicoTests.swift */; };
 		259B90C919F9756200737E04 /* Images-3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 259B90C819F9756200737E04 /* Images-3.xcassets */; };
@@ -94,11 +95,23 @@
 		25B5211D1A3F9C6B00735263 /* savestate_button4.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B521141A3F9C6B00735263 /* savestate_button4.png */; };
 		25B5211F1A3FA61100735263 /* LaunchImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25B5211E1A3FA61100735263 /* LaunchImage.jpg */; };
 		25B521201A3FA90800735263 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259B90A419F96D1400737E04 /* Main.storyboard */; };
+		25DAE6811A61CB5A00D5E86C /* bt_play_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE67C1A61CB5A00D5E86C /* bt_play_selected.png */; };
+		25DAE6821A61CB5A00D5E86C /* bt_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE67D1A61CB5A00D5E86C /* bt_play.png */; };
+		25DAE6831A61CB5A00D5E86C /* bt_tutorial_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE67E1A61CB5A00D5E86C /* bt_tutorial_selected.png */; };
+		25DAE6841A61CB5A00D5E86C /* bt_tutorial.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE67F1A61CB5A00D5E86C /* bt_tutorial.png */; };
+		25DAE6851A61CB5A00D5E86C /* tocada_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE6801A61CB5A00D5E86C /* tocada_background.png */; };
+		25DAE6871A61CB8C00D5E86C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DAE6861A61CB8C00D5E86C /* HomeViewController.swift */; };
+		25DAE68F1A61D4EF00D5E86C /* bt_add_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE6891A61D4EF00D5E86C /* bt_add_selected.png */; };
+		25DAE6901A61D4EF00D5E86C /* bt_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE68A1A61D4EF00D5E86C /* bt_add.png */; };
+		25DAE6911A61D4EF00D5E86C /* bt_open_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE68B1A61D4EF00D5E86C /* bt_open_selected.png */; };
+		25DAE6921A61D4EF00D5E86C /* bt_open.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE68C1A61D4EF00D5E86C /* bt_open.png */; };
+		25DAE6931A61D4EF00D5E86C /* bt_remove_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE68D1A61D4EF00D5E86C /* bt_remove_selected.png */; };
+		25DAE6941A61D4EF00D5E86C /* bt_remve.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE68E1A61D4EF00D5E86C /* bt_remve.png */; };
+		25DAE6961A61E14E00D5E86C /* bin.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE6951A61E14E00D5E86C /* bin.png */; };
 		490120CF1A1E7BC200F3E653 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490120CE1A1E7BC200F3E653 /* AVFoundation.framework */; };
 		4918FC731A22AEB7007E1F64 /* DelayModulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918FC721A22AEB7007E1F64 /* DelayModulator.swift */; };
 		4918FC751A22B09A007E1F64 /* EQModulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918FC741A22B09A007E1F64 /* EQModulator.swift */; };
 		491EECC41A18E31700F33D50 /* SliderHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491EECC31A18E31700F33D50 /* SliderHandle.swift */; };
-		492A429F1A27B05D00731F26 /* bin.png in Resources */ = {isa = PBXBuildFile; fileRef = 492A429E1A27B05D00731F26 /* bin.png */; };
 		492A42A91A27BEB400731F26 /* SavedStateMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492A42A81A27BEB400731F26 /* SavedStateMenuButton.swift */; };
 		492A42C41A2D38E900731F26 /* SavedStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492A42C31A2D38E900731F26 /* SavedStateManager.swift */; };
 		492A42C61A2D4AFD00731F26 /* piano2.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 492A42C51A2D4AF100731F26 /* piano2.sf2 */; };
@@ -139,6 +152,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2500557F1A5C7DD800CD3273 /* NewProjectViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewProjectViewCell.xib; sourceTree = "<group>"; };
 		2509940019FEE2CF00A6D24F /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		2509940219FEE64B00A6D24F /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		2509940419FEE86500A6D24F /* EditScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditScene.swift; sourceTree = "<group>"; };
@@ -186,7 +200,7 @@
 		259B909B19F96D1400737E04 /* ControladorDinamico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControladorDinamico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259B909F19F96D1400737E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		259B90A019F96D1400737E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		259B90A219F96D1400737E04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		259B90A219F96D1400737E04 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
 		259B90A519F96D1400737E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		259B90AA19F96D1400737E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		259B90B019F96D1400737E04 /* ControladorDinamicoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ControladorDinamicoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,11 +245,23 @@
 		25B521131A3F9C6B00735263 /* savestate_button4_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = savestate_button4_selected.png; path = images/savestate/savestate_button4_selected.png; sourceTree = "<group>"; };
 		25B521141A3F9C6B00735263 /* savestate_button4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = savestate_button4.png; path = images/savestate/savestate_button4.png; sourceTree = "<group>"; };
 		25B5211E1A3FA61100735263 /* LaunchImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LaunchImage.jpg; sourceTree = "<group>"; };
+		25DAE67C1A61CB5A00D5E86C /* bt_play_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_play_selected.png; sourceTree = "<group>"; };
+		25DAE67D1A61CB5A00D5E86C /* bt_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_play.png; sourceTree = "<group>"; };
+		25DAE67E1A61CB5A00D5E86C /* bt_tutorial_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_tutorial_selected.png; sourceTree = "<group>"; };
+		25DAE67F1A61CB5A00D5E86C /* bt_tutorial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_tutorial.png; sourceTree = "<group>"; };
+		25DAE6801A61CB5A00D5E86C /* tocada_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tocada_background.png; sourceTree = "<group>"; };
+		25DAE6861A61CB8C00D5E86C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		25DAE6891A61D4EF00D5E86C /* bt_add_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_add_selected.png; sourceTree = "<group>"; };
+		25DAE68A1A61D4EF00D5E86C /* bt_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_add.png; sourceTree = "<group>"; };
+		25DAE68B1A61D4EF00D5E86C /* bt_open_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_open_selected.png; sourceTree = "<group>"; };
+		25DAE68C1A61D4EF00D5E86C /* bt_open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_open.png; sourceTree = "<group>"; };
+		25DAE68D1A61D4EF00D5E86C /* bt_remove_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_remove_selected.png; sourceTree = "<group>"; };
+		25DAE68E1A61D4EF00D5E86C /* bt_remve.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_remve.png; sourceTree = "<group>"; };
+		25DAE6951A61E14E00D5E86C /* bin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bin.png; sourceTree = "<group>"; };
 		490120CE1A1E7BC200F3E653 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4918FC721A22AEB7007E1F64 /* DelayModulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayModulator.swift; sourceTree = "<group>"; };
 		4918FC741A22B09A007E1F64 /* EQModulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EQModulator.swift; sourceTree = "<group>"; };
 		491EECC31A18E31700F33D50 /* SliderHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderHandle.swift; sourceTree = "<group>"; };
-		492A429E1A27B05D00731F26 /* bin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bin.png; path = images/bin.png; sourceTree = "<group>"; };
 		492A42A81A27BEB400731F26 /* SavedStateMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedStateMenuButton.swift; sourceTree = "<group>"; };
 		492A42C31A2D38E900731F26 /* SavedStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedStateManager.swift; sourceTree = "<group>"; };
 		492A42C51A2D4AF100731F26 /* piano2.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = piano2.sf2; sourceTree = "<group>"; };
@@ -310,6 +336,8 @@
 		2557DBCE1A13FCB20003AB5D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				25DAE6881A61D4E000D5E86C /* ProjectsView */,
+				25DAE67B1A61C99600D5E86C /* HomeView */,
 				25B5211E1A3FA61100735263 /* LaunchImage.jpg */,
 				49DD5D001A2E9FC80001252C /* Menu */,
 				2557DBCF1A13FCB20003AB5D /* BOTAO */,
@@ -435,7 +463,7 @@
 				49EC59F71A2006C800A36D2C /* SoundFonts */,
 				2557DBCE1A13FCB20003AB5D /* images */,
 				2556636A1A13F95000F6F820 /* SoundObject */,
-				259B90A219F96D1400737E04 /* ViewController.swift */,
+				259B90A219F96D1400737E04 /* ProjectViewController.swift */,
 				259B90A019F96D1400737E04 /* AppDelegate.swift */,
 				259B90A419F96D1400737E04 /* Main.storyboard */,
 				259B90A919F96D1400737E04 /* LaunchScreen.xib */,
@@ -450,6 +478,8 @@
 				25AF9BC51A23C34D00CED1CD /* ProjectView.xib */,
 				492A42A81A27BEB400731F26 /* SavedStateMenuButton.swift */,
 				492A42C31A2D38E900731F26 /* SavedStateManager.swift */,
+				2500557F1A5C7DD800CD3273 /* NewProjectViewCell.xib */,
+				25DAE6861A61CB8C00D5E86C /* HomeViewController.swift */,
 			);
 			path = ControladorDinamico;
 			sourceTree = "<group>";
@@ -479,9 +509,35 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		25DAE67B1A61C99600D5E86C /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				25DAE67C1A61CB5A00D5E86C /* bt_play_selected.png */,
+				25DAE67D1A61CB5A00D5E86C /* bt_play.png */,
+				25DAE67E1A61CB5A00D5E86C /* bt_tutorial_selected.png */,
+				25DAE67F1A61CB5A00D5E86C /* bt_tutorial.png */,
+				25DAE6801A61CB5A00D5E86C /* tocada_background.png */,
+			);
+			name = HomeView;
+			sourceTree = "<group>";
+		};
+		25DAE6881A61D4E000D5E86C /* ProjectsView */ = {
+			isa = PBXGroup;
+			children = (
+				25DAE6891A61D4EF00D5E86C /* bt_add_selected.png */,
+				25DAE68A1A61D4EF00D5E86C /* bt_add.png */,
+				25DAE68B1A61D4EF00D5E86C /* bt_open_selected.png */,
+				25DAE68C1A61D4EF00D5E86C /* bt_open.png */,
+				25DAE68D1A61D4EF00D5E86C /* bt_remove_selected.png */,
+				25DAE68E1A61D4EF00D5E86C /* bt_remve.png */,
+			);
+			name = ProjectsView;
+			sourceTree = "<group>";
+		};
 		49DD5D001A2E9FC80001252C /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				25DAE6951A61E14E00D5E86C /* bin.png */,
 				256533371A44619C009F4A73 /* menubutton_edit.png */,
 				256533381A44619C009F4A73 /* roulette_icon.png */,
 				256533391A44619C009F4A73 /* slider_icon.png */,
@@ -503,7 +559,6 @@
 				259682D41A38E17500101AE2 /* menubutton_modulator.png */,
 				259682D51A38E17500101AE2 /* menubutton_play.png */,
 				259682D61A38E17500101AE2 /* menubutton_save.png */,
-				492A429E1A27B05D00731F26 /* bin.png */,
 			);
 			name = Menu;
 			path = ..;
@@ -639,6 +694,7 @@
 				25B521201A3FA90800735263 /* Main.storyboard in Resources */,
 				4933E0E91A17F3FE00DDCE0D /* buttonSelected.png in Resources */,
 				25B521041A3F757900735263 /* button8_selected.png in Resources */,
+				25DAE6851A61CB5A00D5E86C /* tocada_background.png in Resources */,
 				25B5211B1A3F9C6B00735263 /* savestate_button3.png in Resources */,
 				25B520F91A3F757900735263 /* button2_selected.png in Resources */,
 				25B521071A3F8CAA00735263 /* button5_selected.png in Resources */,
@@ -649,25 +705,31 @@
 				25B5211A1A3F9C6B00735263 /* savestate_button3_selected.png in Resources */,
 				25B521021A3F757900735263 /* button7_selected.png in Resources */,
 				255DB8191A3D112B007BC71C /* button1_template.png in Resources */,
-				492A429F1A27B05D00731F26 /* bin.png in Resources */,
+				250055811A5C7DD800CD3273 /* NewProjectViewCell.xib in Resources */,
 				25B521011A3F757900735263 /* button6.png in Resources */,
+				25DAE6911A61D4EF00D5E86C /* bt_open_selected.png in Resources */,
 				25AF9BE21A265FE400CED1CD /* roulette_frame.png in Resources */,
+				25DAE6941A61D4EF00D5E86C /* bt_remve.png in Resources */,
 				2565333F1A44619C009F4A73 /* spring_icon.png in Resources */,
 				25B5211F1A3FA61100735263 /* LaunchImage.jpg in Resources */,
 				492A42C61A2D4AFD00731F26 /* piano2.sf2 in Resources */,
+				25DAE6811A61CB5A00D5E86C /* bt_play_selected.png in Resources */,
 				255DB8201A3D112B007BC71C /* button8_template.png in Resources */,
 				25B521031A3F757900735263 /* button7.png in Resources */,
 				25B520FA1A3F757900735263 /* button2.png in Resources */,
+				25DAE6831A61CB5A00D5E86C /* bt_tutorial_selected.png in Resources */,
 				2565333E1A44619C009F4A73 /* slider_icon.png in Resources */,
 				25B520FF1A3F757900735263 /* button5.png in Resources */,
 				25B521171A3F9C6B00735263 /* savestate_button1.png in Resources */,
 				25B521051A3F757900735263 /* button8.png in Resources */,
 				251174531A291CD7005E37C5 /* thermal_frame.png in Resources */,
 				255DB81E1A3D112B007BC71C /* button6_template.png in Resources */,
+				25DAE68F1A61D4EF00D5E86C /* bt_add_selected.png in Resources */,
 				25B520FB1A3F757900735263 /* button3_selected.png in Resources */,
 				25B520FE1A3F757900735263 /* button4.png in Resources */,
 				2565333C1A44619C009F4A73 /* menubutton_edit.png in Resources */,
 				2557DBEE1A14067B0003AB5D /* spring.png in Resources */,
+				25DAE6961A61E14E00D5E86C /* bin.png in Resources */,
 				25B5211C1A3F9C6B00735263 /* savestate_button4_selected.png in Resources */,
 				25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */,
 				259682DA1A38E17500101AE2 /* menubutton_modulator.png in Resources */,
@@ -688,7 +750,9 @@
 				25B520FC1A3F757900735263 /* button3.png in Resources */,
 				259682D91A38E17500101AE2 /* menubutton_button.png in Resources */,
 				2557DBF41A1406B80003AB5D /* thermal.png in Resources */,
+				25DAE6841A61CB5A00D5E86C /* bt_tutorial.png in Resources */,
 				259682D71A38E17500101AE2 /* menubutton_about.png in Resources */,
+				25DAE6901A61D4EF00D5E86C /* bt_add.png in Resources */,
 				25A93F6C1A1A9B7D00C9F145 /* roulette_background.png in Resources */,
 				255DB81C1A3D112B007BC71C /* button4_template.png in Resources */,
 				2557DBDD1A13FCB20003AB5D /* CANVAS.psd in Resources */,
@@ -696,7 +760,9 @@
 				25B520F81A3F757900735263 /* button1.png in Resources */,
 				251174521A291CD7005E37C5 /* thermal_background.png in Resources */,
 				25B521001A3F757900735263 /* button6_selected.png in Resources */,
+				25DAE6931A61D4EF00D5E86C /* bt_remove_selected.png in Resources */,
 				2565333D1A44619C009F4A73 /* roulette_icon.png in Resources */,
+				25DAE6821A61CB5A00D5E86C /* bt_play.png in Resources */,
 				25AF9BEC1A267BDE00CED1CD /* spring_background.png in Resources */,
 				25B5210B1A3F8EEB00735263 /* modulatorDrawer.png in Resources */,
 				259B90C919F9756200737E04 /* Images-3.xcassets in Resources */,
@@ -708,6 +774,7 @@
 				255DB81D1A3D112B007BC71C /* button5_template.png in Resources */,
 				2557DBF01A14068C0003AB5D /* roulette.png in Resources */,
 				4933E0F01A18005700DDCE0D /* sliderHandle.png in Resources */,
+				25DAE6921A61D4EF00D5E86C /* bt_open.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,11 +792,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				259B90A319F96D1400737E04 /* ViewController.swift in Sources */,
+				259B90A319F96D1400737E04 /* ProjectViewController.swift in Sources */,
 				49A52EA61A3A421B006F0F68 /* PitchMidiModulator.swift in Sources */,
 				4918FC731A22AEB7007E1F64 /* DelayModulator.swift in Sources */,
 				258D1FFB1A019BF900ACFC93 /* SoundObjectTemplate.swift in Sources */,
 				25AF9BE51A26620D00CED1CD /* RouletteButton.swift in Sources */,
+				25DAE6871A61CB8C00D5E86C /* HomeViewController.swift in Sources */,
 				49EC5A061A20449F00A36D2C /* PitchModulator.swift in Sources */,
 				251174581A291D74005E37C5 /* ThermalFrame.swift in Sources */,
 				492A42C41A2D38E900731F26 /* SavedStateManager.swift in Sources */,
