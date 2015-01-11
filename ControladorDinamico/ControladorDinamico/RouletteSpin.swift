@@ -33,18 +33,15 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
     {
         lastRotationPoint = position
         var convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
-        NSLog("Converted: %f %f", Float(convertedPoint.x), Float(convertedPoint.y))
         self.physicsBody?.angularVelocity = 0
         
     }
     
     func touchMoved(position: CGPoint) {
-        // NSLog("Origin: %f %f", originPoint.x, originPoint.y)
         var difference = CGPoint(x:position.x - lastRotationPoint!.x, y:position.y - lastRotationPoint!.y)
         var convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
         
         var impulse = CGFloat(0)
-        NSLog("Difference: %f %f", Float(difference.x), Float(difference.y))
         
         /*
                    |
@@ -54,10 +51,12 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
         -------------------------
                    |
             Q2     |      Q3
-                   |      
+                   |
                    |
         
         */
+        
+        // Magic calculations below, that may or may not have something to do with the quadrants above
         
         if (convertedPoint.x < 0 && convertedPoint.y >= 0) {
             // Q1
@@ -79,7 +78,6 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
             impulse += -difference.x
             impulse += difference.y
         }
-        NSLog("Impulse: %f", Float(impulse))
         
         self.physicsBody?.applyAngularImpulse(impulse / 20)
         
