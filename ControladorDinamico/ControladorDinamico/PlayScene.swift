@@ -32,7 +32,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
         self.gridSize = 128
         
         let barWidth:CGFloat = gridSize
-        let buttonSize = CGSize(width: 119, height: 119)
+        let buttonSize = CGSize(width: 110, height: 110)
         
         // MenuBar
         
