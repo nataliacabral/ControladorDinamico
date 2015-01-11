@@ -29,30 +29,42 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
         super.init()
     }
     
+    func moveToPosition(position:CGPoint)
+    {
+        // Valor obtido atraves de calculos aleatorios
+        self.zRotation = atan2(position.y, position.x) - CGFloat(M_PI_2)
+    }
+    
     func touchStarted(position:CGPoint)
     {
         lastRotationPoint = position
-        var convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
+        let convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
+        self.moveToPosition(convertedPoint)
         self.physicsBody?.angularVelocity = 0
-        
     }
     
     func touchMoved(position: CGPoint) {
+        lastRotationPoint = position;
+        let convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
+        self.moveToPosition(convertedPoint)
+     }
+    
+    func touchEnded(position: CGPoint) {
         var difference = CGPoint(x:position.x - lastRotationPoint!.x, y:position.y - lastRotationPoint!.y)
         var convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
         
         var impulse = CGFloat(0)
         
         /*
-                   |
-                   |
-            Q1     |      Q4
-                   |
+        |
+        |
+        Q1     |      Q4
+        |
         -------------------------
-                   |
-            Q2     |      Q3
-                   |
-                   |
+        |
+        Q2     |      Q3
+        |
+        |
         
         */
         
@@ -79,7 +91,7 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
             impulse += difference.y
         }
         
-        self.physicsBody?.applyAngularImpulse(impulse / 20)
+        self.physicsBody?.applyAngularImpulse(impulse)
         
         let maxVelocity:CGFloat = 50
         if (self.physicsBody?.angularVelocity > maxVelocity) {
@@ -87,10 +99,7 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
         } else if (self.physicsBody?.angularVelocity < -maxVelocity) {
             self.physicsBody?.angularVelocity = -maxVelocity
         }
-        lastRotationPoint = position;
-    }
-    
-    func touchEnded(position: CGPoint) {
+
         lastRotationPoint = nil
     }
     
