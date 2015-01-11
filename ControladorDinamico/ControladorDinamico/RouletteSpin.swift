@@ -11,9 +11,9 @@ import SpriteKit
 
 class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
 {
-    var startRotationPoint:CGPoint?
+    var lastRotationPoint:CGPoint?
     let rouletteSpinTexture:SKTexture = SKTexture(imageNamed: "roulette_spinningpart.png")
-
+    
     override init()
     {
         super.init()
@@ -31,37 +31,57 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
     
     func touchStarted(position:CGPoint)
     {
-        startRotationPoint = self.scene!.convertPoint(position, toNode:self.parent!)
+        lastRotationPoint = position
+        var convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
+        NSLog("Converted: %f %f", Float(convertedPoint.x), Float(convertedPoint.y))
         self.physicsBody?.angularVelocity = 0
-
+        
     }
-
-     func touchMoved(position: CGPoint) {
-        let translation:CGPoint = position;
-        var convertedPoint = self.convertPoint(translation, toNode:self.parent!)
-        var x:CGFloat = 0
-        var y:CGFloat = 0
-        // Rotacao em cima, x é positivo para direita
-        if (self.startRotationPoint?.y > 0) {
-            x = -translation.x
+    
+    func touchMoved(position: CGPoint) {
+        // NSLog("Origin: %f %f", originPoint.x, originPoint.y)
+        var difference = CGPoint(x:position.x - lastRotationPoint!.x, y:position.y - lastRotationPoint!.y)
+        var convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
+        
+        var impulse = CGFloat(0)
+        NSLog("Difference: %f %f", Float(difference.x), Float(difference.y))
+        
+        /*
+                   |
+                   |
+            Q1     |      Q4
+                   |
+        -------------------------
+                   |
+            Q2     |      Q3
+                   |      
+                   |
+        
+        */
+        
+        if (convertedPoint.x < 0 && convertedPoint.y >= 0) {
+            // Q1
+            impulse += -difference.x
+            impulse += -difference.y
         }
-        else {
-            x = translation.x
+        else if (convertedPoint.x < 0 && convertedPoint.y < 0) {
+            // Q2
+            impulse += difference.x
+            impulse += -difference.y
         }
-        if (self.startRotationPoint?.x > 0) {
-            y = translation.y
+        else if (convertedPoint.x >= 0 && convertedPoint.y < 0) {
+            // Q3
+            impulse += difference.x
+            impulse += difference.y
         }
-        else {
-            y = -translation.y
+        else if (convertedPoint.x >= 0 && convertedPoint.y >= 0) {
+            // Q4
+            impulse += -difference.x
+            impulse += difference.y
         }
-        var higherValue:CGFloat = 0
-        if (abs(x) > abs(y)) {
-            higherValue = x
-        }
-        else {
-            higherValue = y
-        }
-        self.physicsBody?.applyAngularImpulse(higherValue / 800)
+        NSLog("Impulse: %f", Float(impulse))
+        
+        self.physicsBody?.applyAngularImpulse(impulse / 20)
         
         let maxVelocity:CGFloat = 50
         if (self.physicsBody?.angularVelocity > maxVelocity) {
@@ -69,10 +89,11 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
         } else if (self.physicsBody?.angularVelocity < -maxVelocity) {
             self.physicsBody?.angularVelocity = -maxVelocity
         }
+        lastRotationPoint = position;
     }
     
     func touchEnded(position: CGPoint) {
-        startRotationPoint = nil
+        lastRotationPoint = nil
     }
     
     func touchCancelled(position: CGPoint) {
