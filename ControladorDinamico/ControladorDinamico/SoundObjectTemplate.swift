@@ -16,7 +16,6 @@ class SoundObjectTemplate : MenuButton
     init(object:SoundObject) {
         super.init(texture: SKTexture(imageNamed: object.iconImageName!), color: object.color, size:CGSize(width: 50, height: 50))
         self.object = object
-        self.zRotation = object.zRotation
     }
     
     required init?(coder aDecoder: NSCoder) {

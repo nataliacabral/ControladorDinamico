@@ -47,8 +47,8 @@ class EditScene : SKScene
         
         var springSprite:SpringSoundObject = SpringSoundObject(gridSize:gridSize)
         var sliderSprite:SliderSoundObject = SliderSoundObject(gridSize:gridSize)
-        var horizontalSliderSprite:SliderSoundObject = SliderSoundObject(gridSize:gridSize)
-        horizontalSliderSprite.zRotation = -CGFloat(M_PI_2)
+        var horizontalSliderSprite:HorizontalSliderSoundObject = HorizontalSliderSoundObject(gridSize:gridSize)
+        //horizontalSliderSprite.zRotation = -CGFloat(M_PI_2)
         
         var rouletteSprite:RouletteSoundObject = RouletteSoundObject(gridSize:gridSize)
         var thermalSprite:ThermalSoundObject = ThermalSoundObject(gridSize:gridSize)

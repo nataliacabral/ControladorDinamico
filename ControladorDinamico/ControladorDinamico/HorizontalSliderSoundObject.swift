@@ -1,37 +1,37 @@
 //
-//  SliderSoundObject.swift
+//  HorizontalSliderSoundObject.swift
 //  ControladorDinamico
 //
-//  Created by Natália Cabral on 12/11/14.
-//  Copyright (c) 2014 Natália Cabral. All rights reserved.
+//  Created by Natália Cabral on 1/11/15.
+//  Copyright (c) 2015 Natália Cabral. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 import AVFoundation
 
-struct SliderStatus
+struct HorizontalSliderStatus
 {
     var sliderPosition:CGFloat
 }
 
-class SliderSoundObject : SoundObject, Touchable, ModulatorNode
-
+class HorizontalSliderSoundObject : SoundObject, Touchable, ModulatorNode
+    
 {
-    override var gridHeight:CGFloat { get { return 3 } }
-    override var gridWidth:CGFloat { get { return 1 } }
-
-    var sliderHandle:SliderHandle?
-    let sliderTrackTexture:SKTexture = SKTexture(imageNamed: "sliderTrack.png")
-    let sliderEditTexture:SKTexture = SKTexture(imageNamed: "slider.png")
-
+    override var gridHeight:CGFloat { get { return 1 } }
+    override var gridWidth:CGFloat { get { return 3 } }
+    
+    var sliderHandle:HorizontalSliderHandle?
+    let sliderTrackTexture:SKTexture = SKTexture(imageNamed: "slider_horizontal_track.png")
+    let sliderEditTexture:SKTexture = SKTexture(imageNamed: "slider_horizontal.png")
+    
     let handlerWidthBorder:CGFloat = 3.5
-
+    
     var modulators:Array<Modulator> = Array<Modulator>()
     
-    var status:SliderStatus = SliderStatus(sliderPosition: CGFloat(0))
-    var savedStatus : Array<SliderStatus> = Array<SliderStatus>(count: 4, repeatedValue: SliderStatus(sliderPosition: CGFloat(0)))
-
+    var status:HorizontalSliderStatus = HorizontalSliderStatus(sliderPosition: CGFloat(0))
+    var savedStatus : Array<HorizontalSliderStatus> = Array<HorizontalSliderStatus>(count: 4, repeatedValue: HorizontalSliderStatus(sliderPosition: CGFloat(0)))
+    
     override init()
     {
         super.init()
@@ -40,39 +40,38 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
         super.init(texture: sliderEditTexture, color: color, size: size)
-        self.iconImageName = "slider_icon.png"
+        self.iconImageName = "slider_horizontal_icon.png"
     }
-    
+
     override init(gridSize:CGFloat) {
         super.init(gridSize:gridSize)
     }
 
     required init(coder aDecoder: NSCoder) {
-        super.init(coder:aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
-        
+    
     func loadHandle()
     {
         self.sliderHandle = nil
         self.removeAllChildren()
         if (self.sliderHandle == nil) {
-            self.sliderHandle = SliderHandle()
-
-            self.sliderHandle!.size.width = self.size.width - (self.handlerWidthBorder * 2)
-            let ratio:CGFloat = self.sliderHandle!.texture!.size().width / self.sliderHandle!.size.width
-            self.sliderHandle!.size.height = self.sliderHandle!.texture!.size().height / ratio
+            self.sliderHandle = HorizontalSliderHandle()
+            self.sliderHandle!.size.height = self.size.height - (self.handlerWidthBorder * 2)
+            let ratio:CGFloat = self.sliderHandle!.texture!.size().height / self.sliderHandle!.size.height
+            self.sliderHandle!.size.width = self.sliderHandle!.texture!.size().width / ratio
             self.sliderHandle!.position.x = 0;
             self.sliderHandle!.position.y = 0;
-
+            
             self.addChild(self.sliderHandle!);
         }
     }
-
+    
     override func currentSoundIntensity() -> Float
     {
         return self.sliderHandle!.currentSoundIntensity()
     }
-
+    
     override func touchStarted(position:CGPoint)
     {
         self.sliderHandle!.touchStarted(position)
@@ -101,7 +100,7 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
     
     override func playObject() -> SoundObject
     {
-        var result:SliderSoundObject = SliderSoundObject(
+        var result:HorizontalSliderSoundObject = HorizontalSliderSoundObject(
             texture:self.texture,
             color:self.color,
             size:self.size
@@ -109,19 +108,19 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
         result.texture = sliderTrackTexture
         result.position = self.position
         result.loadHandle()
-
+        
         return result
     }
     
     override func saveStatus(slot:Int)
     {
-        self.status.sliderPosition = self.sliderHandle!.position.y
+        self.status.sliderPosition = self.sliderHandle!.position.x
         self.savedStatus[slot] = self.status;
     }
     
     override func loadStatus(slot:Int)
     {
         self.status = self.savedStatus[slot];
-        self.sliderHandle!.position.y = self.status.sliderPosition
+        self.sliderHandle!.position.x = self.status.sliderPosition
     }
 }
