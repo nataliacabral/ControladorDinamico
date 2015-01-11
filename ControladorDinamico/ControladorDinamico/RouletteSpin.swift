@@ -91,6 +91,7 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
             impulse += difference.y
         }
         
+        impulse = impulse / 5
         self.physicsBody?.applyAngularImpulse(impulse)
         
         let maxVelocity:CGFloat = 50

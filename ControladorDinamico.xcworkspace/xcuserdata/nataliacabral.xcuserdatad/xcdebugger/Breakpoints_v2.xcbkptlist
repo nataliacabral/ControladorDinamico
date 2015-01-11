@@ -91,7 +91,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
             endingLineNumber = "78"
-            landmarkName = "touchMoved(_:)"
+            landmarkName = "touchEnded(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -107,7 +107,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
             endingLineNumber = "59"
-            landmarkName = "touchMoved(_:)"
+            landmarkName = "touchEnded(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -123,7 +123,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
             endingLineNumber = "56"
-            landmarkName = "touchMoved(_:)"
+            landmarkName = "touchEnded(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -139,7 +139,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
             endingLineNumber = "53"
-            landmarkName = "touchMoved(_:)"
+            landmarkName = "touchEnded(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
