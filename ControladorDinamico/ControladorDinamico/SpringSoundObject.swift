@@ -144,7 +144,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
         springHandle!.physicsBody?.categoryBitMask = 3
         springHandle!.physicsBody?.contactTestBitMask = 3
         springHandle!.physicsBody?.dynamic = true
-        springHandle!.physicsBody?.restitution = 0.8
+        springHandle!.physicsBody?.restitution = 0.6
         springHandle!.physicsBody?.linearDamping = 0
         springHandle!.physicsBody?.allowsRotation = false
         springHandle!.physicsBody?.affectedByGravity = false
@@ -162,7 +162,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
         self.springJoint = SKPhysicsJointSpring .jointWithBodyA(self.springHandle!.physicsBody!, bodyB:self.physicsBody!, anchorA:springHandleAnchor , anchorB:CGPoint(x: self.position.x, y: positionY))
         
         springJoint!.frequency = 0.8;
-        springJoint!.damping = 0.3;
+        springJoint!.damping = 0.5;
         self.scene?.physicsWorld .addJoint(springJoint!)
         self.scene?.addChild(self.springHandleBoundEdge)
     }
