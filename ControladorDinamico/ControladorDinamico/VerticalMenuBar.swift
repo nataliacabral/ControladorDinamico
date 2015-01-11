@@ -11,7 +11,7 @@ import SpriteKit
 
 class VerticalMenuBar : SKSpriteNode
 {
-    class var border:CGFloat  { get { return 8 } }
+    class var border:CGFloat  { get { return 15 } }
     let bgColor = UIColor(red:0.5 , green:0.51, blue:0.52, alpha: 1)
 
     var buttonList:Array<MenuButton>?

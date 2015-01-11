@@ -25,9 +25,10 @@ class EditScene : SKScene
     var touchMapping = Dictionary<UITouch , SKNode>()
     var touchPositionMap = Dictionary<UITouch , CGPoint>()
     
+    var trashButton:SKSpriteNode
+    
     var backButton:MenuButton
     var playButton:MenuButton
-    var trashButton:MenuButton
     var saveButton:MenuButton
     var aboutButton:MenuButton
     
@@ -66,7 +67,7 @@ class EditScene : SKScene
         var rouletteTemplate:SoundObjectTemplate = SoundObjectTemplate(object: rouletteSprite)
         var thermalTemplate:SoundObjectTemplate = SoundObjectTemplate(object: thermalSprite)
         
-        let buttonSize = CGSize(width: 100, height: 100)
+        let buttonSize = CGSize(width: 110, height: 110)
         let drawerButtonSize = CGSize(width: 50, height: 50)
         
         backButton = MenuButton(
@@ -76,11 +77,6 @@ class EditScene : SKScene
         
         playButton = MenuButton(
             texture:SKTexture(imageNamed: "menubutton_play.png"),
-            color:UIColor(),
-            size:buttonSize)
-        
-        trashButton = MenuButton(
-            texture:SKTexture(imageNamed: "bin.png"),
             color:UIColor(),
             size:buttonSize)
         
@@ -94,7 +90,13 @@ class EditScene : SKScene
             color:UIColor(),
             size:buttonSize)
         
-        
+        trashButton = SKSpriteNode (
+            texture:SKTexture(imageNamed: "bin.png"),
+            color:UIColor(),
+            size:CGSize(width: 55, height: 55))
+        trashButton.position.x =  gridSize / 3
+        trashButton.position.y = gridSize / 3
+
         super.init(size: size)
         
         self.scene?.backgroundColor = UIColor.blackColor()
@@ -156,34 +158,8 @@ class EditScene : SKScene
             size:buttonSize,
             drawer:self.modulatorDrawer!)
         
-        
-        
-        //Grid
-        for (var y:CGFloat = 0 ; y < self.size.height ; y += gridSize) {
-            var gridVerticalLine:SKShapeNode = SKShapeNode()
-            var gridVerticalLinePath:CGMutablePathRef = CGPathCreateMutable()
-            CGPathMoveToPoint(gridVerticalLinePath, nil, self.size.width, y)
-            CGPathAddLineToPoint(gridVerticalLinePath, nil, 0, y)
-            gridVerticalLine.path = gridVerticalLinePath
-            gridVerticalLine.strokeColor = UIColor.lightGrayColor()
-            gridVerticalLine.zPosition = -10
-            self.addChild(gridVerticalLine)
-        }
-        
-        for (var x:CGFloat = 0 ; x < self.size.width ; x += gridSize) {
-            var gridHorizontalLine:SKShapeNode = SKShapeNode()
-            var gridHorizontalLinePath:CGMutablePathRef = CGPathCreateMutable()
-            CGPathMoveToPoint(gridHorizontalLinePath, nil, x, self.size.width)
-            CGPathAddLineToPoint(gridHorizontalLinePath, nil, x, 0)
-            gridHorizontalLine.path = gridHorizontalLinePath
-            gridHorizontalLine.strokeColor = UIColor.lightGrayColor()
-            gridHorizontalLine.zPosition = -10
-            self.addChild(gridHorizontalLine)
-        }
-        
-        
         self.menuBar = VerticalMenuBar(
-            buttons: [buttonsDrawerButton, modulatorDrawerButton, self.playButton, self.backButton, self.saveButton, self.trashButton, self.aboutButton],
+            buttons: [buttonsDrawerButton, modulatorDrawerButton, self.playButton, self.backButton, self.saveButton, self.aboutButton],
             position:CGPoint(x: x, y: y),
             size:CGSize(width: barWidth, height: self.size.height),
             buttonSize:buttonSize
@@ -203,6 +179,7 @@ class EditScene : SKScene
         
         self.addChild(self.modulatorDrawer!)
         self.addChild(self.buttonDrawer!)
+        self.addChild(trashButton)
     }
     
     required init(coder aDecoder: NSCoder) {
