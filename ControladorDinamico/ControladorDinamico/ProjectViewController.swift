@@ -9,6 +9,8 @@
 import UIKit
 
 class ProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate, UIAlertViewDelegate, UIPickerViewDataSource,UIPickerViewDelegate {
+    
+    let grayColor = UIColor(red: 230 / 255, green: 231 / 255, blue: 232 / 255, alpha: 1)
     @IBOutlet var collectionView:UICollectionView!
     
     var notePicker: UIPickerView?
@@ -103,11 +105,12 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         var collectionViewCell:UICollectionViewCell
-        
+        let borderWidth:CGFloat = 2.5;
+
         if (indexPath.row >= projects.count) {
             
             collectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(newProjectCellViewIdentifier, forIndexPath: indexPath) as UICollectionViewCell
-            
+            collectionView.backgroundColor = grayColor
             nameTextfield = collectionViewCell.viewWithTag(newProjectNameTextfieldTag) as? UITextField
 
             notePicker = collectionViewCell.viewWithTag(newProjectNotePickerTag) as? UIPickerView
@@ -125,7 +128,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
             if (collectionViewCell.selected) {
                 collectionViewCell.backgroundColor = UIColor.orangeColor()
             } else {
-                collectionViewCell.backgroundColor = UIColor.grayColor()
+                collectionViewCell.backgroundColor = grayColor
             }
             
             let project:Project = (projects.objectAtIndex(indexPath.row) as Project)
@@ -143,6 +146,8 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
             previewView.image = project.preview
         }
         
+        
+        
         return collectionViewCell
     }
     
@@ -150,15 +155,17 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         if (projects.count > indexPath.row) {
             let datasetCell = collectionView.cellForItemAtIndexPath(indexPath)
-            datasetCell?.backgroundColor = UIColor.orangeColor()
-            self.selectedProject = self.projects.objectAtIndex(indexPath.row) as? Project
-            
             if (addingProject) {
                 if (countElements(self.nameTextfield!.text!) == 0) {
                     self.addingProject = false
                     self.collectionView.reloadData()
+                    self.collectionView.selectItemAtIndexPath(indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.CenteredVertically)
                 }
+            } else {
+            datasetCell?.backgroundColor = UIColor.orangeColor()
+            self.selectedProject = self.projects.objectAtIndex(indexPath.row) as? Project
             }
+            
             
         } else if (projects.count == indexPath.row) {
             self.addNewProject()
@@ -166,12 +173,14 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
         } else {
             self.selectedProject = nil
         }
+        
+        self.collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: UICollectionViewScrollPosition.CenteredVertically, animated: true)
     }
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         if (self.projects.count > indexPath.row) {
             let datasetCell = collectionView.cellForItemAtIndexPath(indexPath)
-            datasetCell?.backgroundColor = UIColor.grayColor()
+            datasetCell?.backgroundColor = grayColor
         }
     }
     
@@ -195,6 +204,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBAction func addProject(AnyObject) {
         addingProject = true
         self.collectionView.reloadData()
+        self.collectionView.scrollToItemAtIndexPath(NSIndexPath(forRow: self.projects.count, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.CenteredVertically, animated: true)
         
         if (nameTextfield != nil && notePicker != nil && modePicker != nil) {
             nameTextfield!.text = ""
