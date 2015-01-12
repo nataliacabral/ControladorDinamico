@@ -89,6 +89,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.projects = NSMutableArray(array: ProjectManager.sharedInstance.allProjects())
         self.collectionView.reloadData()
         addingProject = false
+        self.selectedProject = nil
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -132,7 +133,11 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
             projectNameLabel.text = project.projectName
             
             let projectNoteLabel:UILabel = collectionViewCell.viewWithTag(projectNoteModeLabelTag) as UILabel
-            projectNoteLabel.text = project.note!.rawValue + " " +  String(project.mode!.rawValue)
+            projectNoteLabel.text = project.note!.rawValue
+                
+            if (project.mode! == Project.Mode.m) {
+                projectNoteLabel.text = projectNoteLabel.text! + String(project.mode!.rawValue)
+            }
             
             let previewView:UIImageView = collectionViewCell.viewWithTag(projectBackgroundViewTag) as UIImageView
             previewView.image = project.preview
@@ -149,8 +154,10 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
             self.selectedProject = self.projects.objectAtIndex(indexPath.row) as? Project
             
             if (addingProject) {
-//TODO
-
+                if (countElements(self.nameTextfield!.text!) == 0) {
+                    self.addingProject = false
+                    self.collectionView.reloadData()
+                }
             }
             
         } else if (projects.count == indexPath.row) {
@@ -159,7 +166,6 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
         } else {
             self.selectedProject = nil
         }
-
     }
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {

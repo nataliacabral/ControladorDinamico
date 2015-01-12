@@ -64,7 +64,7 @@ class ThermalFrame : SKSpriteNode, Touchable, ModulatorNode
             let interval:NSTimeInterval = currentTime - self.lastUpdateTimestamp!
 
             if (touching && self.alpha < 1) {
-                self.alpha = self.alpha + CGFloat(interval) * alphaRatio
+                self.alpha = self.alpha + CGFloat(interval) * alphaRatio * 2
             } else if (self.alpha > 0) {
                 self.alpha = self.alpha - CGFloat(interval/2) * alphaRatio
             }
