@@ -32,6 +32,8 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     var status:RouletteStatus = RouletteStatus(angularVelocity: CGFloat(0), buttonToggled:false, zRotation:0)
     var savedStatus : Array<RouletteStatus> = Array<RouletteStatus>(count: 4, repeatedValue: RouletteStatus(angularVelocity: CGFloat(0), buttonToggled:false, zRotation:0))
     
+    var touchedSpin:Bool = false
+    
     override init()
     {
         super.init()
@@ -123,14 +125,29 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     override func touchStarted(position:CGPoint)
     {
         if (self.rouletteSpin != nil) {
+            touchedSpin = true
             self.rouletteSpin!.touchStarted(position)
         }
     }
     
     override func touchEnded(position:CGPoint)
     {
+        touchedSpin = false
         if (self.rouletteSpin != nil) {
             self.rouletteSpin!.touchEnded(position)
+        }
+    }
+    
+    override func touchCancelled(position:CGPoint)
+    {
+        var convertedPoint = self.scene!.convertPoint(position, toNode:self)
+        if (!self.containsPoint(convertedPoint)) {
+            if (self.rouletteSpin != nil) {
+                self.rouletteSpin!.touchCancelled(position)
+            }
+        }
+        else {
+            touchedSpin = false
         }
     }
     

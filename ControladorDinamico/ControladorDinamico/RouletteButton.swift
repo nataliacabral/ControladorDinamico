@@ -37,6 +37,10 @@ class RouletteButton : SKSpriteNode, Touchable
     
     func touchStarted(position:CGPoint)
     {
+        let rouletteObj:RouletteSoundObject = self.parent! as RouletteSoundObject
+        if (rouletteObj.touchedSpin) {
+            rouletteObj.touchStarted(position)
+        }
     }
     
     func setToggle(toggled:Bool) {
@@ -51,17 +55,32 @@ class RouletteButton : SKSpriteNode, Touchable
     
     func touchEnded(position:CGPoint)
     {
-        self.setToggle(!self.toggled)
         let rouletteObj:RouletteSoundObject = self.parent! as RouletteSoundObject
-        rouletteObj.toggleFriction(self.toggled)
+        if (rouletteObj.touchedSpin) {
+            rouletteObj.touchEnded(position)
+        }
+        else {
+            self.setToggle(!self.toggled)
+            rouletteObj.toggleFriction(self.toggled)
+        }
     }
     
     func touchCancelled(position: CGPoint) {
-        self.touchEnded(position)
+        let rouletteObj:RouletteSoundObject = self.parent! as RouletteSoundObject
+        if (rouletteObj.touchedSpin) {
+            rouletteObj.touchCancelled(position)
+        }
+        else {
+            self.setToggle(!self.toggled)
+            rouletteObj.toggleFriction(self.toggled)
+        }
     }
     
     func touchMoved(position:CGPoint)
     {
-    
+        let rouletteObj:RouletteSoundObject = self.parent! as RouletteSoundObject
+        if (rouletteObj.touchedSpin) {
+            rouletteObj.touchMoved(position)
+        }
     }
 }

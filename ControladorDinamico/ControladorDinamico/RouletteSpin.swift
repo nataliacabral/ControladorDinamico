@@ -47,61 +47,69 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
         lastRotationPoint = position;
         let convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
         self.moveToPosition(convertedPoint)
-     }
+    }
     
     func touchEnded(position: CGPoint) {
-        var difference = CGPoint(x:position.x - lastRotationPoint!.x, y:position.y - lastRotationPoint!.y)
-        var convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
+        let rouletteObj:RouletteSoundObject = self.parent! as RouletteSoundObject
         
-        var impulse = CGFloat(0)
-        
-        /*
-        |
-        |
-        Q1     |      Q4
-        |
-        -------------------------
-        |
-        Q2     |      Q3
-        |
-        |
-        
-        */
-        
-        // Magic calculations below, that may or may not have something to do with the quadrants above
-        
-        if (convertedPoint.x < 0 && convertedPoint.y >= 0) {
-            // Q1
-            impulse += -difference.x
-            impulse += -difference.y
+        if (!rouletteObj.touchedSpin) {
+            
+            
+            
+            var difference = CGPoint(x:position.x - lastRotationPoint!.x, y:position.y - lastRotationPoint!.y)
+            var convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
+            
+            var impulse = CGFloat(0)
+            
+            /*
+            |
+            |
+            Q1     |      Q4
+            |
+            -------------------------
+            |
+            Q2     |      Q3
+            |
+            |
+            
+            */
+            
+            // Magic calculations below, that may or may not have something to do with the quadrants above
+            
+            if (convertedPoint.x < 0 && convertedPoint.y >= 0) {
+                // Q1
+                impulse += -difference.x
+                impulse += -difference.y
+            }
+            else if (convertedPoint.x < 0 && convertedPoint.y < 0) {
+                // Q2
+                impulse += difference.x
+                impulse += -difference.y
+            }
+            else if (convertedPoint.x >= 0 && convertedPoint.y < 0) {
+                // Q3
+                impulse += difference.x
+                impulse += difference.y
+            }
+            else if (convertedPoint.x >= 0 && convertedPoint.y >= 0) {
+                // Q4
+                impulse += -difference.x
+                impulse += difference.y
+            }
+            
+            impulse = impulse / 5
+            self.physicsBody?.applyAngularImpulse(impulse)
+            
+            let maxVelocity:CGFloat = 50
+            if (self.physicsBody?.angularVelocity > maxVelocity) {
+                self.physicsBody?.angularVelocity = maxVelocity
+            } else if (self.physicsBody?.angularVelocity < -maxVelocity) {
+                self.physicsBody?.angularVelocity = -maxVelocity
+            }
+            
+            lastRotationPoint = nil
+            
         }
-        else if (convertedPoint.x < 0 && convertedPoint.y < 0) {
-            // Q2
-            impulse += difference.x
-            impulse += -difference.y
-        }
-        else if (convertedPoint.x >= 0 && convertedPoint.y < 0) {
-            // Q3
-            impulse += difference.x
-            impulse += difference.y
-        }
-        else if (convertedPoint.x >= 0 && convertedPoint.y >= 0) {
-            // Q4
-            impulse += -difference.x
-            impulse += difference.y
-        }
-        
-        impulse = impulse / 5
-        self.physicsBody?.applyAngularImpulse(impulse)
-        
-        let maxVelocity:CGFloat = 50
-        if (self.physicsBody?.angularVelocity > maxVelocity) {
-            self.physicsBody?.angularVelocity = maxVelocity
-        } else if (self.physicsBody?.angularVelocity < -maxVelocity) {
-            self.physicsBody?.angularVelocity = -maxVelocity
-        }
-
-        lastRotationPoint = nil
     }
     
     func touchCancelled(position: CGPoint) {

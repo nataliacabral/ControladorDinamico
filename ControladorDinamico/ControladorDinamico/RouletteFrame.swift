@@ -42,7 +42,7 @@ class RouletteFrame : SKSpriteNode, Touchable
     }
     
     func touchCancelled(position: CGPoint) {
-        self.touchEnded(position)
+        (self.parent as RouletteSoundObject).touchCancelled(position)
     }
     
     func touchMoved(position:CGPoint)
