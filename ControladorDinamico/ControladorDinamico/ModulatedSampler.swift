@@ -33,12 +33,12 @@ class ModulatedSampler
                 audioEngine.attachNode(nodeModulator.audioNode())
                 audioEngine.connect(nodeModulator.audioNode(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
                 parentNode = nodeModulator.audioNode()
-                modulator.startModulator()
             }
             else if (modulator is MidiModulator) {
                 let midiModulator = modulator as MidiModulator
                 midiModulator.setSampler(sampler)
             }
+            modulator.startModulator()
         }
         audioEngine.connect(sampler.sampler(), to:parentNode, format:audioEngine.mainMixerNode.outputFormatForBus(0))
     }

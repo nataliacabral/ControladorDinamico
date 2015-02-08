@@ -9,18 +9,27 @@
 import Foundation
 import AVFoundation
 
+
 class PitchMidiModulator : MidiModulator
 {
     var sampler:Sampler?
     var currentPitch:UInt16 = 0
+    var pitchbendSet:Bool = false
 
     init()
     {
-        
+    
     }
     
     func modulate(modulation:Float)
     {
+        if (!pitchbendSet) {
+            self.sampler?.sampler().sendController(100, withValue: 0, onChannel: 0)
+            self.sampler?.sampler().sendController(101, withValue: 0, onChannel: 0)
+            self.sampler?.sampler().sendController(6, withValue: 14, onChannel: 0)
+            self.sampler?.sampler().sendController(100, withValue: 127, onChannel: 0)
+            pitchbendSet = true
+        }
         let intModulation = UInt16(modulation * 16383)
         if (currentPitch != intModulation)
         {
