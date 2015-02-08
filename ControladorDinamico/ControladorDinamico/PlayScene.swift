@@ -221,6 +221,8 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                 touchMapping .removeValueForKey(uiTouch)
             }
             if (touchedNode == self.backButton) {
+                let audioEngine:AVAudioEngine = SoundManager.sharedInstance.audioEngine
+                audioEngine.stop()
                 let navigationController = self.view!.window!.rootViewController!
                 if (navigationController is UINavigationController) {
                     (navigationController as UINavigationController).popViewControllerAnimated(true)
