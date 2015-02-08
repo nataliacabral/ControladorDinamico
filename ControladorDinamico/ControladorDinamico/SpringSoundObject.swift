@@ -66,7 +66,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
             let ratio:CGFloat = self.springHandle!.texture!.size().width / self.springHandle!.size.width
             self.springHandle!.size.height = self.springHandle!.texture!.size().height / ratio
             self.springHandle!.position.x = 0
-            self.springHandle!.position.y = self.size.height / 2 - self.springHandle!.size.height / 2
+            self.springHandle!.position.y = 0
             
             self.addChild(self.springHandle!);
         }
@@ -156,7 +156,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
         springHandleBoundEdge.physicsBody?.categoryBitMask
         springHandleBoundEdge.physicsBody?.dynamic = false
 
-        let positionY:CGFloat = self.position.y - self.size.height / 2
+        let positionY:CGFloat = self.position.y
         let springHandleScenePosition = self.convertPoint(self.springHandle!.position, toNode: self.scene!)
         var springHandleAnchor = springHandleScenePosition
         self.springJoint = SKPhysicsJointSpring .jointWithBodyA(self.springHandle!.physicsBody!, bodyB:self.physicsBody!, anchorA:springHandleAnchor , anchorB:CGPoint(x: self.position.x, y: positionY))
