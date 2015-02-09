@@ -35,7 +35,7 @@ class Project : NSObject
         static let allValues = [C, CSharp, D, DSharp, E, F, FSharp, G, GSharp, A, ASharp, B]
     }
     
-    var projectName:NSString?
+    var projectName:String?
     var note:Note?
     var mode:Mode?
 
@@ -48,7 +48,7 @@ class Project : NSObject
         super.init()
     }
     
-    init(projectName:NSString, note:Note, mode:Mode) {
+    init(projectName:String, note:Note, mode:Mode) {
         self.projectName = projectName
         self.objects = Array<SoundObject>()
         self.preview = UIImage()
@@ -57,7 +57,7 @@ class Project : NSObject
         super.init()
     }
     
-    init(projectName:NSString, objects:Array<SoundObject>, image:UIImage, note:Note, mode:Mode) {
+    init(projectName:String, objects:Array<SoundObject>, image:UIImage, note:Note, mode:Mode) {
         self.projectName = projectName
         self.objects = objects
         self.preview = image
@@ -67,7 +67,7 @@ class Project : NSObject
     }
     
     required convenience init(coder aDecoder: NSCoder) {
-        var name:NSString = aDecoder.decodeObjectForKey("projectName") as String
+        var name:String = aDecoder.decodeObjectForKey("projectName") as String
         var image:UIImage = aDecoder.decodeObjectForKey("image") as UIImage
         var objectList:Array<SoundObject> = aDecoder.decodeObjectForKey("objects") as Array<SoundObject>
         var projectNote:String = aDecoder.decodeObjectForKey("note") as String

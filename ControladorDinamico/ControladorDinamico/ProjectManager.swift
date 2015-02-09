@@ -9,7 +9,7 @@
 import Foundation
 
 class ProjectManager {
-    let documentsPath : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask,true)[0] as NSString
+    let documentsPath : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask,true)[0] as String
     let fileManager : NSFileManager = NSFileManager.defaultManager()
 
     class var sharedInstance: ProjectManager {
@@ -27,8 +27,8 @@ class ProjectManager {
     
     func saveProject(project: Project) -> Bool {
         if (project.projectName != nil) {
-            let fullName:NSString = project.projectName!.stringByAppendingPathExtension("txt")!
-            let destinationPath:NSString = documentsPath.stringByAppendingPathComponent(fullName)
+            let fullName:String = project.projectName!.stringByAppendingPathExtension("txt")!
+            let destinationPath:String = documentsPath.stringByAppendingPathComponent(fullName)
             
             return NSKeyedArchiver.archiveRootObject(project, toFile:destinationPath)
         }
@@ -44,7 +44,7 @@ class ProjectManager {
         if contents != nil {
             let filenames = contents as [String]
             for name in filenames {
-                let filePath:NSString = documentsPath.stringByAppendingPathComponent(name)
+                let filePath:String = documentsPath.stringByAppendingPathComponent(name)
                 let project:Project =  NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as Project
                 projects.append(project)
             }
