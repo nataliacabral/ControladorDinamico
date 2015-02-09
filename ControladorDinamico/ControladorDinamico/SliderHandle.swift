@@ -11,10 +11,11 @@ import SpriteKit
 
 class SliderHandle : SKSpriteNode, Touchable
 {
+    let distanceToSnap:CGFloat = 5.0
     let handlerHeightBorder:CGFloat = 12
-
+    
     let sliderHandleTexture:SKTexture = SKTexture(imageNamed: "sliderHandle.png")
-
+    
     override init()
     {
         super.init()
@@ -28,14 +29,14 @@ class SliderHandle : SKSpriteNode, Touchable
     
     required init(coder aDecoder: NSCoder)
     {
-       super.init()
+        super.init()
     }
     
     func touchStarted(position:CGPoint)
     {
         self .updatePosition(position)
     }
-
+    
     func touchMoved(position:CGPoint)
     {
         self .updatePosition(position)
@@ -57,8 +58,13 @@ class SliderHandle : SKSpriteNode, Touchable
         if (self.position.y + self.size.height > topLimit) {
             self.position.y = topLimit - self.size.height
         }
+        
+        if (fabs(self.position.y) < distanceToSnap) {
+            self.position.y = 0
+        }
+        
         NSLog("Slider intensity: %f", self.currentSoundIntensity())
-
+        
     }
     
     func touchEnded(position:CGPoint)
@@ -86,5 +92,5 @@ class SliderHandle : SKSpriteNode, Touchable
         
         return currentSoundIntensity
     }
-
+    
 }

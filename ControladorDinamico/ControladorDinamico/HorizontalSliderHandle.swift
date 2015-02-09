@@ -11,6 +11,7 @@ import SpriteKit
 
 class HorizontalSliderHandle : SKSpriteNode, Touchable
 {
+    let distanceToSnap:CGFloat = 5.0
     let handlerHeightBorder:CGFloat = 12
     
     let sliderHandleTexture:SKTexture = SKTexture(imageNamed: "slider_horizontal_handle.png")
@@ -57,6 +58,11 @@ class HorizontalSliderHandle : SKSpriteNode, Touchable
         if (self.position.x + self.size.width > rightLimit) {
             self.position.x = rightLimit - self.size.width
         }
+        
+        if (fabs(self.position.x) < distanceToSnap) {
+            self.position.x = 0
+        }
+        
         NSLog("Slider intensity: %f", self.currentSoundIntensity())
         
     }
