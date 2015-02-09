@@ -129,10 +129,10 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                 
                 // Attach neighbor modulators
                 let skNodeObj = obj as SKNode
-                let leftObjs:NSArray = self.nodesAtPoint(CGPoint(x:obj.position.x - self.gridSize, y:obj.position.y))
-                let rightObjs:NSArray = self.nodesAtPoint(CGPoint(x:obj.position.x + self.gridSize, y:obj.position.y))
-                let topObjs:NSArray = self.nodesAtPoint(CGPoint(x:obj.position.x, y:obj.position.y + self.gridSize))
-                let bottomObjs:NSArray = self.nodesAtPoint(CGPoint(x:obj.position.x, y:obj.position.y - self.gridSize))
+                let leftObjs:Array = self.nodesAtPoint(CGPoint(x:obj.position.x - self.gridSize, y:obj.position.y))
+                let rightObjs:Array = self.nodesAtPoint(CGPoint(x:obj.position.x + self.gridSize, y:obj.position.y))
+                let topObjs:Array = self.nodesAtPoint(CGPoint(x:obj.position.x, y:obj.position.y + self.gridSize))
+                let bottomObjs:Array = self.nodesAtPoint(CGPoint(x:obj.position.x, y:obj.position.y - self.gridSize))
                 
                 var modulatorCount = 0
                 var parentNode:AVAudioNode = audioEngine.mainMixerNode

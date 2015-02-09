@@ -35,9 +35,9 @@ class ProjectManager {
         return false;
     }
     
-    func allProjects() -> NSArray {
+    func allProjects() -> Array<Project> {
         
-        var projects:NSMutableArray = NSMutableArray()
+        var projects:Array<Project> = Array()
         var error: NSError? = nil
         let contents = fileManager.contentsOfDirectoryAtPath(documentsPath, error: &error)
         
@@ -46,7 +46,7 @@ class ProjectManager {
             for name in filenames {
                 let filePath:NSString = documentsPath.stringByAppendingPathComponent(name)
                 let project:Project =  NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as Project
-                projects.addObject(project)
+                projects.append(project)
             }
         }
         
