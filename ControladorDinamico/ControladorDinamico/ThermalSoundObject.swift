@@ -45,6 +45,50 @@ class ThermalSoundObject : SoundObject
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
+        self.savedStatus[0].alphaQ1 = CGFloat(aDecoder.decodeFloatForKey("alphaQ10"))
+        self.savedStatus[1].alphaQ1 = CGFloat(aDecoder.decodeFloatForKey("alphaQ11"))
+        self.savedStatus[2].alphaQ1 = CGFloat(aDecoder.decodeFloatForKey("alphaQ12"))
+        self.savedStatus[3].alphaQ1 = CGFloat(aDecoder.decodeFloatForKey("alphaQ13"))
+        
+        self.savedStatus[0].alphaQ2 = CGFloat(aDecoder.decodeFloatForKey("alphaQ20"))
+        self.savedStatus[1].alphaQ2 = CGFloat(aDecoder.decodeFloatForKey("alphaQ21"))
+        self.savedStatus[2].alphaQ2 = CGFloat(aDecoder.decodeFloatForKey("alphaQ22"))
+        self.savedStatus[3].alphaQ2 = CGFloat(aDecoder.decodeFloatForKey("alphaQ23"))
+        
+        self.savedStatus[0].alphaQ3 = CGFloat(aDecoder.decodeFloatForKey("alphaQ30"))
+        self.savedStatus[1].alphaQ3 = CGFloat(aDecoder.decodeFloatForKey("alphaQ31"))
+        self.savedStatus[2].alphaQ3 = CGFloat(aDecoder.decodeFloatForKey("alphaQ32"))
+        self.savedStatus[3].alphaQ3 = CGFloat(aDecoder.decodeFloatForKey("alphaQ33"))
+        
+        self.savedStatus[0].alphaQ4 = CGFloat(aDecoder.decodeFloatForKey("alphaQ40"))
+        self.savedStatus[1].alphaQ4 = CGFloat(aDecoder.decodeFloatForKey("alphaQ41"))
+        self.savedStatus[2].alphaQ4 = CGFloat(aDecoder.decodeFloatForKey("alphaQ42"))
+        self.savedStatus[3].alphaQ4 = CGFloat(aDecoder.decodeFloatForKey("alphaQ43"))
+
+    }
+    
+    override func encodeWithCoder(aCoder: NSCoder) {
+        super.encodeWithCoder(aCoder)
+        aCoder.encodeFloat(Float(self.savedStatus[0].alphaQ1), forKey: "alphaQ10")
+        aCoder.encodeFloat(Float(self.savedStatus[1].alphaQ1), forKey: "alphaQ11")
+        aCoder.encodeFloat(Float(self.savedStatus[2].alphaQ1), forKey: "alphaQ12")
+        aCoder.encodeFloat(Float(self.savedStatus[3].alphaQ1), forKey: "alphaQ13")
+        
+        aCoder.encodeFloat(Float(self.savedStatus[0].alphaQ2), forKey: "alphaQ20")
+        aCoder.encodeFloat(Float(self.savedStatus[1].alphaQ2), forKey: "alphaQ21")
+        aCoder.encodeFloat(Float(self.savedStatus[2].alphaQ2), forKey: "alphaQ22")
+        aCoder.encodeFloat(Float(self.savedStatus[3].alphaQ2), forKey: "alphaQ23")
+        
+        aCoder.encodeFloat(Float(self.savedStatus[0].alphaQ3), forKey: "alphaQ30")
+        aCoder.encodeFloat(Float(self.savedStatus[1].alphaQ3), forKey: "alphaQ31")
+        aCoder.encodeFloat(Float(self.savedStatus[2].alphaQ3), forKey: "alphaQ32")
+        aCoder.encodeFloat(Float(self.savedStatus[3].alphaQ3), forKey: "alphaQ33")
+        
+        aCoder.encodeFloat(Float(self.savedStatus[0].alphaQ4), forKey: "alphaQ40")
+        aCoder.encodeFloat(Float(self.savedStatus[1].alphaQ4), forKey: "alphaQ41")
+        aCoder.encodeFloat(Float(self.savedStatus[2].alphaQ4), forKey: "alphaQ42")
+        aCoder.encodeFloat(Float(self.savedStatus[3].alphaQ4), forKey: "alphaQ43")
+        
     }
     
     override init(gridSize:CGFloat) {
@@ -96,6 +140,7 @@ class ThermalSoundObject : SoundObject
         result.texture = thermalBackgroundTexture
         result.position = self.position
         result.loadFrames()
+        result.savedStatus = self.savedStatus
         return result
     }
     

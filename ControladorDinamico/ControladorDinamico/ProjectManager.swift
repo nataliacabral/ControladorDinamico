@@ -35,6 +35,20 @@ class ProjectManager {
         return false;
     }
     
+    func projectWithName(name: NSString) -> Project?
+    {
+        var allProjects:NSArray = self.allProjects()
+        for project in allProjects {
+            if (project.projectName != nil) {
+                let projectName:NSString = project.projectName!!
+                if (projectName.isEqualToString(name)) {
+                    return project as? Project
+                }
+            }
+        }
+        return nil
+    }
+    
     func allProjects() -> NSArray {
         
         var projects:NSMutableArray = NSMutableArray()

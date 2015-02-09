@@ -28,8 +28,7 @@ class PlayViewController : UIViewController {
         skView.showsNodeCount = true;
         skView.showsPhysics = true
         
-        self.scene = PlayScene(size: skView.bounds.size);
-        self.scene!.objects = self.project!.objects
+        self.scene = PlayScene(size: skView.bounds.size, project: self.project!);
         skView.presentScene(scene)
     }
     

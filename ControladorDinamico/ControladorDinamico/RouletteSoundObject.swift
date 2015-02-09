@@ -47,6 +47,38 @@ class RouletteSoundObject : SoundObject, ModulatorNode
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
+        self.savedStatus[0].angularVelocity = CGFloat(aDecoder.decodeFloatForKey("angularVelocity0"))
+        self.savedStatus[1].angularVelocity = CGFloat(aDecoder.decodeFloatForKey("angularVelocity1"))
+        self.savedStatus[2].angularVelocity = CGFloat(aDecoder.decodeFloatForKey("angularVelocity2"))
+        self.savedStatus[3].angularVelocity = CGFloat(aDecoder.decodeFloatForKey("angularVelocity3"))
+        
+        self.savedStatus[0].zRotation = CGFloat(aDecoder.decodeFloatForKey("zRotation0"))
+        self.savedStatus[1].zRotation = CGFloat(aDecoder.decodeFloatForKey("zRotation1"))
+        self.savedStatus[2].zRotation = CGFloat(aDecoder.decodeFloatForKey("zRotation2"))
+        self.savedStatus[3].zRotation = CGFloat(aDecoder.decodeFloatForKey("zRotation3"))
+        
+        self.savedStatus[0].buttonToggled = Bool(aDecoder.decodeBoolForKey("buttonToggled0"))
+        self.savedStatus[1].buttonToggled = Bool(aDecoder.decodeBoolForKey("buttonToggled1"))
+        self.savedStatus[2].buttonToggled = Bool(aDecoder.decodeBoolForKey("buttonToggled2"))
+        self.savedStatus[3].buttonToggled = Bool(aDecoder.decodeBoolForKey("buttonToggled3"))
+    }
+    
+    override func encodeWithCoder(aCoder: NSCoder) {
+        super.encodeWithCoder(aCoder)
+        aCoder.encodeFloat(Float(self.savedStatus[0].angularVelocity), forKey: "angularVelocity0")
+        aCoder.encodeFloat(Float(self.savedStatus[1].angularVelocity), forKey: "angularVelocity1")
+        aCoder.encodeFloat(Float(self.savedStatus[2].angularVelocity), forKey: "angularVelocity2")
+        aCoder.encodeFloat(Float(self.savedStatus[3].angularVelocity), forKey: "angularVelocity3")
+        
+        aCoder.encodeFloat(Float(self.savedStatus[0].zRotation), forKey: "zRotation0")
+        aCoder.encodeFloat(Float(self.savedStatus[1].zRotation), forKey: "zRotation1")
+        aCoder.encodeFloat(Float(self.savedStatus[2].zRotation), forKey: "zRotation2")
+        aCoder.encodeFloat(Float(self.savedStatus[3].zRotation), forKey: "zRotation3")
+        
+        aCoder.encodeBool(self.savedStatus[0].buttonToggled, forKey: "buttonToggled0")
+        aCoder.encodeBool(self.savedStatus[1].buttonToggled, forKey: "buttonToggled1")
+        aCoder.encodeBool(self.savedStatus[2].buttonToggled, forKey: "buttonToggled2")
+        aCoder.encodeBool(self.savedStatus[3].buttonToggled, forKey: "buttonToggled3")
     }
     
     override init(gridSize:CGFloat) {
@@ -168,6 +200,7 @@ class RouletteSoundObject : SoundObject, ModulatorNode
         result.texture = rouletteBackgroundTexture
         result.position = self.position
         result.loadSpin()
+        result.savedStatus = self.savedStatus
         return result
     }
     

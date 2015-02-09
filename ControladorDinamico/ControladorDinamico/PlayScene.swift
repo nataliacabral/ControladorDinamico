@@ -26,9 +26,12 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
     var savedStates:Array<SavedStateMenuButton>
     var backButton:MenuButton
     var aboutButton:MenuButton
+    var project:Project
 
-    override init(size: CGSize)
+    init(size: CGSize, project: Project)
     {
+        self.project = project
+        self.objects = project.objects
         self.gridSize = 128
         
         let barWidth:CGFloat = gridSize
@@ -223,6 +226,8 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
             if (touchedNode == self.backButton) {
                 let audioEngine:AVAudioEngine = SoundManager.sharedInstance.audioEngine
                 audioEngine.stop()
+                project.objects = self.cloneOjbects
+                ProjectManager.sharedInstance.saveProject(project)
                 let navigationController = self.view!.window!.rootViewController!
                 if (navigationController is UINavigationController) {
                     (navigationController as UINavigationController).popViewControllerAnimated(true)

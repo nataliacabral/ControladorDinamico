@@ -34,7 +34,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     var springJoint:SKPhysicsJointSpring?
     
     var status:SpringStatus = SpringStatus(handlePosition: CGFloat(64), handleSpeed:CGFloat(0))
-    var savedStatus : Array<SpringStatus>?
+    var savedStatus : Array<SpringStatus> = Array<SpringStatus>(count: 4, repeatedValue: SpringStatus(handlePosition: CGFloat(64), handleSpeed: CGFloat(0)))
     
     override init()
     {
@@ -49,7 +49,30 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
+        self.savedStatus[0].handlePosition = CGFloat(aDecoder.decodeFloatForKey("handlePosition0"))
+        self.savedStatus[1].handlePosition = CGFloat(aDecoder.decodeFloatForKey("handlePosition1"))
+        self.savedStatus[2].handlePosition = CGFloat(aDecoder.decodeFloatForKey("handlePosition2"))
+        self.savedStatus[3].handlePosition = CGFloat(aDecoder.decodeFloatForKey("handlePosition3"))
+        
+        self.savedStatus[0].handleSpeed = CGFloat(aDecoder.decodeFloatForKey("handleSpeed0"))
+        self.savedStatus[1].handleSpeed = CGFloat(aDecoder.decodeFloatForKey("handleSpeed1"))
+        self.savedStatus[2].handleSpeed = CGFloat(aDecoder.decodeFloatForKey("handleSpeed2"))
+        self.savedStatus[3].handleSpeed = CGFloat(aDecoder.decodeFloatForKey("handleSpeed3"))
     }
+    
+    override func encodeWithCoder(aCoder: NSCoder) {
+        super.encodeWithCoder(aCoder)
+        aCoder.encodeFloat(Float(self.savedStatus[0].handlePosition), forKey: "handlePosition0")
+        aCoder.encodeFloat(Float(self.savedStatus[1].handlePosition), forKey: "handlePosition1")
+        aCoder.encodeFloat(Float(self.savedStatus[2].handlePosition), forKey: "handlePosition2")
+        aCoder.encodeFloat(Float(self.savedStatus[3].handlePosition), forKey: "handlePosition3")
+        
+        aCoder.encodeFloat(Float(self.savedStatus[0].handleSpeed), forKey: "handleSpeed0")
+        aCoder.encodeFloat(Float(self.savedStatus[1].handleSpeed), forKey: "handleSpeed1")
+        aCoder.encodeFloat(Float(self.savedStatus[2].handleSpeed), forKey: "handleSpeed2")
+        aCoder.encodeFloat(Float(self.savedStatus[3].handleSpeed), forKey: "handleSpeed3")
+    }
+
     
     override init(gridSize:CGFloat) {
         super.init(gridSize:gridSize)
@@ -185,6 +208,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
         result.texture = springTrackTexture
         result.position = self.position
         result.loadHandle()
+        result.savedStatus = savedStatus
         return result
     }
     
@@ -193,12 +217,12 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     {
         self.status.handlePosition = self.springHandle!.position.y
         self.status.handleSpeed = self.springHandle!.physicsBody!.velocity.dy
-        self.savedStatus?[slot] = self.status;
+        self.savedStatus[slot] = self.status;
     }
     
     override func loadStatus(slot:Int)
     {
-        self.status = self.savedStatus![slot];
+        self.status = self.savedStatus[slot];
         self.springHandle!.position.y = self.status.handlePosition
         self.springHandle!.physicsBody!.velocity.dy = self.status.handleSpeed
     }

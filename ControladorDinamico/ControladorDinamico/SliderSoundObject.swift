@@ -49,6 +49,18 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
+        self.savedStatus[0].sliderPosition = CGFloat(aDecoder.decodeFloatForKey("sliderPosition0"))
+        self.savedStatus[1].sliderPosition = CGFloat(aDecoder.decodeFloatForKey("sliderPosition1"))
+        self.savedStatus[2].sliderPosition = CGFloat(aDecoder.decodeFloatForKey("sliderPosition2"))
+        self.savedStatus[3].sliderPosition = CGFloat(aDecoder.decodeFloatForKey("sliderPosition3"))
+    }
+    
+    override func encodeWithCoder(aCoder: NSCoder) {
+        super.encodeWithCoder(aCoder)
+        aCoder.encodeFloat(Float(self.savedStatus[0].sliderPosition), forKey: "sliderPosition0")
+        aCoder.encodeFloat(Float(self.savedStatus[1].sliderPosition), forKey: "sliderPosition1")
+        aCoder.encodeFloat(Float(self.savedStatus[2].sliderPosition), forKey: "sliderPosition2")
+        aCoder.encodeFloat(Float(self.savedStatus[3].sliderPosition), forKey: "sliderPosition3")
     }
         
     func loadHandle()
@@ -109,6 +121,7 @@ class SliderSoundObject : SoundObject, Touchable, ModulatorNode
         result.texture = sliderTrackTexture
         result.position = self.position
         result.loadHandle()
+        result.savedStatus = self.savedStatus
 
         return result
     }

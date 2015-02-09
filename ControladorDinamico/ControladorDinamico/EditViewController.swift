@@ -29,7 +29,16 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
         
         self.scene = EditScene(size: skView.bounds.size);
         self.scene!.objects = self.project.objects
+        self.saveProject()
         skView.presentScene(scene)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        let project : Project? = ProjectManager.sharedInstance.projectWithName(self.project.projectName!)
+        if (project != nil) {
+            self.project = project!
+        }
     }
 
     override func awakeFromNib() {
