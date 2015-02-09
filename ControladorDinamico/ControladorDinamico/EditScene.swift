@@ -179,8 +179,8 @@ class EditScene : SKScene
     override func didMoveToView(view: SKView) {
         for obj in objects
         {
-            (obj as SoundObject).updateGridSize(self.gridSize)
-            self.addChild((obj as SoundObject))
+            obj.updateGridSize(self.gridSize)
+            self.addChild(obj)
         }
     }
     
