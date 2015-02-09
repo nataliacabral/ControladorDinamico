@@ -31,11 +31,6 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
         self.scene!.objects = self.project.objects
         skView.presentScene(scene)
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "saveProject", name: "SaveProjectNotification", object: nil)
-    }
     
     func saveProject()
     {
@@ -64,5 +59,8 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
             playViewController.project = self.project
         }
     }
-
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.saveProject()
+    }
 }

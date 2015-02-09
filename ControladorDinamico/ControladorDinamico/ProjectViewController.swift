@@ -121,7 +121,6 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
             modePicker!.delegate = self
             modePicker!.dataSource = self
 
-
         } else {
             collectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(projectCellViewIdentifier, forIndexPath: indexPath) as UICollectionViewCell
 
