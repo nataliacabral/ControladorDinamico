@@ -25,11 +25,9 @@ class EditScene : SKScene
     var touchMapping = Dictionary<UITouch , SKNode>()
     var touchPositionMap = Dictionary<UITouch , CGPoint>()
     
-    var trashButton:SKSpriteNode
-    
+    var trashButton:MenuButton
     var backButton:MenuButton
     var playButton:MenuButton
-    var saveButton:MenuButton
     var aboutButton:MenuButton
     
     
@@ -80,8 +78,8 @@ class EditScene : SKScene
             color:UIColor(),
             size:buttonSize)
         
-        saveButton = MenuButton(
-            texture:SKTexture(imageNamed: "menubutton_save.png"),
+        trashButton = MenuButton(
+            texture:SKTexture(imageNamed: "bin.png"),
             color:UIColor(),
             size:buttonSize)
         
@@ -89,13 +87,6 @@ class EditScene : SKScene
             texture:SKTexture(imageNamed: "menubutton_about.png"),
             color:UIColor(),
             size:buttonSize)
-        
-        trashButton = SKSpriteNode (
-            texture:SKTexture(imageNamed: "bin.png"),
-            color:UIColor(),
-            size:CGSize(width: 55, height: 55))
-        trashButton.position.x =  gridSize / 3
-        trashButton.position.y = gridSize / 3
 
         super.init(size: size)
         
@@ -159,7 +150,7 @@ class EditScene : SKScene
             drawer:self.modulatorDrawer!)
         
         self.menuBar = VerticalMenuBar(
-            buttons: [buttonsDrawerButton, modulatorDrawerButton, self.playButton, self.backButton, self.saveButton, self.aboutButton],
+            buttons: [buttonsDrawerButton, modulatorDrawerButton, self.playButton, self.backButton, self.trashButton, self.aboutButton],
             position:CGPoint(x: x, y: y),
             size:CGSize(width: barWidth, height: self.size.height),
             buttonSize:buttonSize
@@ -179,7 +170,6 @@ class EditScene : SKScene
         
         self.addChild(self.modulatorDrawer!)
         self.addChild(self.buttonDrawer!)
-        self.addChild(trashButton)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -189,8 +179,8 @@ class EditScene : SKScene
     override func didMoveToView(view: SKView) {
         for obj in objects
         {
-            (obj as SoundObject).updateGridSize(self.gridSize)
-            self.addChild((obj as SoundObject))
+            obj.updateGridSize(self.gridSize)
+            self.addChild(obj)
         }
     }
     
@@ -339,9 +329,7 @@ class EditScene : SKScene
                         (navigationController as UINavigationController).popViewControllerAnimated(true)
                     }
                 }
-                else if (boundNode === self.saveButton) {
-                    NSNotificationCenter.defaultCenter().postNotificationName("SaveProjectNotification", object: self)
-                }
+
                 else if (boundNode === self.playButton) {
                     let navigationController = self.view!.window!.rootViewController!
                     if (navigationController is UINavigationController) {

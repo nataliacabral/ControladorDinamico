@@ -31,7 +31,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
     let newProjectModePickerTag:Int = 30
     
     var selectedProject:Project?
-    var projects:NSMutableArray = NSMutableArray()
+    var projects:Array<Project> = Array()
     
     override func viewDidLoad() {
 
@@ -60,7 +60,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
 
             var project = Project(projectName:projectName, note:note, mode:mode)
             if (ProjectManager.sharedInstance.saveProject(project)) {
-                self.projects.addObject(project)
+                self.projects.append(project)
                 self.selectedProject = project
                 addingProject = false
                 self.collectionView.reloadData()
@@ -77,7 +77,9 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func deleteProject(alert: UIAlertAction!){
-        self.projects.removeObject(self.selectedProject!)
+        var index = find(self.projects, self.selectedProject!)
+        self.projects.removeAtIndex(index!)
+        
         var error: NSError? = nil
         if(ProjectManager.sharedInstance.removeProject(self.selectedProject!, error: &error)) {
             self.collectionView.reloadData()
@@ -88,7 +90,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.projects = NSMutableArray(array: ProjectManager.sharedInstance.allProjects())
+        self.projects = ProjectManager.sharedInstance.allProjects()
         self.collectionView.reloadData()
         addingProject = false
         self.selectedProject = nil
@@ -121,7 +123,6 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
             modePicker!.delegate = self
             modePicker!.dataSource = self
 
-
         } else {
             collectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(projectCellViewIdentifier, forIndexPath: indexPath) as UICollectionViewCell
 
@@ -131,7 +132,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
                 collectionViewCell.backgroundColor = grayColor
             }
             
-            let project:Project = (projects.objectAtIndex(indexPath.row) as Project)
+            let project:Project = projects[indexPath.row]
             let projectNameLabel:UILabel = collectionViewCell.viewWithTag(projectNameLabelTag) as UILabel
             projectNameLabel.text = project.projectName
             
@@ -163,7 +164,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
                 }
             } else {
             datasetCell?.backgroundColor = UIColor.orangeColor()
-            self.selectedProject = self.projects.objectAtIndex(indexPath.row) as? Project
+            self.selectedProject = self.projects[indexPath.row]
             }
             
             

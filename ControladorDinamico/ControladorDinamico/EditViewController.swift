@@ -40,11 +40,6 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
             self.project = project!
         }
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "saveProject", name: "SaveProjectNotification", object: nil)
-    }
     
     func saveProject()
     {
@@ -73,5 +68,8 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
             playViewController.project = self.project
         }
     }
-
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.saveProject()
+    }
 }
