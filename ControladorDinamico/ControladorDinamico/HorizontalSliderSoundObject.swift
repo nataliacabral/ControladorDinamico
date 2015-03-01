@@ -120,6 +120,7 @@ class HorizontalSliderSoundObject : SoundObject, Touchable, ModulatorNode
         result.texture = sliderTrackTexture
         result.position = self.position
         result.loadHandle()
+        result.savedStatus = self.savedStatus
         
         return result
     }

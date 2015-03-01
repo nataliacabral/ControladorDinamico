@@ -27,6 +27,7 @@ class ProjectManager {
     
     func saveProject(project: Project) -> Bool {
         if (project.projectName != nil) {
+            NSLog("Saving project %@", project.projectName!)
             let fullName:String = project.projectName!.stringByAppendingPathExtension("txt")!
             let destinationPath:String = documentsPath.stringByAppendingPathComponent(fullName)
             
@@ -42,6 +43,7 @@ class ProjectManager {
             if (project.projectName != nil) {
                 let projectName:NSString = project.projectName!!
                 if (projectName.isEqualToString(name)) {
+                    NSLog("Loading project %@", projectName)
                     return project as? Project
                 }
             }

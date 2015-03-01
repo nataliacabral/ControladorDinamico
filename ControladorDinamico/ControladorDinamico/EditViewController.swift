@@ -38,6 +38,7 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
         let project : Project? = ProjectManager.sharedInstance.projectWithName(self.project.projectName!)
         if (project != nil) {
             self.project = project!
+            self.scene!.objects = self.project.objects
         }
     }
     

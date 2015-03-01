@@ -112,12 +112,32 @@ class ButtonSoundObject : SoundObject, Sampler
     required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
         self.note = (aDecoder.decodeObjectForKey("note") as NSNumber).unsignedCharValue
+        self.savedStatus[0].pressed = aDecoder.decodeBoolForKey("pressed0")
+        self.savedStatus[1].pressed = aDecoder.decodeBoolForKey("pressed1")
+        self.savedStatus[2].pressed = aDecoder.decodeBoolForKey("pressed2")
+        self.savedStatus[3].pressed = aDecoder.decodeBoolForKey("pressed3")
+        
+        self.savedStatus[0].playing = aDecoder.decodeBoolForKey("playing0")
+        self.savedStatus[1].playing = aDecoder.decodeBoolForKey("playing1")
+        self.savedStatus[2].playing = aDecoder.decodeBoolForKey("playing2")
+        self.savedStatus[3].playing = aDecoder.decodeBoolForKey("playing3")
+
         self.loadTextures()
     }
     
     override func encodeWithCoder(aCoder: NSCoder) {
         super.encodeWithCoder(aCoder)
         aCoder.encodeObject(NSNumber(unsignedChar:self.note), forKey: "note")
+        aCoder.encodeBool(self.savedStatus[0].pressed, forKey: "pressed0")
+        aCoder.encodeBool(self.savedStatus[1].pressed, forKey: "pressed1")
+        aCoder.encodeBool(self.savedStatus[2].pressed, forKey: "pressed2")
+        aCoder.encodeBool(self.savedStatus[3].pressed, forKey: "pressed3")
+
+        aCoder.encodeBool(self.savedStatus[0].playing, forKey: "playing0")
+        aCoder.encodeBool(self.savedStatus[1].playing, forKey: "playing1")
+        aCoder.encodeBool(self.savedStatus[2].playing, forKey: "playing2")
+        aCoder.encodeBool(self.savedStatus[3].playing, forKey: "playing3")
+        
     }
     
     init(gridSize:CGFloat, note:UInt8) {
@@ -211,6 +231,7 @@ class ButtonSoundObject : SoundObject, Sampler
         result.note = self.note
         result.position = self.position
         result.loadTextures()
+        result.savedStatus = self.savedStatus
         return result
     }
     
