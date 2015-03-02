@@ -27,8 +27,7 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
         skView.showsFPS = true;
         skView.showsNodeCount = true;
         
-        self.scene = EditScene(size: skView.bounds.size);
-        self.scene!.objects = self.project.objects
+        self.scene = EditScene(size: skView.bounds.size, project:self.project);
         self.saveProject()
         skView.presentScene(scene)
     }

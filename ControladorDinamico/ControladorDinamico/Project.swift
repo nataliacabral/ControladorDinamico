@@ -18,21 +18,39 @@ class Project : NSObject
         static let allValues = [M, m]
     }
     
-    enum Note : String {
-        case C = "C"
-        case CSharp = "C#"
-        case D = "D"
-        case DSharp = "D#"
-        case E = "E"
-        case F = "F"
-        case FSharp = "F#"
-        case G = "G"
-        case GSharp = "G#"
-        case A = "A"
-        case ASharp = "A#"
-        case B = "B"
+    enum Note : Int {
+        case C = 0, CSharp, D, DSharp, E, F, FSharp, G, GSharp, A, ASharp, B
         
-        static let allValues = [C, CSharp, D, DSharp, E, F, FSharp, G, GSharp, A, ASharp, B]
+        static let count:Int = B.rawValue + 1
+
+        func simpleDescription() -> String {
+            switch self {
+            case .C:
+                return "C"
+            case .CSharp:
+                return "C#"
+            case .D:
+                return "D"
+            case .DSharp:
+                return "D#"
+            case .E:
+                return "E"
+            case .F:
+                return "F"
+            case .FSharp:
+                return "F#"
+            case .G:
+                return "G"
+            case .GSharp:
+                return "G#"
+            case .A:
+                return "A"
+            case .ASharp:
+                return "A#"
+            case .B:
+                return "B"
+            }
+        }
     }
     
     var projectName:String?
@@ -70,7 +88,7 @@ class Project : NSObject
         var name:String = aDecoder.decodeObjectForKey("projectName") as String
         var image:UIImage = aDecoder.decodeObjectForKey("image") as UIImage
         var objectList:Array<SoundObject> = aDecoder.decodeObjectForKey("objects") as Array<SoundObject>
-        var projectNote:String = aDecoder.decodeObjectForKey("note") as String
+        var projectNote:Int = aDecoder.decodeIntegerForKey("note")
         var projectMode:String = aDecoder.decodeObjectForKey("mode") as String
         
         self.init(projectName:name, objects:objectList, image:image, note:Note(rawValue: projectNote)!, mode:Mode(rawValue:projectMode)!)
@@ -81,7 +99,7 @@ class Project : NSObject
         aCoder.encodeObject(self.projectName, forKey: "projectName")
         aCoder.encodeObject(self.objects, forKey: "objects")
         aCoder.encodeObject(self.preview, forKey: "image")
-        aCoder.encodeObject(self.note!.rawValue, forKey: "note")
+        aCoder.encodeInteger(self.note!.rawValue, forKey: "note")
         aCoder.encodeObject(self.mode!.rawValue, forKey: "mode")
     }
 }

@@ -25,7 +25,8 @@ class ButtonSoundObject : SoundObject, Sampler
     var stillTexture:SKTexture?
 
     var note : UInt8 = 0
-    
+    var noteIndex : UInt8 = 0
+
     var status : ButtonStatus = ButtonStatus(pressed: false, playing: false)
     var savedStatus : Array<ButtonStatus> = Array<ButtonStatus>(count: 4, repeatedValue: ButtonStatus(pressed: false, playing: false))
     
@@ -49,14 +50,14 @@ class ButtonSoundObject : SoundObject, Sampler
     
     class func templateImageMap() -> Array<String> {
         return [
-            "button1_template.png",
-            "button2_template.png",
-            "button3_template.png",
-            "button4_template.png",
-            "button5_template.png",
-            "button6_template.png",
-            "button7_template.png",
-            "button8_template.png"
+            "button1.png",
+            "button2.png",
+            "button3.png",
+            "button4.png",
+            "button5.png",
+            "button6.png",
+            "button7.png",
+            "button8.png"
         ]
     }
     
@@ -102,27 +103,31 @@ class ButtonSoundObject : SoundObject, Sampler
     
     func loadTextures()
     {
-        let index = ButtonSoundObject.noteIndexMap(self.note)
-        self.selectedTexture = SKTexture(imageNamed: ButtonSoundObject.selectedImageMap()[index])
-        self.stillTexture = SKTexture(imageNamed: ButtonSoundObject.editImageMap()[index])
+        self.selectedTexture = SKTexture(imageNamed: ButtonSoundObject.selectedImageMap()[Int(self.noteIndex)])
+        self.stillTexture = SKTexture(imageNamed: ButtonSoundObject.editImageMap()[Int(self.noteIndex)])
         self.texture = self.stillTexture
-        self.iconImageName = ButtonSoundObject.templateImageMap()[index]
+        self.iconImageName = ButtonSoundObject.templateImageMap()[Int(self.noteIndex)]
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
         self.note = (aDecoder.decodeObjectForKey("note") as NSNumber).unsignedCharValue
+        self.noteIndex = (aDecoder.decodeObjectForKey("noteIndex") as NSNumber).unsignedCharValue
+
         self.loadTextures()
     }
     
     override func encodeWithCoder(aCoder: NSCoder) {
         super.encodeWithCoder(aCoder)
         aCoder.encodeObject(NSNumber(unsignedChar:self.note), forKey: "note")
+        aCoder.encodeObject(NSNumber(unsignedChar:self.noteIndex), forKey: "noteIndex")
+
     }
     
-    init(gridSize:CGFloat, note:UInt8) {
+    init(gridSize:CGFloat, note:UInt8, noteIndex:UInt8) {
         super.init(gridSize:gridSize)
         self.note = note
+        self.noteIndex = noteIndex
         self.loadTextures()
     }
     
@@ -209,6 +214,7 @@ class ButtonSoundObject : SoundObject, Sampler
             size:self.size
         )
         result.note = self.note
+        result.noteIndex = self.noteIndex
         result.position = self.position
         result.loadTextures()
         return result
@@ -231,33 +237,8 @@ class ButtonSoundObject : SoundObject, Sampler
     override func copy() -> AnyObject {
         var result:ButtonSoundObject = super.copy() as ButtonSoundObject
         result.note = self.note
-        return result
-    }
-    
-    class func noteIndexMap(buttonNote:UInt8) -> Int
-    {
-        var result  = 0
+        result.noteIndex = self.noteIndex
 
-        if (buttonNote == 60) {
-            result = 0
-        } else if (buttonNote == 62) {
-            result = 1
-        } else if (buttonNote == 64) {
-            result = 2
-        } else if (buttonNote == 65) {
-            result = 3
-        } else if (buttonNote == 67) {
-            result = 4
-        } else if (buttonNote == 69) {
-            result = 5
-        } else if (buttonNote == 71) {
-            result = 6
-        } else if (buttonNote == 73) {
-            result = 7
-        } else if (buttonNote == 75) {
-            result = 7
-        }
         return result
     }
-    
 }

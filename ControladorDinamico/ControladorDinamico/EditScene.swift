@@ -30,18 +30,33 @@ class EditScene : SKScene
     var playButton:MenuButton
     var aboutButton:MenuButton
     
+    var project:Project
+
     
-    override init(size: CGSize)
+    init(size: CGSize, project:Project)
     {
+        self.project = project
+        self.objects = self.project.objects
         self.gridSize = 128
+        
         // Menu
-        var buttonSpriteC:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:60)
-        var buttonSpriteD:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:62)
-        var buttonSpriteE:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:64)
-        var buttonSpriteF:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:65)
-        var buttonSpriteG:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:67)
-        var buttonSpriteA:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:69)
-        var buttonSpriteB:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:71)
+        let firstC:UInt8 = 60
+        var buttonSprite0:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue, noteIndex:0)
+        var buttonSprite1:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 4, noteIndex:1)
+        
+        var buttonSprite2Note:UInt8 = 0;
+        if (self.project.mode == Project.Mode.M) {
+            buttonSprite2Note = firstC + self.project.note!.rawValue + 8
+        } else if (self.project.mode == Project.Mode.m){
+            buttonSprite2Note = firstC + self.project.note!.rawValue + 7
+        }
+        
+        var buttonSprite2:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:buttonSprite2Note, noteIndex:2)
+        
+        var buttonSprite3:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 12, noteIndex:3)
+        var buttonSprite4:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 16, noteIndex:4)
+        var buttonSprite5:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 20, noteIndex:5)
+        var buttonSprite6:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 24, noteIndex:6)
         
         var springSprite:SpringSoundObject = SpringSoundObject(gridSize:gridSize)
         var sliderSprite:SliderSoundObject = SliderSoundObject(gridSize:gridSize)
@@ -51,13 +66,13 @@ class EditScene : SKScene
         var rouletteSprite:RouletteSoundObject = RouletteSoundObject(gridSize:gridSize)
         var thermalSprite:ThermalSoundObject = ThermalSoundObject(gridSize:gridSize)
         
-        var buttonTemplateC:SoundObjectTemplate = SoundObjectTemplate(object: buttonSpriteC)
-        var buttonTemplateD:SoundObjectTemplate = SoundObjectTemplate(object: buttonSpriteD)
-        var buttonTemplateE:SoundObjectTemplate = SoundObjectTemplate(object: buttonSpriteE)
-        var buttonTemplateF:SoundObjectTemplate = SoundObjectTemplate(object: buttonSpriteF)
-        var buttonTemplateG:SoundObjectTemplate = SoundObjectTemplate(object: buttonSpriteG)
-        var buttonTemplateA:SoundObjectTemplate = SoundObjectTemplate(object: buttonSpriteA)
-        var buttonTemplateB:SoundObjectTemplate = SoundObjectTemplate(object: buttonSpriteB)
+        var buttonTemplate0:SoundObjectTemplate = SoundObjectTemplate(object: buttonSprite0)
+        var buttonTemplate1:SoundObjectTemplate = SoundObjectTemplate(object: buttonSprite1)
+        var buttonTemplate2:SoundObjectTemplate = SoundObjectTemplate(object: buttonSprite2)
+        var buttonTemplate3:SoundObjectTemplate = SoundObjectTemplate(object: buttonSprite3)
+        var buttonTemplate4:SoundObjectTemplate = SoundObjectTemplate(object: buttonSprite4)
+        var buttonTemplate5:SoundObjectTemplate = SoundObjectTemplate(object: buttonSprite5)
+        var buttonTemplate6:SoundObjectTemplate = SoundObjectTemplate(object: buttonSprite6)
         
         var springTemplate:SoundObjectTemplate = SoundObjectTemplate(object: springSprite)
         var sliderTemplate:SoundObjectTemplate = SoundObjectTemplate(object: sliderSprite)
@@ -92,13 +107,13 @@ class EditScene : SKScene
         
         self.scene?.backgroundColor = UIColor.blackColor()
         var buttons = [
-            buttonTemplateC,
-            buttonTemplateD,
-            buttonTemplateE,
-            buttonTemplateF,
-            buttonTemplateG,
-            buttonTemplateA,
-            buttonTemplateB
+            buttonTemplate0,
+            buttonTemplate1,
+            buttonTemplate2,
+            buttonTemplate3,
+            buttonTemplate4,
+            buttonTemplate5,
+            buttonTemplate6
         ]
         
         let drawerBarWidth:CGFloat = drawerButtonSize.width + 2 * VerticalMenuBar.border

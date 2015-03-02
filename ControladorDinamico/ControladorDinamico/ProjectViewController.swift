@@ -56,7 +56,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
             
         } else {
             let mode:Project.Mode = Project.Mode.allValues[self.modePicker!.selectedRowInComponent(0)]
-            let note:Project.Note = Project.Note.allValues[self.notePicker!.selectedRowInComponent(0)]
+            let note:Project.Note = Project.Note(rawValue: self.notePicker!.selectedRowInComponent(0))!
 
             var project = Project(projectName:projectName, note:note, mode:mode)
             if (ProjectManager.sharedInstance.saveProject(project)) {
@@ -137,7 +137,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
             projectNameLabel.text = project.projectName
             
             let projectNoteLabel:UILabel = collectionViewCell.viewWithTag(projectNoteModeLabelTag) as UILabel
-            projectNoteLabel.text = project.note!.rawValue
+            projectNoteLabel.text = project.note!.simpleDescription()
                 
             if (project.mode! == Project.Mode.m) {
                 projectNoteLabel.text = projectNoteLabel.text! + String(project.mode!.rawValue)
@@ -229,7 +229,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if (pickerView.tag == newProjectNotePickerTag) {
-            return Project.Note.allValues.count
+            return Project.Note.count
         } else if (pickerView.tag == newProjectModePickerTag) {
             return Project.Mode.allValues.count
         }
@@ -241,7 +241,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
         var result:String = ""
         
         if (pickerView.tag == newProjectNotePickerTag) {
-            result = Project.Note.allValues[row].rawValue
+            result = Project.Note(rawValue:row)!.simpleDescription()
         } else if (pickerView.tag == newProjectModePickerTag) {
             result =  String(Project.Mode.allValues[row].rawValue)
         }

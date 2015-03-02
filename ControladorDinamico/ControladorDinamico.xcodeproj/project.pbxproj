@@ -53,9 +53,11 @@
 		259682DC1A38E17500101AE2 /* menubutton_save.png in Resources */ = {isa = PBXBuildFile; fileRef = 259682D61A38E17500101AE2 /* menubutton_save.png */; };
 		259B90A119F96D1400737E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A019F96D1400737E04 /* AppDelegate.swift */; };
 		259B90A319F96D1400737E04 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A219F96D1400737E04 /* ProjectViewController.swift */; };
-		259B90AB19F96D1400737E04 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 259B90A919F96D1400737E04 /* LaunchScreen.xib */; };
 		259B90B719F96D1400737E04 /* ControladorDinamicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90B619F96D1400737E04 /* ControladorDinamicoTests.swift */; };
 		259B90C919F9756200737E04 /* Images-3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 259B90C819F9756200737E04 /* Images-3.xcassets */; };
+		25A30B001AA398C400922562 /* cubes1.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A30AFD1AA398C400922562 /* cubes1.png */; };
+		25A30B011AA398C400922562 /* cubes2.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A30AFE1AA398C400922562 /* cubes2.png */; };
+		25A30B021AA398C400922562 /* cubes3.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A30AFF1AA398C400922562 /* cubes3.png */; };
 		25A93F6C1A1A9B7D00C9F145 /* roulette_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A93F6A1A1A9B7D00C9F145 /* roulette_background.png */; };
 		25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A93F6B1A1A9B7D00C9F145 /* roulette_spinningpart.png */; };
 		25A93F6F1A1A9BDD00C9F145 /* RouletteSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A93F6E1A1A9BDD00C9F145 /* RouletteSpin.swift */; };
@@ -208,11 +210,13 @@
 		259B90A019F96D1400737E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		259B90A219F96D1400737E04 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
 		259B90A519F96D1400737E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		259B90AA19F96D1400737E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		259B90B019F96D1400737E04 /* ControladorDinamicoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ControladorDinamicoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		259B90B519F96D1400737E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		259B90B619F96D1400737E04 /* ControladorDinamicoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControladorDinamicoTests.swift; sourceTree = "<group>"; };
 		259B90C819F9756200737E04 /* Images-3.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-3.xcassets"; sourceTree = "<group>"; };
+		25A30AFD1AA398C400922562 /* cubes1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cubes1.png; path = cubes_animation/cubes1.png; sourceTree = "<group>"; };
+		25A30AFE1AA398C400922562 /* cubes2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cubes2.png; path = cubes_animation/cubes2.png; sourceTree = "<group>"; };
+		25A30AFF1AA398C400922562 /* cubes3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cubes3.png; path = cubes_animation/cubes3.png; sourceTree = "<group>"; };
 		25A93F6A1A1A9B7D00C9F145 /* roulette_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette_background.png; sourceTree = "<group>"; };
 		25A93F6B1A1A9B7D00C9F145 /* roulette_spinningpart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette_spinningpart.png; sourceTree = "<group>"; };
 		25A93F6E1A1A9BDD00C9F145 /* RouletteSpin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouletteSpin.swift; sourceTree = "<group>"; };
@@ -350,6 +354,9 @@
 		2557DBCE1A13FCB20003AB5D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				25A30AFD1AA398C400922562 /* cubes1.png */,
+				25A30AFE1AA398C400922562 /* cubes2.png */,
+				25A30AFF1AA398C400922562 /* cubes3.png */,
 				25DAE6881A61D4E000D5E86C /* ProjectsView */,
 				25DAE67B1A61C99600D5E86C /* HomeView */,
 				25B5211E1A3FA61100735263 /* LaunchImage.jpg */,
@@ -394,7 +401,8 @@
 				4933E0E81A17F3FE00DDCE0D /* buttonSelected.png */,
 				2557DBE31A13FE940003AB5D /* button.png */,
 			);
-			path = BOTAO;
+			name = BOTAO;
+			path = Objects/BOTAO;
 			sourceTree = "<group>";
 		};
 		2557DBD11A13FCB20003AB5D /* CANVAS */ = {
@@ -412,7 +420,8 @@
 				25AF9BEB1A267BDE00CED1CD /* spring_stick.png */,
 				2557DBED1A14067B0003AB5D /* spring.png */,
 			);
-			path = MOLA;
+			name = MOLA;
+			path = Objects/MOLA;
 			sourceTree = "<group>";
 		};
 		2557DBD61A13FCB20003AB5D /* ROLETA */ = {
@@ -424,7 +433,8 @@
 				25A93F6B1A1A9B7D00C9F145 /* roulette_spinningpart.png */,
 				2557DBEF1A14068C0003AB5D /* roulette.png */,
 			);
-			path = ROLETA;
+			name = ROLETA;
+			path = Objects/ROLETA;
 			sourceTree = "<group>";
 		};
 		2557DBD81A13FCB20003AB5D /* SLIDER */ = {
@@ -438,7 +448,8 @@
 				4933E0EF1A18005700DDCE0D /* sliderTrack.png */,
 				2557DBF11A1406AB0003AB5D /* slider.png */,
 			);
-			path = SLIDER;
+			name = SLIDER;
+			path = Objects/SLIDER;
 			sourceTree = "<group>";
 		};
 		2557DBDA1A13FCB20003AB5D /* TERM_TOQUE */ = {
@@ -448,7 +459,8 @@
 				251174511A291CD7005E37C5 /* thermal_frame.png */,
 				2557DBF31A1406B80003AB5D /* thermal.png */,
 			);
-			path = TERM_TOQUE;
+			name = TERM_TOQUE;
+			path = Objects/TERM_TOQUE;
 			sourceTree = "<group>";
 		};
 		259B909219F96D1400737E04 = {
@@ -475,28 +487,23 @@
 		259B909D19F96D1400737E04 /* ControladorDinamico */ = {
 			isa = PBXGroup;
 			children = (
+				25A30AFC1AA3967000922562 /* PlayView */,
+				25A30AFB1AA3964300922562 /* ProjectsView */,
 				49EC5A101A22168C00A36D2C /* MenuButton.swift */,
-				49EC5A0D1A22109900A36D2C /* EditScene */,
+				49EC5A0D1A22109900A36D2C /* EditView */,
 				49EC5A021A2043A400A36D2C /* Modulator */,
 				49EC59F71A2006C800A36D2C /* SoundFonts */,
 				2557DBCE1A13FCB20003AB5D /* images */,
 				2556636A1A13F95000F6F820 /* SoundObject */,
-				259B90A219F96D1400737E04 /* ProjectViewController.swift */,
 				259B90A019F96D1400737E04 /* AppDelegate.swift */,
 				259B90A419F96D1400737E04 /* Main.storyboard */,
-				259B90A919F96D1400737E04 /* LaunchScreen.xib */,
 				259B90C819F9756200737E04 /* Images-3.xcassets */,
 				259B909E19F96D1400737E04 /* Supporting Files */,
 				251218441A0862480025ACEE /* ControladorDinamico-Bridging-Header.h */,
 				251218481A08625D0025ACEE /* Project.swift */,
 				2556633B1A11555900F6F820 /* ProjectManager.swift */,
-				495BDEC81A1226A8000941E8 /* PlayScene.swift */,
-				2557DC121A16A3000003AB5D /* PlayViewController.swift */,
-				49C0152E1A1D316900DBAC0D /* SoundManager.swift */,
-				25AF9BC51A23C34D00CED1CD /* ProjectView.xib */,
 				492A42A81A27BEB400731F26 /* SavedStateMenuButton.swift */,
 				492A42C31A2D38E900731F26 /* SavedStateManager.swift */,
-				2500557F1A5C7DD800CD3273 /* NewProjectViewCell.xib */,
 				25DAE6861A61CB8C00D5E86C /* HomeViewController.swift */,
 			);
 			path = ControladorDinamico;
@@ -525,6 +532,26 @@
 				259B90B519F96D1400737E04 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		25A30AFB1AA3964300922562 /* ProjectsView */ = {
+			isa = PBXGroup;
+			children = (
+				259B90A219F96D1400737E04 /* ProjectViewController.swift */,
+				25AF9BC51A23C34D00CED1CD /* ProjectView.xib */,
+				2500557F1A5C7DD800CD3273 /* NewProjectViewCell.xib */,
+			);
+			name = ProjectsView;
+			sourceTree = "<group>";
+		};
+		25A30AFC1AA3967000922562 /* PlayView */ = {
+			isa = PBXGroup;
+			children = (
+				495BDEC81A1226A8000941E8 /* PlayScene.swift */,
+				2557DC121A16A3000003AB5D /* PlayViewController.swift */,
+				49C0152E1A1D316900DBAC0D /* SoundManager.swift */,
+			);
+			name = PlayView;
 			sourceTree = "<group>";
 		};
 		25DAE67B1A61C99600D5E86C /* HomeView */ = {
@@ -615,7 +642,7 @@
 			name = Modulator;
 			sourceTree = "<group>";
 		};
-		49EC5A0D1A22109900A36D2C /* EditScene */ = {
+		49EC5A0D1A22109900A36D2C /* EditView */ = {
 			isa = PBXGroup;
 			children = (
 				258D1FFA1A019BF900ACFC93 /* SoundObjectTemplate.swift */,
@@ -624,7 +651,7 @@
 				2509940419FEE86500A6D24F /* EditScene.swift */,
 				49EC5A0E1A2210B800A36D2C /* VerticalMenuBar.swift */,
 			);
-			name = EditScene;
+			name = EditView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -716,6 +743,7 @@
 				25B5211B1A3F9C6B00735263 /* savestate_button3.png in Resources */,
 				25B520F91A3F757900735263 /* button2_selected.png in Resources */,
 				25B521071A3F8CAA00735263 /* button5_selected.png in Resources */,
+				25A30B011AA398C400922562 /* cubes2.png in Resources */,
 				492A42C81A2D4F7900731F26 /* clarinet.sf2 in Resources */,
 				25B5210A1A3F8EEB00735263 /* buttonsDrawer.png in Resources */,
 				2557DBF21A1406AB0003AB5D /* slider.png in Resources */,
@@ -723,6 +751,7 @@
 				25B5211A1A3F9C6B00735263 /* savestate_button3_selected.png in Resources */,
 				25DAE6A41A632AE700D5E86C /* slider_horizontal.png in Resources */,
 				25B521021A3F757900735263 /* button7_selected.png in Resources */,
+				25A30B001AA398C400922562 /* cubes1.png in Resources */,
 				255DB8191A3D112B007BC71C /* button1_template.png in Resources */,
 				250055811A5C7DD800CD3273 /* NewProjectViewCell.xib in Resources */,
 				25B521011A3F757900735263 /* button6.png in Resources */,
@@ -748,6 +777,7 @@
 				25DAE68F1A61D4EF00D5E86C /* bt_add_selected.png in Resources */,
 				25B520FB1A3F757900735263 /* button3_selected.png in Resources */,
 				25B520FE1A3F757900735263 /* button4.png in Resources */,
+				25A30B021AA398C400922562 /* cubes3.png in Resources */,
 				2565333C1A44619C009F4A73 /* menubutton_edit.png in Resources */,
 				2557DBEE1A14067B0003AB5D /* spring.png in Resources */,
 				25DAE6961A61E14E00D5E86C /* bin.png in Resources */,
@@ -761,7 +791,6 @@
 				259682D81A38E17500101AE2 /* menubutton_projects.png in Resources */,
 				256533401A44619C009F4A73 /* thermal_icon.png in Resources */,
 				49DD5D081A2EA1880001252C /* guitar.sf2 in Resources */,
-				259B90AB19F96D1400737E04 /* LaunchScreen.xib in Resources */,
 				25B521181A3F9C6B00735263 /* savestate_button2_selected.png in Resources */,
 				259682DC1A38E17500101AE2 /* menubutton_save.png in Resources */,
 				255DB81B1A3D112B007BC71C /* button3_template.png in Resources */,
@@ -889,14 +918,6 @@
 				259B90A519F96D1400737E04 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		259B90A919F96D1400737E04 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				259B90AA19F96D1400737E04 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

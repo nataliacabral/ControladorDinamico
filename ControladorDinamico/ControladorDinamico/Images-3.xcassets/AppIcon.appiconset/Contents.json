@@ -1,34 +1,40 @@
 {
   "images" : [
     {
+      "size" : "29x29",
       "idiom" : "ipad",
-      "scale" : "1x",
-      "size" : "29x29"
+      "filename" : "icon_29.png",
+      "scale" : "1x"
     },
     {
+      "size" : "29x29",
       "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "29x29"
+      "filename" : "icon_58.png",
+      "scale" : "2x"
     },
     {
+      "size" : "40x40",
       "idiom" : "ipad",
-      "scale" : "1x",
-      "size" : "76x76"
+      "filename" : "icon_40.png",
+      "scale" : "1x"
     },
     {
+      "size" : "40x40",
       "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "76x76"
+      "filename" : "icon_80.png",
+      "scale" : "2x"
     },
     {
+      "size" : "76x76",
       "idiom" : "ipad",
-      "scale" : "1x",
-      "size" : "40x40"
+      "filename" : "icon_76-1.png",
+      "scale" : "1x"
     },
     {
+      "size" : "76x76",
       "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "40x40"
+      "filename" : "icon_152.png",
+      "scale" : "2x"
     }
   ],
   "info" : {
