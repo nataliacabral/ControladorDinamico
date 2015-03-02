@@ -43,6 +43,12 @@
 		259682DA1A38E17500101AE2 /* menubutton_modulator.png in Resources */ = {isa = PBXBuildFile; fileRef = 259682D41A38E17500101AE2 /* menubutton_modulator.png */; };
 		259682DB1A38E17500101AE2 /* menubutton_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 259682D51A38E17500101AE2 /* menubutton_play.png */; };
 		259682DC1A38E17500101AE2 /* menubutton_save.png in Resources */ = {isa = PBXBuildFile; fileRef = 259682D61A38E17500101AE2 /* menubutton_save.png */; };
+		2599ED761AA5102500A0DC4F /* icon_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 2599ED701AA5102500A0DC4F /* icon_29.png */; };
+		2599ED771AA5102500A0DC4F /* icon_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 2599ED711AA5102500A0DC4F /* icon_40.png */; };
+		2599ED781AA5102500A0DC4F /* icon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 2599ED721AA5102500A0DC4F /* icon_58.png */; };
+		2599ED791AA5102500A0DC4F /* icon_76.png in Resources */ = {isa = PBXBuildFile; fileRef = 2599ED731AA5102500A0DC4F /* icon_76.png */; };
+		2599ED7A1AA5102500A0DC4F /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 2599ED741AA5102500A0DC4F /* icon_80.png */; };
+		2599ED7B1AA5102500A0DC4F /* icon_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 2599ED751AA5102500A0DC4F /* icon_152.png */; };
 		259B90A119F96D1400737E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A019F96D1400737E04 /* AppDelegate.swift */; };
 		259B90A319F96D1400737E04 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A219F96D1400737E04 /* ProjectViewController.swift */; };
 		259B90B719F96D1400737E04 /* ControladorDinamicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90B619F96D1400737E04 /* ControladorDinamicoTests.swift */; };
@@ -189,6 +195,12 @@
 		259682D41A38E17500101AE2 /* menubutton_modulator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubutton_modulator.png; path = images/Menu/menubutton_modulator.png; sourceTree = "<group>"; };
 		259682D51A38E17500101AE2 /* menubutton_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubutton_play.png; path = images/Menu/menubutton_play.png; sourceTree = "<group>"; };
 		259682D61A38E17500101AE2 /* menubutton_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubutton_save.png; path = images/Menu/menubutton_save.png; sourceTree = "<group>"; };
+		2599ED701AA5102500A0DC4F /* icon_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_29.png; path = icon/icon_29.png; sourceTree = "<group>"; };
+		2599ED711AA5102500A0DC4F /* icon_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_40.png; path = icon/icon_40.png; sourceTree = "<group>"; };
+		2599ED721AA5102500A0DC4F /* icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_58.png; path = icon/icon_58.png; sourceTree = "<group>"; };
+		2599ED731AA5102500A0DC4F /* icon_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_76.png; path = icon/icon_76.png; sourceTree = "<group>"; };
+		2599ED741AA5102500A0DC4F /* icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_80.png; path = icon/icon_80.png; sourceTree = "<group>"; };
+		2599ED751AA5102500A0DC4F /* icon_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_152.png; path = icon/icon_152.png; sourceTree = "<group>"; };
 		259B909B19F96D1400737E04 /* ControladorDinamico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControladorDinamico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259B909F19F96D1400737E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		259B90A019F96D1400737E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -338,6 +350,12 @@
 		2557DBCE1A13FCB20003AB5D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2599ED701AA5102500A0DC4F /* icon_29.png */,
+				2599ED711AA5102500A0DC4F /* icon_40.png */,
+				2599ED721AA5102500A0DC4F /* icon_58.png */,
+				2599ED731AA5102500A0DC4F /* icon_76.png */,
+				2599ED741AA5102500A0DC4F /* icon_80.png */,
+				2599ED751AA5102500A0DC4F /* icon_152.png */,
 				25A30AFD1AA398C400922562 /* cubes1.png */,
 				25A30AFE1AA398C400922562 /* cubes2.png */,
 				25A30AFF1AA398C400922562 /* cubes3.png */,
@@ -718,6 +736,7 @@
 				25DAE6851A61CB5A00D5E86C /* tocada_background.png in Resources */,
 				25B5211B1A3F9C6B00735263 /* savestate_button3.png in Resources */,
 				25B520F91A3F757900735263 /* button2_selected.png in Resources */,
+				2599ED761AA5102500A0DC4F /* icon_29.png in Resources */,
 				25B521071A3F8CAA00735263 /* button5_selected.png in Resources */,
 				25A30B011AA398C400922562 /* cubes2.png in Resources */,
 				492A42C81A2D4F7900731F26 /* clarinet.sf2 in Resources */,
@@ -728,6 +747,7 @@
 				25DAE6A41A632AE700D5E86C /* slider_horizontal.png in Resources */,
 				25B521021A3F757900735263 /* button7_selected.png in Resources */,
 				25A30B001AA398C400922562 /* cubes1.png in Resources */,
+				2599ED791AA5102500A0DC4F /* icon_76.png in Resources */,
 				250055811A5C7DD800CD3273 /* NewProjectViewCell.xib in Resources */,
 				25B521011A3F757900735263 /* button6.png in Resources */,
 				25DAE6A31A632AE700D5E86C /* slider_horizontal_track.png in Resources */,
@@ -735,6 +755,7 @@
 				25AF9BE21A265FE400CED1CD /* roulette_frame.png in Resources */,
 				25DAE6941A61D4EF00D5E86C /* bt_remve.png in Resources */,
 				2565333F1A44619C009F4A73 /* spring_icon.png in Resources */,
+				2599ED7A1AA5102500A0DC4F /* icon_80.png in Resources */,
 				25B5211F1A3FA61100735263 /* LaunchImage.jpg in Resources */,
 				25DAE6A21A632AE700D5E86C /* slider_horizontal_icon.png in Resources */,
 				492A42C61A2D4AFD00731F26 /* piano2.sf2 in Resources */,
@@ -748,6 +769,7 @@
 				25B521051A3F757900735263 /* button8.png in Resources */,
 				251174531A291CD7005E37C5 /* thermal_frame.png in Resources */,
 				25DAE68F1A61D4EF00D5E86C /* bt_add_selected.png in Resources */,
+				2599ED781AA5102500A0DC4F /* icon_58.png in Resources */,
 				25B520FB1A3F757900735263 /* button3_selected.png in Resources */,
 				25B520FE1A3F757900735263 /* button4.png in Resources */,
 				25A30B021AA398C400922562 /* cubes3.png in Resources */,
@@ -769,6 +791,7 @@
 				25B520FD1A3F757900735263 /* button4_selected.png in Resources */,
 				25B521191A3F9C6B00735263 /* savestate_button2.png in Resources */,
 				25B520FC1A3F757900735263 /* button3.png in Resources */,
+				2599ED771AA5102500A0DC4F /* icon_40.png in Resources */,
 				259682D91A38E17500101AE2 /* menubutton_button.png in Resources */,
 				2557DBF41A1406B80003AB5D /* thermal.png in Resources */,
 				25DAE6841A61CB5A00D5E86C /* bt_tutorial.png in Resources */,
@@ -786,6 +809,7 @@
 				25AF9BEC1A267BDE00CED1CD /* spring_background.png in Resources */,
 				25B5210B1A3F8EEB00735263 /* modulatorDrawer.png in Resources */,
 				259B90C919F9756200737E04 /* Images-3.xcassets in Resources */,
+				2599ED7B1AA5102500A0DC4F /* icon_152.png in Resources */,
 				2557DBE41A13FE940003AB5D /* button.png in Resources */,
 				25AF9BC61A23C34D00CED1CD /* ProjectView.xib in Resources */,
 				25AF9BE31A265FE400CED1CD /* roullete_button.png in Resources */,
