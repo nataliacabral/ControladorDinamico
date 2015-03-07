@@ -230,11 +230,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/EditScene.swift"
-            timestampString = "445376449.720477"
+            timestampString = "447226611.45413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "init(size:project:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -326,11 +326,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/EditScene.swift"
-            timestampString = "445376449.720477"
+            timestampString = "447226611.45413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "init(size:project:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -342,11 +342,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ControladorDinamico/ControladorDinamico/EditScene.swift"
-            timestampString = "445376449.720477"
+            timestampString = "447226611.45413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "init(size:project:)"
             landmarkType = "5">
          </BreakpointContent>

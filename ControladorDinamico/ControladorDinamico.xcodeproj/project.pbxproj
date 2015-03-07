@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		250055811A5C7DD800CD3273 /* NewProjectViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2500557F1A5C7DD800CD3273 /* NewProjectViewCell.xib */; };
+		2505F3E51AA8231E00C030C7 /* menu_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2505F3E41AA8231E00C030C7 /* menu_background.png */; };
+		2505F3E71AA8C54100C030C7 /* Menu in Resources */ = {isa = PBXBuildFile; fileRef = 2505F3E61AA8C54100C030C7 /* Menu */; };
+		2505F3E91AA8C60F00C030C7 /* menu_play_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2505F3E81AA8C60F00C030C7 /* menu_play_background.png */; };
 		2509940119FEE2CF00A6D24F /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509940019FEE2CF00A6D24F /* EditViewController.swift */; };
 		2509940319FEE64B00A6D24F /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2509940219FEE64B00A6D24F /* SpriteKit.framework */; };
 		2509940519FEE86500A6D24F /* EditScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509940419FEE86500A6D24F /* EditScene.swift */; };
@@ -159,6 +162,9 @@
 
 /* Begin PBXFileReference section */
 		2500557F1A5C7DD800CD3273 /* NewProjectViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewProjectViewCell.xib; sourceTree = "<group>"; };
+		2505F3E41AA8231E00C030C7 /* menu_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_background.png; path = images/Menu/menu_background.png; sourceTree = "<group>"; };
+		2505F3E61AA8C54100C030C7 /* Menu */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Menu; path = images/Menu; sourceTree = "<group>"; };
+		2505F3E81AA8C60F00C030C7 /* menu_play_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_play_background.png; path = images/Menu/menu_play_background.png; sourceTree = "<group>"; };
 		2509940019FEE2CF00A6D24F /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		2509940219FEE64B00A6D24F /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		2509940419FEE86500A6D24F /* EditScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditScene.swift; sourceTree = "<group>"; };
@@ -576,6 +582,9 @@
 		49DD5D001A2E9FC80001252C /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				2505F3E81AA8C60F00C030C7 /* menu_play_background.png */,
+				2505F3E61AA8C54100C030C7 /* Menu */,
+				2505F3E41AA8231E00C030C7 /* menu_background.png */,
 				25DAE6951A61E14E00D5E86C /* bin.png */,
 				256533371A44619C009F4A73 /* menubutton_edit.png */,
 				256533381A44619C009F4A73 /* roulette_icon.png */,
@@ -738,6 +747,7 @@
 				25B520F91A3F757900735263 /* button2_selected.png in Resources */,
 				2599ED761AA5102500A0DC4F /* icon_29.png in Resources */,
 				25B521071A3F8CAA00735263 /* button5_selected.png in Resources */,
+				2505F3E71AA8C54100C030C7 /* Menu in Resources */,
 				25A30B011AA398C400922562 /* cubes2.png in Resources */,
 				492A42C81A2D4F7900731F26 /* clarinet.sf2 in Resources */,
 				25B5210A1A3F8EEB00735263 /* buttonsDrawer.png in Resources */,
@@ -746,6 +756,7 @@
 				25B5211A1A3F9C6B00735263 /* savestate_button3_selected.png in Resources */,
 				25DAE6A41A632AE700D5E86C /* slider_horizontal.png in Resources */,
 				25B521021A3F757900735263 /* button7_selected.png in Resources */,
+				2505F3E91AA8C60F00C030C7 /* menu_play_background.png in Resources */,
 				25A30B001AA398C400922562 /* cubes1.png in Resources */,
 				2599ED791AA5102500A0DC4F /* icon_76.png in Resources */,
 				250055811A5C7DD800CD3273 /* NewProjectViewCell.xib in Resources */,
@@ -793,6 +804,7 @@
 				25B520FC1A3F757900735263 /* button3.png in Resources */,
 				2599ED771AA5102500A0DC4F /* icon_40.png in Resources */,
 				259682D91A38E17500101AE2 /* menubutton_button.png in Resources */,
+				2505F3E51AA8231E00C030C7 /* menu_background.png in Resources */,
 				2557DBF41A1406B80003AB5D /* thermal.png in Resources */,
 				25DAE6841A61CB5A00D5E86C /* bt_tutorial.png in Resources */,
 				259682D71A38E17500101AE2 /* menubutton_about.png in Resources */,

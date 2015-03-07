@@ -35,7 +35,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
         self.gridSize = 128
         
         let barWidth:CGFloat = gridSize
-        let buttonSize = CGSize(width: 110, height: 110)
+        let buttonSize = CGSize(width: 96, height: 96)
         
         // MenuBar
         
@@ -93,11 +93,12 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
         var x:CGFloat = self.size.width - barWidth / 2
         var y:CGFloat = (self.size.height / 2)
         
+        let menuBarTexture:SKTexture = SKTexture(imageNamed: "menu_play_background.png")
         menuBar = VerticalMenuBar(
             buttons: [backButton, slot1Button, slot2Button, slot3Button, slot4Button, aboutButton],
             position:CGPoint(x: x, y: y),
             size:CGSize(width: barWidth, height: self.size.height),
-            buttonSize:buttonSize
+            buttonSize:buttonSize, background:menuBarTexture, border:32
         )
         self.addChild(menuBar!)
     }

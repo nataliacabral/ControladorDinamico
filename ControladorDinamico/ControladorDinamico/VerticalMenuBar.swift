@@ -11,20 +11,21 @@ import SpriteKit
 
 class VerticalMenuBar : SKSpriteNode
 {
-    class var border:CGFloat  { get { return 15 } }
+    var border:CGFloat
     let bgColor = UIColor(red:0.5 , green:0.51, blue:0.52, alpha: 1)
 
     var buttonList:Array<MenuButton>?
     var buttonSize:CGSize?
     
-    init(buttons:Array<MenuButton>, position:CGPoint, size:CGSize, buttonSize:CGSize) {
-        super.init(texture: nil, color: bgColor, size:size)
-        self.initializeProperties(buttons, position: position, size: size, buttonSize: buttonSize)
-        
-        
-    }
+//    init(buttons:Array<MenuButton>, position:CGPoint, size:CGSize, buttonSize:CGSize, border:CGFloat) {
+//        self.border = border
+//        let texture:SKTexture = SKTexture(imageNamed: "menu_background.png")
+//        super.init(texture: texture, color: nil, size: size)
+//        self.initializeProperties(buttons, position: position, size: size, buttonSize: buttonSize)
+//    }
     
-    init(buttons:Array<MenuButton>, position:CGPoint, size:CGSize, buttonSize:CGSize, background:SKTexture) {
+    init(buttons:Array<MenuButton>, position:CGPoint, size:CGSize, buttonSize:CGSize, background:SKTexture, border:CGFloat) {
+        self.border = border
         super.init(texture: background, color: nil, size:size)
         self.initializeProperties(buttons, position: position, size: size, buttonSize: buttonSize)
     }
@@ -46,15 +47,15 @@ class VerticalMenuBar : SKSpriteNode
     
     func reloadObjs()
     {
-        var borderDistance = VerticalMenuBar.border
-        var yPos = (self.size.height / 2) - self.buttonSize!.height / 2 - borderDistance
+        var borderDistance = self.border
+        var yPos = (self.size.height / 2) - self.buttonSize!.height / 2 - borderDistance / 2
         for button in self.buttonList! {
             button.position.y = yPos
             button.position.x = 0
             button.size.width = self.buttonSize!.width
             button.size.height = self.buttonSize!.height
-            yPos -= self.buttonSize!.height + VerticalMenuBar.border
-            borderDistance += VerticalMenuBar.border
+            yPos -= self.buttonSize!.height + self.border
+            borderDistance += self.border
             self.addChild(button)
         }
     }
