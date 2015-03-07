@@ -8,17 +8,17 @@
 
 import UIKit
 
-class ProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate, UIAlertViewDelegate, UIPickerViewDataSource,UIPickerViewDelegate {
+class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     
     let grayColor = UIColor(red: 230 / 255, green: 231 / 255, blue: 232 / 255, alpha: 1)
-    @IBOutlet var collectionView:UICollectionView!
+    @IBOutlet var projectsCarouselView:iCarousel!
     
-    var notePicker: UIPickerView?
+   /* var notePicker: UIPickerView?
     var modePicker: UIPickerView?
     var nameTextfield: UITextField?
     
     var addingProject:Bool = false
-    
+    */
     let projectCellViewIdentifier:String = "projectView"
     let newProjectCellViewIdentifier:String = "newProjectView"
 
@@ -35,16 +35,66 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     override func viewDidLoad() {
 
-        var projectCell:UINib = UINib(nibName:"ProjectView", bundle: nil)
+        projectsCarouselView.type = .CoverFlow2
+
+       /* var projectCell:UINib = UINib(nibName:"ProjectView", bundle: nil)
         self.collectionView.registerNib(projectCell, forCellWithReuseIdentifier:projectCellViewIdentifier)
         
         var newProjectCell:UINib = UINib(nibName:"NewProjectViewCell", bundle: nil)
         self.collectionView.registerNib(newProjectCell, forCellWithReuseIdentifier:newProjectCellViewIdentifier)
 
-        self.addingProject = false
+        self.addingProject = false*/
     }
     
-    func addNewProject(){
+    func numberOfItemsInCarousel(carousel: iCarousel!) -> Int
+    {
+        return projects.count
+    }
+    
+    func carousel(carousel: iCarousel!, viewForItemAtIndex index: Int, var reusingView view: UIView!) -> UIView!
+    {
+        var label: UILabel! = nil
+        var imageView: UIImageView! = nil
+
+        if (view == nil)
+        {
+        
+            view = UIView(frame: CGRectMake(0, 0, 100, 100))
+            imageView = UIImageView(frame:CGRectMake(0, 0, 40, 40))
+            imageView.contentMode = .Center
+            imageView.tag = 0
+            view.addSubview(imageView)
+            
+            label = UILabel(frame:view.bounds)
+            label.backgroundColor = UIColor.clearColor()
+            label.textAlignment = .Center
+            label.font = label.font.fontWithSize(50)
+            label.tag = 1
+            label.textColor = UIColor.whiteColor()
+            view.addSubview(label)
+        }
+        else
+        {
+            label = view.viewWithTag(1) as UILabel!
+            view = view.viewWithTag(0) as UIImageView!
+        }
+        
+        label.text = projects[index].projectName
+        imageView.image = projects[index].preview
+
+        return view
+    }
+    
+    func carousel(carousel: iCarousel!, valueForOption option: iCarouselOption, withDefault value: CGFloat) -> CGFloat
+    {
+        if (option == .Spacing)
+        {
+            return value * 5
+        }
+        return value
+    }
+    
+   /* func addNewProject(){
         let projectName:String = self.nameTextfield!.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         
         var error:String? = nil
@@ -75,14 +125,14 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
             self.presentViewController(alert, animated: true, completion: nil)
         }
     }
-    
+    */
     func deleteProject(alert: UIAlertAction!){
         var index = find(self.projects, self.selectedProject!)
         self.projects.removeAtIndex(index!)
         
         var error: NSError? = nil
         if(ProjectManager.sharedInstance.removeProject(self.selectedProject!, error: &error)) {
-            self.collectionView.reloadData()
+            self.projectsCarouselView.reloadData()
         }
         self.selectedProject = nil
     }
@@ -91,18 +141,12 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.projects = ProjectManager.sharedInstance.allProjects()
-        self.collectionView.reloadData()
-        addingProject = false
+        self.projectsCarouselView.reloadData()
+        //addingProject = false
         self.selectedProject = nil
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if (self.addingProject) {
-            return projects.count  + 1
-        } else {
-            return projects.count;
-        }
-    }
+/*
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
@@ -177,14 +221,14 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         self.collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: UICollectionViewScrollPosition.CenteredVertically, animated: true)
     }
-    
+
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         if (self.projects.count > indexPath.row) {
             let datasetCell = collectionView.cellForItemAtIndexPath(indexPath)
             datasetCell?.backgroundColor = grayColor
         }
     }
-    
+    */
     @IBAction func removeProject(AnyObject) {
         if (self.selectedProject != nil) {
             
@@ -202,10 +246,10 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
     }
     
-    @IBAction func addProject(AnyObject) {
+   /* @IBAction func addProject(AnyObject) {
         addingProject = true
-        self.collectionView.reloadData()
-        self.collectionView.scrollToItemAtIndexPath(NSIndexPath(forRow: self.projects.count, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.CenteredVertically, animated: true)
+        self.projectsCarouselView.reloadData()
+        self.projectsCarouselView.scrollToItemAtIndexPath(NSIndexPath(forRow: self.projects.count, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.CenteredVertically, animated: true)
         
         if (nameTextfield != nil && notePicker != nil && modePicker != nil) {
             nameTextfield!.text = ""
@@ -213,7 +257,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
             modePicker!.selectRow(0, inComponent:0, animated:false)
         }
     }
-    
+    */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "openProject" {
             if (self.selectedProject != nil) {
@@ -223,7 +267,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+   /* func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
     
@@ -247,6 +291,8 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
         
         return result
-    }
+    }*/
+    
+    
 }
 
