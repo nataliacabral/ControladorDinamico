@@ -181,8 +181,10 @@ class ButtonSoundObject : SoundObject, Sampler
     func startSampler() {
         var error:NSError?
         self.audioSampler = AVAudioUnitSampler()
-        let path = NSBundle.mainBundle().URLForResource(String("guitar"), withExtension:"sf2")
-        self.audioSampler?.loadSoundBankInstrumentAtURL(path, program: 0, bankMSB: UInt8(kAUSampler_DefaultMelodicBankMSB), bankLSB: UInt8(kAUSampler_DefaultBankLSB), error: &error)
+//        let path = NSBundle.mainBundle().URLForResource(String("guitar"), withExtension:"sf2")
+//        self.audioSampler?.loadSoundBankInstrumentAtURL(path, program: 0, bankMSB: UInt8(kAUSampler_DefaultMelodicBankMSB), bankLSB: UInt8(kAUSampler_DefaultBankLSB), error: &error)
+        let notesPaths = NSBundle.mainBundle().URLsForResourcesWithExtension("aif", subdirectory: ".")
+        self.audioSampler!.loadAudioFilesAtURLs(notesPaths, error: &error)
     }
     
     func sampler() -> AVAudioUnitSampler
