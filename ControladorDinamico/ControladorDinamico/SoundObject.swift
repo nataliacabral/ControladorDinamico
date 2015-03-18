@@ -33,8 +33,10 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Touchable
     
     required init(coder aDecoder: NSCoder) {
         super.init()
-        self.position.x = CGFloat(aDecoder.decodeObjectForKey("x")!.integerValue)
-        self.position.y = CGFloat(aDecoder.decodeObjectForKey("y")!.integerValue)
+        self.position.x = CGFloat(aDecoder.decodeObjectForKey("x")!.floatValue)
+        self.position.y = CGFloat(aDecoder.decodeObjectForKey("y")!.floatValue)
+        self.size.width = CGFloat(aDecoder.decodeObjectForKey("width")!.floatValue)
+        self.size.height = CGFloat(aDecoder.decodeObjectForKey("height")!.floatValue)
     }
     
     init(gridSize:CGFloat) {
@@ -51,6 +53,8 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Touchable
     override func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.position.x, forKey: "x")
         aCoder.encodeObject(self.position.y, forKey: "y")
+        aCoder.encodeObject(self.size.width, forKey: "width")
+        aCoder.encodeObject(self.size.height, forKey: "height")
     }
     
     func updateGridSize(gridSize:CGFloat)

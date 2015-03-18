@@ -26,7 +26,7 @@ class ButtonSoundObject : SoundObject, Sampler
 
     var note : UInt8 = 0
     var noteIndex : UInt8 = 0
-
+    
     var status : ButtonStatus = ButtonStatus(pressed: false, playing: false)
     var savedStatus : Array<ButtonStatus> = Array<ButtonStatus>(count: 4, repeatedValue: ButtonStatus(pressed: false, playing: false))
     
@@ -113,6 +113,15 @@ class ButtonSoundObject : SoundObject, Sampler
         super.init(coder:aDecoder)
         self.note = (aDecoder.decodeObjectForKey("note") as NSNumber).unsignedCharValue
         self.noteIndex = (aDecoder.decodeObjectForKey("noteIndex") as NSNumber).unsignedCharValue
+        self.savedStatus[0].pressed = aDecoder.decodeBoolForKey("pressed0")
+        self.savedStatus[1].pressed = aDecoder.decodeBoolForKey("pressed1")
+        self.savedStatus[2].pressed = aDecoder.decodeBoolForKey("pressed2")
+        self.savedStatus[3].pressed = aDecoder.decodeBoolForKey("pressed3")
+        
+        self.savedStatus[0].playing = aDecoder.decodeBoolForKey("playing0")
+        self.savedStatus[1].playing = aDecoder.decodeBoolForKey("playing1")
+        self.savedStatus[2].playing = aDecoder.decodeBoolForKey("playing2")
+        self.savedStatus[3].playing = aDecoder.decodeBoolForKey("playing3")
 
         self.loadTextures()
     }
@@ -122,6 +131,16 @@ class ButtonSoundObject : SoundObject, Sampler
         aCoder.encodeObject(NSNumber(unsignedChar:self.note), forKey: "note")
         aCoder.encodeObject(NSNumber(unsignedChar:self.noteIndex), forKey: "noteIndex")
 
+        aCoder.encodeBool(self.savedStatus[0].pressed, forKey: "pressed0")
+        aCoder.encodeBool(self.savedStatus[1].pressed, forKey: "pressed1")
+        aCoder.encodeBool(self.savedStatus[2].pressed, forKey: "pressed2")
+        aCoder.encodeBool(self.savedStatus[3].pressed, forKey: "pressed3")
+
+        aCoder.encodeBool(self.savedStatus[0].playing, forKey: "playing0")
+        aCoder.encodeBool(self.savedStatus[1].playing, forKey: "playing1")
+        aCoder.encodeBool(self.savedStatus[2].playing, forKey: "playing2")
+        aCoder.encodeBool(self.savedStatus[3].playing, forKey: "playing3")
+        
     }
     
     init(gridSize:CGFloat, note:UInt8, noteIndex:UInt8) {
@@ -166,8 +185,10 @@ class ButtonSoundObject : SoundObject, Sampler
     func startSampler() {
         var error:NSError?
         self.audioSampler = AVAudioUnitSampler()
-        let path = NSBundle.mainBundle().URLForResource(String("guitar"), withExtension:"sf2")
-        self.audioSampler?.loadSoundBankInstrumentAtURL(path, program: 0, bankMSB: UInt8(kAUSampler_DefaultMelodicBankMSB), bankLSB: UInt8(kAUSampler_DefaultBankLSB), error: &error)
+//        let path = NSBundle.mainBundle().URLForResource(String("guitar"), withExtension:"sf2")
+//        self.audioSampler?.loadSoundBankInstrumentAtURL(path, program: 0, bankMSB: UInt8(kAUSampler_DefaultMelodicBankMSB), bankLSB: UInt8(kAUSampler_DefaultBankLSB), error: &error)
+        let notesPaths = NSBundle.mainBundle().URLsForResourcesWithExtension("aif", subdirectory: ".")
+        self.audioSampler!.loadAudioFilesAtURLs(notesPaths, error: &error)
     }
     
     func sampler() -> AVAudioUnitSampler
@@ -217,6 +238,7 @@ class ButtonSoundObject : SoundObject, Sampler
         result.noteIndex = self.noteIndex
         result.position = self.position
         result.loadTextures()
+        result.savedStatus = self.savedStatus
         return result
     }
     
@@ -238,7 +260,7 @@ class ButtonSoundObject : SoundObject, Sampler
         var result:ButtonSoundObject = super.copy() as ButtonSoundObject
         result.note = self.note
         result.noteIndex = self.noteIndex
-
+    
         return result
     }
 }

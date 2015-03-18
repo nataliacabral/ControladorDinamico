@@ -148,6 +148,14 @@
 		49EC5A0F1A2210B800A36D2C /* VerticalMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC5A0E1A2210B800A36D2C /* VerticalMenuBar.swift */; };
 		49EC5A111A22168C00A36D2C /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC5A101A22168C00A36D2C /* MenuButton.swift */; };
 		49EC5A131A22176100A36D2C /* DrawerMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC5A121A22176100A36D2C /* DrawerMenuButton.swift */; };
+		49FE2CCD1AB8F43000EE2214 /* sampleC5.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49FE2CC51AB8F19900EE2214 /* sampleC5.aif */; };
+		49FE2CCE1AB8F43000EE2214 /* sampleB4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49FE2CC61AB8F19900EE2214 /* sampleB4.aif */; };
+		49FE2CCF1AB8F43000EE2214 /* sampleG4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49FE2CC71AB8F19900EE2214 /* sampleG4.aif */; };
+		49FE2CD01AB8F43000EE2214 /* sampleF4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49FE2CC81AB8F19900EE2214 /* sampleF4.aif */; };
+		49FE2CD11AB8F43000EE2214 /* sampleE4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49FE2CC91AB8F19900EE2214 /* sampleE4.aif */; };
+		49FE2CD21AB8F43000EE2214 /* sampleD#4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49FE2CCA1AB8F19900EE2214 /* sampleD#4.aif */; };
+		49FE2CD31AB8F43000EE2214 /* sampleD4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49FE2CCB1AB8F19900EE2214 /* sampleD4.aif */; };
+		49FE2CD41AB8F43000EE2214 /* sampleC4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49FE2CCC1AB8F19900EE2214 /* sampleC4.aif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -308,6 +316,14 @@
 		49EC5A0E1A2210B800A36D2C /* VerticalMenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalMenuBar.swift; sourceTree = "<group>"; };
 		49EC5A101A22168C00A36D2C /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		49EC5A121A22176100A36D2C /* DrawerMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerMenuButton.swift; sourceTree = "<group>"; };
+		49FE2CC51AB8F19900EE2214 /* sampleC5.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleC5.aif; sourceTree = "<group>"; };
+		49FE2CC61AB8F19900EE2214 /* sampleB4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleB4.aif; sourceTree = "<group>"; };
+		49FE2CC71AB8F19900EE2214 /* sampleG4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleG4.aif; sourceTree = "<group>"; };
+		49FE2CC81AB8F19900EE2214 /* sampleF4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleF4.aif; sourceTree = "<group>"; };
+		49FE2CC91AB8F19900EE2214 /* sampleE4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleE4.aif; sourceTree = "<group>"; };
+		49FE2CCA1AB8F19900EE2214 /* sampleD#4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sampleD#4.aif"; sourceTree = "<group>"; };
+		49FE2CCB1AB8F19900EE2214 /* sampleD4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleD4.aif; sourceTree = "<group>"; };
+		49FE2CCC1AB8F19900EE2214 /* sampleC4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleC4.aif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -487,8 +503,7 @@
 		259B909D19F96D1400737E04 /* ControladorDinamico */ = {
 			isa = PBXGroup;
 			children = (
-				25A30AFC1AA3967000922562 /* PlayView */,
-				25A30AFB1AA3964300922562 /* ProjectsView */,
+				49FE2CC41AB8F18800EE2214 /* SoundNotes */,
 				49EC5A101A22168C00A36D2C /* MenuButton.swift */,
 				49EC5A0D1A22109900A36D2C /* EditView */,
 				49EC5A021A2043A400A36D2C /* Modulator */,
@@ -657,6 +672,21 @@
 			name = EditView;
 			sourceTree = "<group>";
 		};
+		49FE2CC41AB8F18800EE2214 /* SoundNotes */ = {
+			isa = PBXGroup;
+			children = (
+				49FE2CC51AB8F19900EE2214 /* sampleC5.aif */,
+				49FE2CC61AB8F19900EE2214 /* sampleB4.aif */,
+				49FE2CC71AB8F19900EE2214 /* sampleG4.aif */,
+				49FE2CC81AB8F19900EE2214 /* sampleF4.aif */,
+				49FE2CC91AB8F19900EE2214 /* sampleE4.aif */,
+				49FE2CCA1AB8F19900EE2214 /* sampleD#4.aif */,
+				49FE2CCB1AB8F19900EE2214 /* sampleD4.aif */,
+				49FE2CCC1AB8F19900EE2214 /* sampleC4.aif */,
+			);
+			name = SoundNotes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -740,6 +770,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				25B521201A3FA90800735263 /* Main.storyboard in Resources */,
+				49FE2CCD1AB8F43000EE2214 /* sampleC5.aif in Resources */,
+				49FE2CCE1AB8F43000EE2214 /* sampleB4.aif in Resources */,
+				49FE2CCF1AB8F43000EE2214 /* sampleG4.aif in Resources */,
+				49FE2CD01AB8F43000EE2214 /* sampleF4.aif in Resources */,
+				49FE2CD11AB8F43000EE2214 /* sampleE4.aif in Resources */,
+				49FE2CD21AB8F43000EE2214 /* sampleD#4.aif in Resources */,
+				49FE2CD31AB8F43000EE2214 /* sampleD4.aif in Resources */,
+				49FE2CD41AB8F43000EE2214 /* sampleC4.aif in Resources */,
 				4933E0E91A17F3FE00DDCE0D /* buttonSelected.png in Resources */,
 				25B521041A3F757900735263 /* button8_selected.png in Resources */,
 				25DAE6851A61CB5A00D5E86C /* tocada_background.png in Resources */,

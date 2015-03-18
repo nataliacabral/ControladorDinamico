@@ -23,7 +23,7 @@ class PitchMidiModulator : MidiModulator
     
     func modulate(modulation:Float)
     {
-        if (!pitchbendSet) {
+        if (!pitchbendSet && SoundManager.sharedInstance.audioEngine.running) {
             self.sampler?.sampler().sendController(100, withValue: 0, onChannel: 0)
             self.sampler?.sampler().sendController(101, withValue: 0, onChannel: 0)
             self.sampler?.sampler().sendController(6, withValue: 14, onChannel: 0)
@@ -31,10 +31,10 @@ class PitchMidiModulator : MidiModulator
             pitchbendSet = true
         }
         let intModulation = UInt16(modulation * 16383)
-        if (currentPitch != intModulation)
+        if (currentPitch != intModulation && SoundManager.sharedInstance.audioEngine.running)
         {
             self.currentPitch = intModulation
-            NSLog("Sending MIDI controller 1 (pitchbend) with value %u", intModulation)
+            //NSLog("Sending MIDI controller 1 (pitchbend) with value %u", intModulation)
             self.sampler?.sampler().sendPitchBend(intModulation, onChannel: 0)
         }
     }
