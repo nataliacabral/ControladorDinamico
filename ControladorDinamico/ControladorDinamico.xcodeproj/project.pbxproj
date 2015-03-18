@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		250055811A5C7DD800CD3273 /* NewProjectViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2500557F1A5C7DD800CD3273 /* NewProjectViewCell.xib */; };
 		2505F3E51AA8231E00C030C7 /* menu_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2505F3E41AA8231E00C030C7 /* menu_background.png */; };
 		2505F3E71AA8C54100C030C7 /* Menu in Resources */ = {isa = PBXBuildFile; fileRef = 2505F3E61AA8C54100C030C7 /* Menu */; };
 		2505F3E91AA8C60F00C030C7 /* menu_play_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2505F3E81AA8C60F00C030C7 /* menu_play_background.png */; };
@@ -31,7 +30,6 @@
 		2557DBF01A14068C0003AB5D /* roulette.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBEF1A14068C0003AB5D /* roulette.png */; };
 		2557DBF21A1406AB0003AB5D /* slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBF11A1406AB0003AB5D /* slider.png */; };
 		2557DBF41A1406B80003AB5D /* thermal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2557DBF31A1406B80003AB5D /* thermal.png */; };
-		2557DC131A16A3000003AB5D /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2557DC121A16A3000003AB5D /* PlayViewController.swift */; };
 		2565333C1A44619C009F4A73 /* menubutton_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 256533371A44619C009F4A73 /* menubutton_edit.png */; };
 		2565333D1A44619C009F4A73 /* roulette_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 256533381A44619C009F4A73 /* roulette_icon.png */; };
 		2565333E1A44619C009F4A73 /* slider_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 256533391A44619C009F4A73 /* slider_icon.png */; };
@@ -53,7 +51,6 @@
 		2599ED7A1AA5102500A0DC4F /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 2599ED741AA5102500A0DC4F /* icon_80.png */; };
 		2599ED7B1AA5102500A0DC4F /* icon_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 2599ED751AA5102500A0DC4F /* icon_152.png */; };
 		259B90A119F96D1400737E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A019F96D1400737E04 /* AppDelegate.swift */; };
-		259B90A319F96D1400737E04 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A219F96D1400737E04 /* ProjectViewController.swift */; };
 		259B90B719F96D1400737E04 /* ControladorDinamicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90B619F96D1400737E04 /* ControladorDinamicoTests.swift */; };
 		259B90C919F9756200737E04 /* Images-3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 259B90C819F9756200737E04 /* Images-3.xcassets */; };
 		25A30B001AA398C400922562 /* cubes1.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A30AFD1AA398C400922562 /* cubes1.png */; };
@@ -62,7 +59,6 @@
 		25A93F6C1A1A9B7D00C9F145 /* roulette_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A93F6A1A1A9B7D00C9F145 /* roulette_background.png */; };
 		25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A93F6B1A1A9B7D00C9F145 /* roulette_spinningpart.png */; };
 		25A93F6F1A1A9BDD00C9F145 /* RouletteSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A93F6E1A1A9BDD00C9F145 /* RouletteSpin.swift */; };
-		25AF9BC61A23C34D00CED1CD /* ProjectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25AF9BC51A23C34D00CED1CD /* ProjectView.xib */; };
 		25AF9BE21A265FE400CED1CD /* roulette_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 25AF9BE01A265FE400CED1CD /* roulette_frame.png */; };
 		25AF9BE31A265FE400CED1CD /* roullete_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 25AF9BE11A265FE400CED1CD /* roullete_button.png */; };
 		25AF9BE51A26620D00CED1CD /* RouletteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF9BE41A26620D00CED1CD /* RouletteButton.swift */; };
@@ -97,7 +93,12 @@
 		25B5211C1A3F9C6B00735263 /* savestate_button4_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B521131A3F9C6B00735263 /* savestate_button4_selected.png */; };
 		25B5211D1A3F9C6B00735263 /* savestate_button4.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B521141A3F9C6B00735263 /* savestate_button4.png */; };
 		25B5211F1A3FA61100735263 /* LaunchImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25B5211E1A3FA61100735263 /* LaunchImage.jpg */; };
-		25B521201A3FA90800735263 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259B90A419F96D1400737E04 /* Main.storyboard */; };
+		25C075861ABA25CE000D31D5 /* NewProjectViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25C075801ABA25CE000D31D5 /* NewProjectViewCell.xib */; };
+		25C075871ABA25CE000D31D5 /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C075811ABA25CE000D31D5 /* PlayScene.swift */; };
+		25C075881ABA25CE000D31D5 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C075821ABA25CE000D31D5 /* PlayViewController.swift */; };
+		25C075891ABA25CE000D31D5 /* ProjectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25C075831ABA25CE000D31D5 /* ProjectView.xib */; };
+		25C0758A1ABA25CE000D31D5 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C075841ABA25CE000D31D5 /* ProjectViewController.swift */; };
+		25C0758B1ABA25CE000D31D5 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C075851ABA25CE000D31D5 /* SoundManager.swift */; };
 		25DAE6811A61CB5A00D5E86C /* bt_play_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE67C1A61CB5A00D5E86C /* bt_play_selected.png */; };
 		25DAE6821A61CB5A00D5E86C /* bt_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE67D1A61CB5A00D5E86C /* bt_play.png */; };
 		25DAE6831A61CB5A00D5E86C /* bt_tutorial_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE67E1A61CB5A00D5E86C /* bt_tutorial_selected.png */; };
@@ -129,11 +130,9 @@
 		4933E0EB1A17F6D500DDCE0D /* Touchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933E0EA1A17F6D500DDCE0D /* Touchable.swift */; };
 		4933E0F01A18005700DDCE0D /* sliderHandle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4933E0EE1A18005700DDCE0D /* sliderHandle.png */; };
 		4933E0F11A18005700DDCE0D /* sliderTrack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4933E0EF1A18005700DDCE0D /* sliderTrack.png */; };
-		495BDEC91A1226A8000941E8 /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495BDEC81A1226A8000941E8 /* PlayScene.swift */; };
 		49A52EA21A3A4071006F0F68 /* MidiModulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A52EA11A3A4071006F0F68 /* MidiModulator.swift */; };
 		49A52EA41A3A40AD006F0F68 /* NodeModulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A52EA31A3A40AD006F0F68 /* NodeModulator.swift */; };
 		49A52EA61A3A421B006F0F68 /* PitchMidiModulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A52EA51A3A421B006F0F68 /* PitchMidiModulator.swift */; };
-		49C0152F1A1D316900DBAC0D /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0152E1A1D316900DBAC0D /* SoundManager.swift */; };
 		49DD5D081A2EA1880001252C /* guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 49DD5D071A2EA1880001252C /* guitar.sf2 */; };
 		49EC59F91A2006C800A36D2C /* piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 49EC59F81A2006C800A36D2C /* piano.sf2 */; };
 		49EC59FB1A2009F200A36D2C /* ModulatorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC59FA1A2009F200A36D2C /* ModulatorNode.swift */; };
@@ -169,7 +168,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2500557F1A5C7DD800CD3273 /* NewProjectViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewProjectViewCell.xib; sourceTree = "<group>"; };
 		2505F3E41AA8231E00C030C7 /* menu_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_background.png; path = images/Menu/menu_background.png; sourceTree = "<group>"; };
 		2505F3E61AA8C54100C030C7 /* Menu */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Menu; path = images/Menu; sourceTree = "<group>"; };
 		2505F3E81AA8C60F00C030C7 /* menu_play_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_play_background.png; path = images/Menu/menu_play_background.png; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 		2557DBEF1A14068C0003AB5D /* roulette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette.png; sourceTree = "<group>"; };
 		2557DBF11A1406AB0003AB5D /* slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider.png; sourceTree = "<group>"; };
 		2557DBF31A1406B80003AB5D /* thermal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thermal.png; sourceTree = "<group>"; };
-		2557DC121A16A3000003AB5D /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		256533371A44619C009F4A73 /* menubutton_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubutton_edit.png; path = images/Menu/menubutton_edit.png; sourceTree = "<group>"; };
 		256533381A44619C009F4A73 /* roulette_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = roulette_icon.png; path = images/Menu/roulette_icon.png; sourceTree = "<group>"; };
 		256533391A44619C009F4A73 /* slider_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slider_icon.png; path = images/Menu/slider_icon.png; sourceTree = "<group>"; };
@@ -218,7 +215,6 @@
 		259B909B19F96D1400737E04 /* ControladorDinamico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControladorDinamico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259B909F19F96D1400737E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		259B90A019F96D1400737E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		259B90A219F96D1400737E04 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
 		259B90A519F96D1400737E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		259B90B019F96D1400737E04 /* ControladorDinamicoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ControladorDinamicoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		259B90B519F96D1400737E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -230,7 +226,6 @@
 		25A93F6A1A1A9B7D00C9F145 /* roulette_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette_background.png; sourceTree = "<group>"; };
 		25A93F6B1A1A9B7D00C9F145 /* roulette_spinningpart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette_spinningpart.png; sourceTree = "<group>"; };
 		25A93F6E1A1A9BDD00C9F145 /* RouletteSpin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouletteSpin.swift; sourceTree = "<group>"; };
-		25AF9BC51A23C34D00CED1CD /* ProjectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectView.xib; sourceTree = "<group>"; };
 		25AF9BE01A265FE400CED1CD /* roulette_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette_frame.png; sourceTree = "<group>"; };
 		25AF9BE11A265FE400CED1CD /* roullete_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roullete_button.png; sourceTree = "<group>"; };
 		25AF9BE41A26620D00CED1CD /* RouletteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouletteButton.swift; sourceTree = "<group>"; };
@@ -265,6 +260,12 @@
 		25B521131A3F9C6B00735263 /* savestate_button4_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = savestate_button4_selected.png; path = images/savestate/savestate_button4_selected.png; sourceTree = "<group>"; };
 		25B521141A3F9C6B00735263 /* savestate_button4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = savestate_button4.png; path = images/savestate/savestate_button4.png; sourceTree = "<group>"; };
 		25B5211E1A3FA61100735263 /* LaunchImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LaunchImage.jpg; sourceTree = "<group>"; };
+		25C075801ABA25CE000D31D5 /* NewProjectViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewProjectViewCell.xib; sourceTree = "<group>"; };
+		25C075811ABA25CE000D31D5 /* PlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayScene.swift; sourceTree = "<group>"; };
+		25C075821ABA25CE000D31D5 /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		25C075831ABA25CE000D31D5 /* ProjectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectView.xib; sourceTree = "<group>"; };
+		25C075841ABA25CE000D31D5 /* ProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
+		25C075851ABA25CE000D31D5 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		25DAE67C1A61CB5A00D5E86C /* bt_play_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_play_selected.png; sourceTree = "<group>"; };
 		25DAE67D1A61CB5A00D5E86C /* bt_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_play.png; sourceTree = "<group>"; };
 		25DAE67E1A61CB5A00D5E86C /* bt_tutorial_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_tutorial_selected.png; sourceTree = "<group>"; };
@@ -296,11 +297,9 @@
 		4933E0EA1A17F6D500DDCE0D /* Touchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Touchable.swift; sourceTree = "<group>"; };
 		4933E0EE1A18005700DDCE0D /* sliderHandle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sliderHandle.png; sourceTree = "<group>"; };
 		4933E0EF1A18005700DDCE0D /* sliderTrack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sliderTrack.png; sourceTree = "<group>"; };
-		495BDEC81A1226A8000941E8 /* PlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayScene.swift; sourceTree = "<group>"; };
 		49A52EA11A3A4071006F0F68 /* MidiModulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MidiModulator.swift; sourceTree = "<group>"; };
 		49A52EA31A3A40AD006F0F68 /* NodeModulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeModulator.swift; sourceTree = "<group>"; };
 		49A52EA51A3A421B006F0F68 /* PitchMidiModulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchMidiModulator.swift; sourceTree = "<group>"; };
-		49C0152E1A1D316900DBAC0D /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		49C015301A1D31C300DBAC0D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		49DD5D071A2EA1880001252C /* guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = guitar.sf2; sourceTree = "<group>"; };
 		49EC59F81A2006C800A36D2C /* piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = piano.sf2; sourceTree = "<group>"; };
@@ -503,6 +502,12 @@
 		259B909D19F96D1400737E04 /* ControladorDinamico */ = {
 			isa = PBXGroup;
 			children = (
+				25C075801ABA25CE000D31D5 /* NewProjectViewCell.xib */,
+				25C075811ABA25CE000D31D5 /* PlayScene.swift */,
+				25C075821ABA25CE000D31D5 /* PlayViewController.swift */,
+				25C075831ABA25CE000D31D5 /* ProjectView.xib */,
+				25C075841ABA25CE000D31D5 /* ProjectViewController.swift */,
+				25C075851ABA25CE000D31D5 /* SoundManager.swift */,
 				49FE2CC41AB8F18800EE2214 /* SoundNotes */,
 				49EC5A101A22168C00A36D2C /* MenuButton.swift */,
 				49EC5A0D1A22109900A36D2C /* EditView */,
@@ -547,26 +552,6 @@
 				259B90B519F96D1400737E04 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		25A30AFB1AA3964300922562 /* ProjectsView */ = {
-			isa = PBXGroup;
-			children = (
-				259B90A219F96D1400737E04 /* ProjectViewController.swift */,
-				25AF9BC51A23C34D00CED1CD /* ProjectView.xib */,
-				2500557F1A5C7DD800CD3273 /* NewProjectViewCell.xib */,
-			);
-			name = ProjectsView;
-			sourceTree = "<group>";
-		};
-		25A30AFC1AA3967000922562 /* PlayView */ = {
-			isa = PBXGroup;
-			children = (
-				495BDEC81A1226A8000941E8 /* PlayScene.swift */,
-				2557DC121A16A3000003AB5D /* PlayViewController.swift */,
-				49C0152E1A1D316900DBAC0D /* SoundManager.swift */,
-			);
-			name = PlayView;
 			sourceTree = "<group>";
 		};
 		25DAE67B1A61C99600D5E86C /* HomeView */ = {
@@ -769,7 +754,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25B521201A3FA90800735263 /* Main.storyboard in Resources */,
 				49FE2CCD1AB8F43000EE2214 /* sampleC5.aif in Resources */,
 				49FE2CCE1AB8F43000EE2214 /* sampleB4.aif in Resources */,
 				49FE2CCF1AB8F43000EE2214 /* sampleG4.aif in Resources */,
@@ -797,7 +781,6 @@
 				2505F3E91AA8C60F00C030C7 /* menu_play_background.png in Resources */,
 				25A30B001AA398C400922562 /* cubes1.png in Resources */,
 				2599ED791AA5102500A0DC4F /* icon_76.png in Resources */,
-				250055811A5C7DD800CD3273 /* NewProjectViewCell.xib in Resources */,
 				25B521011A3F757900735263 /* button6.png in Resources */,
 				25DAE6A31A632AE700D5E86C /* slider_horizontal_track.png in Resources */,
 				25DAE6911A61D4EF00D5E86C /* bt_open_selected.png in Resources */,
@@ -820,6 +803,7 @@
 				25DAE68F1A61D4EF00D5E86C /* bt_add_selected.png in Resources */,
 				2599ED781AA5102500A0DC4F /* icon_58.png in Resources */,
 				25B520FB1A3F757900735263 /* button3_selected.png in Resources */,
+				25C075861ABA25CE000D31D5 /* NewProjectViewCell.xib in Resources */,
 				25B520FE1A3F757900735263 /* button4.png in Resources */,
 				25A30B021AA398C400922562 /* cubes3.png in Resources */,
 				2565333C1A44619C009F4A73 /* menubutton_edit.png in Resources */,
@@ -861,7 +845,7 @@
 				259B90C919F9756200737E04 /* Images-3.xcassets in Resources */,
 				2599ED7B1AA5102500A0DC4F /* icon_152.png in Resources */,
 				2557DBE41A13FE940003AB5D /* button.png in Resources */,
-				25AF9BC61A23C34D00CED1CD /* ProjectView.xib in Resources */,
+				25C075891ABA25CE000D31D5 /* ProjectView.xib in Resources */,
 				25AF9BE31A265FE400CED1CD /* roullete_button.png in Resources */,
 				25DAE6A11A632AE700D5E86C /* slider_horizontal_handle.png in Resources */,
 				25B520F71A3F757900735263 /* button1_selected.png in Resources */,
@@ -885,7 +869,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				259B90A319F96D1400737E04 /* ProjectViewController.swift in Sources */,
 				49A52EA61A3A421B006F0F68 /* PitchMidiModulator.swift in Sources */,
 				4918FC731A22AEB7007E1F64 /* DelayModulator.swift in Sources */,
 				258D1FFB1A019BF900ACFC93 /* SoundObjectTemplate.swift in Sources */,
@@ -898,10 +881,12 @@
 				25AF9BE91A267ADC00CED1CD /* SpringHandle.swift in Sources */,
 				49EC5A0F1A2210B800A36D2C /* VerticalMenuBar.swift in Sources */,
 				49EC5A131A22176100A36D2C /* DrawerMenuButton.swift in Sources */,
+				25C0758A1ABA25CE000D31D5 /* ProjectViewController.swift in Sources */,
 				259B90A119F96D1400737E04 /* AppDelegate.swift in Sources */,
 				255663701A13FA0000F6F820 /* SliderSoundObject.swift in Sources */,
 				49EC5A041A20449700A36D2C /* VolumeModulator.swift in Sources */,
 				4918FC751A22B09A007E1F64 /* EQModulator.swift in Sources */,
+				25C075871ABA25CE000D31D5 /* PlayScene.swift in Sources */,
 				258D1FF11A01849800ACFC93 /* ObjectsPalette.swift in Sources */,
 				2556633C1A11555900F6F820 /* ProjectManager.swift in Sources */,
 				49EC59FB1A2009F200A36D2C /* ModulatorNode.swift in Sources */,
@@ -913,7 +898,6 @@
 				2556636E1A13F9ED00F6F820 /* SpringSoundObject.swift in Sources */,
 				255663761A13FAB800F6F820 /* ThermalSoundObject.swift in Sources */,
 				25DAE69A1A63264400D5E86C /* HorizontalSliderSoundObject.swift in Sources */,
-				49C0152F1A1D316900DBAC0D /* SoundManager.swift in Sources */,
 				2556636C1A13F98C00F6F820 /* ButtonSoundObject.swift in Sources */,
 				255663741A13FAAA00F6F820 /* TreadmillSoundObject.swift in Sources */,
 				258D1FEF1A0182EE00ACFC93 /* SoundObject.swift in Sources */,
@@ -923,11 +907,11 @@
 				2509940119FEE2CF00A6D24F /* EditViewController.swift in Sources */,
 				49EC5A0C1A220C2E00A36D2C /* VelocityModulator.swift in Sources */,
 				49EC5A111A22168C00A36D2C /* MenuButton.swift in Sources */,
+				25C0758B1ABA25CE000D31D5 /* SoundManager.swift in Sources */,
 				251218491A08625D0025ACEE /* Project.swift in Sources */,
 				491EECC41A18E31700F33D50 /* SliderHandle.swift in Sources */,
-				2557DC131A16A3000003AB5D /* PlayViewController.swift in Sources */,
+				25C075881ABA25CE000D31D5 /* PlayViewController.swift in Sources */,
 				255663721A13FA9400F6F820 /* RouletteSoundObject.swift in Sources */,
-				495BDEC91A1226A8000941E8 /* PlayScene.swift in Sources */,
 				49EC59FD1A2009FA00A36D2C /* Sampler.swift in Sources */,
 				49EC59FF1A2041BD00A36D2C /* Modulator.swift in Sources */,
 				25DAE69C1A63284500D5E86C /* HorizontalSliderHandle.swift in Sources */,

@@ -13,7 +13,6 @@ import AVFoundation
 class SoundObject: SKSpriteNode, NSCoding, NSCopying, Touchable
 {
     var iconImageName:String?
-    //var editImageName:String?
     var gridHeight:CGFloat { get { return 0 } }
     var gridWidth:CGFloat { get { return 0 } }
     
@@ -70,12 +69,15 @@ class SoundObject: SKSpriteNode, NSCoding, NSCopying, Touchable
     func touchStarted(position:CGPoint)
     {
     }
+    
     func touchEnded(position:CGPoint)
     {
     }
+    
     func touchMoved(position:CGPoint)
     {
     }
+    
     func touchCancelled(position: CGPoint) {
         self.touchEnded(position)
     }

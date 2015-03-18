@@ -30,39 +30,7 @@ class ButtonSoundObject : SoundObject, Sampler
     var status : ButtonStatus = ButtonStatus(pressed: false, playing: false)
     var savedStatus : Array<ButtonStatus> = Array<ButtonStatus>(count: 4, repeatedValue: ButtonStatus(pressed: false, playing: false))
     
-    class func colorMap() -> Array<UIColor> {
-        return [
-            UIColor(red:CGFloat(255.0 / 255.0), green: CGFloat(0.0 / 255.0), blue: CGFloat(0.0 / 255.0), alpha: CGFloat(1.0)),
-            UIColor(red:CGFloat(255.0 / 255.0), green: CGFloat(140.0 / 255.0), blue: CGFloat(140.0 / 255.0), alpha: CGFloat(1.0)),
-            UIColor(red:CGFloat(255.0 / 255.0), green: CGFloat(135.0 / 255.0), blue: CGFloat(100.0 / 255.0), alpha: CGFloat(1.0)),
-            UIColor(red:CGFloat(255.0 / 255.0), green: CGFloat(215.0 / 255.0), blue: CGFloat(100.0 / 255.0), alpha: CGFloat(1.0)),
-            UIColor(red:CGFloat(255.0 / 255.0), green: CGFloat(255.0 / 255.0), blue: CGFloat(0.0 / 255.0), alpha: CGFloat(1.0)),
-            UIColor(red:CGFloat(30.0 / 255.0), green: CGFloat(175.0 / 255.0), blue: CGFloat(70.0 / 255.0), alpha: CGFloat(1.0)),
-            UIColor(red:CGFloat(65.0 / 255.0), green: CGFloat(118.0 / 255.0), blue: CGFloat(242.0 / 255.0), alpha: CGFloat(1.0)),
-            UIColor(red:CGFloat(29.0 / 255.0), green: CGFloat(94.0 / 255.0), blue: CGFloat(242.0 / 255.0), alpha: CGFloat(1.0)),
-            UIColor(red:CGFloat(127.0 / 255.0), green: CGFloat(163.0 / 255.0), blue: CGFloat(242.0 / 255.0), alpha: CGFloat(1.0)),
-            UIColor(red:CGFloat(143.0 / 255.0), green: CGFloat(50.0 / 255.0), blue: CGFloat(237.0 / 255.0), alpha: CGFloat(1.0)),
-            UIColor(red:CGFloat(192.0 / 255.0), green: CGFloat(150.0 / 255.0), blue: CGFloat(235.0 / 255.0), alpha: CGFloat(1.0)),
-            UIColor(red:CGFloat(205.0 / 255.0), green: CGFloat(77.0 / 255.0), blue: CGFloat(247.0 / 255.0), alpha: CGFloat(1.0)),
-            UIColor(red:CGFloat(220.0 / 255.0), green: CGFloat(155.0 / 255.0), blue: CGFloat(242.0 / 255.0), alpha: CGFloat(1.0)),
-        ]
-    }
-    
     class func templateImageMap() -> Array<String> {
-        return [
-            "button1.png",
-            "button2.png",
-            "button3.png",
-            "button4.png",
-            "button5.png",
-            "button6.png",
-            "button7.png",
-            "button8.png"
-        ]
-    }
-    
-    
-    class func editImageMap() -> Array<String> {
         return [
             "button1.png",
             "button2.png",
@@ -104,7 +72,7 @@ class ButtonSoundObject : SoundObject, Sampler
     func loadTextures()
     {
         self.selectedTexture = SKTexture(imageNamed: ButtonSoundObject.selectedImageMap()[Int(self.noteIndex)])
-        self.stillTexture = SKTexture(imageNamed: ButtonSoundObject.editImageMap()[Int(self.noteIndex)])
+        self.stillTexture = SKTexture(imageNamed: ButtonSoundObject.templateImageMap()[Int(self.noteIndex)])
         self.texture = self.stillTexture
         self.iconImageName = ButtonSoundObject.templateImageMap()[Int(self.noteIndex)]
     }

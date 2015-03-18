@@ -42,21 +42,21 @@ class EditScene : SKScene
         // Menu
         let firstC:UInt8 = 60
         var buttonSprite0:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue, noteIndex:0)
-        var buttonSprite1:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 4, noteIndex:1)
+        var buttonSprite1:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 2, noteIndex:1)
         
         var buttonSprite2Note:UInt8 = 0;
         if (self.project.mode == Project.Mode.M) {
-            buttonSprite2Note = firstC + self.project.note!.rawValue + 8
+            buttonSprite2Note = firstC + self.project.note!.rawValue + 4
         } else if (self.project.mode == Project.Mode.m){
-            buttonSprite2Note = firstC + self.project.note!.rawValue + 7
+            buttonSprite2Note = firstC + self.project.note!.rawValue + 3
         }
         
         var buttonSprite2:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:buttonSprite2Note, noteIndex:2)
         
-        var buttonSprite3:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 12, noteIndex:3)
-        var buttonSprite4:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 16, noteIndex:4)
-        var buttonSprite5:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 20, noteIndex:5)
-        var buttonSprite6:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 24, noteIndex:6)
+        var buttonSprite3:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 5, noteIndex:3)
+        var buttonSprite4:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 7, noteIndex:4)
+        var buttonSprite5:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 11, noteIndex:5)
+        var buttonSprite6:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 12, noteIndex:6)
         
         var springSprite:SpringSoundObject = SpringSoundObject(gridSize:gridSize)
         var sliderSprite:SliderSoundObject = SliderSoundObject(gridSize:gridSize)
