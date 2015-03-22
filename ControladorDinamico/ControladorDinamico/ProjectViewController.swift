@@ -8,46 +8,62 @@
 
 import UIKit
 
-class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
+protocol NewProjectDelegate {
+    func addNewProject(name:String, note:Project.Note, mode:Project.Mode)
+}
+
+class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDelegate, NewProjectDelegate {
     
     let grayColor = UIColor(red: 230 / 255, green: 231 / 255, blue: 232 / 255, alpha: 1)
     @IBOutlet var projectsCarouselView:iCarousel!
     @IBOutlet var projectNameLabel:UILabel!
     @IBOutlet var projectNoteLabel:UILabel!
 
-    
+    var addingProject:Bool = false
     var selectedProject:Project?
     var projects:Array<Project> = Array()
-    
-    override func viewDidLoad() {
+    let newProjectViewController:NewProjectViewController = NewProjectViewController()
 
+    override func viewDidLoad() {
         projectsCarouselView.type = .CoverFlow2
+        self.newProjectViewController.delegate = self
     }
     
     func numberOfItemsInCarousel(carousel: iCarousel!) -> Int
     {
-        return projects.count
+        if (addingProject) {
+            return projects.count + 1
+        } else {
+            return projects.count
+        }
     }
     
     func carousel(carousel: iCarousel!, viewForItemAtIndex index: Int, var reusingView view: UIView!) -> UIView!
     {
-        var imageView: UIImageView! = nil
-
-        if (view == nil)
-        {
-            view = UIView(frame: CGRectMake(0, 0, 400, 300))
+        if (index < self.projects.count) {
+            var imageView: UIImageView! = nil
+            if (view == nil) {
+                view = UIView(frame: CGRectMake(0, 0, 400, 300))
+                
+                imageView = UIImageView(frame:CGRectMake(0, 0, 400, 300))
+                imageView.tag = 1
+                view.addSubview(imageView)
+            }
+            else {
+                imageView = view.viewWithTag(1) as UIImageView!
+            }
             
-            imageView = UIImageView(frame:CGRectMake(0, 0, 400, 300))
-            imageView.tag = 1
-            view.addSubview(imageView)
-            view.backgroundColor = UIColor.redColor()
-        }
-        else
-        {
-            imageView = view.viewWithTag(1) as UIImageView!
+            let project:Project = projects[index]
+            if (project.preview != nil) {
+                imageView.image = projects[index].preview!
+            } else {
+                imageView.image = UIImage(named: "tocada_background")
+            }
+        
+        } else {
+            view =  NSBundle.mainBundle().loadNibNamed("NewProjectView", owner: newProjectViewController, options: nil)[0] as UIView
         }
         
-        imageView.image = projects[index].preview
         return view
     }
     
@@ -61,13 +77,15 @@ class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDel
     }
     
     func deleteProject(alert: UIAlertAction!){
-        var index = find(self.projects, self.selectedProject!)
-        self.projects.removeAtIndex(index!)
-        
-        var error: NSError? = nil
-        if(ProjectManager.sharedInstance.removeProject(self.selectedProject!, error: &error)) {
-            self.projectsCarouselView.removeItemAtIndex(index!, animated: true)
-            self.updateProjectDetails()
+        if (self.selectedProject != nil) {
+            var index = find(self.projects, self.selectedProject!)
+            self.projects.removeAtIndex(index!)
+            
+            var error: NSError? = nil
+            if(ProjectManager.sharedInstance.removeProject(self.selectedProject!, error: &error)) {
+                self.projectsCarouselView.removeItemAtIndex(index!, animated: true)
+                self.updateProjectDetails()
+            }
         }
     }
     
@@ -75,8 +93,9 @@ class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDel
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.projects = ProjectManager.sharedInstance.allProjects()
-        self.projectsCarouselView.reloadData()
+        self.reloadCarousel()
         self.selectedProject = nil
+        self.addingProject = false
     }
     
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
@@ -128,13 +147,11 @@ class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDel
     }
     
     @IBAction func addProject(AnyObject) {
-        let projectnumber = self.projects.count +  1
-        let projectName:String = String(format: "teste %i", projectnumber)
-        var project:Project = Project(projectName: projectName, note: Project.Note.A, mode: Project.Mode.M)
-        ProjectManager.sharedInstance.saveProject(project)
-        self.projects.append(project)
-        self.projectsCarouselView.reloadData()
-        self.projectsCarouselView.scrollToItemAtIndex(self.projects.count - 1, animated: true)
+        if (!addingProject) {
+            self.addingProject = true
+            self.reloadCarousel()
+            self.projectsCarouselView.scrollToItemAtIndex(self.projects.count, animated: true)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -145,6 +162,21 @@ class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDel
                 
             }
         }
+    }
+    
+    func addNewProject(name:String, note:Project.Note, mode:Project.Mode) {
+
+        var project:Project = Project(projectName: name, note: note, mode: mode)
+        ProjectManager.sharedInstance.saveProject(project)
+        self.projects.append(project)
+        self.addingProject = false
+        self.reloadCarousel()
+    }
+    
+    func reloadCarousel()
+    {
+        self.projectsCarouselView.reloadData()
+        self.updateProjectDetails()
     }
 }
 
