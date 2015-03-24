@@ -217,7 +217,7 @@
 		2599ED731AA5102500A0DC4F /* icon_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_76.png; path = icon/icon_76.png; sourceTree = "<group>"; };
 		2599ED741AA5102500A0DC4F /* icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_80.png; path = icon/icon_80.png; sourceTree = "<group>"; };
 		2599ED751AA5102500A0DC4F /* icon_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_152.png; path = icon/icon_152.png; sourceTree = "<group>"; };
-		259B909B19F96D1400737E04 /* ControladorDinamico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControladorDinamico.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		259B909B19F96D1400737E04 /* Tocada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tocada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259B909F19F96D1400737E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		259B90A019F96D1400737E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		259B90A219F96D1400737E04 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
@@ -497,7 +497,7 @@
 		259B909C19F96D1400737E04 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				259B909B19F96D1400737E04 /* ControladorDinamico.app */,
+				259B909B19F96D1400737E04 /* Tocada.app */,
 				259B90B019F96D1400737E04 /* ControladorDinamicoTests.xctest */,
 			);
 			name = Products;
@@ -711,7 +711,7 @@
 			);
 			name = Tocada;
 			productName = ControladorDinamico;
-			productReference = 259B909B19F96D1400737E04 /* ControladorDinamico.app */;
+			productReference = 259B909B19F96D1400737E04 /* Tocada.app */;
 			productType = "com.apple.product-type.application";
 		};
 		259B90AF19F96D1400737E04 /* ControladorDinamicoTests */ = {

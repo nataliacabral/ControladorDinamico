@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -16,20 +16,6 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VwQ-Mk-fiW">
-                    <rect key="frame" x="-24" y="0.0" width="243" height="162"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="3Vr-MZ-18z"/>
-                        <outlet property="delegate" destination="-1" id="C3e-az-hZg"/>
-                    </connections>
-                </pickerView>
-                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BJU-Tj-v1w">
-                    <rect key="frame" x="157" y="0.0" width="243" height="162"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="lFF-iJ-mza"/>
-                        <outlet property="delegate" destination="-1" id="wI4-HX-hFe"/>
-                    </connections>
-                </pickerView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iKP-A0-5HN">
                     <rect key="frame" x="63" y="186" width="275" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -44,6 +30,20 @@
                         <action selector="addProject:" destination="-1" eventType="touchUpInside" id="eBJ-5y-ZvY"/>
                     </connections>
                 </button>
+                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VwQ-Mk-fiW">
+                    <rect key="frame" x="27" y="0.0" width="154" height="162"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="3Vr-MZ-18z"/>
+                        <outlet property="delegate" destination="-1" id="C3e-az-hZg"/>
+                    </connections>
+                </pickerView>
+                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BJU-Tj-v1w">
+                    <rect key="frame" x="201" y="0.0" width="154" height="162"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="lFF-iJ-mza"/>
+                        <outlet property="delegate" destination="-1" id="wI4-HX-hFe"/>
+                    </connections>
+                </pickerView>
             </subviews>
             <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
