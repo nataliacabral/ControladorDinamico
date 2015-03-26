@@ -191,6 +191,20 @@ class EditScene : SKScene
         fatalError("init(coder:) has not been implemented")
     }
     
+    func loadObjects() {
+        for node in self.children {
+            if (node is SoundObject) {
+                let soundObj:SoundObject = node as SoundObject
+                soundObj.removeFromParent()
+            }
+        }
+        for obj in objects
+        {
+            obj.updateGridSize(self.gridSize)
+            self.addChild(obj)
+        }
+    }
+    
     override func didMoveToView(view: SKView) {
         for obj in objects
         {
