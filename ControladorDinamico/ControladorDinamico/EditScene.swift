@@ -13,7 +13,7 @@ class EditScene : SKScene
 {
     var gridSize:CGFloat
     let distanceToCreateObject:CGFloat = 30
-    
+    let bgColor:UIColor = UIColor(red: 34.0/255.0, green: 30.0/255.0, blue: 31.0/255.0, alpha: 1)
     var selectedNodeOriginalPos:CGPoint?
     var objects:Array<SoundObject> = Array<SoundObject>()
     var buttonDrawer:VerticalMenuBar?
@@ -103,7 +103,7 @@ class EditScene : SKScene
 
         super.init(size: size)
         
-        self.scene?.backgroundColor = UIColor.blackColor()
+        self.scene?.backgroundColor = bgColor
         var buttons = [
             buttonTemplate0,
             buttonTemplate1,

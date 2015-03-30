@@ -34,7 +34,6 @@ class PitchMidiModulator : MidiModulator
         if (currentPitch != intModulation && SoundManager.sharedInstance.audioEngine.running)
         {
             self.currentPitch = intModulation
-            //NSLog("Sending MIDI controller 1 (pitchbend) with value %u", intModulation)
             self.sampler?.sampler().sendPitchBend(intModulation, onChannel: 0)
         }
     }

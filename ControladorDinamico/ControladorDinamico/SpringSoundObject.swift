@@ -27,7 +27,7 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     let springEditTexture:SKTexture = SKTexture(imageNamed: "spring.png")
 
     let handlerWidthBorder:CGFloat = 3.5
-    let stickWidthBorder:CGFloat = 10
+    let stickWidthBorder:CGFloat = 18
     let springHeightBorder:CGFloat = 12
 
     var modulators:Array<Modulator> = Array<Modulator>()
@@ -94,12 +94,12 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
             self.addChild(self.springHandle!);
         }
         
-        for stickIndex in 0...10
+        for stickIndex in 0...25
         {
             var stick:SKSpriteNode = SKSpriteNode(imageNamed: "spring_stick.png")
             stick.size.width = self.size.width - (self.stickWidthBorder * 2)
-            stick.size.height = self.springHandle!.size.height / 8
-            stick.position.x = 0;
+            stick.size.height = self.springHandle!.size.height / 10
+            stick.position.x = 2;
             stick.position.y = 0;
             self.sticksList.append(stick)
             self.addChild(stick);

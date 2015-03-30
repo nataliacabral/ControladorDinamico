@@ -12,6 +12,7 @@ import AVFoundation
 
 class PlayScene : SKScene, SKPhysicsContactDelegate
 {
+    let bgColor:UIColor = UIColor(red: 34.0/255.0, green: 30.0/255.0, blue: 31.0/255.0, alpha: 1)
     var gridSize:CGFloat
     var selectedNode:SKSpriteNode?
     var objects:Array<SoundObject> = Array<SoundObject>()
@@ -77,7 +78,7 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
         savedStates = [slot1Button, slot2Button, slot3Button, slot4Button]
 
         super.init(size: size)
-        self.scene?.backgroundColor = UIColor.blackColor()
+        self.scene?.backgroundColor = bgColor
 
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)

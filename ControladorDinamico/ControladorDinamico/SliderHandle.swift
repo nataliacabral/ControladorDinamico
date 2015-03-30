@@ -62,9 +62,6 @@ class SliderHandle : SKSpriteNode, Touchable
         if (fabs(self.position.y) < distanceToSnap) {
             self.position.y = 0
         }
-        
-        NSLog("Slider intensity: %f", self.currentSoundIntensity())
-        
     }
     
     func touchEnded(position:CGPoint)

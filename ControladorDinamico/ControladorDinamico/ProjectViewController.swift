@@ -26,6 +26,7 @@ class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDel
 
     override func viewDidLoad() {
         projectsCarouselView.type = .CoverFlow2
+        projectsCarouselView.centerItemWhenSelected = true
         self.newProjectViewController.delegate = self
     }
     
@@ -72,6 +73,10 @@ class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDel
         if (option == .Spacing)
         {
             return value * 4
+            
+        } else if (option == .)
+        {
+            return value * 4
         }
         return value
     }
@@ -93,9 +98,10 @@ class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDel
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.projects = ProjectManager.sharedInstance.allProjects()
-        self.reloadCarousel()
         self.selectedProject = nil
         self.addingProject = false
+        self.reloadCarousel()
+        self.projectsCarouselView.scrollToItemAtIndex(self.projectsCarouselView.currentItemIndex, animated: false)
     }
     
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {

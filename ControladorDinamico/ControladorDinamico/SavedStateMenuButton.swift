@@ -70,7 +70,6 @@ class SavedStateMenuButton : MenuButton
         super.touchEnded(position)
         touching = false
         if (!saved && touchingTime < timeToSave) {
-            NSLog("Loading state from slot %d", self.slot)
             self.touchingTime = 0
             for obj in objList {
                 obj.loadStatus(slot)
@@ -112,7 +111,6 @@ class SavedStateMenuButton : MenuButton
         if (touching && !saved) {
             if (touchingTime >= timeToSave) {
                 saved = true
-                NSLog("Saving state to slot %d", self.slot)
                 for obj in objList {
                     obj.saveStatus(slot)
                 }
