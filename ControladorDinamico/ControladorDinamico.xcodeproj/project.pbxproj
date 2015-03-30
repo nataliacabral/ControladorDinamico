@@ -130,18 +130,34 @@
 		4933E0F01A18005700DDCE0D /* sliderHandle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4933E0EE1A18005700DDCE0D /* sliderHandle.png */; };
 		4933E0F11A18005700DDCE0D /* sliderTrack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4933E0EF1A18005700DDCE0D /* sliderTrack.png */; };
 		495BDEC91A1226A8000941E8 /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495BDEC81A1226A8000941E8 /* PlayScene.swift */; };
-		498113FB1ABCCD4B000F8E80 /* sampleB4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 498113F31ABCCD4B000F8E80 /* sampleB4.aif */; };
-		498113FC1ABCCD4B000F8E80 /* sampleC4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 498113F41ABCCD4B000F8E80 /* sampleC4.aif */; };
-		498113FD1ABCCD4B000F8E80 /* sampleC5.aif in Resources */ = {isa = PBXBuildFile; fileRef = 498113F51ABCCD4B000F8E80 /* sampleC5.aif */; };
-		498113FE1ABCCD4B000F8E80 /* sampleD#4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 498113F61ABCCD4B000F8E80 /* sampleD#4.aif */; };
-		498113FF1ABCCD4B000F8E80 /* sampleD4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 498113F71ABCCD4B000F8E80 /* sampleD4.aif */; };
-		498114001ABCCD4B000F8E80 /* sampleE4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 498113F81ABCCD4B000F8E80 /* sampleE4.aif */; };
-		498114011ABCCD4B000F8E80 /* sampleF4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 498113F91ABCCD4B000F8E80 /* sampleF4.aif */; };
-		498114021ABCCD4B000F8E80 /* sampleG4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 498113FA1ABCCD4B000F8E80 /* sampleG4.aif */; };
 		498114031ABCCE4C000F8E80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259B90A419F96D1400737E04 /* Main.storyboard */; };
 		49A52EA21A3A4071006F0F68 /* MidiModulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A52EA11A3A4071006F0F68 /* MidiModulator.swift */; };
 		49A52EA41A3A40AD006F0F68 /* NodeModulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A52EA31A3A40AD006F0F68 /* NodeModulator.swift */; };
 		49A52EA61A3A421B006F0F68 /* PitchMidiModulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A52EA51A3A421B006F0F68 /* PitchMidiModulator.swift */; };
+		49B09B611AC9AC4B003E5F5E /* B4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B491AC9AB0A003E5F5E /* B4.aif */; };
+		49B09B621AC9AC4B003E5F5E /* A#4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B4A1AC9AB0A003E5F5E /* A#4.aif */; };
+		49B09B631AC9AC4B003E5F5E /* A4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B4B1AC9AB0A003E5F5E /* A4.aif */; };
+		49B09B641AC9AC4B003E5F5E /* G#4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B4C1AC9AB0A003E5F5E /* G#4.aif */; };
+		49B09B651AC9AC4B003E5F5E /* G4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B4D1AC9AB0A003E5F5E /* G4.aif */; };
+		49B09B661AC9AC4B003E5F5E /* F#4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B4E1AC9AB0A003E5F5E /* F#4.aif */; };
+		49B09B671AC9AC4B003E5F5E /* F4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B4F1AC9AB0A003E5F5E /* F4.aif */; };
+		49B09B681AC9AC4B003E5F5E /* E4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B501AC9AB0A003E5F5E /* E4.aif */; };
+		49B09B691AC9AC4B003E5F5E /* D#4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B511AC9AB0A003E5F5E /* D#4.aif */; };
+		49B09B6A1AC9AC4B003E5F5E /* D4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B521AC9AB0A003E5F5E /* D4.aif */; };
+		49B09B6B1AC9AC4B003E5F5E /* C#4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B531AC9AB0A003E5F5E /* C#4.aif */; };
+		49B09B6C1AC9AC4B003E5F5E /* C4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B541AC9AB0A003E5F5E /* C4.aif */; };
+		49B09B6D1AC9AC4B003E5F5E /* B3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B551AC9AB0A003E5F5E /* B3.aif */; };
+		49B09B6E1AC9AC4B003E5F5E /* A#3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B561AC9AB0A003E5F5E /* A#3.aif */; };
+		49B09B6F1AC9AC4B003E5F5E /* A3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B571AC9AB0A003E5F5E /* A3.aif */; };
+		49B09B701AC9AC4B003E5F5E /* G#3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B581AC9AB0B003E5F5E /* G#3.aif */; };
+		49B09B711AC9AC4B003E5F5E /* G3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B591AC9AB0B003E5F5E /* G3.aif */; };
+		49B09B721AC9AC4B003E5F5E /* F#3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B5A1AC9AB0B003E5F5E /* F#3.aif */; };
+		49B09B731AC9AC4B003E5F5E /* F3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B5B1AC9AB0B003E5F5E /* F3.aif */; };
+		49B09B741AC9AC4B003E5F5E /* E3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B5C1AC9AB0B003E5F5E /* E3.aif */; };
+		49B09B751AC9AC4B003E5F5E /* D#3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B5D1AC9AB0B003E5F5E /* D#3.aif */; };
+		49B09B761AC9AC4B003E5F5E /* D3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B5E1AC9AB0B003E5F5E /* D3.aif */; };
+		49B09B771AC9AC4B003E5F5E /* C#3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B5F1AC9AB0B003E5F5E /* C#3.aif */; };
+		49B09B781AC9AC4B003E5F5E /* C3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B601AC9AB0B003E5F5E /* C3.aif */; };
 		49C0152F1A1D316900DBAC0D /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0152E1A1D316900DBAC0D /* SoundManager.swift */; };
 		49DD5D081A2EA1880001252C /* guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 49DD5D071A2EA1880001252C /* guitar.sf2 */; };
 		49EC59F91A2006C800A36D2C /* piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 49EC59F81A2006C800A36D2C /* piano.sf2 */; };
@@ -300,17 +316,33 @@
 		4933E0EE1A18005700DDCE0D /* sliderHandle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sliderHandle.png; sourceTree = "<group>"; };
 		4933E0EF1A18005700DDCE0D /* sliderTrack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sliderTrack.png; sourceTree = "<group>"; };
 		495BDEC81A1226A8000941E8 /* PlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayScene.swift; sourceTree = "<group>"; };
-		498113F31ABCCD4B000F8E80 /* sampleB4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleB4.aif; sourceTree = "<group>"; };
-		498113F41ABCCD4B000F8E80 /* sampleC4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleC4.aif; sourceTree = "<group>"; };
-		498113F51ABCCD4B000F8E80 /* sampleC5.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleC5.aif; sourceTree = "<group>"; };
-		498113F61ABCCD4B000F8E80 /* sampleD#4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sampleD#4.aif"; sourceTree = "<group>"; };
-		498113F71ABCCD4B000F8E80 /* sampleD4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleD4.aif; sourceTree = "<group>"; };
-		498113F81ABCCD4B000F8E80 /* sampleE4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleE4.aif; sourceTree = "<group>"; };
-		498113F91ABCCD4B000F8E80 /* sampleF4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleF4.aif; sourceTree = "<group>"; };
-		498113FA1ABCCD4B000F8E80 /* sampleG4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampleG4.aif; sourceTree = "<group>"; };
 		49A52EA11A3A4071006F0F68 /* MidiModulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MidiModulator.swift; sourceTree = "<group>"; };
 		49A52EA31A3A40AD006F0F68 /* NodeModulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeModulator.swift; sourceTree = "<group>"; };
 		49A52EA51A3A421B006F0F68 /* PitchMidiModulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchMidiModulator.swift; sourceTree = "<group>"; };
+		49B09B491AC9AB0A003E5F5E /* B4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = B4.aif; sourceTree = "<group>"; };
+		49B09B4A1AC9AB0A003E5F5E /* A#4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "A#4.aif"; sourceTree = "<group>"; };
+		49B09B4B1AC9AB0A003E5F5E /* A4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = A4.aif; sourceTree = "<group>"; };
+		49B09B4C1AC9AB0A003E5F5E /* G#4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "G#4.aif"; sourceTree = "<group>"; };
+		49B09B4D1AC9AB0A003E5F5E /* G4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = G4.aif; sourceTree = "<group>"; };
+		49B09B4E1AC9AB0A003E5F5E /* F#4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "F#4.aif"; sourceTree = "<group>"; };
+		49B09B4F1AC9AB0A003E5F5E /* F4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = F4.aif; sourceTree = "<group>"; };
+		49B09B501AC9AB0A003E5F5E /* E4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = E4.aif; sourceTree = "<group>"; };
+		49B09B511AC9AB0A003E5F5E /* D#4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "D#4.aif"; sourceTree = "<group>"; };
+		49B09B521AC9AB0A003E5F5E /* D4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = D4.aif; sourceTree = "<group>"; };
+		49B09B531AC9AB0A003E5F5E /* C#4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "C#4.aif"; sourceTree = "<group>"; };
+		49B09B541AC9AB0A003E5F5E /* C4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = C4.aif; sourceTree = "<group>"; };
+		49B09B551AC9AB0A003E5F5E /* B3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = B3.aif; sourceTree = "<group>"; };
+		49B09B561AC9AB0A003E5F5E /* A#3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "A#3.aif"; sourceTree = "<group>"; };
+		49B09B571AC9AB0A003E5F5E /* A3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = A3.aif; sourceTree = "<group>"; };
+		49B09B581AC9AB0B003E5F5E /* G#3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "G#3.aif"; sourceTree = "<group>"; };
+		49B09B591AC9AB0B003E5F5E /* G3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = G3.aif; sourceTree = "<group>"; };
+		49B09B5A1AC9AB0B003E5F5E /* F#3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "F#3.aif"; sourceTree = "<group>"; };
+		49B09B5B1AC9AB0B003E5F5E /* F3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = F3.aif; sourceTree = "<group>"; };
+		49B09B5C1AC9AB0B003E5F5E /* E3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = E3.aif; sourceTree = "<group>"; };
+		49B09B5D1AC9AB0B003E5F5E /* D#3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "D#3.aif"; sourceTree = "<group>"; };
+		49B09B5E1AC9AB0B003E5F5E /* D3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = D3.aif; sourceTree = "<group>"; };
+		49B09B5F1AC9AB0B003E5F5E /* C#3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "C#3.aif"; sourceTree = "<group>"; };
+		49B09B601AC9AB0B003E5F5E /* C3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = C3.aif; sourceTree = "<group>"; };
 		49C0152E1A1D316900DBAC0D /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		49C015301A1D31C300DBAC0D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		49DD5D071A2EA1880001252C /* guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = guitar.sf2; sourceTree = "<group>"; };
@@ -604,14 +636,30 @@
 		498113F21ABCCD2B000F8E80 /* SoundNotes */ = {
 			isa = PBXGroup;
 			children = (
-				498113F31ABCCD4B000F8E80 /* sampleB4.aif */,
-				498113F41ABCCD4B000F8E80 /* sampleC4.aif */,
-				498113F51ABCCD4B000F8E80 /* sampleC5.aif */,
-				498113F61ABCCD4B000F8E80 /* sampleD#4.aif */,
-				498113F71ABCCD4B000F8E80 /* sampleD4.aif */,
-				498113F81ABCCD4B000F8E80 /* sampleE4.aif */,
-				498113F91ABCCD4B000F8E80 /* sampleF4.aif */,
-				498113FA1ABCCD4B000F8E80 /* sampleG4.aif */,
+				49B09B491AC9AB0A003E5F5E /* B4.aif */,
+				49B09B4A1AC9AB0A003E5F5E /* A#4.aif */,
+				49B09B4B1AC9AB0A003E5F5E /* A4.aif */,
+				49B09B4C1AC9AB0A003E5F5E /* G#4.aif */,
+				49B09B4D1AC9AB0A003E5F5E /* G4.aif */,
+				49B09B4E1AC9AB0A003E5F5E /* F#4.aif */,
+				49B09B4F1AC9AB0A003E5F5E /* F4.aif */,
+				49B09B501AC9AB0A003E5F5E /* E4.aif */,
+				49B09B511AC9AB0A003E5F5E /* D#4.aif */,
+				49B09B521AC9AB0A003E5F5E /* D4.aif */,
+				49B09B531AC9AB0A003E5F5E /* C#4.aif */,
+				49B09B541AC9AB0A003E5F5E /* C4.aif */,
+				49B09B551AC9AB0A003E5F5E /* B3.aif */,
+				49B09B561AC9AB0A003E5F5E /* A#3.aif */,
+				49B09B571AC9AB0A003E5F5E /* A3.aif */,
+				49B09B581AC9AB0B003E5F5E /* G#3.aif */,
+				49B09B591AC9AB0B003E5F5E /* G3.aif */,
+				49B09B5A1AC9AB0B003E5F5E /* F#3.aif */,
+				49B09B5B1AC9AB0B003E5F5E /* F3.aif */,
+				49B09B5C1AC9AB0B003E5F5E /* E3.aif */,
+				49B09B5D1AC9AB0B003E5F5E /* D#3.aif */,
+				49B09B5E1AC9AB0B003E5F5E /* D3.aif */,
+				49B09B5F1AC9AB0B003E5F5E /* C#3.aif */,
+				49B09B601AC9AB0B003E5F5E /* C3.aif */,
 			);
 			name = SoundNotes;
 			sourceTree = "<group>";
@@ -776,11 +824,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49B09B611AC9AC4B003E5F5E /* B4.aif in Resources */,
+				49B09B621AC9AC4B003E5F5E /* A#4.aif in Resources */,
+				49B09B631AC9AC4B003E5F5E /* A4.aif in Resources */,
+				49B09B641AC9AC4B003E5F5E /* G#4.aif in Resources */,
+				49B09B651AC9AC4B003E5F5E /* G4.aif in Resources */,
+				49B09B661AC9AC4B003E5F5E /* F#4.aif in Resources */,
+				49B09B671AC9AC4B003E5F5E /* F4.aif in Resources */,
+				49B09B681AC9AC4B003E5F5E /* E4.aif in Resources */,
+				49B09B691AC9AC4B003E5F5E /* D#4.aif in Resources */,
+				49B09B6A1AC9AC4B003E5F5E /* D4.aif in Resources */,
+				49B09B6B1AC9AC4B003E5F5E /* C#4.aif in Resources */,
+				49B09B6C1AC9AC4B003E5F5E /* C4.aif in Resources */,
+				49B09B6D1AC9AC4B003E5F5E /* B3.aif in Resources */,
+				49B09B6E1AC9AC4B003E5F5E /* A#3.aif in Resources */,
+				49B09B6F1AC9AC4B003E5F5E /* A3.aif in Resources */,
+				49B09B701AC9AC4B003E5F5E /* G#3.aif in Resources */,
+				49B09B711AC9AC4B003E5F5E /* G3.aif in Resources */,
+				49B09B721AC9AC4B003E5F5E /* F#3.aif in Resources */,
+				49B09B731AC9AC4B003E5F5E /* F3.aif in Resources */,
+				49B09B741AC9AC4B003E5F5E /* E3.aif in Resources */,
+				49B09B751AC9AC4B003E5F5E /* D#3.aif in Resources */,
+				49B09B761AC9AC4B003E5F5E /* D3.aif in Resources */,
+				49B09B771AC9AC4B003E5F5E /* C#3.aif in Resources */,
+				49B09B781AC9AC4B003E5F5E /* C3.aif in Resources */,
 				498114031ABCCE4C000F8E80 /* Main.storyboard in Resources */,
 				4933E0E91A17F3FE00DDCE0D /* buttonSelected.png in Resources */,
 				25B521041A3F757900735263 /* button8_selected.png in Resources */,
 				25DAE6851A61CB5A00D5E86C /* tocada_background.png in Resources */,
-				498113FF1ABCCD4B000F8E80 /* sampleD4.aif in Resources */,
 				25B5211B1A3F9C6B00735263 /* savestate_button3.png in Resources */,
 				25B520F91A3F757900735263 /* button2_selected.png in Resources */,
 				2599ED761AA5102500A0DC4F /* icon_29.png in Resources */,
@@ -790,7 +861,6 @@
 				492A42C81A2D4F7900731F26 /* clarinet.sf2 in Resources */,
 				25B5210A1A3F8EEB00735263 /* buttonsDrawer.png in Resources */,
 				2557DBF21A1406AB0003AB5D /* slider.png in Resources */,
-				498114011ABCCD4B000F8E80 /* sampleF4.aif in Resources */,
 				25AF9BED1A267BDE00CED1CD /* spring_stick.png in Resources */,
 				25B5211A1A3F9C6B00735263 /* savestate_button3_selected.png in Resources */,
 				25DAE6A41A632AE700D5E86C /* slider_horizontal.png in Resources */,
@@ -811,8 +881,6 @@
 				25DAE6811A61CB5A00D5E86C /* bt_play_selected.png in Resources */,
 				25B521031A3F757900735263 /* button7.png in Resources */,
 				25B520FA1A3F757900735263 /* button2.png in Resources */,
-				498113FE1ABCCD4B000F8E80 /* sampleD#4.aif in Resources */,
-				498113FB1ABCCD4B000F8E80 /* sampleB4.aif in Resources */,
 				25DAE6831A61CB5A00D5E86C /* bt_tutorial_selected.png in Resources */,
 				2565333E1A44619C009F4A73 /* slider_icon.png in Resources */,
 				25B520FF1A3F757900735263 /* button5.png in Resources */,
@@ -828,7 +896,6 @@
 				2565333C1A44619C009F4A73 /* menubutton_edit.png in Resources */,
 				2557DBEE1A14067B0003AB5D /* spring.png in Resources */,
 				25DAE6961A61E14E00D5E86C /* bin.png in Resources */,
-				498114021ABCCD4B000F8E80 /* sampleG4.aif in Resources */,
 				25B5211C1A3F9C6B00735263 /* savestate_button4_selected.png in Resources */,
 				25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */,
 				259682DA1A38E17500101AE2 /* menubutton_modulator.png in Resources */,
@@ -852,7 +919,6 @@
 				259682D71A38E17500101AE2 /* menubutton_about.png in Resources */,
 				25DAE6901A61D4EF00D5E86C /* bt_add.png in Resources */,
 				25A93F6C1A1A9B7D00C9F145 /* roulette_background.png in Resources */,
-				498113FD1ABCCD4B000F8E80 /* sampleC5.aif in Resources */,
 				2557DBDD1A13FCB20003AB5D /* CANVAS.psd in Resources */,
 				259682DB1A38E17500101AE2 /* menubutton_play.png in Resources */,
 				25B520F81A3F757900735263 /* button1.png in Resources */,
@@ -860,12 +926,10 @@
 				25B521001A3F757900735263 /* button6_selected.png in Resources */,
 				25DAE6931A61D4EF00D5E86C /* bt_remove_selected.png in Resources */,
 				2565333D1A44619C009F4A73 /* roulette_icon.png in Resources */,
-				498113FC1ABCCD4B000F8E80 /* sampleC4.aif in Resources */,
 				25DAE6821A61CB5A00D5E86C /* bt_play.png in Resources */,
 				25AF9BEC1A267BDE00CED1CD /* spring_background.png in Resources */,
 				25B5210B1A3F8EEB00735263 /* modulatorDrawer.png in Resources */,
 				259B90C919F9756200737E04 /* Images-3.xcassets in Resources */,
-				498114001ABCCD4B000F8E80 /* sampleE4.aif in Resources */,
 				2599ED7B1AA5102500A0DC4F /* icon_152.png in Resources */,
 				2557DBE41A13FE940003AB5D /* button.png in Resources */,
 				25AF9BE31A265FE400CED1CD /* roullete_button.png in Resources */,

@@ -33,8 +33,8 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
     var modulators:Array<Modulator> = Array<Modulator>()
     var springJoint:SKPhysicsJointSpring?
     
-    var status:SpringStatus = SpringStatus(handlePosition: CGFloat(64), handleSpeed:CGFloat(0))
-    var savedStatus : Array<SpringStatus> = Array<SpringStatus>(count: 4, repeatedValue: SpringStatus(handlePosition: CGFloat(64), handleSpeed: CGFloat(0)))
+    var status:SpringStatus = SpringStatus(handlePosition: CGFloat(0), handleSpeed:CGFloat(0))
+    var savedStatus : Array<SpringStatus> = Array<SpringStatus>(count: 4, repeatedValue: SpringStatus(handlePosition: CGFloat(0), handleSpeed: CGFloat(0)))
     
     override init()
     {

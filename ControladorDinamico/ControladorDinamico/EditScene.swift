@@ -40,7 +40,7 @@ class EditScene : SKScene
         self.gridSize = 128
         
         // Menu
-        let firstC:UInt8 = 60
+        let firstC:UInt8 = 48
         var buttonSprite0:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue, noteIndex:0)
         var buttonSprite1:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 2, noteIndex:1)
         
