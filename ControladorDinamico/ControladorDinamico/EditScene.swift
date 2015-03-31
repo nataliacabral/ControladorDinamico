@@ -368,6 +368,16 @@ class EditScene : SKScene
                         }
                     }
                 }
+                else if (boundNode === self.aboutButton) {
+                    let navigationController = self.view!.window!.rootViewController!
+                    if (navigationController is UINavigationController) {
+                        let viewController = (navigationController as UINavigationController).topViewController
+                        if (viewController is EditViewController) {
+                            viewController.performSegueWithIdentifier("edit_help", sender: navigationController)
+                        }
+                    }
+                }
+
                 
                 touchMapping .removeValueForKey(uiTouch)
             }

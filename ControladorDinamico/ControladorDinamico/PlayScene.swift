@@ -235,6 +235,16 @@ class PlayScene : SKScene, SKPhysicsContactDelegate
                     (navigationController as UINavigationController).popViewControllerAnimated(true)
                 }
             }
+            else if (touchedNode === self.aboutButton) {
+                let navigationController = self.view!.window!.rootViewController!
+                if (navigationController is UINavigationController) {
+                    let viewController = (navigationController as UINavigationController).topViewController
+                    if (viewController is PlayViewController) {
+                        viewController.performSegueWithIdentifier("play_help", sender: navigationController)
+                    }
+                }
+            }
+            
         }
     }
 

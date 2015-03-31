@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uBR-PN-tVm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uBR-PN-tVm">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -187,6 +187,7 @@
                     <connections>
                         <outlet property="view" destination="ISY-8I-Sxl" id="8JN-Jf-0ZS"/>
                         <segue destination="Cir-OV-m12" kind="show" identifier="play" id="ZyM-XB-nPr"/>
+                        <segue destination="e8v-Kc-nap" kind="show" identifier="edit_help" id="xZB-Ip-aMl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIW-Md-RMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -208,11 +209,86 @@
                     </view>
                     <connections>
                         <outlet property="view" destination="WHW-US-2b6" id="l6v-lc-QTH"/>
+                        <segue destination="e8v-Kc-nap" kind="show" identifier="play_help" id="EGz-Xg-PKy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jep-LW-uIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2844" y="30"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="gxh-xN-dzZ">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="zor-g3-Cz3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YQ8-Sh-X3B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2091" y="1965"/>
+        </scene>
+        <!--Help View Controller-->
+        <scene sceneID="voA-E3-ipw">
+            <objects>
+                <viewController id="e8v-Kc-nap" customClass="HelpViewController" customModule="Tocada" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J8X-Mo-0Rg"/>
+                        <viewControllerLayoutGuide type="bottom" id="7TR-bi-o0d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n5h-Bv-F5Q">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yxi-pz-9WF">
+                                <rect key="frame" x="978" y="28" width="30" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="exit:" destination="e8v-Kc-nap" eventType="touchUpInside" id="hRN-eV-5hn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="exitButton" destination="Yxi-pz-9WF" id="2YM-dO-eZj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bdg-ga-DI1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2303" y="1210"/>
+        </scene>
+        <!--Help Page View Controller-->
+        <scene sceneID="hwt-hC-W4p">
+            <objects>
+                <viewController storyboardIdentifier="PageContentViewController" id="tAQ-G4-Ros" customClass="HelpPageViewController" customModule="Tocada" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F8b-4d-52I"/>
+                        <viewControllerLayoutGuide type="bottom" id="eVu-CQ-3KE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KBs-9k-v1u">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tgD-dJ-fb5">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="tgD-dJ-fb5" secondAttribute="trailing" id="1st-Fb-5Nh"/>
+                            <constraint firstItem="eVu-CQ-3KE" firstAttribute="top" secondItem="tgD-dJ-fb5" secondAttribute="bottom" id="U5M-gh-v9S"/>
+                            <constraint firstItem="tgD-dJ-fb5" firstAttribute="top" secondItem="KBs-9k-v1u" secondAttribute="topMargin" id="VZc-9d-vj5"/>
+                            <constraint firstItem="tgD-dJ-fb5" firstAttribute="leading" secondItem="KBs-9k-v1u" secondAttribute="leadingMargin" id="in3-JT-e14"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentImageView" destination="tgD-dJ-fb5" id="iPh-bS-bH6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TyB-5r-xyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2773" y="1965"/>
         </scene>
     </scenes>
     <resources>
@@ -228,4 +304,7 @@
         <image name="bt_tutorial_selected.png" width="141" height="42"/>
         <image name="tocada_background.png" width="2048" height="1536"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="EGz-Xg-PKy"/>
+    </inferredMetricsTieBreakers>
 </document>

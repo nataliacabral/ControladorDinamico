@@ -26,7 +26,6 @@ class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDel
 
     override func viewDidLoad() {
         projectsCarouselView.type = .CoverFlow2
-        projectsCarouselView.centerItemWhenSelected = true
         self.newProjectViewController.delegate = self
     }
     
@@ -104,7 +103,10 @@ class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDel
         self.selectedProject = nil
         self.addingProject = false
         self.reloadCarousel()
-        self.projectsCarouselView.scrollToItemAtIndex(self.projectsCarouselView.currentItemIndex, animated: false)
+        if (self.projects.count > 0) {
+            self.projectsCarouselView.scrollToItemAtIndex(0, animated: false)
+        }
+
     }
     
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
