@@ -58,10 +58,11 @@ class Project : NSObject
     var mode:Mode?
 
     var objects:Array<SoundObject>
-    var preview:UIImage?
+    var preview:UIImage
 
     override init () {
         self.objects = Array<SoundObject>()
+        self.preview = UIImage(named: "edit_empty.jpg")!
         super.init()
     }
     
@@ -70,10 +71,11 @@ class Project : NSObject
         self.objects = Array<SoundObject>()
         self.note = note
         self.mode = mode
+        self.preview = UIImage(named: "edit_empty.jpg")!
         super.init()
     }
     
-    init(projectName:String, objects:Array<SoundObject>, image:UIImage?, note:Note, mode:Mode) {
+    init(projectName:String, objects:Array<SoundObject>, image:UIImage, note:Note, mode:Mode) {
         self.projectName = projectName
         self.objects = objects
         self.preview = image
@@ -84,10 +86,7 @@ class Project : NSObject
     
     required convenience init(coder aDecoder: NSCoder) {
         var name:String = aDecoder.decodeObjectForKey("projectName") as String
-        var image:UIImage? = nil;
-        if (aDecoder.containsValueForKey("image")) {
-             image = aDecoder.decodeObjectForKey("image") as UIImage?
-        }
+        var image = aDecoder.decodeObjectForKey("image") as UIImage
         var objectList:Array<SoundObject> = aDecoder.decodeObjectForKey("objects") as Array<SoundObject>
         var projectNote:Int = aDecoder.decodeIntegerForKey("note")
         var projectMode:String = aDecoder.decodeObjectForKey("mode") as String
@@ -101,8 +100,6 @@ class Project : NSObject
         aCoder.encodeObject(self.objects, forKey: "objects")
         aCoder.encodeInteger(self.note!.rawValue, forKey: "note")
         aCoder.encodeObject(self.mode!.rawValue, forKey: "mode")
-        if (self.preview != nil) {
-            aCoder.encodeObject(self.preview!, forKey: "image")
-        }
+        aCoder.encodeObject(self.preview, forKey: "image")
     }
 }

@@ -11,10 +11,9 @@ import SpriteKit
 
 class EditViewController : UIViewController, UIAlertViewDelegate {
     var scene:EditScene?
-    var project:Project
+    var project:Project?
 
     required init(coder aDecoder: NSCoder) {
-        self.project = Project()
         super.init(coder: aDecoder)
     }
     
@@ -26,34 +25,38 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
         let skView:SKView = self.view as SKView;
         skView.showsFPS = true;
         skView.showsNodeCount = true;
-        
-        self.scene = EditScene(size: skView.bounds.size, project:self.project);
-        self.saveProject()
-        skView.presentScene(scene)
+        if (self.project != nil) {
+            self.scene = EditScene(size: skView.bounds.size, project:self.project!);
+            self.saveProject()
+            skView.presentScene(scene)
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        let project : Project? = ProjectManager.sharedInstance.projectWithName(self.project.projectName!)
-        if (project != nil) {
-            self.project = project!
-            self.scene!.objects = self.project.objects
-            self.scene!.loadObjects()
+        if (self.project != nil) {
+
+            let project : Project? = ProjectManager.sharedInstance.projectWithName(self.project!.projectName!)
+            if (project != nil) {
+                self.project = project!
+                self.scene!.objects = self.project!.objects
+                self.scene!.loadObjects()
+            }
         }
     }
     
     func saveProject()
     {
-        if (self.project.projectName != nil) {
+        if (self.project!.projectName != nil) {
             
             UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, UIScreen.mainScreen().scale);
             self.view.drawViewHierarchyInRect(self.view.bounds, afterScreenUpdates: true)
             let image = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
             
-            self.project.preview = image
-            self.project.objects = self.scene!.objects
-            ProjectManager.sharedInstance.saveProject(self.project)
+            self.project!.preview = image
+            self.project!.objects = self.scene!.objects
+            ProjectManager.sharedInstance.saveProject(self.project!)
         }
     }
     
@@ -65,7 +68,7 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "play" {
             let playViewController = segue.destinationViewController as PlayViewController
-            self.project.objects = self.scene!.objects
+            self.project!.objects = self.scene!.objects
             playViewController.project = self.project
         }
     }

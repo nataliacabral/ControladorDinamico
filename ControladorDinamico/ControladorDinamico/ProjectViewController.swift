@@ -54,13 +54,8 @@ class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDel
                 imageView = view.viewWithTag(1) as UIImageView!
             }
             
-            let project:Project = projects[index]
-            if (project.preview != nil) {
-                imageView.image = projects[index].preview!
-            } else {
-                imageView.image = UIImage(named: "tocada_background")
-            }
-        
+            imageView.image = projects[index].preview
+
         } else {
             view =  NSBundle.mainBundle().loadNibNamed("NewProjectView", owner: newProjectViewController, options: nil)[0] as UIView
         }
@@ -70,15 +65,23 @@ class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDel
     
     func carousel(carousel: iCarousel!, valueForOption option: iCarouselOption, withDefault value: CGFloat) -> CGFloat
     {
-        if (option == .Spacing)
-        {
-            return value * 4
-            
-        } else if (option == .)
-        {
-            return value * 4
+        switch option {
+        
+        case .Spacing:
+            return value * 2
+        
+        case .FadeMax:
+            return 0.5
+        
+        case .FadeMin:
+            return -0.5
+        
+        case .FadeRange:
+            return 2.5
+
+        default:
+            return value
         }
-        return value
     }
     
     func deleteProject(alert: UIAlertAction!){
@@ -125,7 +128,7 @@ class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDel
             }
         } else {
             self.selectedProject = nil
-            self.projectNoteLabel.text = ""
+            self.projectNameLabel.text = ""
             self.projectNoteLabel.text = ""
         }
     }
@@ -172,11 +175,33 @@ class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDel
     
     func addNewProject(name:String, note:Project.Note, mode:Project.Mode) {
 
-        var project:Project = Project(projectName: name, note: note, mode: mode)
-        ProjectManager.sharedInstance.saveProject(project)
-        self.projects.append(project)
-        self.addingProject = false
-        self.reloadCarousel()
+        let projectName:String = name.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        
+        var error:String? = nil
+        if (countElements(projectName) == 0) {
+            error = "Invalid name"
+            
+        } else if (ProjectManager.sharedInstance.projectExists(projectName)) {
+            error = "Project already exists"
+            
+        } else {
+            var project:Project = Project(projectName: name, note: note, mode: mode)
+
+            if (ProjectManager.sharedInstance.saveProject(project)) {
+                self.projects.append(project)
+                addingProject = false
+                self.reloadCarousel()
+            } else {
+                error = "Invalid name"
+            }
+        }
+        
+        if (error != nil) {
+            var alert = UIAlertController(title: "Project", message:error, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+
     }
     
     func reloadCarousel()

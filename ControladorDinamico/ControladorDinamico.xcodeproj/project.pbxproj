@@ -17,6 +17,7 @@
 		251174531A291CD7005E37C5 /* thermal_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 251174511A291CD7005E37C5 /* thermal_frame.png */; };
 		251174581A291D74005E37C5 /* ThermalFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251174571A291D74005E37C5 /* ThermalFrame.swift */; };
 		251218491A08625D0025ACEE /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251218481A08625D0025ACEE /* Project.swift */; };
+		2518B9B81ACA1B0D0030A7AA /* edit_empty.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2518B9B71ACA1B0D0030A7AA /* edit_empty.jpg */; };
 		25495E7D1ABCD517005CB787 /* NewProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25495E7C1ABCD517005CB787 /* NewProjectViewController.swift */; };
 		25495E7F1ABF6104005CB787 /* NewProjectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25495E7E1ABF6104005CB787 /* NewProjectView.xib */; };
 		2556633C1A11555900F6F820 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556633B1A11555900F6F820 /* ProjectManager.swift */; };
@@ -197,6 +198,7 @@
 		251174571A291D74005E37C5 /* ThermalFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThermalFrame.swift; sourceTree = "<group>"; };
 		251218441A0862480025ACEE /* ControladorDinamico-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ControladorDinamico-Bridging-Header.h"; sourceTree = "<group>"; };
 		251218481A08625D0025ACEE /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		2518B9B71ACA1B0D0030A7AA /* edit_empty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = edit_empty.jpg; sourceTree = "<group>"; };
 		25495E7C1ABCD517005CB787 /* NewProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewProjectViewController.swift; sourceTree = "<group>"; };
 		25495E7E1ABF6104005CB787 /* NewProjectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewProjectView.xib; sourceTree = "<group>"; };
 		2556633B1A11555900F6F820 /* ProjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 				2599ED711AA5102500A0DC4F /* icon_40.png */,
 				2599ED721AA5102500A0DC4F /* icon_58.png */,
 				2599ED731AA5102500A0DC4F /* icon_76.png */,
+				2518B9B71ACA1B0D0030A7AA /* edit_empty.jpg */,
 				2599ED741AA5102500A0DC4F /* icon_80.png */,
 				2599ED751AA5102500A0DC4F /* icon_152.png */,
 				25A30AFD1AA398C400922562 /* cubes1.png */,
@@ -879,6 +882,7 @@
 				25DAE6A21A632AE700D5E86C /* slider_horizontal_icon.png in Resources */,
 				492A42C61A2D4AFD00731F26 /* piano2.sf2 in Resources */,
 				25DAE6811A61CB5A00D5E86C /* bt_play_selected.png in Resources */,
+				2518B9B81ACA1B0D0030A7AA /* edit_empty.jpg in Resources */,
 				25B521031A3F757900735263 /* button7.png in Resources */,
 				25B520FA1A3F757900735263 /* button2.png in Resources */,
 				25DAE6831A61CB5A00D5E86C /* bt_tutorial_selected.png in Resources */,
