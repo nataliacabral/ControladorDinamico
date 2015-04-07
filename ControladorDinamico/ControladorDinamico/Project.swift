@@ -58,11 +58,17 @@ class Project : NSObject
     var mode:Mode?
 
     var objects:Array<SoundObject>
-    var preview:UIImage
-
+    var image:UIImage?
+    
+    var preview:UIImage {
+        get {
+            if self.image == nil { return UIImage(named: "edit_empty.jpg")! }
+            return self.image!
+        }
+    }
+    
     override init () {
         self.objects = Array<SoundObject>()
-        self.preview = UIImage(named: "edit_empty.jpg")!
         super.init()
     }
     
@@ -71,35 +77,40 @@ class Project : NSObject
         self.objects = Array<SoundObject>()
         self.note = note
         self.mode = mode
-        self.preview = UIImage(named: "edit_empty.jpg")!
         super.init()
     }
     
-    init(projectName:String, objects:Array<SoundObject>, image:UIImage, note:Note, mode:Mode) {
+    init(projectName:String, objects:Array<SoundObject>, image:UIImage?, note:Note, mode:Mode) {
         self.projectName = projectName
         self.objects = objects
-        self.preview = image
         self.note = note
         self.mode = mode
         super.init()
+        self.image = image
     }
     
     required convenience init(coder aDecoder: NSCoder) {
         var name:String = aDecoder.decodeObjectForKey("projectName") as String
-        var image = aDecoder.decodeObjectForKey("image") as UIImage
+        var image:UIImage?
+        if (aDecoder.containsValueForKey("image")) {
+            image = aDecoder.decodeObjectForKey("image") as? UIImage
+        }
         var objectList:Array<SoundObject> = aDecoder.decodeObjectForKey("objects") as Array<SoundObject>
         var projectNote:Int = aDecoder.decodeIntegerForKey("note")
         var projectMode:String = aDecoder.decodeObjectForKey("mode") as String
-        
         self.init(projectName:name, objects:objectList, image:image, note:Note(rawValue: projectNote)!, mode:Mode(rawValue:projectMode)!)
-
     }
     
+    
+
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.projectName, forKey: "projectName")
         aCoder.encodeObject(self.objects, forKey: "objects")
         aCoder.encodeInteger(self.note!.rawValue, forKey: "note")
         aCoder.encodeObject(self.mode!.rawValue, forKey: "mode")
-        aCoder.encodeObject(self.preview, forKey: "image")
+        
+        if (self.image != nil) {
+            aCoder.encodeObject(self.image, forKey: "image")
+        }
     }
 }

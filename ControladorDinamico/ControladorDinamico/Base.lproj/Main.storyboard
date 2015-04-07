@@ -127,6 +127,9 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted" image="bt_tutorial_selected.png"/>
+                                <connections>
+                                    <segue destination="e8v-Kc-nap" kind="show" id="0dr-Fl-n8h"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90588235294117647" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
@@ -233,7 +236,7 @@
                         <viewControllerLayoutGuide type="bottom" id="7TR-bi-o0d"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="n5h-Bv-F5Q">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yxi-pz-9WF">
@@ -256,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdg-ga-DI1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2303" y="1210"/>
+            <point key="canvasLocation" x="1194" y="1101"/>
         </scene>
         <!--Help Page View Controller-->
         <scene sceneID="hwt-hC-W4p">
@@ -305,6 +308,6 @@
         <image name="tocada_background.png" width="2048" height="1536"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EGz-Xg-PKy"/>
+        <segue reference="0dr-Fl-n8h"/>
     </inferredMetricsTieBreakers>
 </document>

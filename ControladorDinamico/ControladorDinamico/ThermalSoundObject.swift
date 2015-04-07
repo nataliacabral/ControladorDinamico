@@ -105,15 +105,15 @@ class ThermalSoundObject : SoundObject
             var frame:ThermalFrame = ThermalFrame()
             frame.size.width = frameWidthWithBorder - thermalFrameBorder * 2
             frame.size.height = frameHeigthWithBorder - thermalFrameBorder * 2
-            frame.position.x = -frameWidthWithBorder / 2
-            frame.position.y = -frameHeigthWithBorder / 2
+            frame.position.x = -frame.size.width / 2
+            frame.position.y = -frame.size.height / 2
            
             if (i == 1 || i == 3) {
-                frame.position.x =  frame.position.x + frameWidthWithBorder
+                frame.position.x =  frame.size.width / 2 + 2
             }
             
             if (i == 2 || i == 3) {
-                frame.position.y =  frame.position.y + frameHeigthWithBorder
+                frame.position.y =  frame.size.height / 2
             }
             self.frames.append(frame);
             self.addChild(frame);

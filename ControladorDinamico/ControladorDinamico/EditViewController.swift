@@ -54,7 +54,7 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
             let image = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
             
-            self.project!.preview = image
+            self.project!.image = image
             self.project!.objects = self.scene!.objects
             ProjectManager.sharedInstance.saveProject(self.project!)
         }
