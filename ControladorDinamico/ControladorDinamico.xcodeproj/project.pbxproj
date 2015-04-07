@@ -18,6 +18,8 @@
 		251174581A291D74005E37C5 /* ThermalFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251174571A291D74005E37C5 /* ThermalFrame.swift */; };
 		251218491A08625D0025ACEE /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251218481A08625D0025ACEE /* Project.swift */; };
 		2518B9B81ACA1B0D0030A7AA /* edit_empty.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2518B9B71ACA1B0D0030A7AA /* edit_empty.jpg */; };
+		2518B9BA1ACA25730030A7AA /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518B9B91ACA25730030A7AA /* HelpViewController.swift */; };
+		2518B9BE1ACB1F0F0030A7AA /* HelpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518B9BD1ACB1F0F0030A7AA /* HelpPageViewController.swift */; };
 		25495E7D1ABCD517005CB787 /* NewProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25495E7C1ABCD517005CB787 /* NewProjectViewController.swift */; };
 		25495E7F1ABF6104005CB787 /* NewProjectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25495E7E1ABF6104005CB787 /* NewProjectView.xib */; };
 		2556633C1A11555900F6F820 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556633B1A11555900F6F820 /* ProjectManager.swift */; };
@@ -199,6 +201,8 @@
 		251218441A0862480025ACEE /* ControladorDinamico-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ControladorDinamico-Bridging-Header.h"; sourceTree = "<group>"; };
 		251218481A08625D0025ACEE /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		2518B9B71ACA1B0D0030A7AA /* edit_empty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = edit_empty.jpg; sourceTree = "<group>"; };
+		2518B9B91ACA25730030A7AA /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		2518B9BD1ACB1F0F0030A7AA /* HelpPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPageViewController.swift; sourceTree = "<group>"; };
 		25495E7C1ABCD517005CB787 /* NewProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewProjectViewController.swift; sourceTree = "<group>"; };
 		25495E7E1ABF6104005CB787 /* NewProjectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewProjectView.xib; sourceTree = "<group>"; };
 		2556633B1A11555900F6F820 /* ProjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
@@ -560,6 +564,8 @@
 				492A42A81A27BEB400731F26 /* SavedStateMenuButton.swift */,
 				492A42C31A2D38E900731F26 /* SavedStateManager.swift */,
 				25DAE6861A61CB8C00D5E86C /* HomeViewController.swift */,
+				2518B9B91ACA25730030A7AA /* HelpViewController.swift */,
+				2518B9BD1ACB1F0F0030A7AA /* HelpPageViewController.swift */,
 			);
 			path = ControladorDinamico;
 			sourceTree = "<group>";
@@ -986,6 +992,7 @@
 				2509940519FEE86500A6D24F /* EditScene.swift in Sources */,
 				49EC5A011A20421600A36D2C /* ModulatedSampler.swift in Sources */,
 				2556636E1A13F9ED00F6F820 /* SpringSoundObject.swift in Sources */,
+				2518B9BE1ACB1F0F0030A7AA /* HelpPageViewController.swift in Sources */,
 				255663761A13FAB800F6F820 /* ThermalSoundObject.swift in Sources */,
 				25DAE69A1A63264400D5E86C /* HorizontalSliderSoundObject.swift in Sources */,
 				49C0152F1A1D316900DBAC0D /* SoundManager.swift in Sources */,
@@ -998,6 +1005,7 @@
 				2509940119FEE2CF00A6D24F /* EditViewController.swift in Sources */,
 				49EC5A0C1A220C2E00A36D2C /* VelocityModulator.swift in Sources */,
 				49EC5A111A22168C00A36D2C /* MenuButton.swift in Sources */,
+				2518B9BA1ACA25730030A7AA /* HelpViewController.swift in Sources */,
 				251218491A08625D0025ACEE /* Project.swift in Sources */,
 				491EECC41A18E31700F33D50 /* SliderHandle.swift in Sources */,
 				2557DC131A16A3000003AB5D /* PlayViewController.swift in Sources */,
