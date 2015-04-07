@@ -26,7 +26,7 @@ class ThermalSoundObject : SoundObject
     let thermalBackgroundTexture:SKTexture = SKTexture(imageNamed: "thermal_background.png")
     let thermalEditTexture:SKTexture = SKTexture(imageNamed: "thermal.png")
 
-    let thermalFrameBorder:CGFloat = 5
+    let thermalFrameBorder:CGFloat = 6
     
     var status:ThermalStatus = ThermalStatus(alphaQ1: CGFloat(0.0), alphaQ2: CGFloat(0.0), alphaQ3: CGFloat(0.0), alphaQ4: CGFloat(0.0))
     var savedStatus : Array<ThermalStatus> = Array<ThermalStatus>(count: 4, repeatedValue:
@@ -105,15 +105,15 @@ class ThermalSoundObject : SoundObject
             var frame:ThermalFrame = ThermalFrame()
             frame.size.width = frameWidthWithBorder - thermalFrameBorder * 2
             frame.size.height = frameHeigthWithBorder - thermalFrameBorder * 2
-            frame.position.x = -frame.size.width / 2
+            frame.position.x = -frame.size.width / 2 + 2
             frame.position.y = -frame.size.height / 2
            
             if (i == 1 || i == 3) {
-                frame.position.x =  frame.size.width / 2 + 2
+                frame.position.x =  frame.position.x + frame.size.width
             }
             
             if (i == 2 || i == 3) {
-                frame.position.y =  frame.size.height / 2
+                frame.position.y =  frame.position.y + frame.size.height
             }
             self.frames.append(frame);
             self.addChild(frame);
