@@ -24,9 +24,6 @@ class PlayViewController : UIViewController {
         self.edgesForExtendedLayout = UIRectEdge.None;
         
         var skView:SKView = self.view as SKView;
-        skView.showsFPS = true;
-        skView.showsNodeCount = true;
-        skView.showsPhysics = true
         
         self.scene = PlayScene(size: skView.bounds.size, project: self.project!);
         skView.presentScene(scene)

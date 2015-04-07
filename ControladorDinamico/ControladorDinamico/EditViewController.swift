@@ -23,8 +23,6 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
         self.edgesForExtendedLayout = UIRectEdge.None;
       
         let skView:SKView = self.view as SKView;
-        skView.showsFPS = true;
-        skView.showsNodeCount = true;
         if (self.project != nil) {
             self.scene = EditScene(size: skView.bounds.size, project:self.project!);
             self.saveProject()
