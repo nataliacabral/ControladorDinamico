@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launcsh.
-    BITHockeyManager.sharedHockeyManager().configureWithIdentifier("947442503900cd314ea8a62a0830d7ac")
+        BITHockeyManager.sharedHockeyManager().configureWithIdentifier("947442503900cd314ea8a62a0830d7ac")
         // Configure the SDK in here only!
         BITHockeyManager.sharedHockeyManager().startManager()
         BITHockeyManager.sharedHockeyManager().authenticator.authenticateInstallation() // This line is obsolete in the crash only build
