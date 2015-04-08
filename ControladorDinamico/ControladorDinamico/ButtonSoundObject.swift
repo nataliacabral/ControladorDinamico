@@ -120,12 +120,22 @@ class ButtonSoundObject : SoundObject, Sampler
     
     override func touchStarted(position:CGPoint)
     {
+        self.startTouch()
+    }
+    
+    func startTouch()
+    {
         let changeTexture:SKAction = SKAction.setTexture(self.selectedTexture!)
         self.status.pressed = true
         self.runAction(changeTexture)
     }
     
     override func touchEnded(position:CGPoint)
+    {
+        self.stopTouch()
+    }
+    
+    func stopTouch()
     {
         let changeTexture:SKAction = SKAction.setTexture(self.stillTexture!)
         self.status.pressed = false
@@ -173,6 +183,7 @@ class ButtonSoundObject : SoundObject, Sampler
     func playSound()
     {
         if (!self.status.playing) {
+            NSLog("playing")
             self.playNote()
             //self.audioSampler?.sendController(69, withValue:127, onChannel:0)
             //self.audioSampler?.sendController(67, withValue:127, onChannel:0)
@@ -212,15 +223,18 @@ class ButtonSoundObject : SoundObject, Sampler
     
     override func saveStatus(slot:Int)
     {
-        
         self.savedStatus[slot] = self.status;
     }
+    
     override func loadStatus(slot:Int)
     {
+        self.stopNote()
         self.status = self.savedStatus[slot];
         if (self.status.playing) {
-            self.stopNote()
-            self.playNote()
+            self.startTouch()
+            self.status.playing = false
+        } else {
+            self.stopTouch()
         }
     }
     
