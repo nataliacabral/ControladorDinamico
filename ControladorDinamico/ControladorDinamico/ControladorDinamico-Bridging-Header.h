@@ -3,4 +3,3 @@
 //
 
 #import "iCarousel.h"
-#import <HockeySDK/HockeySDK.h>
