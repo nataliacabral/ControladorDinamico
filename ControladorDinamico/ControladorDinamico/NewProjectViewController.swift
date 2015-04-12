@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NewProjectViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate  {
+class NewProjectViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate  {
     
     @IBOutlet var notePicker:UIPickerView!
     @IBOutlet var modePicker:UIPickerView!
@@ -49,9 +49,17 @@ class NewProjectViewController: UIViewController , UIPickerViewDataSource, UIPic
     }
 
     @IBAction func addProject(sender: UIButton) {
-        let mode:Project.Mode = Project.Mode.allValues[self.modePicker!.selectedRowInComponent(0)]
-        let note:Project.Note = Project.Note(rawValue: self.notePicker!.selectedRowInComponent(0))!
-         self.delegate?.addNewProject(self.projectNameTextField.text, note: note, mode: mode)
+        self.addProject()
     }
     
+    func addProject() {
+        let mode:Project.Mode = Project.Mode.allValues[self.modePicker!.selectedRowInComponent(0)]
+        let note:Project.Note = Project.Note(rawValue: self.notePicker!.selectedRowInComponent(0))!
+        self.delegate?.addNewProject(self.projectNameTextField.text, note: note, mode: mode)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.addProject()
+        return true
+    }
 }
