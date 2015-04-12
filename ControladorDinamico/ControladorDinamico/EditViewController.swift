@@ -27,6 +27,10 @@ class EditViewController : UIViewController, UIAlertViewDelegate {
             self.scene = EditScene(size: skView.bounds.size, project:self.project!);
             self.saveProject()
             skView.presentScene(scene)
+            
+            if (self.project!.objects.count == 0) {
+                self.scene!.openButtonsDrawer()
+            }
         }
     }
     

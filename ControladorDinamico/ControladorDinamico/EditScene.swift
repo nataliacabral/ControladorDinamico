@@ -28,7 +28,9 @@ class EditScene : SKScene
     var backButton:MenuButton
     var playButton:MenuButton
     var aboutButton:MenuButton
-    
+    var buttonsDrawerButton:DrawerMenuButton?
+    var modulatorDrawerButton:DrawerMenuButton?
+
     var project:Project
 
     
@@ -151,20 +153,20 @@ class EditScene : SKScene
             buttonSize:drawerButtonSize, background:modulatorDrawerTexture, border:drawerBorder
         )
         
-        var buttonsDrawerButton:MenuButton = DrawerMenuButton(
+        self.buttonsDrawerButton = DrawerMenuButton(
             texture:SKTexture(imageNamed: "menubutton_button.png"),
             color:UIColor(),
             size:buttonSize,
             drawer:self.buttonDrawer!)
         
-        var modulatorDrawerButton:MenuButton = DrawerMenuButton(
+        self.modulatorDrawerButton = DrawerMenuButton(
             texture:SKTexture(imageNamed: "menubutton_modulator.png"),
             color:UIColor(),
             size:buttonSize,
             drawer:self.modulatorDrawer!)
         
         self.menuBar = VerticalMenuBar(
-            buttons: [buttonsDrawerButton, modulatorDrawerButton, self.playButton, self.backButton, self.aboutButton, self.trashButton],
+            buttons: [self.buttonsDrawerButton!, self.modulatorDrawerButton!, self.playButton, self.backButton, self.aboutButton, self.trashButton],
             position:CGPoint(x: x, y: y),
             size:CGSize(width: barWidth, height: self.size.height),
             buttonSize:buttonSize,
@@ -174,11 +176,11 @@ class EditScene : SKScene
         
         let convertedX = x + barWidth / 2 + drawerBarWidth / 2;
         
-        let convertedButtonPosition = self.convertPoint(buttonsDrawerButton.position, fromNode: menuBar!)
+        let convertedButtonPosition = self.convertPoint(buttonsDrawerButton!.position, fromNode: menuBar!)
         self.buttonDrawer!.position.x = convertedX
         self.buttonDrawer!.position.y = convertedButtonPosition.y - self.buttonDrawer!.size.height/2 + buttonSize.height/2
         
-        let convertedModulatorPosition = self.convertPoint(modulatorDrawerButton.position, fromNode: menuBar!)
+        let convertedModulatorPosition = self.convertPoint(modulatorDrawerButton!.position, fromNode: menuBar!)
         self.modulatorDrawer!.position.x = convertedX
         self.modulatorDrawer!.position.y = convertedModulatorPosition.y - self.modulatorDrawer!.size.height/2 + buttonSize.height/2
         
@@ -430,6 +432,12 @@ class EditScene : SKScene
                 }
             }
         }
+    }
+    
+    func openButtonsDrawer()
+    {
+        self.buttonsDrawerButton!.showDrawer()
+        openDrawer = self.buttonsDrawerButton
     }
     
 }
