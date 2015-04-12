@@ -19,7 +19,6 @@ class EditScene : SKScene
     var buttonDrawer:VerticalMenuBar?
     var modulatorDrawer:VerticalMenuBar?
     var menuBar:VerticalMenuBar?
-    var creatingObject:Bool = false
     var openDrawer:DrawerMenuButton? = nil
     
     var touchMapping = Dictionary<UITouch , SKNode>()
@@ -216,24 +215,32 @@ class EditScene : SKScene
     override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
         
     }
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent)
+    {
         super.touchesBegan(touches, withEvent: event)
         
-        for touch in touches
-        {
-            let uiTouch = touch as UITouch
-            var touchLocation:CGPoint = uiTouch.locationInView(uiTouch.view)
-            touchLocation = self.convertPointFromView(touchLocation)
-            var touchedNode:SKNode = self.nodeAtPoint(touchLocation) as SKNode
-            if (touchedNode is RouletteSpin || touchedNode is SliderHandle || touchedNode is RouletteButton) {
-                touchedNode = touchedNode.parent!
+        if (self.selectedNodeOriginalPos == nil) {
+            for touch in touches
+            {
+                let uiTouch = touch as UITouch
+                var touchLocation:CGPoint = uiTouch.locationInView(uiTouch.view)
+                touchLocation = self.convertPointFromView(touchLocation)
+                var touchedNode:SKNode = self.nodeAtPoint(touchLocation) as SKNode
+                if (touchedNode is RouletteSpin || touchedNode is SliderHandle || touchedNode is RouletteButton) {
+                    touchedNode = touchedNode.parent!
+                }
+                if (touchedNode is SoundObject) {
+                    self.selectedNodeOriginalPos = touchedNode.position
+                    touchedNode.zPosition = 10
+                }
+                
+                touchMapping[uiTouch] = touchedNode
+                touchPositionMap[uiTouch] = self.convertPoint(touchLocation, toNode: touchedNode)
+                
+                if (self.selectedNodeOriginalPos != nil) {
+                    break
+                }
             }
-            if (touchedNode is SoundObject) {
-                self.selectedNodeOriginalPos = touchedNode.position
-                touchedNode.zPosition = 10
-            }
-            touchMapping[uiTouch] = touchedNode
-            touchPositionMap[uiTouch] = self.convertPoint(touchLocation, toNode: touchedNode)
         }
     }
     
