@@ -56,8 +56,8 @@ class EditScene : SKScene
         
         var buttonSprite3:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 5, noteIndex:3)
         var buttonSprite4:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 7, noteIndex:4)
-        var buttonSprite5:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 11, noteIndex:5)
-        var buttonSprite6:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 12, noteIndex:6)
+        var buttonSprite5:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 9, noteIndex:5)
+        var buttonSprite6:ButtonSoundObject = ButtonSoundObject(gridSize:gridSize, note:firstC + self.project.note!.rawValue + 11, noteIndex:6)
         
         var springSprite:SpringSoundObject = SpringSoundObject(gridSize:gridSize)
         var sliderSprite:SliderSoundObject = SliderSoundObject(gridSize:gridSize)
