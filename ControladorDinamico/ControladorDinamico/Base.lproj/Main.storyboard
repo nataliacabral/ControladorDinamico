@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uBR-PN-tVm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uBR-PN-tVm">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -93,6 +93,39 @@
             </objects>
             <point key="canvasLocation" x="698" y="24"/>
         </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="z1g-tk-Yaw">
+            <objects>
+                <viewController id="lhv-vM-DR0" customClass="SplashViewController" customModule="Tocada" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rv0-wv-7Ym"/>
+                        <viewControllerLayoutGuide type="bottom" id="V9B-nv-scT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w2n-9F-CfG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="sponsors.png" translatesAutoresizingMaskIntoConstraints="NO" id="TFx-Uk-VqS">
+                                <rect key="frame" x="-36" y="-112" width="636" height="712"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="TFx-Uk-VqS" firstAttribute="top" secondItem="w2n-9F-CfG" secondAttribute="topMargin" id="BpS-WF-Ztj"/>
+                            <constraint firstItem="V9B-nv-scT" firstAttribute="top" secondItem="TFx-Uk-VqS" secondAttribute="bottom" id="L6p-RJ-sDs"/>
+                            <constraint firstItem="TFx-Uk-VqS" firstAttribute="leading" secondItem="w2n-9F-CfG" secondAttribute="leadingMargin" id="lgl-w2-6G9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TFx-Uk-VqS" secondAttribute="trailing" id="qPo-cy-aO3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="GYj-lN-SyM"/>
+                    <connections>
+                        <outlet property="content" destination="TFx-Uk-VqS" id="Eip-h6-HMA"/>
+                        <segue destination="f57-UM-IvV" kind="show" identifier="homeSegue" id="cPn-lA-xoG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aQn-RX-lSp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-869" y="-102"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="tp0-W4-Wge">
             <objects>
@@ -162,12 +195,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="f57-UM-IvV" kind="relationship" relationship="rootViewController" id="mbh-GW-8oj"/>
+                        <segue destination="lhv-vM-DR0" kind="relationship" relationship="rootViewController" id="Mf5-Yv-dRU"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="znG-w3-L3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-939" y="16"/>
+            <point key="canvasLocation" x="-1569" y="-130"/>
         </scene>
         <!--Edit View Controller-->
         <scene sceneID="GT2-h3-Noc">
@@ -305,6 +338,7 @@
         <image name="bt_remve.png" width="177" height="179"/>
         <image name="bt_tutorial.png" width="141" height="42"/>
         <image name="bt_tutorial_selected.png" width="141" height="42"/>
+        <image name="sponsors.png" width="2048" height="1536"/>
         <image name="tocada_background.png" width="2048" height="1536"/>
     </resources>
     <inferredMetricsTieBreakers>

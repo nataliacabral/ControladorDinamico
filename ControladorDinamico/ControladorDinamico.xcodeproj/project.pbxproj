@@ -100,6 +100,8 @@
 		25B5211C1A3F9C6B00735263 /* savestate_button4_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B521131A3F9C6B00735263 /* savestate_button4_selected.png */; };
 		25B5211D1A3F9C6B00735263 /* savestate_button4.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B521141A3F9C6B00735263 /* savestate_button4.png */; };
 		25B5211F1A3FA61100735263 /* LaunchImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25B5211E1A3FA61100735263 /* LaunchImage.jpg */; };
+		25BBED771ADF2C9C00A2CDE0 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BBED761ADF2C9C00A2CDE0 /* SplashViewController.swift */; };
+		25BBED791ADF2DE300A2CDE0 /* sponsors.png in Resources */ = {isa = PBXBuildFile; fileRef = 25BBED781ADF2DE300A2CDE0 /* sponsors.png */; };
 		25C897D31AAB7AC1006B663B /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C897D21AAB7AC1006B663B /* iCarousel.m */; };
 		25DAE6811A61CB5A00D5E86C /* bt_play_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE67C1A61CB5A00D5E86C /* bt_play_selected.png */; };
 		25DAE6821A61CB5A00D5E86C /* bt_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE67D1A61CB5A00D5E86C /* bt_play.png */; };
@@ -288,6 +290,8 @@
 		25B521131A3F9C6B00735263 /* savestate_button4_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = savestate_button4_selected.png; path = images/savestate/savestate_button4_selected.png; sourceTree = "<group>"; };
 		25B521141A3F9C6B00735263 /* savestate_button4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = savestate_button4.png; path = images/savestate/savestate_button4.png; sourceTree = "<group>"; };
 		25B5211E1A3FA61100735263 /* LaunchImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LaunchImage.jpg; sourceTree = "<group>"; };
+		25BBED761ADF2C9C00A2CDE0 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		25BBED781ADF2DE300A2CDE0 /* sponsors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sponsors.png; sourceTree = "<group>"; };
 		25C897D11AAB7AC1006B663B /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		25C897D21AAB7AC1006B663B /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		25DAE67C1A61CB5A00D5E86C /* bt_play_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_play_selected.png; sourceTree = "<group>"; };
@@ -414,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				2599ED701AA5102500A0DC4F /* icon_29.png */,
+				25BBED781ADF2DE300A2CDE0 /* sponsors.png */,
 				2599ED711AA5102500A0DC4F /* icon_40.png */,
 				2599ED721AA5102500A0DC4F /* icon_58.png */,
 				2599ED731AA5102500A0DC4F /* icon_76.png */,
@@ -566,6 +571,7 @@
 				25DAE6861A61CB8C00D5E86C /* HomeViewController.swift */,
 				2518B9B91ACA25730030A7AA /* HelpViewController.swift */,
 				2518B9BD1ACB1F0F0030A7AA /* HelpPageViewController.swift */,
+				25BBED761ADF2C9C00A2CDE0 /* SplashViewController.swift */,
 			);
 			path = ControladorDinamico;
 			sourceTree = "<group>";
@@ -899,6 +905,7 @@
 				251174531A291CD7005E37C5 /* thermal_frame.png in Resources */,
 				25DAE68F1A61D4EF00D5E86C /* bt_add_selected.png in Resources */,
 				2599ED781AA5102500A0DC4F /* icon_58.png in Resources */,
+				25BBED791ADF2DE300A2CDE0 /* sponsors.png in Resources */,
 				25B520FB1A3F757900735263 /* button3_selected.png in Resources */,
 				25B520FE1A3F757900735263 /* button4.png in Resources */,
 				25A30B021AA398C400922562 /* cubes3.png in Resources */,
@@ -984,6 +991,7 @@
 				49EC5A041A20449700A36D2C /* VolumeModulator.swift in Sources */,
 				4918FC751A22B09A007E1F64 /* EQModulator.swift in Sources */,
 				258D1FF11A01849800ACFC93 /* ObjectsPalette.swift in Sources */,
+				25BBED771ADF2C9C00A2CDE0 /* SplashViewController.swift in Sources */,
 				2556633C1A11555900F6F820 /* ProjectManager.swift in Sources */,
 				49EC59FB1A2009F200A36D2C /* ModulatorNode.swift in Sources */,
 				49EC5A0A1A2044B500A36D2C /* DistortionModulator.swift in Sources */,
