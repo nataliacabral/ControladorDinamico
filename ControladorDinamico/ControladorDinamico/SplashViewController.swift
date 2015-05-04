@@ -18,7 +18,7 @@ class SplashViewController : UIViewController {
     
     
     func updateSplash() {
-        self.content?.image = UIImage(named: "edit_empty.jpg")
+        self.content?.image = UIImage(named: "credits.png")
         var timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("closeSplash"), userInfo: nil, repeats: false)
     }
     

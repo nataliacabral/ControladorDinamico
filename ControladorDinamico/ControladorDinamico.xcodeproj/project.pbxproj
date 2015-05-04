@@ -20,6 +20,7 @@
 		2518B9B81ACA1B0D0030A7AA /* edit_empty.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2518B9B71ACA1B0D0030A7AA /* edit_empty.jpg */; };
 		2518B9BA1ACA25730030A7AA /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518B9B91ACA25730030A7AA /* HelpViewController.swift */; };
 		2518B9BE1ACB1F0F0030A7AA /* HelpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518B9BD1ACB1F0F0030A7AA /* HelpPageViewController.swift */; };
+		25332ADD1AF805B4000500D9 /* credits.png in Resources */ = {isa = PBXBuildFile; fileRef = 25332ADC1AF805B4000500D9 /* credits.png */; };
 		25495E7D1ABCD517005CB787 /* NewProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25495E7C1ABCD517005CB787 /* NewProjectViewController.swift */; };
 		25495E7F1ABF6104005CB787 /* NewProjectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25495E7E1ABF6104005CB787 /* NewProjectView.xib */; };
 		2556633C1A11555900F6F820 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556633B1A11555900F6F820 /* ProjectManager.swift */; };
@@ -205,6 +206,7 @@
 		2518B9B71ACA1B0D0030A7AA /* edit_empty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = edit_empty.jpg; sourceTree = "<group>"; };
 		2518B9B91ACA25730030A7AA /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		2518B9BD1ACB1F0F0030A7AA /* HelpPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPageViewController.swift; sourceTree = "<group>"; };
+		25332ADC1AF805B4000500D9 /* credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = credits.png; sourceTree = "<group>"; };
 		25495E7C1ABCD517005CB787 /* NewProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewProjectViewController.swift; sourceTree = "<group>"; };
 		25495E7E1ABF6104005CB787 /* NewProjectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewProjectView.xib; sourceTree = "<group>"; };
 		2556633B1A11555900F6F820 /* ProjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 		2557DBCE1A13FCB20003AB5D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				25332ADC1AF805B4000500D9 /* credits.png */,
 				2599ED701AA5102500A0DC4F /* icon_29.png */,
 				25BBED781ADF2DE300A2CDE0 /* sponsors.png */,
 				2599ED711AA5102500A0DC4F /* icon_40.png */,
@@ -866,6 +869,7 @@
 				498114031ABCCE4C000F8E80 /* Main.storyboard in Resources */,
 				4933E0E91A17F3FE00DDCE0D /* buttonSelected.png in Resources */,
 				25B521041A3F757900735263 /* button8_selected.png in Resources */,
+				25332ADD1AF805B4000500D9 /* credits.png in Resources */,
 				25DAE6851A61CB5A00D5E86C /* tocada_background.png in Resources */,
 				25B5211B1A3F9C6B00735263 /* savestate_button3.png in Resources */,
 				25B520F91A3F757900735263 /* button2_selected.png in Resources */,
