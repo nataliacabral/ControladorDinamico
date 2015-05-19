@@ -73,7 +73,14 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
         
         if (!rouletteObj.touchedSpin) {
             
-            var difference = CGPoint(x:lastRotationPoint!.x - secondLastRotationPoint!.x, y:lastRotationPoint!.y - secondLastRotationPoint!.y)
+            var point1:CGPoint? = secondLastRotationPoint
+            var point2:CGPoint? = lastRotationPoint
+            if (point1 == nil) {
+                point1 = lastRotationPoint
+                point2 = position
+            }
+            
+            var difference = CGPoint(x:point2!.x - point1!.x, y:point2!.y - point1!.y)
             var convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
             
             var impulse = CGFloat(0)
@@ -139,6 +146,7 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
             }
             
             lastRotationPoint = nil
+            secondLastRotationPoint = nil
             lastUpdateTime = 0
             
         }
