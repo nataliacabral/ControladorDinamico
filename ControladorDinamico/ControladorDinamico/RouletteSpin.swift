@@ -11,21 +11,26 @@ import SpriteKit
 
 class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
 {
+    var lastUpdateTime:NSTimeInterval
     var lastRotationPoint:CGPoint?
+    var secondLastRotationPoint:CGPoint?
     let rouletteSpinTexture:SKTexture = SKTexture(imageNamed: "roulette_spinningpart.png")
     
     override init()
     {
+        lastUpdateTime = 0
         super.init()
         self.texture = rouletteSpinTexture
     }
     
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
+        lastUpdateTime = 0
         super.init(texture: texture, color: color, size: size)
     }
     
     required init(coder aDecoder: NSCoder) {
+        lastUpdateTime = 0
         super.init()
     }
     
@@ -44,8 +49,22 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
     }
     
     func touchMoved(position: CGPoint) {
-        lastRotationPoint = position;
+        let date = NSDate()
+        let timestamp = date.timeIntervalSince1970
+        var timeElapsed:NSTimeInterval = 0
+        if (lastUpdateTime > 0) {
+            timeElapsed = timestamp - lastUpdateTime
+            if (timeElapsed > 0.1) {
+                secondLastRotationPoint = lastRotationPoint;
+                lastRotationPoint = position;
+                lastUpdateTime = timestamp
+            }
+        }
+        else {
+            lastUpdateTime = timestamp
+        }
         let convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
+
         self.moveToPosition(convertedPoint)
     }
     
@@ -54,9 +73,7 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
         
         if (!rouletteObj.touchedSpin) {
             
-            
-            
-            var difference = CGPoint(x:position.x - lastRotationPoint!.x, y:position.y - lastRotationPoint!.y)
+            var difference = CGPoint(x:lastRotationPoint!.x - secondLastRotationPoint!.x, y:lastRotationPoint!.y - secondLastRotationPoint!.y)
             var convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
             
             var impulse = CGFloat(0)
@@ -97,8 +114,22 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
                 impulse += difference.y
             }
             
-            impulse = impulse / 5
-            self.physicsBody?.applyAngularImpulse(impulse)
+            // Normalize time
+            
+            let date = NSDate()
+            let timestamp = date.timeIntervalSince1970
+            var timeElapsed:NSTimeInterval = 0
+            if (lastUpdateTime > 0) {
+                timeElapsed = timestamp - lastUpdateTime
+            }
+            
+            let normalizedImpulse = Double(impulse) / 30
+            self.physicsBody?.applyAngularImpulse(CGFloat(normalizedImpulse))
+            NSLog("impulse %f", Float(impulse));
+            NSLog("Time Elapsed %f", Float(timeElapsed));
+            NSLog("normalized %f", Float(normalizedImpulse));
+            
+            
             
             let maxVelocity:CGFloat = 50
             if (self.physicsBody?.angularVelocity > maxVelocity) {
@@ -108,6 +139,7 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
             }
             
             lastRotationPoint = nil
+            lastUpdateTime = 0
             
         }
     }
