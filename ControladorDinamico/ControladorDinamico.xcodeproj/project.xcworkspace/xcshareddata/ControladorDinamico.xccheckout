@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>B5FC8E5A-C29D-4340-8A34-785619E71577</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>ControladorDinamico</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>EFEC89F4DC820FEB456041AEDA8FE0C0F0AE9DAA</key>
 		<string>https://github.com/nataliacabral/ControladorDinamico.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ControladorDinamico/ControladorDinamico.xcodeproj/project.xcworkspace</string>
+	<string>ControladorDinamico/ControladorDinamico.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>EFEC89F4DC820FEB456041AEDA8FE0C0F0AE9DAA</key>

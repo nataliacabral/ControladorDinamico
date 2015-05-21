@@ -51,12 +51,6 @@
 		259682DA1A38E17500101AE2 /* menubutton_modulator.png in Resources */ = {isa = PBXBuildFile; fileRef = 259682D41A38E17500101AE2 /* menubutton_modulator.png */; };
 		259682DB1A38E17500101AE2 /* menubutton_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 259682D51A38E17500101AE2 /* menubutton_play.png */; };
 		259682DC1A38E17500101AE2 /* menubutton_save.png in Resources */ = {isa = PBXBuildFile; fileRef = 259682D61A38E17500101AE2 /* menubutton_save.png */; };
-		2599ED761AA5102500A0DC4F /* icon_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 2599ED701AA5102500A0DC4F /* icon_29.png */; };
-		2599ED771AA5102500A0DC4F /* icon_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 2599ED711AA5102500A0DC4F /* icon_40.png */; };
-		2599ED781AA5102500A0DC4F /* icon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 2599ED721AA5102500A0DC4F /* icon_58.png */; };
-		2599ED791AA5102500A0DC4F /* icon_76.png in Resources */ = {isa = PBXBuildFile; fileRef = 2599ED731AA5102500A0DC4F /* icon_76.png */; };
-		2599ED7A1AA5102500A0DC4F /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 2599ED741AA5102500A0DC4F /* icon_80.png */; };
-		2599ED7B1AA5102500A0DC4F /* icon_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 2599ED751AA5102500A0DC4F /* icon_152.png */; };
 		259B90A119F96D1400737E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A019F96D1400737E04 /* AppDelegate.swift */; };
 		259B90A319F96D1400737E04 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90A219F96D1400737E04 /* ProjectViewController.swift */; };
 		259B90B719F96D1400737E04 /* ControladorDinamicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B90B619F96D1400737E04 /* ControladorDinamicoTests.swift */; };
@@ -124,6 +118,12 @@
 		25DAE6A31A632AE700D5E86C /* slider_horizontal_track.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE69F1A632AE700D5E86C /* slider_horizontal_track.png */; };
 		25DAE6A41A632AE700D5E86C /* slider_horizontal.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE6A01A632AE700D5E86C /* slider_horizontal.png */; };
 		490120CF1A1E7BC200F3E653 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490120CE1A1E7BC200F3E653 /* AVFoundation.framework */; };
+		491563E91B0DF92A00CEA3D4 /* icone_tocada_v2_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 491563E31B0DF92A00CEA3D4 /* icone_tocada_v2_152.png */; };
+		491563EA1B0DF92A00CEA3D4 /* icone_tocada_v2_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 491563E41B0DF92A00CEA3D4 /* icone_tocada_v2_80.png */; };
+		491563EB1B0DF92A00CEA3D4 /* icone_tocada_v2_76.png in Resources */ = {isa = PBXBuildFile; fileRef = 491563E51B0DF92A00CEA3D4 /* icone_tocada_v2_76.png */; };
+		491563EC1B0DF92A00CEA3D4 /* icone_tocada_v2_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 491563E61B0DF92A00CEA3D4 /* icone_tocada_v2_58.png */; };
+		491563ED1B0DF92A00CEA3D4 /* icone_tocada_v2_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 491563E71B0DF92A00CEA3D4 /* icone_tocada_v2_40.png */; };
+		491563EE1B0DF92A00CEA3D4 /* icone_tocada_v2_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 491563E81B0DF92A00CEA3D4 /* icone_tocada_v2_29.png */; };
 		4918FC731A22AEB7007E1F64 /* DelayModulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918FC721A22AEB7007E1F64 /* DelayModulator.swift */; };
 		4918FC751A22B09A007E1F64 /* EQModulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918FC741A22B09A007E1F64 /* EQModulator.swift */; };
 		491EECC41A18E31700F33D50 /* SliderHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491EECC31A18E31700F33D50 /* SliderHandle.swift */; };
@@ -237,12 +237,6 @@
 		259682D41A38E17500101AE2 /* menubutton_modulator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubutton_modulator.png; path = images/Menu/menubutton_modulator.png; sourceTree = "<group>"; };
 		259682D51A38E17500101AE2 /* menubutton_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubutton_play.png; path = images/Menu/menubutton_play.png; sourceTree = "<group>"; };
 		259682D61A38E17500101AE2 /* menubutton_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubutton_save.png; path = images/Menu/menubutton_save.png; sourceTree = "<group>"; };
-		2599ED701AA5102500A0DC4F /* icon_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_29.png; path = icon/icon_29.png; sourceTree = "<group>"; };
-		2599ED711AA5102500A0DC4F /* icon_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_40.png; path = icon/icon_40.png; sourceTree = "<group>"; };
-		2599ED721AA5102500A0DC4F /* icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_58.png; path = icon/icon_58.png; sourceTree = "<group>"; };
-		2599ED731AA5102500A0DC4F /* icon_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_76.png; path = icon/icon_76.png; sourceTree = "<group>"; };
-		2599ED741AA5102500A0DC4F /* icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_80.png; path = icon/icon_80.png; sourceTree = "<group>"; };
-		2599ED751AA5102500A0DC4F /* icon_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_152.png; path = icon/icon_152.png; sourceTree = "<group>"; };
 		259B909B19F96D1400737E04 /* Tocada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tocada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259B909F19F96D1400737E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		259B90A019F96D1400737E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -316,6 +310,12 @@
 		25DAE69F1A632AE700D5E86C /* slider_horizontal_track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider_horizontal_track.png; sourceTree = "<group>"; };
 		25DAE6A01A632AE700D5E86C /* slider_horizontal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider_horizontal.png; sourceTree = "<group>"; };
 		490120CE1A1E7BC200F3E653 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		491563E31B0DF92A00CEA3D4 /* icone_tocada_v2_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tocada_v2_152.png; sourceTree = "<group>"; };
+		491563E41B0DF92A00CEA3D4 /* icone_tocada_v2_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tocada_v2_80.png; sourceTree = "<group>"; };
+		491563E51B0DF92A00CEA3D4 /* icone_tocada_v2_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tocada_v2_76.png; sourceTree = "<group>"; };
+		491563E61B0DF92A00CEA3D4 /* icone_tocada_v2_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tocada_v2_58.png; sourceTree = "<group>"; };
+		491563E71B0DF92A00CEA3D4 /* icone_tocada_v2_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tocada_v2_40.png; sourceTree = "<group>"; };
+		491563E81B0DF92A00CEA3D4 /* icone_tocada_v2_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tocada_v2_29.png; sourceTree = "<group>"; };
 		4918FC721A22AEB7007E1F64 /* DelayModulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayModulator.swift; sourceTree = "<group>"; };
 		4918FC741A22B09A007E1F64 /* EQModulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EQModulator.swift; sourceTree = "<group>"; };
 		491EECC31A18E31700F33D50 /* SliderHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderHandle.swift; sourceTree = "<group>"; };
@@ -419,15 +419,10 @@
 		2557DBCE1A13FCB20003AB5D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				491563E21B0DF92200CEA3D4 /* icons */,
 				25332ADC1AF805B4000500D9 /* credits.png */,
-				2599ED701AA5102500A0DC4F /* icon_29.png */,
 				25BBED781ADF2DE300A2CDE0 /* sponsors.png */,
-				2599ED711AA5102500A0DC4F /* icon_40.png */,
-				2599ED721AA5102500A0DC4F /* icon_58.png */,
-				2599ED731AA5102500A0DC4F /* icon_76.png */,
 				2518B9B71ACA1B0D0030A7AA /* edit_empty.jpg */,
-				2599ED741AA5102500A0DC4F /* icon_80.png */,
-				2599ED751AA5102500A0DC4F /* icon_152.png */,
 				25A30AFD1AA398C400922562 /* cubes1.png */,
 				25A30AFE1AA398C400922562 /* cubes2.png */,
 				25A30AFF1AA398C400922562 /* cubes3.png */,
@@ -651,6 +646,19 @@
 			name = ProjectsView;
 			sourceTree = "<group>";
 		};
+		491563E21B0DF92200CEA3D4 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				491563E31B0DF92A00CEA3D4 /* icone_tocada_v2_152.png */,
+				491563E41B0DF92A00CEA3D4 /* icone_tocada_v2_80.png */,
+				491563E51B0DF92A00CEA3D4 /* icone_tocada_v2_76.png */,
+				491563E61B0DF92A00CEA3D4 /* icone_tocada_v2_58.png */,
+				491563E71B0DF92A00CEA3D4 /* icone_tocada_v2_40.png */,
+				491563E81B0DF92A00CEA3D4 /* icone_tocada_v2_29.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
 		498113F21ABCCD2B000F8E80 /* SoundNotes */ = {
 			isa = PBXGroup;
 			children = (
@@ -858,10 +866,13 @@
 				49B09B6E1AC9AC4B003E5F5E /* A#3.aif in Resources */,
 				49B09B6F1AC9AC4B003E5F5E /* A3.aif in Resources */,
 				49B09B701AC9AC4B003E5F5E /* G#3.aif in Resources */,
+				491563EA1B0DF92A00CEA3D4 /* icone_tocada_v2_80.png in Resources */,
 				49B09B711AC9AC4B003E5F5E /* G3.aif in Resources */,
 				49B09B721AC9AC4B003E5F5E /* F#3.aif in Resources */,
 				49B09B731AC9AC4B003E5F5E /* F3.aif in Resources */,
+				491563EE1B0DF92A00CEA3D4 /* icone_tocada_v2_29.png in Resources */,
 				49B09B741AC9AC4B003E5F5E /* E3.aif in Resources */,
+				491563EB1B0DF92A00CEA3D4 /* icone_tocada_v2_76.png in Resources */,
 				49B09B751AC9AC4B003E5F5E /* D#3.aif in Resources */,
 				49B09B761AC9AC4B003E5F5E /* D3.aif in Resources */,
 				49B09B771AC9AC4B003E5F5E /* C#3.aif in Resources */,
@@ -873,7 +884,6 @@
 				25DAE6851A61CB5A00D5E86C /* tocada_background.png in Resources */,
 				25B5211B1A3F9C6B00735263 /* savestate_button3.png in Resources */,
 				25B520F91A3F757900735263 /* button2_selected.png in Resources */,
-				2599ED761AA5102500A0DC4F /* icon_29.png in Resources */,
 				25B521071A3F8CAA00735263 /* button5_selected.png in Resources */,
 				2505F3E71AA8C54100C030C7 /* Menu in Resources */,
 				25A30B011AA398C400922562 /* cubes2.png in Resources */,
@@ -886,14 +896,12 @@
 				25B521021A3F757900735263 /* button7_selected.png in Resources */,
 				2505F3E91AA8C60F00C030C7 /* menu_play_background.png in Resources */,
 				25A30B001AA398C400922562 /* cubes1.png in Resources */,
-				2599ED791AA5102500A0DC4F /* icon_76.png in Resources */,
 				25B521011A3F757900735263 /* button6.png in Resources */,
 				25DAE6A31A632AE700D5E86C /* slider_horizontal_track.png in Resources */,
 				25DAE6911A61D4EF00D5E86C /* bt_open_selected.png in Resources */,
 				25AF9BE21A265FE400CED1CD /* roulette_frame.png in Resources */,
 				25DAE6941A61D4EF00D5E86C /* bt_remve.png in Resources */,
 				2565333F1A44619C009F4A73 /* spring_icon.png in Resources */,
-				2599ED7A1AA5102500A0DC4F /* icon_80.png in Resources */,
 				25B5211F1A3FA61100735263 /* LaunchImage.jpg in Resources */,
 				25DAE6A21A632AE700D5E86C /* slider_horizontal_icon.png in Resources */,
 				492A42C61A2D4AFD00731F26 /* piano2.sf2 in Resources */,
@@ -908,9 +916,9 @@
 				25B521051A3F757900735263 /* button8.png in Resources */,
 				251174531A291CD7005E37C5 /* thermal_frame.png in Resources */,
 				25DAE68F1A61D4EF00D5E86C /* bt_add_selected.png in Resources */,
-				2599ED781AA5102500A0DC4F /* icon_58.png in Resources */,
 				25BBED791ADF2DE300A2CDE0 /* sponsors.png in Resources */,
 				25B520FB1A3F757900735263 /* button3_selected.png in Resources */,
+				491563E91B0DF92A00CEA3D4 /* icone_tocada_v2_152.png in Resources */,
 				25B520FE1A3F757900735263 /* button4.png in Resources */,
 				25A30B021AA398C400922562 /* cubes3.png in Resources */,
 				25495E7F1ABF6104005CB787 /* NewProjectView.xib in Resources */,
@@ -919,6 +927,7 @@
 				25DAE6961A61E14E00D5E86C /* bin.png in Resources */,
 				25B5211C1A3F9C6B00735263 /* savestate_button4_selected.png in Resources */,
 				25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */,
+				491563ED1B0DF92A00CEA3D4 /* icone_tocada_v2_40.png in Resources */,
 				259682DA1A38E17500101AE2 /* menubutton_modulator.png in Resources */,
 				49EC59F91A2006C800A36D2C /* piano.sf2 in Resources */,
 				25B521161A3F9C6B00735263 /* savestate_button1_selected.png in Resources */,
@@ -932,7 +941,6 @@
 				25B520FD1A3F757900735263 /* button4_selected.png in Resources */,
 				25B521191A3F9C6B00735263 /* savestate_button2.png in Resources */,
 				25B520FC1A3F757900735263 /* button3.png in Resources */,
-				2599ED771AA5102500A0DC4F /* icon_40.png in Resources */,
 				259682D91A38E17500101AE2 /* menubutton_button.png in Resources */,
 				2505F3E51AA8231E00C030C7 /* menu_background.png in Resources */,
 				2557DBF41A1406B80003AB5D /* thermal.png in Resources */,
@@ -941,6 +949,7 @@
 				25DAE6901A61D4EF00D5E86C /* bt_add.png in Resources */,
 				25A93F6C1A1A9B7D00C9F145 /* roulette_background.png in Resources */,
 				2557DBDD1A13FCB20003AB5D /* CANVAS.psd in Resources */,
+				491563EC1B0DF92A00CEA3D4 /* icone_tocada_v2_58.png in Resources */,
 				259682DB1A38E17500101AE2 /* menubutton_play.png in Resources */,
 				25B520F81A3F757900735263 /* button1.png in Resources */,
 				251174521A291CD7005E37C5 /* thermal_background.png in Resources */,
@@ -951,7 +960,6 @@
 				25AF9BEC1A267BDE00CED1CD /* spring_background.png in Resources */,
 				25B5210B1A3F8EEB00735263 /* modulatorDrawer.png in Resources */,
 				259B90C919F9756200737E04 /* Images-3.xcassets in Resources */,
-				2599ED7B1AA5102500A0DC4F /* icon_152.png in Resources */,
 				2557DBE41A13FE940003AB5D /* button.png in Resources */,
 				25AF9BE31A265FE400CED1CD /* roullete_button.png in Resources */,
 				25DAE6A11A632AE700D5E86C /* slider_horizontal_handle.png in Resources */,
