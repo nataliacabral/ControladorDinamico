@@ -22,6 +22,8 @@ class EQModulator : NodeModulator
     {
         let nodeParam = node.bands[0] as AVAudioUnitEQFilterParameters
         nodeParam.bypass = false
+//        nodeParam.frequency = 5000.0
+        nodeParam.gain = -10
         nodeParam.filterType = AVAudioUnitEQFilterType.LowPass
     }
     
