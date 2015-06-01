@@ -166,6 +166,17 @@
 		49B09B781AC9AC4B003E5F5E /* C3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 49B09B601AC9AB0B003E5F5E /* C3.aif */; };
 		49C0152F1A1D316900DBAC0D /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0152E1A1D316900DBAC0D /* SoundManager.swift */; };
 		49DD5D081A2EA1880001252C /* guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 49DD5D071A2EA1880001252C /* guitar.sf2 */; };
+		49E9D85E1B1CF1EE009DB5D0 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E9D8531B1CF1EE009DB5D0 /* 1.png */; };
+		49E9D85F1B1CF1EE009DB5D0 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E9D8541B1CF1EE009DB5D0 /* 2.png */; };
+		49E9D8601B1CF1EE009DB5D0 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E9D8551B1CF1EE009DB5D0 /* 3.png */; };
+		49E9D8611B1CF1EE009DB5D0 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E9D8561B1CF1EE009DB5D0 /* 4.png */; };
+		49E9D8621B1CF1EE009DB5D0 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E9D8571B1CF1EE009DB5D0 /* 5.png */; };
+		49E9D8631B1CF1EE009DB5D0 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E9D8581B1CF1EE009DB5D0 /* 6.png */; };
+		49E9D8641B1CF1EE009DB5D0 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E9D8591B1CF1EE009DB5D0 /* 7.png */; };
+		49E9D8651B1CF1EE009DB5D0 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E9D85A1B1CF1EE009DB5D0 /* 8.png */; };
+		49E9D8661B1CF1EE009DB5D0 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E9D85B1B1CF1EE009DB5D0 /* 9.png */; };
+		49E9D8671B1CF1EE009DB5D0 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E9D85C1B1CF1EE009DB5D0 /* 10.png */; };
+		49E9D8681B1CF1EE009DB5D0 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E9D85D1B1CF1EE009DB5D0 /* 11.png */; };
 		49EC59F91A2006C800A36D2C /* piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 49EC59F81A2006C800A36D2C /* piano.sf2 */; };
 		49EC59FB1A2009F200A36D2C /* ModulatorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC59FA1A2009F200A36D2C /* ModulatorNode.swift */; };
 		49EC59FD1A2009FA00A36D2C /* Sampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC59FC1A2009FA00A36D2C /* Sampler.swift */; };
@@ -358,6 +369,17 @@
 		49C0152E1A1D316900DBAC0D /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		49C015301A1D31C300DBAC0D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		49DD5D071A2EA1880001252C /* guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = guitar.sf2; sourceTree = "<group>"; };
+		49E9D8531B1CF1EE009DB5D0 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		49E9D8541B1CF1EE009DB5D0 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		49E9D8551B1CF1EE009DB5D0 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		49E9D8561B1CF1EE009DB5D0 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		49E9D8571B1CF1EE009DB5D0 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		49E9D8581B1CF1EE009DB5D0 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
+		49E9D8591B1CF1EE009DB5D0 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
+		49E9D85A1B1CF1EE009DB5D0 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
+		49E9D85B1B1CF1EE009DB5D0 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
+		49E9D85C1B1CF1EE009DB5D0 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
+		49E9D85D1B1CF1EE009DB5D0 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
 		49EC59F81A2006C800A36D2C /* piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = piano.sf2; sourceTree = "<group>"; };
 		49EC59FA1A2009F200A36D2C /* ModulatorNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModulatorNode.swift; sourceTree = "<group>"; };
 		49EC59FC1A2009FA00A36D2C /* Sampler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sampler.swift; sourceTree = "<group>"; };
@@ -419,6 +441,7 @@
 		2557DBCE1A13FCB20003AB5D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				49E9D8521B1CF1E5009DB5D0 /* Help */,
 				491563E21B0DF92200CEA3D4 /* icons */,
 				25332ADC1AF805B4000500D9 /* credits.png */,
 				25BBED781ADF2DE300A2CDE0 /* sponsors.png */,
@@ -723,6 +746,24 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		49E9D8521B1CF1E5009DB5D0 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				49E9D8531B1CF1EE009DB5D0 /* 1.png */,
+				49E9D8541B1CF1EE009DB5D0 /* 2.png */,
+				49E9D8551B1CF1EE009DB5D0 /* 3.png */,
+				49E9D8561B1CF1EE009DB5D0 /* 4.png */,
+				49E9D8571B1CF1EE009DB5D0 /* 5.png */,
+				49E9D8581B1CF1EE009DB5D0 /* 6.png */,
+				49E9D8591B1CF1EE009DB5D0 /* 7.png */,
+				49E9D85A1B1CF1EE009DB5D0 /* 8.png */,
+				49E9D85B1B1CF1EE009DB5D0 /* 9.png */,
+				49E9D85C1B1CF1EE009DB5D0 /* 10.png */,
+				49E9D85D1B1CF1EE009DB5D0 /* 11.png */,
+			);
+			name = Help;
+			sourceTree = "<group>";
+		};
 		49EC59F71A2006C800A36D2C /* SoundFonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -852,6 +893,7 @@
 			files = (
 				49B09B611AC9AC4B003E5F5E /* B4.aif in Resources */,
 				49B09B621AC9AC4B003E5F5E /* A#4.aif in Resources */,
+				49E9D85F1B1CF1EE009DB5D0 /* 2.png in Resources */,
 				49B09B631AC9AC4B003E5F5E /* A4.aif in Resources */,
 				49B09B641AC9AC4B003E5F5E /* G#4.aif in Resources */,
 				49B09B651AC9AC4B003E5F5E /* G4.aif in Resources */,
@@ -871,17 +913,21 @@
 				49B09B721AC9AC4B003E5F5E /* F#3.aif in Resources */,
 				49B09B731AC9AC4B003E5F5E /* F3.aif in Resources */,
 				491563EE1B0DF92A00CEA3D4 /* icone_tocada_v2_29.png in Resources */,
+				49E9D85E1B1CF1EE009DB5D0 /* 1.png in Resources */,
 				49B09B741AC9AC4B003E5F5E /* E3.aif in Resources */,
 				491563EB1B0DF92A00CEA3D4 /* icone_tocada_v2_76.png in Resources */,
 				49B09B751AC9AC4B003E5F5E /* D#3.aif in Resources */,
 				49B09B761AC9AC4B003E5F5E /* D3.aif in Resources */,
+				49E9D8681B1CF1EE009DB5D0 /* 11.png in Resources */,
 				49B09B771AC9AC4B003E5F5E /* C#3.aif in Resources */,
 				49B09B781AC9AC4B003E5F5E /* C3.aif in Resources */,
+				49E9D8621B1CF1EE009DB5D0 /* 5.png in Resources */,
 				498114031ABCCE4C000F8E80 /* Main.storyboard in Resources */,
 				4933E0E91A17F3FE00DDCE0D /* buttonSelected.png in Resources */,
 				25B521041A3F757900735263 /* button8_selected.png in Resources */,
 				25332ADD1AF805B4000500D9 /* credits.png in Resources */,
 				25DAE6851A61CB5A00D5E86C /* tocada_background.png in Resources */,
+				49E9D8651B1CF1EE009DB5D0 /* 8.png in Resources */,
 				25B5211B1A3F9C6B00735263 /* savestate_button3.png in Resources */,
 				25B520F91A3F757900735263 /* button2_selected.png in Resources */,
 				25B521071A3F8CAA00735263 /* button5_selected.png in Resources */,
@@ -923,20 +969,24 @@
 				25A30B021AA398C400922562 /* cubes3.png in Resources */,
 				25495E7F1ABF6104005CB787 /* NewProjectView.xib in Resources */,
 				2565333C1A44619C009F4A73 /* menubutton_edit.png in Resources */,
+				49E9D8601B1CF1EE009DB5D0 /* 3.png in Resources */,
 				2557DBEE1A14067B0003AB5D /* spring.png in Resources */,
 				25DAE6961A61E14E00D5E86C /* bin.png in Resources */,
 				25B5211C1A3F9C6B00735263 /* savestate_button4_selected.png in Resources */,
 				25A93F6D1A1A9B7D00C9F145 /* roulette_spinningpart.png in Resources */,
+				49E9D8631B1CF1EE009DB5D0 /* 6.png in Resources */,
 				491563ED1B0DF92A00CEA3D4 /* icone_tocada_v2_40.png in Resources */,
 				259682DA1A38E17500101AE2 /* menubutton_modulator.png in Resources */,
 				49EC59F91A2006C800A36D2C /* piano.sf2 in Resources */,
 				25B521161A3F9C6B00735263 /* savestate_button1_selected.png in Resources */,
 				4933E0F11A18005700DDCE0D /* sliderTrack.png in Resources */,
 				259682D81A38E17500101AE2 /* menubutton_projects.png in Resources */,
+				49E9D8671B1CF1EE009DB5D0 /* 10.png in Resources */,
 				256533401A44619C009F4A73 /* thermal_icon.png in Resources */,
 				49DD5D081A2EA1880001252C /* guitar.sf2 in Resources */,
 				25B521181A3F9C6B00735263 /* savestate_button2_selected.png in Resources */,
 				259682DC1A38E17500101AE2 /* menubutton_save.png in Resources */,
+				49E9D8661B1CF1EE009DB5D0 /* 9.png in Resources */,
 				25B5211D1A3F9C6B00735263 /* savestate_button4.png in Resources */,
 				25B520FD1A3F757900735263 /* button4_selected.png in Resources */,
 				25B521191A3F9C6B00735263 /* savestate_button2.png in Resources */,
@@ -946,6 +996,7 @@
 				2557DBF41A1406B80003AB5D /* thermal.png in Resources */,
 				25DAE6841A61CB5A00D5E86C /* bt_tutorial.png in Resources */,
 				259682D71A38E17500101AE2 /* menubutton_about.png in Resources */,
+				49E9D8611B1CF1EE009DB5D0 /* 4.png in Resources */,
 				25DAE6901A61D4EF00D5E86C /* bt_add.png in Resources */,
 				25A93F6C1A1A9B7D00C9F145 /* roulette_background.png in Resources */,
 				2557DBDD1A13FCB20003AB5D /* CANVAS.psd in Resources */,
@@ -959,6 +1010,7 @@
 				25DAE6821A61CB5A00D5E86C /* bt_play.png in Resources */,
 				25AF9BEC1A267BDE00CED1CD /* spring_background.png in Resources */,
 				25B5210B1A3F8EEB00735263 /* modulatorDrawer.png in Resources */,
+				49E9D8641B1CF1EE009DB5D0 /* 7.png in Resources */,
 				259B90C919F9756200737E04 /* Images-3.xcassets in Resources */,
 				2557DBE41A13FE940003AB5D /* button.png in Resources */,
 				25AF9BE31A265FE400CED1CD /* roullete_button.png in Resources */,

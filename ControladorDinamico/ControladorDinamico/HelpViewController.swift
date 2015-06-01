@@ -16,10 +16,17 @@ class HelpViewController : UIViewController, UIPageViewControllerDataSource {
     private var pageViewController: UIPageViewController?
     
     // Initialize it right away here
-    private let contentImages = ["button5_selected.png",
-        "button4_selected.png",
-        "button3_selected.png",
-        "button2_selected.png"];
+    private let contentImages = ["1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"];
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
