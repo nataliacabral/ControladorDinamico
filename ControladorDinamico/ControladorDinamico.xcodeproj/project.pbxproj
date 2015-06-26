@@ -117,6 +117,8 @@
 		25DAE6A21A632AE700D5E86C /* slider_horizontal_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE69E1A632AE700D5E86C /* slider_horizontal_icon.png */; };
 		25DAE6A31A632AE700D5E86C /* slider_horizontal_track.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE69F1A632AE700D5E86C /* slider_horizontal_track.png */; };
 		25DAE6A41A632AE700D5E86C /* slider_horizontal.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DAE6A01A632AE700D5E86C /* slider_horizontal.png */; };
+		44DA1E151B3DDAB500C7FDB1 /* buttonExit.png in Resources */ = {isa = PBXBuildFile; fileRef = 44DA1E141B3DDAB500C7FDB1 /* buttonExit.png */; };
+		44DA1E171B3DDB9700C7FDB1 /* buttonExit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44DA1E161B3DDB9700C7FDB1 /* buttonExit@2x.png */; };
 		490120CF1A1E7BC200F3E653 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490120CE1A1E7BC200F3E653 /* AVFoundation.framework */; };
 		491563E91B0DF92A00CEA3D4 /* icone_tocada_v2_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 491563E31B0DF92A00CEA3D4 /* icone_tocada_v2_152.png */; };
 		491563EA1B0DF92A00CEA3D4 /* icone_tocada_v2_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 491563E41B0DF92A00CEA3D4 /* icone_tocada_v2_80.png */; };
@@ -248,7 +250,7 @@
 		259682D41A38E17500101AE2 /* menubutton_modulator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubutton_modulator.png; path = images/Menu/menubutton_modulator.png; sourceTree = "<group>"; };
 		259682D51A38E17500101AE2 /* menubutton_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubutton_play.png; path = images/Menu/menubutton_play.png; sourceTree = "<group>"; };
 		259682D61A38E17500101AE2 /* menubutton_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubutton_save.png; path = images/Menu/menubutton_save.png; sourceTree = "<group>"; };
-		259B909B19F96D1400737E04 /* Tocada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tocada.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		259B909B19F96D1400737E04 /* tocada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tocada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259B909F19F96D1400737E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		259B90A019F96D1400737E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		259B90A219F96D1400737E04 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
@@ -320,6 +322,8 @@
 		25DAE69E1A632AE700D5E86C /* slider_horizontal_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider_horizontal_icon.png; sourceTree = "<group>"; };
 		25DAE69F1A632AE700D5E86C /* slider_horizontal_track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider_horizontal_track.png; sourceTree = "<group>"; };
 		25DAE6A01A632AE700D5E86C /* slider_horizontal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider_horizontal.png; sourceTree = "<group>"; };
+		44DA1E141B3DDAB500C7FDB1 /* buttonExit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonExit.png; sourceTree = "<group>"; };
+		44DA1E161B3DDB9700C7FDB1 /* buttonExit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonExit@2x.png"; sourceTree = "<group>"; };
 		490120CE1A1E7BC200F3E653 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		491563E31B0DF92A00CEA3D4 /* icone_tocada_v2_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tocada_v2_152.png; sourceTree = "<group>"; };
 		491563E41B0DF92A00CEA3D4 /* icone_tocada_v2_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tocada_v2_80.png; sourceTree = "<group>"; };
@@ -562,7 +566,7 @@
 		259B909C19F96D1400737E04 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				259B909B19F96D1400737E04 /* Tocada.app */,
+				259B909B19F96D1400737E04 /* tocada.app */,
 				259B90B019F96D1400737E04 /* ControladorDinamicoTests.xctest */,
 			);
 			name = Products;
@@ -581,6 +585,8 @@
 				2557DBCE1A13FCB20003AB5D /* images */,
 				2556636A1A13F95000F6F820 /* SoundObject */,
 				259B90A019F96D1400737E04 /* AppDelegate.swift */,
+				44DA1E141B3DDAB500C7FDB1 /* buttonExit.png */,
+				44DA1E161B3DDB9700C7FDB1 /* buttonExit@2x.png */,
 				259B90A419F96D1400737E04 /* Main.storyboard */,
 				259B90C819F9756200737E04 /* Images-3.xcassets */,
 				259B909E19F96D1400737E04 /* Supporting Files */,
@@ -812,9 +818,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		259B909A19F96D1400737E04 /* Tocada */ = {
+		259B909A19F96D1400737E04 /* tocada */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 259B90BA19F96D1400737E04 /* Build configuration list for PBXNativeTarget "Tocada" */;
+			buildConfigurationList = 259B90BA19F96D1400737E04 /* Build configuration list for PBXNativeTarget "tocada" */;
 			buildPhases = (
 				259B909719F96D1400737E04 /* Sources */,
 				259B909819F96D1400737E04 /* Frameworks */,
@@ -824,9 +830,9 @@
 			);
 			dependencies = (
 			);
-			name = Tocada;
+			name = tocada;
 			productName = ControladorDinamico;
-			productReference = 259B909B19F96D1400737E04 /* Tocada.app */;
+			productReference = 259B909B19F96D1400737E04 /* tocada.app */;
 			productType = "com.apple.product-type.application";
 		};
 		259B90AF19F96D1400737E04 /* ControladorDinamicoTests */ = {
@@ -854,7 +860,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0600;
-				ORGANIZATIONNAME = "Natália Cabral";
+				ORGANIZATIONNAME = "Filipe Calegario";
 				TargetAttributes = {
 					259B909A19F96D1400737E04 = {
 						CreatedOnToolsVersion = 6.0;
@@ -880,7 +886,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				259B909A19F96D1400737E04 /* Tocada */,
+				259B909A19F96D1400737E04 /* tocada */,
 				259B90AF19F96D1400737E04 /* ControladorDinamicoTests */,
 			);
 		};
@@ -924,6 +930,7 @@
 				49E9D8621B1CF1EE009DB5D0 /* 5.png in Resources */,
 				498114031ABCCE4C000F8E80 /* Main.storyboard in Resources */,
 				4933E0E91A17F3FE00DDCE0D /* buttonSelected.png in Resources */,
+				44DA1E151B3DDAB500C7FDB1 /* buttonExit.png in Resources */,
 				25B521041A3F757900735263 /* button8_selected.png in Resources */,
 				25332ADD1AF805B4000500D9 /* credits.png in Resources */,
 				25DAE6851A61CB5A00D5E86C /* tocada_background.png in Resources */,
@@ -968,6 +975,7 @@
 				25B520FE1A3F757900735263 /* button4.png in Resources */,
 				25A30B021AA398C400922562 /* cubes3.png in Resources */,
 				25495E7F1ABF6104005CB787 /* NewProjectView.xib in Resources */,
+				44DA1E171B3DDB9700C7FDB1 /* buttonExit@2x.png in Resources */,
 				2565333C1A44619C009F4A73 /* menubutton_edit.png in Resources */,
 				49E9D8601B1CF1EE009DB5D0 /* 3.png in Resources */,
 				2557DBEE1A14067B0003AB5D /* spring.png in Resources */,
@@ -1104,7 +1112,7 @@
 /* Begin PBXTargetDependency section */
 		259B90B219F96D1400737E04 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 259B909A19F96D1400737E04 /* Tocada */;
+			target = 259B909A19F96D1400737E04 /* tocada */;
 			targetProxy = 259B90B119F96D1400737E04 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1279,7 +1287,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		259B90BA19F96D1400737E04 /* Build configuration list for PBXNativeTarget "Tocada" */ = {
+		259B90BA19F96D1400737E04 /* Build configuration list for PBXNativeTarget "tocada" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				259B90BB19F96D1400737E04 /* Debug */,

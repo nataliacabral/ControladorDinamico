@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uBR-PN-tVm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uBR-PN-tVm">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Project View Controller-->
         <scene sceneID="aok-V5-sXn">
             <objects>
-                <viewController id="0Ip-BT-yIP" customClass="ProjectViewController" customModule="Tocada" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0Ip-BT-yIP" customClass="ProjectViewController" customModule="tocada" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iwv-ZU-5Qk"/>
                         <viewControllerLayoutGuide type="bottom" id="V2p-8n-cgb"/>
@@ -96,7 +96,7 @@
         <!--Splash View Controller-->
         <scene sceneID="z1g-tk-Yaw">
             <objects>
-                <viewController id="lhv-vM-DR0" customClass="SplashViewController" customModule="Tocada" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lhv-vM-DR0" customClass="SplashViewController" customModule="tocada" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rv0-wv-7Ym"/>
                         <viewControllerLayoutGuide type="bottom" id="V9B-nv-scT"/>
@@ -129,7 +129,7 @@
         <!--Home View Controller-->
         <scene sceneID="tp0-W4-Wge">
             <objects>
-                <viewController id="f57-UM-IvV" customClass="HomeViewController" customModule="Tocada" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="f57-UM-IvV" customClass="HomeViewController" customModule="tocada" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yZZ-3G-cRm"/>
                         <viewControllerLayoutGuide type="bottom" id="l3r-SI-iDK"/>
@@ -205,7 +205,7 @@
         <!--Edit View Controller-->
         <scene sceneID="GT2-h3-Noc">
             <objects>
-                <viewController id="kdB-qw-FxK" customClass="EditViewController" customModule="Tocada" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kdB-qw-FxK" customClass="EditViewController" customModule="tocada" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N8w-J5-7fI"/>
                         <viewControllerLayoutGuide type="bottom" id="4SX-PK-wvz"/>
@@ -233,7 +233,7 @@
         <!--Play View Controller-->
         <scene sceneID="SrC-89-hWn">
             <objects>
-                <viewController id="Cir-OV-m12" customClass="PlayViewController" customModule="Tocada" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Cir-OV-m12" customClass="PlayViewController" customModule="tocada" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aoQ-lZ-B0J"/>
                         <viewControllerLayoutGuide type="bottom" id="czS-Gq-wKq"/>
@@ -263,7 +263,7 @@
         <!--Help View Controller-->
         <scene sceneID="voA-E3-ipw">
             <objects>
-                <viewController id="e8v-Kc-nap" customClass="HelpViewController" customModule="Tocada" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="e8v-Kc-nap" customClass="HelpViewController" customModule="tocada" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J8X-Mo-0Rg"/>
                         <viewControllerLayoutGuide type="bottom" id="7TR-bi-o0d"/>
@@ -272,11 +272,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yxi-pz-9WF">
+                            <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yxi-pz-9WF" userLabel="x">
                                 <rect key="frame" x="978" y="28" width="30" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <state key="normal" title="X">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title=" " image="buttonExit.png">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -292,12 +291,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdg-ga-DI1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1194" y="1101"/>
+            <point key="canvasLocation" x="1253" y="1157"/>
         </scene>
         <!--Help Page View Controller-->
         <scene sceneID="hwt-hC-W4p">
             <objects>
-                <viewController storyboardIdentifier="PageContentViewController" id="tAQ-G4-Ros" customClass="HelpPageViewController" customModule="Tocada" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageContentViewController" id="tAQ-G4-Ros" customClass="HelpPageViewController" customModule="tocada" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F8b-4d-52I"/>
                         <viewControllerLayoutGuide type="bottom" id="eVu-CQ-3KE"/>
@@ -306,22 +305,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tgD-dJ-fb5">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tgD-dJ-fb5">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="tgD-dJ-fb5" secondAttribute="trailing" id="1st-Fb-5Nh"/>
                             <constraint firstItem="eVu-CQ-3KE" firstAttribute="top" secondItem="tgD-dJ-fb5" secondAttribute="bottom" id="6Hn-3R-Yys"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tgD-dJ-fb5" secondAttribute="trailing" constant="-16" id="NFc-tB-WuI"/>
-                            <constraint firstItem="tgD-dJ-fb5" firstAttribute="top" secondItem="KBs-9k-v1u" secondAttribute="topMargin" id="Nmo-g7-bIg"/>
-                            <constraint firstItem="tgD-dJ-fb5" firstAttribute="leading" secondItem="KBs-9k-v1u" secondAttribute="leadingMargin" constant="-16" id="Nqn-4V-MJH"/>
-                            <constraint firstItem="eVu-CQ-3KE" firstAttribute="top" secondItem="tgD-dJ-fb5" secondAttribute="bottom" id="U5M-gh-v9S"/>
+                            <constraint firstItem="tgD-dJ-fb5" firstAttribute="leading" secondItem="KBs-9k-v1u" secondAttribute="leading" id="7QM-xc-MSr"/>
+                            <constraint firstItem="tgD-dJ-fb5" firstAttribute="bottom" secondItem="eVu-CQ-3KE" secondAttribute="top" id="9Nu-AD-7Aj"/>
+                            <constraint firstAttribute="trailing" secondItem="tgD-dJ-fb5" secondAttribute="trailing" id="LiA-jL-hvv"/>
                             <constraint firstItem="tgD-dJ-fb5" firstAttribute="top" secondItem="KBs-9k-v1u" secondAttribute="topMargin" id="VZc-9d-vj5"/>
                             <constraint firstItem="tgD-dJ-fb5" firstAttribute="leading" secondItem="KBs-9k-v1u" secondAttribute="leadingMargin" id="fNR-UY-S30"/>
                             <constraint firstItem="tgD-dJ-fb5" firstAttribute="leading" secondItem="KBs-9k-v1u" secondAttribute="leadingMargin" id="in3-JT-e14"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tgD-dJ-fb5" secondAttribute="trailing" id="jYS-xA-xpD"/>
+                            <constraint firstItem="tgD-dJ-fb5" firstAttribute="top" secondItem="F8b-4d-52I" secondAttribute="bottom" id="x7M-4m-PSD"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -354,6 +353,7 @@
         <image name="bt_remve.png" width="177" height="179"/>
         <image name="bt_tutorial.png" width="141" height="42"/>
         <image name="bt_tutorial_selected.png" width="141" height="42"/>
+        <image name="buttonExit.png" width="30" height="30"/>
         <image name="sponsors.png" width="2048" height="1536"/>
         <image name="tocada_background.png" width="2048" height="1536"/>
     </resources>
