@@ -13,13 +13,13 @@ class SplashViewController : UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("updateSplash"), userInfo: nil, repeats: false)
+        var timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("updateSplash"), userInfo: nil, repeats: false)
     }
     
     
     func updateSplash() {
         self.content?.image = UIImage(named: "credits.png")
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("closeSplash"), userInfo: nil, repeats: false)
+        var timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("closeSplash"), userInfo: nil, repeats: false)
     }
     
     func closeSplash() {

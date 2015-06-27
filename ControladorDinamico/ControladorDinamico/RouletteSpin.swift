@@ -14,11 +14,13 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
     var lastUpdateTime:NSTimeInterval
     var lastRotationPoint:CGPoint?
     var secondLastRotationPoint:CGPoint?
+    var onlyOneTouchFlag:boolean_t
     let rouletteSpinTexture:SKTexture = SKTexture(imageNamed: "roulette_spinningpart.png")
     
     override init()
     {
         lastUpdateTime = 0
+        onlyOneTouchFlag = 0
         super.init()
         self.texture = rouletteSpinTexture
     }
@@ -26,11 +28,13 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
     override init(texture: SKTexture!, color: UIColor!, size: CGSize)
     {
         lastUpdateTime = 0
+        onlyOneTouchFlag = 0
         super.init(texture: texture, color: color, size: size)
     }
     
     required init(coder aDecoder: NSCoder) {
         lastUpdateTime = 0
+        onlyOneTouchFlag = 0
         super.init()
     }
     
@@ -43,113 +47,119 @@ class RouletteSpin : SKSpriteNode, Touchable, ModulatorNode
     func touchStarted(position:CGPoint)
     {
         lastRotationPoint = position
+        onlyOneTouchFlag = 1
         let convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
         self.moveToPosition(convertedPoint)
         self.physicsBody?.angularVelocity = 0
     }
     
     func touchMoved(position: CGPoint) {
-        let date = NSDate()
-        let timestamp = date.timeIntervalSince1970
-        var timeElapsed:NSTimeInterval = 0
-        if (lastUpdateTime > 0) {
-            timeElapsed = timestamp - lastUpdateTime
-            if (timeElapsed > 0.1) {
-                secondLastRotationPoint = lastRotationPoint;
-                lastRotationPoint = position;
-                lastUpdateTime = timestamp
-            }
-        }
-        else {
-            lastUpdateTime = timestamp
-        }
-        let convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
-
-        self.moveToPosition(convertedPoint)
-    }
-    
-    func touchEnded(position: CGPoint) {
-        let rouletteObj:RouletteSoundObject = self.parent! as RouletteSoundObject
-        
-        if (!rouletteObj.touchedSpin) {
-            
-            var point1:CGPoint? = secondLastRotationPoint
-            var point2:CGPoint? = lastRotationPoint
-            if (point1 == nil) {
-                point1 = lastRotationPoint
-                point2 = position
-            }
-            
-            var difference = CGPoint(x:point2!.x - point1!.x, y:point2!.y - point1!.y)
-            var convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
-            
-            var impulse = CGFloat(0)
-            
-            /*
-            |
-            |
-            Q1     |      Q4
-            |
-            -------------------------
-            |
-            Q2     |      Q3
-            |
-            |
-            
-            */
-            
-            // Magic calculations below, that may or may not have something to do with the quadrants above
-            
-            if (convertedPoint.x < 0 && convertedPoint.y >= 0) {
-                // Q1
-                impulse += -difference.x
-                impulse += -difference.y
-            }
-            else if (convertedPoint.x < 0 && convertedPoint.y < 0) {
-                // Q2
-                impulse += difference.x
-                impulse += -difference.y
-            }
-            else if (convertedPoint.x >= 0 && convertedPoint.y < 0) {
-                // Q3
-                impulse += difference.x
-                impulse += difference.y
-            }
-            else if (convertedPoint.x >= 0 && convertedPoint.y >= 0) {
-                // Q4
-                impulse += -difference.x
-                impulse += difference.y
-            }
-            
-            // Normalize time
-            
+        if(onlyOneTouchFlag == 1){
             let date = NSDate()
             let timestamp = date.timeIntervalSince1970
             var timeElapsed:NSTimeInterval = 0
             if (lastUpdateTime > 0) {
                 timeElapsed = timestamp - lastUpdateTime
+                if (timeElapsed > 0.1) {
+                    secondLastRotationPoint = lastRotationPoint;
+                    lastRotationPoint = position;
+                    lastUpdateTime = timestamp
+                }
             }
-            
-            let normalizedImpulse = Double(impulse) / 30
-            self.physicsBody?.applyAngularImpulse(CGFloat(normalizedImpulse))
-            NSLog("impulse %f", Float(impulse));
-            NSLog("Time Elapsed %f", Float(timeElapsed));
-            NSLog("normalized %f", Float(normalizedImpulse));
-            
-            
-            
-            let maxVelocity:CGFloat = 50
-            if (self.physicsBody?.angularVelocity > maxVelocity) {
-                self.physicsBody?.angularVelocity = maxVelocity
-            } else if (self.physicsBody?.angularVelocity < -maxVelocity) {
-                self.physicsBody?.angularVelocity = -maxVelocity
+            else {
+                lastUpdateTime = timestamp
             }
+            let convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
             
-            lastRotationPoint = nil
-            secondLastRotationPoint = nil
-            lastUpdateTime = 0
-            
+            self.moveToPosition(convertedPoint)
         }
+    }
+    
+    func touchEnded(position: CGPoint) {
+        if(onlyOneTouchFlag == 1){
+            let rouletteObj:RouletteSoundObject = self.parent! as RouletteSoundObject
+            
+            if (!rouletteObj.touchedSpin) {
+                
+                var point1:CGPoint? = secondLastRotationPoint
+                var point2:CGPoint? = lastRotationPoint
+                if (point1 == nil) {
+                    point1 = lastRotationPoint
+                    point2 = position
+                }
+                
+                var difference = CGPoint(x:point2!.x - point1!.x, y:point2!.y - point1!.y)
+                var convertedPoint = self.scene!.convertPoint(position, toNode:self.parent!)
+                
+                var impulse = CGFloat(0)
+                
+                /*
+                |
+                |
+                Q1     |      Q4
+                |
+                -------------------------
+                |
+                Q2     |      Q3
+                |
+                |
+                
+                */
+                
+                // Magic calculations below, that may or may not have something to do with the quadrants above
+                
+                if (convertedPoint.x < 0 && convertedPoint.y >= 0) {
+                    // Q1
+                    impulse += -difference.x
+                    impulse += -difference.y
+                }
+                else if (convertedPoint.x < 0 && convertedPoint.y < 0) {
+                    // Q2
+                    impulse += difference.x
+                    impulse += -difference.y
+                }
+                else if (convertedPoint.x >= 0 && convertedPoint.y < 0) {
+                    // Q3
+                    impulse += difference.x
+                    impulse += difference.y
+                }
+                else if (convertedPoint.x >= 0 && convertedPoint.y >= 0) {
+                    // Q4
+                    impulse += -difference.x
+                    impulse += difference.y
+                }
+                
+                // Normalize time
+                
+                let date = NSDate()
+                let timestamp = date.timeIntervalSince1970
+                var timeElapsed:NSTimeInterval = 0
+                if (lastUpdateTime > 0) {
+                    timeElapsed = timestamp - lastUpdateTime
+                }
+                
+                let normalizedImpulse = Double(impulse) / 30
+                self.physicsBody?.applyAngularImpulse(CGFloat(normalizedImpulse))
+                NSLog("impulse %f", Float(impulse));
+                NSLog("Time Elapsed %f", Float(timeElapsed));
+                NSLog("normalized %f", Float(normalizedImpulse));
+                
+                
+                
+                let maxVelocity:CGFloat = 200
+                if (self.physicsBody?.angularVelocity > maxVelocity) {
+                    self.physicsBody?.angularVelocity = maxVelocity
+                } else if (self.physicsBody?.angularVelocity < -maxVelocity) {
+                    self.physicsBody?.angularVelocity = -maxVelocity
+                }
+                
+                lastRotationPoint = nil
+                secondLastRotationPoint = nil
+                lastUpdateTime = 0
+                
+            }
+        }
+        onlyOneTouchFlag = 0
     }
     
     func touchCancelled(position: CGPoint) {
