@@ -184,8 +184,8 @@ class SpringSoundObject : SoundObject, Touchable, ModulatorNode
         var springHandleAnchor = springHandleScenePosition
         self.springJoint = SKPhysicsJointSpring .jointWithBodyA(self.springHandle!.physicsBody!, bodyB:self.physicsBody!, anchorA:springHandleAnchor , anchorB:CGPoint(x: self.position.x, y: positionY))
         
-        springJoint!.frequency = 0.8;
-        springJoint!.damping = 0.5;
+        springJoint!.frequency = 2;//0.8;
+        springJoint!.damping = 0.001;//0.5;
         self.scene?.physicsWorld .addJoint(springJoint!)
         self.scene?.addChild(self.springHandleBoundEdge)
     }
