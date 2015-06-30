@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "259B909A19F96D1400737E04"
-               BuildableName = "Tocada.app"
-               BlueprintName = "Tocada"
+               BuildableName = "tocada.app"
+               BlueprintName = "tocada"
                ReferencedContainer = "container:ControladorDinamico.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -57,8 +57,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "259B909A19F96D1400737E04"
-            BuildableName = "Tocada.app"
-            BlueprintName = "Tocada"
+            BuildableName = "tocada.app"
+            BlueprintName = "tocada"
             ReferencedContainer = "container:ControladorDinamico.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -77,8 +77,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "259B909A19F96D1400737E04"
-            BuildableName = "Tocada.app"
-            BlueprintName = "Tocada"
+            BuildableName = "tocada.app"
+            BlueprintName = "tocada"
             ReferencedContainer = "container:ControladorDinamico.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -96,8 +96,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "259B909A19F96D1400737E04"
-            BuildableName = "Tocada.app"
-            BlueprintName = "Tocada"
+            BuildableName = "tocada.app"
+            BlueprintName = "tocada"
             ReferencedContainer = "container:ControladorDinamico.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

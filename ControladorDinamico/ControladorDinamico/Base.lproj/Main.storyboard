@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uBR-PN-tVm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uBR-PN-tVm">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -25,7 +25,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ioM-Yq-UU5" userLabel="Buttons">
-                                <rect key="frame" x="422" y="678" width="180" height="50"/>
+                                <rect key="frame" x="387" y="678" width="250" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDb-OZ-sLQ">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -47,14 +47,24 @@
                                             <action selector="removeProject:" destination="jmV-hw-RpC" eventType="touchUpInside" id="b6m-jX-c4B"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TpT-gP-luz">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TpT-gP-luz" userLabel="Home">
                                         <rect key="frame" x="130" y="0.0" width="50" height="50"/>
                                         <state key="normal" image="bt_open.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted" image="bt_open_selected.png"/>
                                         <connections>
-                                            <action selector="openProject:" destination="jmV-hw-RpC" eventType="touchUpInside" id="Dcd-NP-nmw"/>
+                                            <action selector="openProject:" destination="0Ip-BT-yIP" eventType="touchUpInside" id="fws-Ag-Qme"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSf-ZZ-RD5">
+                                        <rect key="frame" x="200" y="0.0" width="50" height="50"/>
+                                        <state key="normal" title="Add" image="bt_home.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" image="bt_home_selected.png"/>
+                                        <connections>
+                                            <action selector="dismissView:" destination="0Ip-BT-yIP" eventType="touchUpInside" id="jke-dX-Xj3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -141,11 +151,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="tocada_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="80s-29-KtQ">
                                 <rect key="frame" x="0.0" y="5" width="600" height="595"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSh-jK-vQp">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmA-xU-yWa">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmA-xU-yWa">
                                 <rect key="frame" x="463" y="470" width="36" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="9kJ-AU-TqC"/>
+                                    <constraint firstAttribute="height" constant="20" id="EjI-i5-Org"/>
+                                </constraints>
                                 <state key="normal" image="bt_play.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -154,8 +165,12 @@
                                     <segue destination="0Ip-BT-yIP" kind="show" id="1mr-JN-2vI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nb-iC-Q9o">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nb-iC-Q9o">
                                 <rect key="frame" x="520" y="470" width="70" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="7QP-Wl-Z6e"/>
+                                    <constraint firstAttribute="height" constant="20" id="ksF-sl-fpD"/>
+                                </constraints>
                                 <state key="normal" image="bt_tutorial.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -164,15 +179,35 @@
                                     <segue destination="e8v-Kc-nap" kind="show" id="0dr-Fl-n8h"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0BM-yU-9h5">
+                                <rect key="frame" x="700" y="470" width="70" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="Wku-py-cMn"/>
+                                    <constraint firstAttribute="height" constant="20" id="ld5-SA-rKc"/>
+                                </constraints>
+                                <state key="normal" image="bt_tutorial.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="bt_tutorial_selected.png"/>
+                                <connections>
+                                    <segue destination="nv1-gw-wMC" kind="show" id="T1F-vq-EdH"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSh-jK-vQp">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90588235294117647" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="80s-29-KtQ" secondAttribute="trailing" id="8Ia-MX-LDm"/>
+                            <constraint firstAttribute="centerX" secondItem="3nb-iC-Q9o" secondAttribute="centerX" id="DcG-c6-PQ4"/>
                             <constraint firstItem="TSh-jK-vQp" firstAttribute="top" secondItem="3ED-OI-wFj" secondAttribute="topMargin" id="ITa-82-Ffz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TSh-jK-vQp" secondAttribute="trailing" id="JYQ-4t-20d"/>
+                            <constraint firstItem="3nb-iC-Q9o" firstAttribute="leading" secondItem="SmA-xU-yWa" secondAttribute="trailing" constant="21" id="OT1-MF-uKp"/>
                             <constraint firstItem="80s-29-KtQ" firstAttribute="leading" secondItem="3ED-OI-wFj" secondAttribute="leadingMargin" id="OVI-qw-GMN"/>
                             <constraint firstItem="l3r-SI-iDK" firstAttribute="top" secondItem="80s-29-KtQ" secondAttribute="bottom" id="XHh-3A-q06"/>
                             <constraint firstItem="l3r-SI-iDK" firstAttribute="top" secondItem="TSh-jK-vQp" secondAttribute="bottom" id="Y31-a5-AKl"/>
+                            <constraint firstItem="0BM-yU-9h5" firstAttribute="leading" secondItem="3nb-iC-Q9o" secondAttribute="trailing" constant="21" id="mve-eF-xbf"/>
                             <constraint firstItem="80s-29-KtQ" firstAttribute="top" secondItem="3ED-OI-wFj" secondAttribute="topMargin" id="npE-bN-3fN"/>
                             <constraint firstItem="TSh-jK-vQp" firstAttribute="leading" secondItem="3ED-OI-wFj" secondAttribute="leadingMargin" id="sZl-Yl-ltd"/>
                         </constraints>
@@ -185,6 +220,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHL-z1-PZ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-184" y="-104"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="wGU-fA-ilY">
+            <objects>
+                <viewController id="nv1-gw-wMC" customClass="AboutViewController" customModule="tocada" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3oF-QI-Mfc"/>
+                        <viewControllerLayoutGuide type="bottom" id="GSU-OK-Gjj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wHX-J1-YOK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="credits.png" translatesAutoresizingMaskIntoConstraints="NO" id="RhK-VK-ihQ">
+                                <rect key="frame" x="16" y="0.0" width="568" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtU-Kj-ys0">
+                                <rect key="frame" x="548" y="28" width="20" height="20"/>
+                                <state key="normal" image="buttonExit.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="close:" destination="nv1-gw-wMC" eventType="touchUpInside" id="2ad-tE-RBj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VtU-Kj-ys0" firstAttribute="trailing" secondItem="wHX-J1-YOK" secondAttribute="trailingMargin" constant="30" id="BPm-Zb-cs0"/>
+                            <constraint firstItem="VtU-Kj-ys0" firstAttribute="trailing" secondItem="wHX-J1-YOK" secondAttribute="trailingMargin" constant="36" id="BXp-zl-dBP"/>
+                            <constraint firstItem="RhK-VK-ihQ" firstAttribute="leading" secondItem="wHX-J1-YOK" secondAttribute="leadingMargin" id="M2j-Om-EEb"/>
+                            <constraint firstItem="VtU-Kj-ys0" firstAttribute="trailing" secondItem="wHX-J1-YOK" secondAttribute="trailingMargin" constant="30" id="Otw-7l-Itm"/>
+                            <constraint firstItem="VtU-Kj-ys0" firstAttribute="trailing" secondItem="wHX-J1-YOK" secondAttribute="trailingMargin" id="SJm-ZU-abz"/>
+                            <constraint firstItem="VtU-Kj-ys0" firstAttribute="top" secondItem="3oF-QI-Mfc" secondAttribute="bottom" constant="20" id="Ucy-0i-fZm"/>
+                            <constraint firstItem="VtU-Kj-ys0" firstAttribute="trailing" secondItem="wHX-J1-YOK" secondAttribute="trailingMargin" id="Wu7-e1-gom"/>
+                            <constraint firstItem="VtU-Kj-ys0" firstAttribute="top" secondItem="3oF-QI-Mfc" secondAttribute="bottom" constant="8" id="bZM-33-QXw"/>
+                            <constraint firstItem="RhK-VK-ihQ" firstAttribute="top" secondItem="wHX-J1-YOK" secondAttribute="topMargin" id="dpU-bB-Qu1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VtU-Kj-ys0" secondAttribute="trailing" constant="16" id="mYG-Yn-dqC"/>
+                            <constraint firstItem="GSU-OK-Gjj" firstAttribute="top" secondItem="RhK-VK-ihQ" secondAttribute="bottom" id="vFq-Sc-UiN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RhK-VK-ihQ" secondAttribute="trailing" id="zai-sX-cIr"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BPm-Zb-cs0"/>
+                                <exclude reference="BXp-zl-dBP"/>
+                                <exclude reference="Otw-7l-Itm"/>
+                                <exclude reference="SJm-ZU-abz"/>
+                                <exclude reference="Ucy-0i-fZm"/>
+                                <exclude reference="Wu7-e1-gom"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CQo-C6-tQo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-394" y="768"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a3x-Q3-qCi">
@@ -345,6 +436,8 @@
     <resources>
         <image name="bt_add.png" width="178" height="179"/>
         <image name="bt_add_selected.png" width="178" height="179"/>
+        <image name="bt_home.png" width="174" height="175"/>
+        <image name="bt_home_selected.png" width="174" height="175"/>
         <image name="bt_open.png" width="174" height="175"/>
         <image name="bt_open_selected.png" width="174" height="175"/>
         <image name="bt_play.png" width="72" height="41"/>
@@ -354,6 +447,7 @@
         <image name="bt_tutorial.png" width="141" height="42"/>
         <image name="bt_tutorial_selected.png" width="141" height="42"/>
         <image name="buttonExit.png" width="30" height="30"/>
+        <image name="credits.png" width="2048" height="1536"/>
         <image name="sponsors.png" width="2048" height="1536"/>
         <image name="tocada_background.png" width="2048" height="1536"/>
     </resources>

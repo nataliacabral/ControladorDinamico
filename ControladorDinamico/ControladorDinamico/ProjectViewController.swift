@@ -211,5 +211,10 @@ class ProjectViewController: UIViewController, iCarouselDataSource, iCarouselDel
         self.projectsCarouselView.reloadData()
         self.updateProjectDetails()
     }
+    
+    @IBAction func dismissView(AnyObject)
+    {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 }
 
