@@ -124,6 +124,8 @@
 		44B35CD41B42338100FF812F /* bt_about.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B35CD21B42338100FF812F /* bt_about.png */; };
 		44DA1E151B3DDAB500C7FDB1 /* buttonExit.png in Resources */ = {isa = PBXBuildFile; fileRef = 44DA1E141B3DDAB500C7FDB1 /* buttonExit.png */; };
 		44DA1E171B3DDB9700C7FDB1 /* buttonExit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44DA1E161B3DDB9700C7FDB1 /* buttonExit@2x.png */; };
+		44DCEA501B44E85E00C8E7FD /* barra1.png in Resources */ = {isa = PBXBuildFile; fileRef = 44DCEA4E1B44E85E00C8E7FD /* barra1.png */; };
+		44DCEA511B44E85E00C8E7FD /* barra2.png in Resources */ = {isa = PBXBuildFile; fileRef = 44DCEA4F1B44E85E00C8E7FD /* barra2.png */; };
 		490120CF1A1E7BC200F3E653 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490120CE1A1E7BC200F3E653 /* AVFoundation.framework */; };
 		491563E91B0DF92A00CEA3D4 /* icone_tocada_v2_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 491563E31B0DF92A00CEA3D4 /* icone_tocada_v2_152.png */; };
 		491563EA1B0DF92A00CEA3D4 /* icone_tocada_v2_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 491563E41B0DF92A00CEA3D4 /* icone_tocada_v2_80.png */; };
@@ -330,6 +332,8 @@
 		44B35CD21B42338100FF812F /* bt_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bt_about.png; path = ControladorDinamico/bt_about.png; sourceTree = SOURCE_ROOT; };
 		44DA1E141B3DDAB500C7FDB1 /* buttonExit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonExit.png; sourceTree = "<group>"; };
 		44DA1E161B3DDB9700C7FDB1 /* buttonExit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonExit@2x.png"; sourceTree = "<group>"; };
+		44DCEA4E1B44E85E00C8E7FD /* barra1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = barra1.png; path = ControladorDinamico/barra1.png; sourceTree = SOURCE_ROOT; };
+		44DCEA4F1B44E85E00C8E7FD /* barra2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = barra2.png; path = ControladorDinamico/barra2.png; sourceTree = SOURCE_ROOT; };
 		490120CE1A1E7BC200F3E653 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		491563E31B0DF92A00CEA3D4 /* icone_tocada_v2_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tocada_v2_152.png; sourceTree = "<group>"; };
 		491563E41B0DF92A00CEA3D4 /* icone_tocada_v2_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tocada_v2_80.png; sourceTree = "<group>"; };
@@ -447,6 +451,8 @@
 		2557DBCE1A13FCB20003AB5D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				44DCEA4E1B44E85E00C8E7FD /* barra1.png */,
+				44DCEA4F1B44E85E00C8E7FD /* barra2.png */,
 				44B35CD11B42338100FF812F /* bt_about_selected.png */,
 				44B35CD21B42338100FF812F /* bt_about.png */,
 				254E1C1E1B42131F007FB950 /* bt_home_selected.png */,
@@ -918,6 +924,7 @@
 				49B09B741AC9AC4B003E5F5E /* E3.aif in Resources */,
 				491563EB1B0DF92A00CEA3D4 /* icone_tocada_v2_76.png in Resources */,
 				49B09B751AC9AC4B003E5F5E /* D#3.aif in Resources */,
+				44DCEA501B44E85E00C8E7FD /* barra1.png in Resources */,
 				49B09B761AC9AC4B003E5F5E /* D3.aif in Resources */,
 				49E9D8681B1CF1EE009DB5D0 /* 11.png in Resources */,
 				49B09B771AC9AC4B003E5F5E /* C#3.aif in Resources */,
@@ -950,6 +957,7 @@
 				25AF9BE21A265FE400CED1CD /* roulette_frame.png in Resources */,
 				25DAE6941A61D4EF00D5E86C /* bt_remve.png in Resources */,
 				2565333F1A44619C009F4A73 /* spring_icon.png in Resources */,
+				44DCEA511B44E85E00C8E7FD /* barra2.png in Resources */,
 				25B5211F1A3FA61100735263 /* LaunchImage.jpg in Resources */,
 				25DAE6A21A632AE700D5E86C /* slider_horizontal_icon.png in Resources */,
 				25DAE6811A61CB5A00D5E86C /* bt_play_selected.png in Resources */,

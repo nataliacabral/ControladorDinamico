@@ -151,11 +151,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="tocada_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="80s-29-KtQ">
                                 <rect key="frame" x="0.0" y="5" width="600" height="595"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmA-xU-yWa">
-                                <rect key="frame" x="463" y="470" width="36" height="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmA-xU-yWa">
+                                <rect key="frame" x="428" y="467" width="35" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="36" id="9kJ-AU-TqC"/>
-                                    <constraint firstAttribute="height" constant="20" id="EjI-i5-Org"/>
+                                    <constraint firstAttribute="width" constant="35" id="9kJ-AU-TqC"/>
+                                    <constraint firstAttribute="height" constant="21" id="EjI-i5-Org"/>
                                 </constraints>
                                 <state key="normal" image="bt_play.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -165,11 +165,11 @@
                                     <segue destination="0Ip-BT-yIP" kind="show" id="1mr-JN-2vI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nb-iC-Q9o">
-                                <rect key="frame" x="520" y="470" width="70" height="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nb-iC-Q9o">
+                                <rect key="frame" x="477" y="467" width="70" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="7QP-Wl-Z6e"/>
-                                    <constraint firstAttribute="height" constant="20" id="ksF-sl-fpD"/>
+                                    <constraint firstAttribute="height" constant="21" id="ksF-sl-fpD"/>
                                 </constraints>
                                 <state key="normal" image="bt_tutorial.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -179,11 +179,11 @@
                                     <segue destination="e8v-Kc-nap" kind="show" id="0dr-Fl-n8h"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0BM-yU-9h5">
-                                <rect key="frame" x="700" y="470" width="48" height="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0BM-yU-9h5">
+                                <rect key="frame" x="561" y="467" width="49" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="Wku-py-cMn"/>
-                                    <constraint firstAttribute="height" constant="20" id="ld5-SA-rKc"/>
+                                    <constraint firstAttribute="width" constant="49" id="Wku-py-cMn"/>
+                                    <constraint firstAttribute="height" constant="21" id="ld5-SA-rKc"/>
                                 </constraints>
                                 <state key="normal" image="bt_about.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -196,21 +196,52 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSh-jK-vQp">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="barra1.png" translatesAutoresizingMaskIntoConstraints="NO" id="AAD-UG-e6j">
+                                <rect key="frame" x="469" y="465" width="3" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="dOO-gh-PCA"/>
+                                    <constraint firstAttribute="width" constant="3" id="jwP-kj-aNI"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="barra2.png" translatesAutoresizingMaskIntoConstraints="NO" id="DJH-ao-Ky0">
+                                <rect key="frame" x="553" y="465" width="3" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="3" id="U4e-zg-EaF"/>
+                                    <constraint firstAttribute="height" constant="29" id="lSJ-br-Bq4"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90588235294117647" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="0BM-yU-9h5" firstAttribute="leading" secondItem="DJH-ao-Ky0" secondAttribute="trailing" constant="6" id="2kq-GU-xkg"/>
+                            <constraint firstItem="DJH-ao-Ky0" firstAttribute="leading" secondItem="3nb-iC-Q9o" secondAttribute="trailing" constant="6" id="3WP-HP-0ky"/>
+                            <constraint firstItem="3nb-iC-Q9o" firstAttribute="leading" secondItem="AAD-UG-e6j" secondAttribute="trailing" constant="6" id="7EA-kU-osA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="80s-29-KtQ" secondAttribute="trailing" id="8Ia-MX-LDm"/>
                             <constraint firstAttribute="centerX" secondItem="3nb-iC-Q9o" secondAttribute="centerX" id="DcG-c6-PQ4"/>
+                            <constraint firstItem="SmA-xU-yWa" firstAttribute="top" secondItem="yZZ-3G-cRm" secondAttribute="bottom" constant="467" id="FQT-c5-RWz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0BM-yU-9h5" secondAttribute="trailing" constant="5" id="HcW-ZY-Mon"/>
                             <constraint firstItem="TSh-jK-vQp" firstAttribute="top" secondItem="3ED-OI-wFj" secondAttribute="topMargin" id="ITa-82-Ffz"/>
+                            <constraint firstItem="AAD-UG-e6j" firstAttribute="leading" secondItem="SmA-xU-yWa" secondAttribute="trailing" constant="6" id="J84-0K-stx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TSh-jK-vQp" secondAttribute="trailing" id="JYQ-4t-20d"/>
                             <constraint firstItem="3nb-iC-Q9o" firstAttribute="leading" secondItem="SmA-xU-yWa" secondAttribute="trailing" constant="21" id="OT1-MF-uKp"/>
                             <constraint firstItem="80s-29-KtQ" firstAttribute="leading" secondItem="3ED-OI-wFj" secondAttribute="leadingMargin" id="OVI-qw-GMN"/>
                             <constraint firstItem="l3r-SI-iDK" firstAttribute="top" secondItem="80s-29-KtQ" secondAttribute="bottom" id="XHh-3A-q06"/>
                             <constraint firstItem="l3r-SI-iDK" firstAttribute="top" secondItem="TSh-jK-vQp" secondAttribute="bottom" id="Y31-a5-AKl"/>
+                            <constraint firstItem="DJH-ao-Ky0" firstAttribute="top" secondItem="3ED-OI-wFj" secondAttribute="topMargin" constant="465" id="lgH-XP-ax2"/>
+                            <constraint firstItem="0BM-yU-9h5" firstAttribute="top" secondItem="yZZ-3G-cRm" secondAttribute="bottom" constant="467" id="lkd-eC-fT9"/>
+                            <constraint firstItem="3nb-iC-Q9o" firstAttribute="top" secondItem="yZZ-3G-cRm" secondAttribute="bottom" constant="467" id="mAO-ej-nrf"/>
                             <constraint firstItem="0BM-yU-9h5" firstAttribute="leading" secondItem="3nb-iC-Q9o" secondAttribute="trailing" constant="21" id="mve-eF-xbf"/>
                             <constraint firstItem="80s-29-KtQ" firstAttribute="top" secondItem="3ED-OI-wFj" secondAttribute="topMargin" id="npE-bN-3fN"/>
+                            <constraint firstItem="AAD-UG-e6j" firstAttribute="top" secondItem="3ED-OI-wFj" secondAttribute="topMargin" constant="465" id="rht-Pf-jXX"/>
                             <constraint firstItem="TSh-jK-vQp" firstAttribute="leading" secondItem="3ED-OI-wFj" secondAttribute="leadingMargin" id="sZl-Yl-ltd"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OT1-MF-uKp"/>
+                                <exclude reference="HcW-ZY-Mon"/>
+                                <exclude reference="mve-eF-xbf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="n1l-61-cqg"/>
                     <connections>
@@ -434,16 +465,18 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bt_about.png" width="97" height="41"/>
-        <image name="bt_about_selected.png" width="97" height="41"/>
+        <image name="barra1.png" width="6" height="59"/>
+        <image name="barra2.png" width="6" height="59"/>
+        <image name="bt_about.png" width="98" height="42"/>
+        <image name="bt_about_selected.png" width="98" height="42"/>
         <image name="bt_add.png" width="178" height="179"/>
         <image name="bt_add_selected.png" width="178" height="179"/>
         <image name="bt_home.png" width="174" height="175"/>
         <image name="bt_home_selected.png" width="174" height="175"/>
         <image name="bt_open.png" width="174" height="175"/>
         <image name="bt_open_selected.png" width="174" height="175"/>
-        <image name="bt_play.png" width="72" height="41"/>
-        <image name="bt_play_selected.png" width="72" height="41"/>
+        <image name="bt_play.png" width="71" height="41"/>
+        <image name="bt_play_selected.png" width="71" height="41"/>
         <image name="bt_remove_selected.png" width="177" height="179"/>
         <image name="bt_remve.png" width="177" height="179"/>
         <image name="bt_tutorial.png" width="141" height="42"/>
