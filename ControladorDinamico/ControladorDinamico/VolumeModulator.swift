@@ -15,12 +15,12 @@ class VolumeModulator : NodeModulator
     
     func modulate(modulation:Float)
     {
-        self.node.volume = modulation
+        self.node.volume = modulation * 2.0
         
     }
     func startModulator()
     {
-        node.volume = 0.5
+        node.volume = 1.0
     }
     
     func audioNode() -> AVAudioNode {
