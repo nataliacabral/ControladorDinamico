@@ -19,7 +19,7 @@ class ReverbModulator : NodeModulator
     }
     func startModulator()
     {
-        node.wetDryMix = 50
+        self.node.wetDryMix = 50
         self.node.loadFactoryPreset(AVAudioUnitReverbPreset.Cathedral)
     }
     
