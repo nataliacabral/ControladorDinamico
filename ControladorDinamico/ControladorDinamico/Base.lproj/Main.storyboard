@@ -264,7 +264,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="credits.png" translatesAutoresizingMaskIntoConstraints="NO" id="RhK-VK-ihQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about.png" translatesAutoresizingMaskIntoConstraints="NO" id="RhK-VK-ihQ">
                                 <rect key="frame" x="16" y="0.0" width="568" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtU-Kj-ys0">
@@ -485,6 +485,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="about.png" width="2048" height="1536"/>
         <image name="barra1.png" width="6" height="59"/>
         <image name="barra2.png" width="6" height="59"/>
         <image name="bt_about.png" width="98" height="42"/>
@@ -502,7 +503,6 @@
         <image name="bt_tutorial.png" width="141" height="42"/>
         <image name="bt_tutorial_selected.png" width="141" height="42"/>
         <image name="buttonExit.png" width="30" height="30"/>
-        <image name="credits.png" width="2048" height="1536"/>
         <image name="sponsors.png" width="2048" height="1536"/>
         <image name="tocada_background.png" width="2048" height="1536"/>
     </resources>
